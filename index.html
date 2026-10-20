@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>호주 13개 DAMA 직종 · 지역 및 협약 요건 탐색 (Park &amp; Co DAMA Navigator 2026)</title>
   <meta name="description" content="법무법인 박앤코(Park & Co Lawyers) — 호주 전역 13개 DAMA(Designated Area Migration Agreements) 2,474건 지역별 직종 등록 항목(781개 고유 직종), 급여($67,510~$79,423), 영어(IELTS 4.5~5.0), 연령(만 50세/55세 미만), 학력·경력 및 영주권(ENS 186 / SESR 494→191) 협약 요건 탐색 서비스." />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="assets/brand/icon-32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="assets/brand/icon-192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -362,18 +366,25 @@
 
   <!-- 10. Footer -->
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
-        <img src="assets/logo-negative.png" alt="Park &amp; Co Lawyers" style="height:36px;width:auto;" />
-        <div>
-          <strong style="color:#FFFFFF;">법무법인 박앤코 (Park &amp; Co Lawyers Pty Ltd)</strong> · 박창민 대표변호사 (QLS Accredited Specialist in Immigration Law)<br/>
-          Official Contact: <a href="mailto:enquiry@parkcolawyers.com" style="color:#D9A7AD;">enquiry@parkcolawyers.com</a> ·
-          Enquiry Link: <a href="https://parklawyers.com.au/links/?lang=ko" target="_blank" rel="noopener" style="color:#D9A7AD;">https://parklawyers.com.au/links/?lang=ko</a>
-        </div>
+    <div class="container">
+      <div class="visit-counter" id="visit-counter" hidden>
+        <span>Total visits &middot; 누적 방문<b id="vc-total">-</b></span>
+        <span>Today &middot; 오늘 방문<b id="vc-today">-</b></span>
+        <span>Visitors &middot; 방문자<b id="vc-visitors">-</b></span>
       </div>
-      <div style="text-align:right;font-size:12.5px;">
-        <div id="footer-currency-line">Primary Source Currency: <strong>2026-10-20</strong> · Source Monitor: <code id="footer-poll-status">14/15 Live · 1 Cache</code></div>
-        <div>&copy; 2026 Park &amp; Co Lawyers. All rights reserved.</div>
+      <div class="footer-grid">
+        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+          <img src="assets/logo-negative.png" alt="Park &amp; Co Lawyers" style="height:36px;width:auto;" />
+          <div>
+            <strong style="color:#FFFFFF;">법무법인 박앤코 (Park &amp; Co Lawyers Pty Ltd)</strong> · 박창민 대표변호사 (QLS Accredited Specialist in Immigration Law)<br/>
+            Official Contact: <a href="mailto:enquiry@parkcolawyers.com" style="color:#D9A7AD;">enquiry@parkcolawyers.com</a> ·
+            Enquiry Link: <a href="https://parklawyers.com.au/links/?lang=ko" target="_blank" rel="noopener" style="color:#D9A7AD;">https://parklawyers.com.au/links/?lang=ko</a>
+          </div>
+        </div>
+        <div style="text-align:right;font-size:12.5px;">
+          <div id="footer-currency-line">Primary Source Currency: <strong>2026-10-20</strong> · Source Monitor: <code id="footer-poll-status">15/15 Live</code></div>
+          <div>&copy; 2026 Park &amp; Co Lawyers. All rights reserved.</div>
+        </div>
       </div>
     </div>
   </footer>
@@ -390,5 +401,121 @@
   </div>
 
   <script src="assets/app.js"></script>
+  <script>/* Visit counters + click-to-open daily chart.
+   * Counts are kept in Abacus (https://abacus.jasoncameron.dev), a free keyless counting API.
+   * Keys (namespace changa9090.github.io, prefix dama, '-dev' off production):
+   *   total            every page view
+   *   day-YYYYMMDD     page views on that Brisbane calendar day
+   *   visitors         browsers counted once (localStorage flag)
+   *   vday-YYYYMMDD    browsers counted once per Brisbane day
+   * The counter box stays hidden if the API fails. Daily data starts at START.
+   */
+  (function () {
+    var NS = 'changa9090.github.io', API = 'https://abacus.jasoncameron.dev/', START = '2026-10-20';
+    var P = 'dama' + (location.hostname === 'changa9090.github.io' ? '' : '-dev');
+    var box = document.getElementById('visit-counter');
+    if (!box) return;
+
+    function bne(d) { return new Intl.DateTimeFormat('en-CA', { timeZone: 'Australia/Brisbane' }).format(d); }
+    var today = bne(new Date()), day = today.replace(/-/g, '');
+    var seen = false, lastDay = null;
+    try {
+      seen = !!localStorage.getItem(P + '-seen');
+      lastDay = localStorage.getItem(P + '-day');
+      localStorage.setItem(P + '-seen', '1');
+      localStorage.setItem(P + '-day', day);
+    } catch (e) {}
+
+    function call(kind, key) {
+      return fetch(API + kind + '/' + NS + '/' + P + '-' + key)
+        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(function (j) { return j.value; });
+    }
+    function getOrZero(key) { return call('get', key).catch(function () { return 0; }); }
+    function fmt(n) { return Number(n).toLocaleString('en-AU'); }
+
+    if (lastDay !== day) call('hit', 'vday-' + day).catch(function () {});
+    Promise.all([call('hit', 'total'), call('hit', 'day-' + day), call(seen ? 'get' : 'hit', 'visitors')])
+      .then(function (v) {
+        document.getElementById('vc-total').textContent = fmt(v[0]);
+        document.getElementById('vc-today').textContent = fmt(v[1]);
+        document.getElementById('vc-visitors').textContent = fmt(v[2]);
+        box.hidden = false;
+      })
+      .catch(function () {});
+
+    function lastDays(n) {
+      var p = today.split('-').map(Number), base = Date.UTC(p[0], p[1] - 1, p[2]), out = [];
+      for (var i = n - 1; i >= 0; i--) {
+        var s = new Date(base - i * 864e5).toISOString().slice(0, 10);
+        if (s >= START) out.push(s);
+      }
+      return out;
+    }
+
+    var modal = document.createElement('div');
+    modal.id = 'vc-modal';
+    modal.innerHTML = '<div class="vc-dialog" role="dialog" aria-label="Daily visits / 일별 방문">' +
+      '<button type="button" class="vc-close" aria-label="Close">&times;</button>' +
+      '<h3>Daily visits &middot; 일별 방문 <small>(last 30 days &middot; 최근 30일, Brisbane time)</small></h3>' +
+      '<div class="vc-body">Loading&hellip;</div></div>';
+    document.body.appendChild(modal);
+    function close() { modal.classList.remove('open'); }
+    modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
+    modal.querySelector('.vc-close').addEventListener('click', close);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+
+    function render(days, rows) {
+      var W = 640, H = 260, L = 40, R = 12, T = 14, B = 40;
+      var max = Math.max(1, Math.max.apply(null, rows.map(function (r) { return Math.max(r[0], r[1]); })));
+      var step = (W - L - R) / days.length, bw = Math.min(36, Math.max(4, step * 0.6));
+      var y = function (v) { return T + (H - T - B) * (1 - v / max); };
+      var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" class="vc-svg" role="img" aria-label="Daily visits chart">';
+      [0, 0.5, 1].forEach(function (f) {
+        var v = Math.round(max * f), yy = y(v);
+        svg += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + yy + '" y2="' + yy + '" class="vc-grid"/>' +
+          '<text x="' + (L - 6) + '" y="' + (yy + 4) + '" class="vc-ylab">' + fmt(v) + '</text>';
+      });
+      var pts = [];
+      days.forEach(function (d, i) {
+        var cx = L + step * i + step / 2, views = rows[i][0], vis = rows[i][1];
+        svg += '<rect x="' + (cx - bw / 2) + '" y="' + y(views) + '" width="' + bw + '" height="' +
+          (H - B - y(views)) + '" class="vc-bar"><title>' + d + ': ' + fmt(views) + ' page views / 방문</title></rect>';
+        pts.push(cx + ',' + y(vis));
+        if (days.length <= 10 || i % Math.ceil(days.length / 8) === 0 || i === days.length - 1)
+          svg += '<text x="' + cx + '" y="' + (H - B + 16) + '" class="vc-xlab">' + d.slice(5) + '</text>';
+      });
+      svg += '<polyline points="' + pts.join(' ') + '" class="vc-line"/>';
+      pts.forEach(function (p, i) {
+        var xy = p.split(',');
+        svg += '<circle cx="' + xy[0] + '" cy="' + xy[1] + '" r="3.5" class="vc-dot"><title>' + days[i] + ': ' +
+          fmt(rows[i][1]) + ' visitors / 방문자</title></circle>';
+      });
+      svg += '</svg>';
+      var sum = rows.reduce(function (a, r) { return [a[0] + r[0], a[1] + r[1]]; }, [0, 0]);
+      return svg + '<div class="vc-legend"><span><i class="vc-k-bar"></i>Page views &middot; 방문</span>' +
+        '<span><i class="vc-k-line"></i>Visitors &middot; 방문자</span></div>' +
+        '<p class="vc-sum">' + days.length + ' days &middot; ' + fmt(sum[0]) + ' page views &middot; ' +
+        fmt(sum[1]) + ' daily visitors. Counting started ' + START + '. 방문자는 하루 단위로 브라우저당 1회 집계됩니다.</p>';
+    }
+
+    function open() {
+      modal.classList.add('open');
+      var body = modal.querySelector('.vc-body');
+      body.innerHTML = 'Loading&hellip;';
+      var days = lastDays(30);
+      Promise.all(days.map(function (d) {
+        var k = d.replace(/-/g, '');
+        return Promise.all([getOrZero('day-' + k), getOrZero('vday-' + k)]);
+      })).then(function (rows) { body.innerHTML = render(days, rows); })
+        .catch(function () { body.textContent = 'Could not load the chart. 그래프를 불러오지 못했습니다.'; });
+    }
+    box.setAttribute('role', 'button');
+    box.setAttribute('tabindex', '0');
+    box.title = 'Click for the daily chart / 클릭하면 일별 그래프';
+    box.addEventListener('click', open);
+    box.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+  })();
+  </script>
 </body>
 </html>
