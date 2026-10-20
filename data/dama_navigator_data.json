@@ -784,21 +784,23 @@
     ],
     "enquiry_url_ko": "https://parklawyers.com.au/links/?lang=ko",
     "enquiry_url_en": "https://parklawyers.com.au/links/?lang=ko",
-    "contact_email": "cpark@parkcolawyers.com",
+    "contact_email": "enquiry@parkcolawyers.com",
     "polling": {
-      "run_id": "poll-20261020-160856",
-      "last_polled_at": "2026-10-20T16:08:56.134024+10:00",
+      "run_id": "poll-20261020-162037",
+      "last_polled_at": "2026-10-20T16:20:37.180679+10:00",
       "last_polled_date": "2026-10-20",
       "schedule_cron_desc": "Weekly — Every Monday 07:15 AEST (Australia/Brisbane)",
-      "overall_verification_status": "live_hash_unchanged",
-      "badge_label_ko": "주간 해시 모니터 (2026-10-20 · 15/15 원문 해시 변경 미감지)",
-      "badge_label_en": "Weekly Hash Monitor (2026-10-20 · 15/15 Source Hashes Unchanged)",
+      "overall_verification_status": "changes_detected_pending_legal_review",
+      "badge_label_ko": "원문 변경 감지 (2026-10-20 · 1건 수동 검토 필요)",
+      "badge_label_en": "Source Changed (2026-10-20 · 1 Pending Review)",
       "total_targets": 15,
       "live_count": 15,
       "cache_count": 0,
+      "pdf_monitored_count": 13,
+      "pdf_valid_count": 13,
       "ok_targets": 15,
-      "changed_count": 0,
-      "unchanged_count": 15,
+      "changed_count": 1,
+      "unchanged_count": 14,
       "failed_count": 0,
       "salary_verification_status": "extracted_matches_79423"
     }
@@ -896,12 +898,14 @@
         "4": 38,
         "5": 6
       },
-      "last_polled_at": "2026-10-20T16:08:56.141783+10:00",
+      "last_polled_at": "2026-10-20T16:20:37.182754+10:00",
       "live_sha256": "ff72ffb813115348e395cebc9c4fae022ce7dcc1f407fef68d9268796f1c501d",
       "poll_state": "unchanged",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only"
+      "validation_status": "hash_unchanged_only",
+      "pdf_binary_sha256": "bf9b165e18d144c73cdf2ce8e838a37bb65b0bee53df19c4ea80f8dc631cbdf9",
+      "pdf_change_state": "pdf_baseline_initialized"
     },
     {
       "order": 2,
@@ -968,12 +972,14 @@
         "4": 23,
         "5": 11
       },
-      "last_polled_at": "2026-10-20T16:08:56.146776+10:00",
+      "last_polled_at": "2026-10-20T16:20:37.186880+10:00",
       "live_sha256": "6cb0eeaf3c5e8c473db1c029c2ee121adb564f5326cea562e53b40bf44456dd8",
       "poll_state": "unchanged",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only"
+      "validation_status": "hash_unchanged_only",
+      "pdf_binary_sha256": "ba72de81ad699168613cddfc1b756d9f5ce280b87e3a53265e6892de23ca92a8",
+      "pdf_change_state": "pdf_baseline_initialized"
     },
     {
       "order": 3,
@@ -1041,12 +1047,14 @@
         "4": 31,
         "5": 11
       },
-      "last_polled_at": "2026-10-20T16:08:56.140432+10:00",
+      "last_polled_at": "2026-10-20T16:20:37.189192+10:00",
       "live_sha256": "798b3431972d2df26d87b5a410bf31ceebedf6f480f2442dd98507e825012d18",
       "poll_state": "unchanged",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only"
+      "validation_status": "hash_unchanged_only",
+      "pdf_binary_sha256": "3dc275e0ddb14aff528f170169bf2bd8bf1900b4d89a060c6762327b619f3eb5",
+      "pdf_change_state": "pdf_baseline_initialized"
     },
     {
       "order": 4,
@@ -1115,12 +1123,14 @@
         "4": 58,
         "5": 24
       },
-      "last_polled_at": "2026-10-20T16:08:56.144114+10:00",
-      "live_sha256": "582aba6380927044afab5a5d6ee4ddad11b261cb6cc465bad6ddca51efbc4489",
-      "poll_state": "unchanged",
+      "last_polled_at": "2026-10-20T16:20:37.193160+10:00",
+      "live_sha256": "507675544d002e1e7e13d086f4a8107fbb7437ef0f28d1ce607b9bca65cf0160",
+      "poll_state": "changed",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only"
+      "validation_status": "changed_requires_human_review",
+      "pdf_binary_sha256": "d05c035951d8030b31f144c131b54298150bce1f85a05e9387fa4a9ef19d8c6f",
+      "pdf_change_state": "pdf_baseline_initialized"
     },
     {
       "order": 5,
@@ -1189,12 +1199,14 @@
       },
       "sunset_status": "extended_to_2027_01_31_negotiating_statewide",
       "accepting_new_applications": true,
-      "last_polled_at": "2026-10-20T16:08:56.276515+10:00",
+      "last_polled_at": "2026-10-20T16:20:37.759188+10:00",
       "live_sha256": "04d44b77b0f498b083c6d89d729c06d4188304d033eca61d423fabe06553ca00",
       "poll_state": "unchanged",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only"
+      "validation_status": "hash_unchanged_only",
+      "pdf_binary_sha256": "59072374d8edb59bfab5e960878fec2913539d7701f53a5e91b3815c8944668f",
+      "pdf_change_state": "pdf_baseline_initialized"
     },
     {
       "order": 6,
@@ -1263,12 +1275,14 @@
       },
       "sunset_status": "extended_to_2027_01_31_negotiating_statewide",
       "accepting_new_applications": true,
-      "last_polled_at": "2026-10-20T16:08:56.400383+10:00",
+      "last_polled_at": "2026-10-20T16:20:37.916698+10:00",
       "live_sha256": "c00851ed52329358a26d5a194f3ab80554545f5f40ef07a994031b0b5e6a5169",
       "poll_state": "unchanged",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only"
+      "validation_status": "hash_unchanged_only",
+      "pdf_binary_sha256": "59072374d8edb59bfab5e960878fec2913539d7701f53a5e91b3815c8944668f",
+      "pdf_change_state": "pdf_baseline_initialized"
     },
     {
       "order": 7,
@@ -1335,12 +1349,14 @@
         "4": 29,
         "5": 5
       },
-      "last_polled_at": "2026-10-20T16:08:56.544500+10:00",
+      "last_polled_at": "2026-10-20T16:20:37.960052+10:00",
       "live_sha256": "04b7ad34a77c9e925183c379476d5f713ff570c33dfce753c37ca16f47734920",
       "poll_state": "unchanged",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only"
+      "validation_status": "hash_unchanged_only",
+      "pdf_binary_sha256": "c0b55210f5804140bb43dc5e43ed2137a6ac769e90757dbfcaba2757dcdd231a",
+      "pdf_change_state": "pdf_baseline_initialized"
     },
     {
       "order": 8,
@@ -1407,12 +1423,14 @@
         "4": 23,
         "5": 8
       },
-      "last_polled_at": "2026-10-20T16:08:56.561638+10:00",
+      "last_polled_at": "2026-10-20T16:20:38.092152+10:00",
       "live_sha256": "7442be4f77791e2119adf659c6d509e983fdddc40028cfe382add8a9c4d9648f",
       "poll_state": "unchanged",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only"
+      "validation_status": "hash_unchanged_only",
+      "pdf_binary_sha256": "7cb5011a959d32ce849668ee5d807cf31e58937251015c6cc31934885f69bd0e",
+      "pdf_change_state": "pdf_baseline_initialized"
     },
     {
       "order": 9,
@@ -1478,12 +1496,14 @@
         "4": 47,
         "5": 0
       },
-      "last_polled_at": "2026-10-20T16:08:56.594817+10:00",
+      "last_polled_at": "2026-10-20T16:20:38.466280+10:00",
       "live_sha256": "5388a0496b25dffd3d6bcd10d3152ff5bce71085e91398f6ab734076cf3ccda7",
       "poll_state": "unchanged",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only"
+      "validation_status": "hash_unchanged_only",
+      "pdf_binary_sha256": "f6b58bd4e3f637597aea717f55f4db1995341eb9ae56a49f9ef8ad14b0a311aa",
+      "pdf_change_state": "pdf_baseline_initialized"
     },
     {
       "order": 10,
@@ -1550,12 +1570,14 @@
         "4": 31,
         "5": 15
       },
-      "last_polled_at": "2026-10-20T16:08:56.687357+10:00",
+      "last_polled_at": "2026-10-20T16:20:38.699578+10:00",
       "live_sha256": "2cb15abbe41af16be2b93cfbc78f4a1995a6d2f5bd6c507b13fdbdc7aafada5a",
       "poll_state": "unchanged",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only"
+      "validation_status": "hash_unchanged_only",
+      "pdf_binary_sha256": "2c6eb7fb090ef1c3e13c1d28a5d169aa313aa5025c847639daade24b7dc104ac",
+      "pdf_change_state": "pdf_baseline_initialized"
     },
     {
       "order": 11,
@@ -1638,12 +1660,14 @@
       },
       "sunset_status": "open_until_2026_11_13",
       "accepting_new_applications": true,
-      "last_polled_at": "2026-10-20T16:08:57.068710+10:00",
+      "last_polled_at": "2026-10-20T16:20:38.754120+10:00",
       "live_sha256": "0df8ebc3454f21c89c3ef310f7b94e5bf41aff32813005c46b12e8f4c9795b74",
       "poll_state": "unchanged",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only"
+      "validation_status": "hash_unchanged_only",
+      "pdf_binary_sha256": "cd213dbcd701e579455f90cb612c4db2720a66750fefd80afdaf492701ffb38f",
+      "pdf_change_state": "pdf_baseline_initialized"
     },
     {
       "order": 12,
@@ -1712,12 +1736,14 @@
       },
       "sunset_status": "open_until_2026_10_30",
       "accepting_new_applications": true,
-      "last_polled_at": "2026-10-20T16:08:57.096047+10:00",
+      "last_polled_at": "2026-10-20T16:20:38.758403+10:00",
       "live_sha256": "de7f8e9251ff24d461559cc78a006461f7d3339ae0bf1911b86e33d4b7a7e656",
       "poll_state": "unchanged",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only"
+      "validation_status": "hash_unchanged_only",
+      "pdf_binary_sha256": "a948b3a471c525e866477e1e1b31de95862475defbab49ecee001a79a0ad2a18",
+      "pdf_change_state": "pdf_baseline_initialized"
     },
     {
       "order": 13,
@@ -1783,12 +1809,14 @@
         "4": 51,
         "5": 18
       },
-      "last_polled_at": "2026-10-20T16:08:57.095222+10:00",
+      "last_polled_at": "2026-10-20T16:20:38.975826+10:00",
       "live_sha256": "dc0f9416758281ee1eac44bdea436fe773aa6a503937f95662f40bae54697ade",
       "poll_state": "unchanged",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only"
+      "validation_status": "hash_unchanged_only",
+      "pdf_binary_sha256": "50740dd40fe0e75e4333a83b851562c241244efc8cf15bb73183694a95028d33",
+      "pdf_change_state": "pdf_baseline_initialized"
     }
   ],
   "footnotes": [

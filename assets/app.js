@@ -23,7 +23,7 @@
       specName: "박창민 대표변호사 (Chang Min Park)",
       specRole: "QLS Accredited Specialist in Immigration Law",
       specSlogan: "\"삶에 집중하세요, 법률은 저희가 맡겠습니다.\"",
-      specMeta: "법무법인 박앤코 (Park & Co Lawyers · Underwood QLD) | 공식 이메일: cpark@parkcolawyers.com",
+      specMeta: "법무법인 박앤코 (Park & Co Lawyers · Underwood QLD) | 공식 이메일: enquiry@parkcolawyers.com",
       specBtn: "온라인 문의 바로가기 (parklawyers.com.au) →",
 
       stat1Over: "ACTIVE DAMAS",
@@ -133,7 +133,7 @@
       specName: "Chang Min Park — Principal Lawyer",
       specRole: "QLS Accredited Specialist in Immigration Law",
       specSlogan: "\"You focus on life, we'll handle the law.\"",
-      specMeta: "Park & Co Lawyers (Underwood QLD) | Official Email: cpark@parkcolawyers.com",
+      specMeta: "Park & Co Lawyers (Underwood QLD) | Official Email: enquiry@parkcolawyers.com",
       specBtn: "Enquire Online (parklawyers.com.au) →",
 
       stat1Over: "ACTIVE DAMAS",
@@ -1275,7 +1275,7 @@
       <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;background:#1A1211;color:#FFFFFF;padding:16px 20px;border-radius:10px;">
         <div>
           <strong style="display:block;font-size:15px;">${currentLang === "ko" ? "이 직종·지역으로 비자 또는 고용주 스폰서십을 준비 중이신가요?" : "Planning a DAMA sponsorship or visa application for this occupation?"}</strong>
-          <span style="font-size:13px;color:#CFC9BF;">${currentLang === "ko" ? "법무법인 박앤코 박창민 대표변호사 (QLS 공인 이민법 전문변호사) · cpark@parkcolawyers.com" : "Park & Co Lawyers · Chang Min Park (QLS Accredited Specialist) · cpark@parkcolawyers.com"}</span>
+          <span style="font-size:13px;color:#CFC9BF;">${currentLang === "ko" ? "법무법인 박앤코 박창민 대표변호사 (QLS 공인 이민법 전문변호사) · enquiry@parkcolawyers.com" : "Park & Co Lawyers · Chang Min Park (QLS Accredited Specialist) · enquiry@parkcolawyers.com"}</span>
         </div>
         <a href="https://parklawyers.com.au/links/?lang=ko" target="_blank" rel="noopener" class="btn-burgundy">
           ${currentLang === "ko" ? "박앤코 온라인 상담 문의하기 →" : "Enquire with Park & Co Lawyers →"}
@@ -1410,11 +1410,18 @@
         const name = currentLang === "ko" ? targetItem.name_ko : targetItem.name_en;
         const stCls = targetItem.fetch_status === "live" ? "badge-success" : "badge-warn";
         const valCls = targetItem.parse_status === "parsed_ok" ? "badge-teal" : "badge-danger";
+        const pdfLinkHtml = targetItem.pdf_url
+          ? `<div style="margin-top:3px;"><a href="${esc(targetItem.pdf_url)}" target="_blank" rel="noopener" style="font-size:11px;color:#2E6B4F;font-weight:700;">📄 ${esc(targetItem.pdf_title || "Official PDF")} (${Number(targetItem.pdf_bytes || 0).toLocaleString()} bytes) ↗</a></div>`
+          : "";
+        const pdfHashHtml = targetItem.pdf_binary_sha256
+          ? `<div style="margin-top:3px;color:#2E6B4F;"><strong>PDF:</strong> ${esc(targetItem.pdf_binary_sha256.slice(0, 16))}... <span style="font-size:10.5px;">(${esc(targetItem.pdf_change_state || "ok")})</span></div>`
+          : "";
         return `
           <tr>
             <td style="padding:8px 10px;border-bottom:1px solid #E7E0D3;">
               <strong>${esc(name)}</strong><br/>
               <a href="${esc(targetItem.url)}" target="_blank" rel="noopener" style="font-size:11.5px;">${esc(targetItem.url)} ↗</a>
+              ${pdfLinkHtml}
               <div style="font-size:11px;color:#5A5654;">${esc(targetItem.document_version || "")} (${esc(targetItem.source_effective_date || "")})</div>
             </td>
             <td style="padding:8px 10px;border-bottom:1px solid #E7E0D3;text-align:center;">
@@ -1425,7 +1432,8 @@
               <span class="badge ${valCls}">${esc(targetItem.validation_status || targetItem.change_state)}</span>
             </td>
             <td style="padding:8px 10px;border-bottom:1px solid #E7E0D3;font-family:monospace;font-size:11.5px;">
-              ${esc((targetItem.normalized_sha256 || "").slice(0, 16))}...
+              <div><strong>Web:</strong> ${esc((targetItem.normalized_sha256 || "").slice(0, 16))}...</div>
+              ${pdfHashHtml}
             </td>
           </tr>
         `;
@@ -1443,7 +1451,8 @@
         <div style="font-size:12.5px;color:#5A5654;margin-top:6px;">
           <strong>Last Run ID:</strong> <code>${esc(pollData.run_id)}</code> ·
           <strong>Last Checked:</strong> <code>${esc(pollData.last_polled_at)}</code> ·
-          <strong>Live / Cache / Failed:</strong> <code>${pollData.live_count || 0} Live / ${pollData.cache_count || 0} Cache / ${pollData.failed_count || 0} Failed</code> ·
+          <strong>Web Live / Cache / Failed:</strong> <code>${pollData.live_count || 0} Live / ${pollData.cache_count || 0} Cache / ${pollData.failed_count || 0} Failed</code> ·
+          <strong>PDF Binary Hash Monitor:</strong> <code>${pollData.pdf_valid_count || 0}/${pollData.pdf_monitored_count || 0} PDFs Verified</code> ·
           <strong>CSIT Check:</strong> <code>${esc(pollData.salary_verification ? pollData.salary_verification.salary_verification_status : "")}</code>
         </div>
       </div>
