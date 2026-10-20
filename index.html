@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>호주 13개 DAMA 전 지역 직종 · 자격요건 · 스폰서십 지역 찾기 (Park &amp; Co DAMA Navigator 2026)</title>
-  <meta name="description" content="법무법인 박앤코(Park & Co Lawyers) — 호주 전역 13개 DAMA(Designated Area Migration Agreements) 2,476개 승인 직종, 급여($67,510~$79,423), 영어(IELTS 4.5~5.0), 연령(만 50세/55세 미만), 학력·경력 및 영주권(ENS 186 / SESR 494→191) 자격요건 통합 검색 서비스." />
+  <title>호주 13개 DAMA 직종 · 지역 및 협약 요건 탐색 (Park &amp; Co DAMA Navigator 2026)</title>
+  <meta name="description" content="법무법인 박앤코(Park & Co Lawyers) — 호주 전역 13개 DAMA(Designated Area Migration Agreements) 2,474건 지역별 직종 등록 항목(781개 고유 직종), 급여($67,510~$79,423), 영어(IELTS 4.5~5.0), 연령(만 50세/55세 미만), 학력·경력 및 영주권(ENS 186 / SESR 494→191) 협약 요건 탐색 서비스." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -35,8 +35,8 @@
 
       <div class="nav-actions">
         <button type="button" id="btn-polling-status" class="btn-secondary" style="background:rgba(46,107,79,0.22);border-color:#2E6B4F;color:#E7F3EC !important;font-size:12.5px;padding:6px 12px;">
-          <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#4ADE80;margin-right:4px;"></span>
-          <span id="polling-badge-label" data-i18n="pollBadge">주간 자동검증 활성 (2026-10-20 · 15/15 정상)</span>
+          <span id="polling-badge-dot" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#F59E0B;margin-right:4px;"></span>
+          <span id="polling-badge-label" data-i18n="pollBadge">출처 모니터 (2026-10-20 · 실시간 14/15 · 캐시 1건 원문 확인 필요)</span>
         </button>
         <div class="lang-switch" role="group" aria-label="Language Switcher">
           <button type="button" id="lang-toggle-ko" class="lang-btn active">한국어 (KO)</button>
@@ -53,8 +53,8 @@
   <div class="urgent-strip">
     <div class="container urgent-strip-inner">
       <div>
-        <span class="urgent-badge" data-i18n="urgentBadge">2026 일몰 경보</span>
-        <span data-i18n="urgentText">서호주 South West DAMA 2026.10.30 신규·변경 마감(12.14 종료) / Goldfields DAMA 2026.12.31 종료 후 WA State-wide로 통합됩니다 ($71,481 급여 감면·SL5 직종 활용 시 기한 내 접수 필수).</span>
+        <span class="urgent-badge" data-i18n="urgentBadge">2026–27 협약 일정 경보</span>
+        <span data-i18n="urgentText">서호주 South West DAMA 신청·변경 접수 마감: 2026-10-30 (협약 종료: 2026-12-14) / Goldfields DAMA 신청 접수 마감: 2026-11-13 (협약 종료: 2026-12-31 · 11.13 이후 신규 접수 불가, 기존 승인 협약·비자 자동 취소 아님) / 남호주 SA DAMA 현행 협약 2027-01-31까지 연장 운영 중(차기 5년 Statewide DAMA 협상 중).</span>
       </div>
       <a href="#legal-disclaimer" style="color:#D9A7AD;font-weight:700;font-size:12.5px;white-space:nowrap;">[1]–[29] 공식 출처 각주 &darr;</a>
     </div>
@@ -64,17 +64,17 @@
   <header class="hero">
     <div class="container hero-grid">
       <div>
-        <span class="overline-serif" data-i18n="heroOverline">AUSTRALIA-WIDE 13 DAMA · SID 482 · SESR 494 · ENS 186 ELIGIBILITY COMBINATOR</span>
-        <h1 data-i18n="heroTitle">호주 13개 DAMA 전 지역 직종 · 자격요건 · 스폰서십 지역 찾기</h1>
+        <span class="overline-serif" data-i18n="heroOverline">AUSTRALIA-WIDE 13 DAMA · OCCUPATION, REGION &amp; CONCESSION EXPLORER</span>
+        <h1 data-i18n="heroTitle">호주 13개 DAMA 직종 · 지역 및 협약 요건 탐색</h1>
         <p class="hero-lead" data-i18n="heroLead">
-          내 직업(ANZSCO/한국어), 나이, 영어 점수, 연봉($67,510~$79,423), 학력·경력 조건을 선택하면 호주 전역 13개 DAMA · 2,476개 승인 직종 중 어느 지방에서 고용주를 찾아야 하는지, 그리고 어떤 비자 조합(SID 482 vs SESR 494&rarr;191 vs Direct ENS 186)이 가장 안전한지 즉시 진단해 드립니다.
+          직업명(ANZSCO/OSCA/한국어), 나이, 영어 점수, 희망 지역/우편번호, 연봉($67,510~$79,423) 조건을 입력하면 호주 전역 13개 DAMA · 2,474건 지역별 직종 등록 항목(781개 고유 직종) 중 후보 지역과 협약 완화 요건(SID 482 · SESR 494 · ENS 186)을 탐색합니다. 모든 결과는 <strong>검토 후보 · 추가 확인 필요 · 조건 미충족</strong> 3단계로 구분되며, 최종 비자 적합성은 DAR·개별 Labour Agreement 원문 및 미확인 요건(학력·경력 세부, 근무지 우편번호, 시장임금 AMSR 등) 검증이 필수입니다.
         </p>
         <div class="hero-cta-group">
           <a href="https://parklawyers.com.au/links/?lang=ko" target="_blank" rel="noopener" class="btn-burgundy cta-enquiry" data-i18n="heroPrimaryCta">
             박앤코 전문변호사 1:1 비자·스폰서십 상담 신청 &rarr;
           </a>
           <a href="#combinator-section" class="btn-secondary" data-i18n="heroSecondaryCta">
-            직종·조건 맞춤 검색 바로가기 &darr;
+            직종·조건 맞춤 탐색 바로가기 &darr;
           </a>
         </div>
       </div>
@@ -105,12 +105,12 @@
       <div class="stat-cell">
         <div class="s-over" data-i18n="stat1Over">ACTIVE DAMAS</div>
         <div class="s-num" data-i18n="stat1Val">13개 지역</div>
-        <div class="s-sub" data-i18n="stat1Sub">호주 연방·주정부 협약 전수 반영 [1]</div>
+        <div class="s-sub" data-i18n="stat1Sub">호주 연방·주정부 현행 협약 전수 반영 [1]</div>
       </div>
       <div class="stat-cell">
-        <div class="s-over" data-i18n="stat2Over">OCCUPATION DB</div>
-        <div class="s-num" data-i18n="stat2Val">2,476개</div>
-        <div class="s-sub" data-i18n="stat2Sub">SL 1~5 및 070499 비-ANZSCO 통합</div>
+        <div class="s-over" data-i18n="stat2Over">OCCUPATION ENTRIES</div>
+        <div class="s-num" data-i18n="stat2Val">2,474건</div>
+        <div class="s-sub" data-i18n="stat2Sub">지역별 직종 등록 항목 수 (고유 직종 781개)</div>
       </div>
       <div class="stat-cell">
         <div class="s-over" data-i18n="stat3Over">2026–27 STANDARD CSIT</div>
@@ -120,12 +120,12 @@
       <div class="stat-cell">
         <div class="s-over" data-i18n="stat4Over">90% DAMA CONCESSION</div>
         <div class="s-num" data-i18n="stat4Val">$71,481</div>
-        <div class="s-sub" data-i18n="stat4Sub">표준 10% 감면 (Type 1 금전 / Type 2 숙식)</div>
+        <div class="s-sub" data-i18n="stat4Sub">표준 10% 감면 (지역별 Type 1/2/3 상한 상이)</div>
       </div>
       <div class="stat-cell">
         <div class="s-over" data-i18n="stat5Over">85% NT DAMA III</div>
         <div class="s-num" data-i18n="stat5Val">$67,510</div>
-        <div class="s-sub" data-i18n="stat5Sub">NT 전 직종 최저 급여선 (+숙식 $6,751) [11]</div>
+        <div class="s-sub" data-i18n="stat5Sub">NT 최저 급여선 (단, 시장임금 AMSR 이상 필수) [11]</div>
       </div>
       <div class="stat-cell">
         <div class="s-over" data-i18n="stat6Over">MAX AGE CONCESSION</div>
@@ -140,24 +140,27 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <span class="overline-serif light-mode" data-i18n="combOverline">STEP 01 · INTERACTIVE ELIGIBILITY COMBINATOR</span>
-          <h2 data-i18n="combTitle">내 직종 · 조건으로 최적의 DAMA 고용주 지역 찾기</h2>
+          <span class="overline-serif light-mode" data-i18n="combOverline">STEP 01 · OCCUPATION, REGION &amp; CONCESSION EXPLORER</span>
+          <h2 data-i18n="combTitle">내 직종 · 지역 · 협약 조건 탐색기</h2>
           <p data-i18n="combSub">
-            한국어 직업명(예: 요리사, 용접사, 간병인, 바리스타, 청소, 트럭, 정비사, 간호사, 회계), 영문 직종명, 또는 6자리 ANZSCO 코드로 검색하고 본인의 조건을 선택해 보세요. 각 뱃지(?)에 마우스를 올리거나 탭하면 상세 법령 풍선 도움말(Balloon)이 열립니다.
+            한국어 직업명(예: 요리사, 용접사, 간병인, 바리스타, 청소, 트럭, 정비사, 간호사, 개발자, 회계), 영문 직종명, 또는 6자리 ANZSCO/OSCA 코드로 검색하고 희망 지역·우편번호·조건을 선택해 보세요. 각 뱃지(?)를 클릭하거나 마우스를 올리면 상세 법령 풍선 도움말(Balloon)이 열립니다.
           </p>
         </div>
       </div>
 
       <div class="combinator-panel">
         <!-- Search Row -->
-        <div class="search-bar-row">
-          <div class="search-input-wrap">
+        <div class="search-bar-row" style="flex-wrap:wrap;gap:10px;">
+          <div class="search-input-wrap" style="flex:2 1 320px;">
             <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
-            <input type="search" id="search-input" class="search-input" aria-label="Search occupation or ANZSCO" placeholder="직종 검색: 예) 요리사, Chef, Cook, 351411, 용접, Welder, 간병인, Carer, Barista, 청소, 트럭..." />
+            <input type="search" id="search-input" class="search-input" aria-label="Search occupation or ANZSCO" placeholder="직종 검색: 예) 요리사, Chef, Cook, 351411, 용접, Welder, 간병인, Carer, 개발자, 회계..." />
             <button type="button" id="clear-search-btn" class="clear-search-btn" aria-label="Clear search">&times;</button>
+          </div>
+          <div class="search-input-wrap" style="flex:1 1 240px;">
+            <input type="search" id="filter-location" class="search-input" style="padding-left:14px;" aria-label="Filter by LGA, Suburb, or Postcode" placeholder="근무지 LGA / 도시 / 우편번호 (예: Cairns, Perth, 5950, Ravensthorpe)" />
           </div>
           <button type="button" id="reset-filters-btn" class="btn-secondary" data-i18n="resetBtn">필터 초기화</button>
         </div>
@@ -191,45 +194,45 @@
           <div class="filter-group">
             <label for="filter-age" class="filter-label">
               <span data-i18n="lblAge">2. 신청자 현재 나이 (Age)</span>
-              <span class="badge badge-burgundy" data-balloon="DAMA 연령 상한 완화(SL1–4 만 55세 미만, SL5 만 50세 미만; 남호주 SA는 전 직종 만 55세 미만)는 SESR 494 또는 ENS 186 노미네이션 접수 시점에 적용됩니다.">나이 함정 안내 <span class="balloon-icon">?</span></span>
+              <span class="badge badge-burgundy" data-balloon="DAMA 연령 상한 완화(SL1–4 만 55세 미만, SL5 만 50세 미만; 남호주 SA는 전 직종 만 55세 미만)는 SESR 494 또는 ENS 186 노미네이션 접수 시점에 적용됩니다.">연령 기준 <span class="balloon-icon">?</span></span>
             </label>
             <select id="filter-age" class="filter-select">
               <option value="all" data-i18n="optAgeAll">연령 무관 / 전체 보기</option>
-              <option value="under45" data-i18n="optAgeUnder45">만 45세 미만 (일반·DAMA 모두 안전)</option>
-              <option value="45-49" data-i18n="optAge45_49">만 45세 ~ 49세 (SL 1–5 전 직종 연령 완화 구간)</option>
-              <option value="50-54" data-i18n="optAge50_54">만 50세 ~ 54세 (SL 1–4 가능 · 만 52~54세 나이 함정 주의!)</option>
+              <option value="under45" data-i18n="optAgeUnder45">만 45세 미만 (표준 연령 상한 충족 — 세부 요건 별도 확인)</option>
+              <option value="45-49" data-i18n="optAge45_49">만 45세 ~ 49세 (DAMA 연령 완화 구간 — 직종별 상한 50/55세 확인)</option>
+              <option value="50-54" data-i18n="optAge50_54">만 50세 ~ 54세 (만 55세 미만 완화 직종만 후보 · 전환 시점 연령 확인)</option>
             </select>
           </div>
 
           <div class="filter-group">
             <label for="filter-english" class="filter-label">
               <span data-i18n="lblEnglish">3. 보유 영어 점수 (IELTS / PTE)</span>
-              <span class="badge badge-teal" data-balloon="IELTS 4.5(각 4.0)는 NT DAMA III 및 SA Regional(외곽 지방 포스트코드 Type 2)에서 가능하며, IELTS 5.0(밴드 과락 없음)은 10개 DAMA에서 가능합니다.">점수 기준 <span class="balloon-icon">?</span></span>
+              <span class="badge badge-teal" data-balloon="482·494·186 비자 단계별 영어 요건과 과목별 최저점(No Band Min vs Min 4.0 vs Min 4.5)이 다릅니다. GV Table 6(64개 직종) 및 GSC(43개 직종)만 과목별 최저점 없음(No Band Min)이며, GV Table 6.1(4개 직종)은 각 과목 4.0 이상이 필수입니다.">점수 기준 <span class="balloon-icon">?</span></span>
             </label>
             <select id="filter-english" class="filter-select">
-              <option value="all" data-i18n="optEngAll">영어 점수 전체 (IELTS 6.0+ 포함)</option>
-              <option value="5.0-noband" data-i18n="optEng50NoBand">IELTS 5.0 / PTE 31 평균 (과목별 과락 없음 가능 직종)</option>
-              <option value="5.0-min40" data-i18n="optEng50Min40">IELTS 5.0 평균 (각 과목 4.0 이상 가능 직종)</option>
-              <option value="4.5-min40" data-i18n="optEng45Min40">IELTS 4.5 평균 (각 과목 4.0 이상 — NT / SA 외곽 지방)</option>
+              <option value="all" data-i18n="optEngAll">영어 점수 전체 (IELTS 6.0+ 표준 포함)</option>
+              <option value="5.0-noband" data-i18n="optEng50NoBand">IELTS 5.0 평균 · 과목별 최저점 없음(No Band Min) 명시 직종만</option>
+              <option value="5.0-min40" data-i18n="optEng50Min40">IELTS 5.0 평균 · 각 과목 4.0 이상 가능 직종 (4.5 이상 직종 구분 표기)</option>
+              <option value="4.5-min40" data-i18n="optEng45Min40">IELTS 4.5 평균 · 각 과목 4.0 이상 (NT / SA 외곽 지방 우편번호 한정)</option>
             </select>
           </div>
 
           <div class="filter-group">
             <label for="filter-salary" class="filter-label">
               <span data-i18n="lblSalary">4. 고용주 제시 가능 연봉 (Salary)</span>
-              <span class="badge badge-teal" data-balloon="2026.7.1 기준 표준 CSIT는 $79,423입니다. DAMA 90% 감면 직종은 $71,481(Type 1 금전 / Type 2 숙식 합산), NT DAMA III 85% 감면은 $67,510부터 가능합니다.">2026 급여선 <span class="balloon-icon">?</span></span>
+              <span class="badge badge-teal" data-balloon="2026.7.1 기준 표준 CSIT는 $79,423입니다. DAMA 90% 감면($71,481) 및 NT 85% 감면($67,510) 모두 호주 시장임금(AMSR) 이상이어야 하며, FNQ Type 2 비금전 혜택 상한은 CSIT의 10%($7,942.30)이고 최소 총연봉은 $79,423입니다.">2026 급여선 <span class="balloon-icon">?</span></span>
             </label>
             <select id="filter-salary" class="filter-select">
               <option value="all" data-i18n="optSalAll">연봉 무관 ($79,423 표준 CSIT 이상 가능 포함)</option>
-              <option value="71481" data-i18n="optSal71481">$71,481 이하 가능 직종만 (90% 또는 85% 급여 감면 필수)</option>
-              <option value="67510" data-i18n="optSal67510">$67,510 가능 직종만 (85% NT DAMA III 최저 급여 감면)</option>
+              <option value="71481" data-i18n="optSal71481">$71,481 감면 직종만 (90% 또는 85% 감면 · 시장임금 AMSR 이상 필수)</option>
+              <option value="67510" data-i18n="optSal67510">$67,510 감면 직종만 (85% NT DAMA III · 시장임금 AMSR 이상 필수)</option>
             </select>
           </div>
 
           <div class="filter-group">
             <label for="filter-skill" class="filter-label">
               <span data-i18n="lblSkill">5. 직종 숙련도 (Skill Level / 학력)</span>
-              <span class="badge badge-neutral" data-balloon="일반 482 비자는 SL 1–3만 가능하나, DAMA에서는 반숙련(SL 4) 및 기초노무(SL 5), 그리고 ANZSCO에 없는 특화 직종(070499)까지 스폰서십과 영주권이 열립니다.">SL 안내 <span class="balloon-icon">?</span></span>
+              <span class="badge badge-neutral" data-balloon="일반 482 비자는 SL 1–3만 가능하나, DAMA에서는 반숙련(SL 4) 및 기초노무(SL 5), 그리고 ANZSCO에 없는 특화 직종(070499)까지 협약 대상에 포함됩니다.">SL 안내 <span class="balloon-icon">?</span></span>
             </label>
             <select id="filter-skill" class="filter-select">
               <option value="all" data-i18n="optSkillAll">모든 Skill Level (SL 1~5 및 비-ANZSCO)</option>
@@ -244,13 +247,13 @@
           <div class="filter-group">
             <label for="filter-pathway" class="filter-label">
               <span data-i18n="lblPathway">6. 영주권(ENS 186) 및 특별 조건</span>
-              <span class="badge badge-success" data-balloon="FNQ, NT DAMA III, Kimberley 3개 지역은 워홀(417/462)·졸업생(485) 등 비-DAMA 비자로 해당 지역에서 2년 근무한 경력을 인정해 곧바로 Direct ENS 186 신청을 허용합니다.">Direct 186 <span class="balloon-icon">?</span></span>
+              <span class="badge badge-success" data-balloon="FNQ, NT DAMA III, Kimberley 3개 지역은 비-DAMA 비자 지역 경력 인정 조항이 있으나, 고용주 DAR Endorsement 및 개별 Labour Agreement에 ENS 186 스트림이 승인되어 있어야 하며 직종·숙련도 요건 충족 확인이 필수입니다.">Direct 186 <span class="balloon-icon">?</span></span>
             </label>
             <select id="filter-pathway" class="filter-select">
               <option value="all" data-i18n="optPathAll">전체 보기</option>
-              <option value="direct186" data-i18n="optPathDirect186">Direct ENS 186 가능 지역만 (비-DAMA 비자 2년 경력 인정: FNQ·NT·Kimberley)</option>
+              <option value="direct186" data-i18n="optPathDirect186">Direct ENS 186 조항 보유 지역 (FNQ·NT·Kimberley — 개별 LA·DAR 확인 필수)</option>
               <option value="freedar" data-i18n="optPathFreeDar">DAR 승인 수수료 $0 (무료) 주정부 지역만 (NT · SA · WA State-wide)</option>
-              <option value="nosl5upgrade" data-i18n="optPathNoSl5Upgrade">SL5 승진 조건 없이 바로 186 영주권 가능한 직종</option>
+              <option value="nosl5upgrade" data-i18n="optPathNoSl5Upgrade">SL5 승진 조건 없이 186 영주권 경로가 열려 있는 직종</option>
             </select>
           </div>
         </div>
@@ -267,9 +270,9 @@
       <div class="section-head">
         <div>
           <span class="overline-serif light-mode" data-i18n="regOverline">STEP 02 · WHERE TO FIND YOUR REGIONAL EMPLOYER SPONSOR</span>
-          <h2 data-i18n="regTitle">13개 DAMA 지역별 매칭 직종 수 &amp; 지역 상세 가이드</h2>
+          <h2 data-i18n="regTitle">13개 DAMA 지역별 매칭 직종 등록 항목 수 &amp; 지역 상세 가이드</h2>
           <p data-i18n="regSub">
-            현재 선택한 검색어·조건에 부합하는 직종이 각 지역에 몇 개 있는지 실시간으로 표시됩니다. 지역 카드를 클릭하면 해당 지역으로 필터링되며, [지역 요건·우편번호 상세] 버튼을 누르면 전체 커버리지와 조합 공식을 팝업으로 확인합니다.
+            현재 선택한 검색어·조건에 부합하는 직종 등록 항목이 각 지역에 몇 건 있는지 실시간으로 표시됩니다. 지역 카드를 클릭하면 해당 지역으로 필터링되며, [지역 요건·우편번호 상세] 버튼을 누르면 전체 커버리지와 협약 요건을 팝업으로 확인합니다.
           </p>
         </div>
       </div>
@@ -283,11 +286,11 @@
     <div class="container">
       <div class="results-toolbar">
         <div>
-          <span class="overline-serif light-mode" data-i18n="tblOverline">STEP 03 · VERIFIED OCCUPATION &amp; CONCESSION COMBINATOR TABLE</span>
-          <h2 data-i18n="tblTitle">조건 맞춤형 승인 직종 &amp; 자격요건 상세 리스트</h2>
+          <span class="overline-serif light-mode" data-i18n="tblOverline">STEP 03 · VERIFIED OCCUPATION &amp; CONCESSION EXPLORER TABLE</span>
+          <h2 data-i18n="tblTitle">조건별 직종 등록 항목 &amp; 협약 완화 요건 탐색 리스트</h2>
         </div>
         <div class="results-counter">
-          Matches: <strong id="results-count-value">2,476</strong> / 2,476
+          Matches: <strong id="results-count-value">2,474</strong> / <span id="results-total-value">2,474</span>
         </div>
       </div>
 
@@ -295,14 +298,14 @@
         <table class="occ-table">
           <thead>
             <tr>
-              <th style="width:18%;" data-i18n="thDama">DAMA 지역 · 주(State)</th>
-              <th style="width:21%;" data-i18n="thOcc">직종명 (ANZSCO · 세부전공)</th>
+              <th style="width:17%;" data-i18n="thDama">DAMA 지역 · 주(State)</th>
+              <th style="width:20%;" data-i18n="thOcc">직종명 (ANZSCO/OSCA · 상태)</th>
               <th style="width:7%;" data-i18n="thSl">숙련도 (SL)</th>
               <th style="width:12%;" data-i18n="thSal">최저 연봉 (2026–27)</th>
-              <th style="width:13%;" data-i18n="thEng">영어 조건 (482/494 vs 186)</th>
+              <th style="width:14%;" data-i18n="thEng">영어 요건 (482 / 494 / 186)</th>
               <th style="width:11%;" data-i18n="thAgePr">연령 상한 · 영주권 경로</th>
               <th style="width:11%;" data-i18n="thQuals">학력 · 경력 요약 (482/494/186)</th>
-              <th style="width:7%;" data-i18n="thAction">상세 조합 · 팝업</th>
+              <th style="width:8%;" data-i18n="thAction">탐색 판정 · 상세</th>
             </tr>
           </thead>
           <tbody id="occ-table-body"></tbody>
@@ -369,7 +372,7 @@
         </div>
       </div>
       <div style="text-align:right;font-size:12.5px;">
-        <div>Primary Source Currency: <strong>2026-10-20</strong> · Verified Ledger: <code>10/10 PASS</code></div>
+        <div id="footer-currency-line">Primary Source Currency: <strong>2026-10-20</strong> · Source Monitor: <code id="footer-poll-status">14/15 Live · 1 Cache</code></div>
         <div>&copy; 2026 Park &amp; Co Lawyers. All rights reserved.</div>
       </div>
     </div>
