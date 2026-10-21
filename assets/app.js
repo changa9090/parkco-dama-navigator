@@ -4,7 +4,7 @@
 
   const PAGE_SIZE = 40;
   let DATA = null;
-  let currentLang = "ko";
+  let currentLang = (new URLSearchParams(window.location.search).get("lang") === "en") ? "en" : "ko";
   let currentPage = 1;
   let filteredOccupations = [];
 
@@ -1919,7 +1919,7 @@
       var enBtn = document.getElementById("lang-en") || document.getElementById("lang-toggle-en") || document.querySelector('[data-lang="en"]');
       if (enBtn) {
         enBtn.click();
-        setTimeout(function () { applyUniversalLeafTranslation("en"); }, 40);
+        setTimeout(function () { enBtn.click(); applyUniversalLeafTranslation("en"); }, 180);
       }
     }
   });
