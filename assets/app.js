@@ -1869,6 +1869,10 @@
 
   function applyUniversalLeafTranslation(lang) {
     var isEn = lang === "en";
+    document.querySelectorAll(".parkco-svc-link").forEach(function (lnk) {
+      var h = isEn ? lnk.getAttribute("data-en-href") : lnk.getAttribute("data-ko-href");
+      if (h) lnk.setAttribute("href", h);
+    });
     var walk = function (el) {
       if (!el || el.tagName === "SCRIPT" || el.tagName === "STYLE" || el.tagName === "PRE") return;
       var hasElementChildren = false;
