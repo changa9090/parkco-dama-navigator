@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generated_at": "2026-10-20T05:33:55.363633+00:00",
-    "currency_date": "2026-10-26",
+    "generated_at": "2026-10-28T03:25:30.900992+00:00",
+    "currency_date": "2026-10-28",
     "audit_revision": "2026-10-20-codex-errata-corrected",
     "base_csit": 79423,
     "dama_90_csit": 71481,
@@ -16,7 +16,7 @@
     "unique_occupations_count": 781,
     "superseded_excluded_count": 2,
     "total_damas": 13,
-    "total_footnotes": 29,
+    "total_footnotes": 31,
     "sa_postcode_zones": {
       "adelaide_metropolitan": [
         "5000",
@@ -784,23 +784,23 @@
     ],
     "enquiry_url_ko": "https://parklawyers.com.au/links/?lang=ko",
     "enquiry_url_en": "https://parklawyers.com.au/links/?lang=ko",
-    "contact_email": "enquiry@parkcolawyers.com",
+    "contact_email": "cpark@parkcolawyers.com",
     "polling": {
-      "run_id": "poll-20261026-071521",
-      "last_polled_at": "2026-10-26T07:15:21.968368+10:00",
-      "last_polled_date": "2026-10-26",
+      "run_id": "poll-20261028-133559",
+      "last_polled_at": "2026-10-28T13:35:59.643352+10:00",
+      "last_polled_date": "2026-10-28",
       "schedule_cron_desc": "Weekly — Every Monday 07:15 AEST (Australia/Brisbane)",
-      "overall_verification_status": "changes_detected_pending_legal_review",
-      "badge_label_ko": "원문 변경 감지 (2026-10-26 · 2건 수동 검토 필요)",
-      "badge_label_en": "Source Changed (2026-10-26 · 2 Pending Review)",
+      "overall_verification_status": "live_hash_unchanged",
+      "badge_label_ko": "주간 해시 모니터 (2026-10-28 · 15/15 원문 해시 변경 미감지)",
+      "badge_label_en": "Weekly Hash Monitor (2026-10-28 · 15/15 Source Hashes Unchanged)",
       "total_targets": 15,
       "live_count": 15,
       "cache_count": 0,
       "pdf_monitored_count": 13,
       "pdf_valid_count": 13,
       "ok_targets": 15,
-      "changed_count": 2,
-      "unchanged_count": 13,
+      "changed_count": 0,
+      "unchanged_count": 15,
       "failed_count": 0,
       "salary_verification_status": "extracted_matches_79423"
     }
@@ -898,14 +898,14 @@
         "4": 38,
         "5": 6
       },
-      "last_polled_at": "2026-10-26T07:15:21.975980+10:00",
+      "last_polled_at": "2026-10-28T13:35:59.655902+10:00",
       "live_sha256": "ff72ffb813115348e395cebc9c4fae022ce7dcc1f407fef68d9268796f1c501d",
+      "pdf_binary_sha256": "bf9b165e18d144c73cdf2ce8e838a37bb65b0bee53df19c4ea80f8dc631cbdf9",
+      "pdf_change_state": "pdf_unchanged",
       "poll_state": "unchanged",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only",
-      "pdf_binary_sha256": "bf9b165e18d144c73cdf2ce8e838a37bb65b0bee53df19c4ea80f8dc631cbdf9",
-      "pdf_change_state": "pdf_unchanged"
+      "validation_status": "hash_unchanged_only"
     },
     {
       "order": 2,
@@ -972,14 +972,14 @@
         "4": 23,
         "5": 11
       },
-      "last_polled_at": "2026-10-26T07:15:21.974344+10:00",
-      "live_sha256": "2f6d09566ca5fcb8af26e4fedf61fbab07daad53369df01c192ef863caa8cf25",
+      "last_polled_at": "2026-10-28T13:35:59.651455+10:00",
+      "live_sha256": "62f8816b6fb6c31745101749d548bdd0b0eba6698463bceac3bdc83003d73ef3",
+      "pdf_binary_sha256": "ba72de81ad699168613cddfc1b756d9f5ce280b87e3a53265e6892de23ca92a8",
+      "pdf_change_state": "pdf_unchanged",
       "poll_state": "unchanged",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only",
-      "pdf_binary_sha256": "ba72de81ad699168613cddfc1b756d9f5ce280b87e3a53265e6892de23ca92a8",
-      "pdf_change_state": "pdf_unchanged"
+      "validation_status": "hash_unchanged_only"
     },
     {
       "order": 3,
@@ -1047,14 +1047,14 @@
         "4": 31,
         "5": 11
       },
-      "last_polled_at": "2026-10-26T07:15:21.981602+10:00",
+      "last_polled_at": "2026-10-28T13:35:59.652789+10:00",
       "live_sha256": "798b3431972d2df26d87b5a410bf31ceebedf6f480f2442dd98507e825012d18",
+      "pdf_binary_sha256": "3dc275e0ddb14aff528f170169bf2bd8bf1900b4d89a060c6762327b619f3eb5",
+      "pdf_change_state": "pdf_unchanged",
       "poll_state": "unchanged",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only",
-      "pdf_binary_sha256": "3dc275e0ddb14aff528f170169bf2bd8bf1900b4d89a060c6762327b619f3eb5",
-      "pdf_change_state": "pdf_unchanged"
+      "validation_status": "hash_unchanged_only"
     },
     {
       "order": 4,
@@ -1123,14 +1123,14 @@
         "4": 58,
         "5": 24
       },
-      "last_polled_at": "2026-10-26T07:15:21.980215+10:00",
+      "last_polled_at": "2026-10-28T13:35:59.655088+10:00",
       "live_sha256": "e884bbf600265ef828b40a3f4ab13f4df4a44fb9725bbe610d3afe8410237e1c",
+      "pdf_binary_sha256": "d05c035951d8030b31f144c131b54298150bce1f85a05e9387fa4a9ef19d8c6f",
+      "pdf_change_state": "pdf_unchanged",
       "poll_state": "unchanged",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only",
-      "pdf_binary_sha256": "d05c035951d8030b31f144c131b54298150bce1f85a05e9387fa4a9ef19d8c6f",
-      "pdf_change_state": "pdf_unchanged"
+      "validation_status": "hash_unchanged_only"
     },
     {
       "order": 5,
@@ -1150,8 +1150,8 @@
       "new_application_cutoff": null,
       "variation_cutoff": null,
       "head_agreement_expiry": "2027-01-31",
-      "transition_effect_en": "Extended to 31 January 2027 while the South Australian Government negotiates a proposed new 5-year statewide DAMA with the Commonwealth (proposed statewide agreement is currently under negotiation and not yet in effect).",
-      "transition_effect_ko": "현행 협약이 2027년 1월 31일까지 연장되었으며, 남호주 주정부가 차기 5년 주 전역(Statewide) 통합 DAMA 체결을 연방정부와 협상 중입니다 (신규 통합 협약은 현재 협상 단계로 아직 시행 전).",
+      "transition_effect_en": "Extended to 31 January 2027 while the South Australian Government negotiates a proposed new 5-year statewide DAMA with the Commonwealth (proposed statewide agreement is currently under negotiation and not yet in effect). The current terms and conditions of both DAMAs remain unchanged since the last variation in June 2026.",
+      "transition_effect_ko": "현행 협약이 2027년 1월 31일까지 연장되었으며, 남호주 주정부가 차기 5년 주 전역(Statewide) 통합 DAMA 체결을 연방정부와 협상 중입니다 (신규 통합 협약은 현재 협상 단계로 아직 시행 전). 두 협약의 현행 조건은 2026년 6월 마지막 변경 이후 동일하게 유지됩니다.",
       "dar_fee_en": "$0 DAR endorsement fee (Note: Commonwealth visa/nomination/SAF charges & non-DAR skills assessments are separate)",
       "dar_fee_ko": "남호주 주정부 DAR 승인 수수료 $0 (단, 연방 비자·노미네이션·SAF 수수료 및 외부 기술심사 비용은 별도)",
       "dar_fee_free": true,
@@ -1173,7 +1173,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "salary_rule_en": "No CSIT concession (0 occupations) — Standard CSIT ($79,423) & AMSR apply to all 57 occupations.",
       "salary_rule_ko": "급여 감면 없음(0개) — 57개 전 직종 표준 CSIT ($79,423) 및 시장임금(AMSR) 이상 지급 필수.",
@@ -1199,14 +1200,14 @@
       },
       "sunset_status": "extended_to_2027_01_31_negotiating_statewide",
       "accepting_new_applications": true,
-      "last_polled_at": "2026-10-26T07:15:22.429708+10:00",
+      "last_polled_at": "2026-10-28T13:35:59.896765+10:00",
       "live_sha256": "04d44b77b0f498b083c6d89d729c06d4188304d033eca61d423fabe06553ca00",
+      "pdf_binary_sha256": "59072374d8edb59bfab5e960878fec2913539d7701f53a5e91b3815c8944668f",
+      "pdf_change_state": "pdf_unchanged",
       "poll_state": "unchanged",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only",
-      "pdf_binary_sha256": "59072374d8edb59bfab5e960878fec2913539d7701f53a5e91b3815c8944668f",
-      "pdf_change_state": "pdf_unchanged"
+      "validation_status": "hash_unchanged_only"
     },
     {
       "order": 6,
@@ -1226,8 +1227,8 @@
       "new_application_cutoff": null,
       "variation_cutoff": null,
       "head_agreement_expiry": "2027-01-31",
-      "transition_effect_en": "Extended to 31 January 2027 while SA negotiates a proposed new 5-year statewide DAMA (currently in negotiation, not yet commenced).",
-      "transition_effect_ko": "현행 협약이 2027년 1월 31일까지 연장되었으며, 차기 5년 주 전역(Statewide) DAMA가 협상 중입니다 (아직 체결·시행 전).",
+      "transition_effect_en": "Extended to 31 January 2027 while SA negotiates a proposed new 5-year statewide DAMA (currently in negotiation, not yet commenced). The current terms and conditions of both DAMAs remain unchanged since the last variation in June 2026.",
+      "transition_effect_ko": "현행 협약이 2027년 1월 31일까지 연장되었으며, 차기 5년 주 전역(Statewide) DAMA가 협상 중입니다 (아직 체결·시행 전). 두 협약의 현행 조건은 2026년 6월 마지막 변경 이후 동일하게 유지됩니다.",
       "dar_fee_en": "$0 DAR endorsement fee (Note: Commonwealth visa/nomination/SAF charges & external skills assessments are separate)",
       "dar_fee_ko": "남호주 주정부 DAR 승인 수수료 $0 (단, 연방 비자·노미네이션·SAF 수수료 및 외부 기술심사 비용 별도)",
       "dar_fee_free": true,
@@ -1249,7 +1250,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "salary_rule_en": "110 occupations (of 322) qualify for 90% CSIT ($71,481) via SA Type 1 (10% reduction), Type 2 (up to 10% non-monetary 'Other'), or Type 3 (published SA Homestay accommodation/meal rates).",
       "salary_rule_ko": "110개 직종(전체 322개 중): CSIT 90% ($71,481) 감면 허용 — SA Type 1(10% 감면), Type 2(비금전 'Other' 10%), Type 3(남호주 공식 Homestay 요율 기준 숙식 인정).",
@@ -1275,14 +1277,14 @@
       },
       "sunset_status": "extended_to_2027_01_31_negotiating_statewide",
       "accepting_new_applications": true,
-      "last_polled_at": "2026-10-26T07:15:22.546822+10:00",
+      "last_polled_at": "2026-10-28T13:35:59.899440+10:00",
       "live_sha256": "c00851ed52329358a26d5a194f3ab80554545f5f40ef07a994031b0b5e6a5169",
+      "pdf_binary_sha256": "59072374d8edb59bfab5e960878fec2913539d7701f53a5e91b3815c8944668f",
+      "pdf_change_state": "pdf_unchanged",
       "poll_state": "unchanged",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only",
-      "pdf_binary_sha256": "59072374d8edb59bfab5e960878fec2913539d7701f53a5e91b3815c8944668f",
-      "pdf_change_state": "pdf_unchanged"
+      "validation_status": "hash_unchanged_only"
     },
     {
       "order": 7,
@@ -1349,14 +1351,14 @@
         "4": 29,
         "5": 5
       },
-      "last_polled_at": "2026-10-26T07:15:22.549638+10:00",
+      "last_polled_at": "2026-10-28T13:36:00.240194+10:00",
       "live_sha256": "04b7ad34a77c9e925183c379476d5f713ff570c33dfce753c37ca16f47734920",
+      "pdf_binary_sha256": "c0b55210f5804140bb43dc5e43ed2137a6ac769e90757dbfcaba2757dcdd231a",
+      "pdf_change_state": "pdf_unchanged",
       "poll_state": "unchanged",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only",
-      "pdf_binary_sha256": "c0b55210f5804140bb43dc5e43ed2137a6ac769e90757dbfcaba2757dcdd231a",
-      "pdf_change_state": "pdf_unchanged"
+      "validation_status": "hash_unchanged_only"
     },
     {
       "order": 8,
@@ -1423,14 +1425,14 @@
         "4": 23,
         "5": 8
       },
-      "last_polled_at": "2026-10-26T07:15:22.704631+10:00",
+      "last_polled_at": "2026-10-28T13:36:00.528718+10:00",
       "live_sha256": "7442be4f77791e2119adf659c6d509e983fdddc40028cfe382add8a9c4d9648f",
+      "pdf_binary_sha256": "7cb5011a959d32ce849668ee5d807cf31e58937251015c6cc31934885f69bd0e",
+      "pdf_change_state": "pdf_unchanged",
       "poll_state": "unchanged",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only",
-      "pdf_binary_sha256": "7cb5011a959d32ce849668ee5d807cf31e58937251015c6cc31934885f69bd0e",
-      "pdf_change_state": "pdf_unchanged"
+      "validation_status": "hash_unchanged_only"
     },
     {
       "order": 9,
@@ -1496,14 +1498,14 @@
         "4": 47,
         "5": 0
       },
-      "last_polled_at": "2026-10-26T07:15:23.110759+10:00",
+      "last_polled_at": "2026-10-28T13:36:00.564022+10:00",
       "live_sha256": "5388a0496b25dffd3d6bcd10d3152ff5bce71085e91398f6ab734076cf3ccda7",
+      "pdf_binary_sha256": "f6b58bd4e3f637597aea717f55f4db1995341eb9ae56a49f9ef8ad14b0a311aa",
+      "pdf_change_state": "pdf_unchanged",
       "poll_state": "unchanged",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only",
-      "pdf_binary_sha256": "f6b58bd4e3f637597aea717f55f4db1995341eb9ae56a49f9ef8ad14b0a311aa",
-      "pdf_change_state": "pdf_unchanged"
+      "validation_status": "hash_unchanged_only"
     },
     {
       "order": 10,
@@ -1570,14 +1572,14 @@
         "4": 31,
         "5": 15
       },
-      "last_polled_at": "2026-10-26T07:15:23.203696+10:00",
+      "last_polled_at": "2026-10-28T13:36:00.573230+10:00",
       "live_sha256": "2cb15abbe41af16be2b93cfbc78f4a1995a6d2f5bd6c507b13fdbdc7aafada5a",
+      "pdf_binary_sha256": "2c6eb7fb090ef1c3e13c1d28a5d169aa313aa5025c847639daade24b7dc104ac",
+      "pdf_change_state": "pdf_unchanged",
       "poll_state": "unchanged",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only",
-      "pdf_binary_sha256": "2c6eb7fb090ef1c3e13c1d28a5d169aa313aa5025c847639daade24b7dc104ac",
-      "pdf_change_state": "pdf_unchanged"
+      "validation_status": "hash_unchanged_only"
     },
     {
       "order": 11,
@@ -1634,7 +1636,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "salary_rule_en": "17 occupations (of 145) qualify for 90% CSIT ($71,481) Type 1 or Type 2 concession.",
       "salary_rule_ko": "17개 직종(전체 145개 중): CSIT 90% ($71,481) Type 1 또는 Type 2 감면 허용.",
@@ -1660,14 +1663,14 @@
       },
       "sunset_status": "open_until_2026_11_13",
       "accepting_new_applications": true,
-      "last_polled_at": "2026-10-26T07:15:23.352861+10:00",
-      "live_sha256": "0df8ebc3454f21c89c3ef310f7b94e5bf41aff32813005c46b12e8f4c9795b74",
+      "last_polled_at": "2026-10-28T13:36:00.675953+10:00",
+      "live_sha256": "206fc5bf8a2a6c189b71a22a9a39ccad3b7490d1fcb30e7496bdcb59334c0d46",
+      "pdf_binary_sha256": "cd213dbcd701e579455f90cb612c4db2720a66750fefd80afdaf492701ffb38f",
+      "pdf_change_state": "pdf_unchanged",
       "poll_state": "unchanged",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only",
-      "pdf_binary_sha256": "cd213dbcd701e579455f90cb612c4db2720a66750fefd80afdaf492701ffb38f",
-      "pdf_change_state": "pdf_unchanged"
+      "validation_status": "hash_unchanged_only"
     },
     {
       "order": 12,
@@ -1687,18 +1690,18 @@
       "new_application_cutoff": "2026-10-30",
       "variation_cutoff": "2026-10-30",
       "head_agreement_expiry": "2026-12-14",
-      "transition_effect_en": "New and variation DAR endorsement applications close on 30 October 2026; the South West DAMA head agreement expires on 14 December 2026. Head agreement expiry does NOT automatically cancel existing approved employer Labour Agreements or granted visas, while future new endorsements transition to the WA State-wide DAMA.",
-      "transition_effect_ko": "신규 및 변경 DAR 신청 접수 마감일은 2026년 10월 30일이며, 협약 종료일은 2026년 12월 14일입니다. 협약 종료가 기존 승인된 고용주 Labour Agreement나 이미 발급된 비자를 자동 취소시키지 않으며, 향후 신규 신청은 WA State-wide DAMA를 이용합니다.",
+      "transition_effect_en": "Home Affairs notified the Shire of Dardanup that the South-West DAMA will not be renewed at the end of its current term in December 2026 and transitions to the WA State-wide DAMA. New and variation DAR endorsement applications close on 30 October 2026; the South West DAMA head agreement expires on 14 December 2026. Head agreement expiry does NOT automatically cancel existing approved employer Labour Agreements, visa conditions, or permanent residency pathways.",
+      "transition_effect_ko": "연방 이민성 통보에 따라 사우스 웨스트(South-West) DAMA는 2026년 12월 현행 기간 만료 후 갱신되지 않으며(will not be renewed) WA State-wide DAMA로 전환됩니다. 신규 및 변경 DAR 신청 접수 마감일은 2026년 10월 30일이며, 협약 종료일은 2026년 12월 14일입니다. 협약 종료가 기존 승인된 고용주 Labour Agreement, 비자 조건, 영주권 경로를 자동 취소시키지 않으며, 향후 신규 신청은 WA State-wide DAMA를 이용합니다.",
       "dar_fee_en": "$290.00 incl. GST per position (Visa/nomination/SAF fees separate)",
       "dar_fee_ko": "$290.00 (GST 포함 · 포지션당, 비자/SAF 비용 별도)",
       "dar_fee_free": false,
       "lgas_en": "12 LGAs: City of Bunbury, City of Busselton, Shire of Augusta-Margaret River, Shire of Boyup Brook, Shire of Bridgetown-Greenbushes, Shire of Capel, Shire of Collie, Shire of Dardanup, Shire of Donnybrook-Balingup, Shire of Harvey, Shire of Manjimup, Shire of Nannup",
-      "lgas_ko": "서호주 남서부 12개 카운슬: 번버리(Bunbury), 버셀턴(Busselton), 마가렛리버(Augusta-Margaret River), 다다넙, 하비, 카펠, 콜리, 만지멉, 브리지타운 등",
+      "lgas_ko": "서호주 남서부 12개 공식 카운슬(LGA): 번버리(City of Bunbury), 버셀턴(City of Busselton), 오거스타-마가렛리버(Shire of Augusta-Margaret River), 보이업브룩(Shire of Boyup Brook), 브리지타운-그린부시스(Shire of Bridgetown-Greenbushes), 카펠(Shire of Capel), 콜리(Shire of Collie), 다다넙(Shire of Dardanup), 도니브룩-발링업(Shire of Donnybrook-Balingup), 하비(Shire of Harvey), 만지멉(Shire of Manjimup), 낸넙(Shire of Nannup)",
       "postcodes": "6218–6290 (12개 공식 카운슬 관할 기준)",
       "quals_rule_en": "SID 482 requires 1 year experience across occupations (Tables 2/3/5/6/7/8 accept >=20h/wk part-time). SESR 494 requires 2 years FT (38h/wk).",
       "quals_rule_ko": "SID 482 경력 1년 기준(Table 2/3/5/6/7/8은 주 20h+ 파트타임 인정). SESR 494는 2년 풀타임(주 38시간).",
-      "pr_rule_en": "2 years FT on South West DAMA 482 before ENS 186 Labour Agreement nomination (standard ENS Competent English applies at 186 stage: IELTS 6.0 each band or accepted equivalent test/exemption). Application cutoff: 2026-10-30 / Agreement expiry: 2026-12-14.",
-      "pr_rule_ko": "2년 근무 후 ENS 186 전환(단, 186 단계는 영어 감면이 없어 표준 Competent English — IELTS 각 6.0 또는 인정 동등 시험/면제 요건 적용). 신청 접수 마감: 2026-10-30 / 협약 종료: 2026-12-14.",
+      "pr_rule_en": "As of August 2024, all applicants may be eligible for permanent residency through 186 (ENS) after two years holding a subclass 482 visa issued under the South-West DAMA (standard non-labour agreement ENS Competent English applies at 186 stage: IELTS 6.0 each band or accepted equivalent test/exemption). Holders of the subclass 494 visa can apply for permanent residency independently through the 191 visa after 3 years. Application cutoff: 2026-10-30 / Agreement expiry: 2026-12-14.",
+      "pr_rule_ko": "2024년 8월 기준 South-West DAMA 482 비자 2년 보유 후 전 신청인이 ENS 186 영주권 전환 대상이 될 수 있으며(단, 186 단계는 영어 감면이 없어 노동협약 외 표준 Competent English — IELTS 각 6.0 또는 인정 동등 시험/면제 요건 적용), Subclass 494 비자 보유자는 3년 후 191 비자로 단독 영주권 신청이 가능합니다. 신청 접수 마감: 2026-10-30 / 협약 종료: 2026-12-14.",
       "lmt_rule_en": "2 national advertisements running >=28 days within 4 months prior to endorsement.",
       "lmt_rule_ko": "DAR 신청 전 4개월 이내 전국 구인매체 2곳 이상 최소 28일간 광고 필수.",
       "direct_186": false,
@@ -1712,10 +1715,10 @@
         26,
         27
       ],
-      "salary_rule_en": "68 occupations (of 127) qualify for 90% CSIT ($71,481) Type 1 or Type 2 concession.",
-      "salary_rule_ko": "68개 직종(전체 127개 중): CSIT 90% ($71,481) Type 1 또는 Type 2 감면 허용.",
-      "eng_rule_en": "64 occupations: 482/494 IELTS 5.0 overall (no band min). No English concession at ENS 186 stage (standard Competent English IELTS 6.0 each band or equivalent/exemption applies).",
-      "eng_rule_ko": "64개 직종: 482/494 IELTS 5.0 평균(과목 하한 없음). [주의] ENS 186 단계는 영어 감면이 없어 표준 Competent English(IELTS 각 6.0 또는 인정 동등 시험/면제) 요건이 적용됩니다.",
+      "salary_rule_en": "68 occupations (of 127) qualify for concession: Type 1 (Reduced TSMIT — at least 90% of the current TSMIT, $71,481 per federal CSIT schedule) or Type 2 (at least reduced TSMIT plus non-monetary earnings such as food and board equal to no more than 10% of TSMIT). Note: Dardanup's page states minimum salary requirements increase from 1 July 2026 per Home Affairs without stating the new dollar figure on that page.",
+      "salary_rule_ko": "68개 직종(전체 127개 중): Type 1(당시 TSMIT의 90% 이상 감면, 연방 CSIT 기준 $71,481) 또는 Type 2(인하된 TSMIT 이상 + 식사·숙박 등 비금전 보수 TSMIT의 10% 이하 합산) 허용. (다다넙 원문은 2026-07-01부 최소 급여 인상을 안내하며 새 금액 숫자는 별도 표기하지 않음)",
+      "eng_rule_en": "64 concession occupations: SID 482 & SESR 494 IELTS 5.0 overall with no minimum component score (unless registration or licensing requires a higher level of English). No English concession at ENS 186 stage (standard non-labour agreement ENS Competent English IELTS 6.0 each band or equivalent/exemption applies).",
+      "eng_rule_ko": "64개 양보 직종: SID 482 · SESR 494 IELTS 5.0 평균(과목 하한 없음 — 단, 직종 등록·면허가 더 높은 영어 점수를 요구하면 해당 기준 적용). [주의] ENS 186 단계는 영어 감면이 없어 노동협약 외 표준 Competent English(IELTS 각 6.0 또는 인정 동등 시험/면제) 요건이 적용됩니다.",
       "age_rule_en": "Skill Levels 1–4: Under 55 (109 occs) | Skill Level 5: Under 50 (18 occs)",
       "age_rule_ko": "Skill Level 1–4: 만 55세 미만 (109개) | Skill Level 5: 만 50세 미만 (18개)",
       "total_occupations": 127,
@@ -1736,14 +1739,14 @@
       },
       "sunset_status": "open_until_2026_10_30",
       "accepting_new_applications": true,
-      "last_polled_at": "2026-10-26T07:15:23.430423+10:00",
+      "last_polled_at": "2026-10-28T13:36:00.805328+10:00",
       "live_sha256": "de7f8e9251ff24d461559cc78a006461f7d3339ae0bf1911b86e33d4b7a7e656",
+      "pdf_binary_sha256": "a948b3a471c525e866477e1e1b31de95862475defbab49ecee001a79a0ad2a18",
+      "pdf_change_state": "pdf_unchanged",
       "poll_state": "unchanged",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only",
-      "pdf_binary_sha256": "a948b3a471c525e866477e1e1b31de95862475defbab49ecee001a79a0ad2a18",
-      "pdf_change_state": "pdf_unchanged"
+      "validation_status": "hash_unchanged_only"
     },
     {
       "order": 13,
@@ -1809,14 +1812,14 @@
         "4": 51,
         "5": 18
       },
-      "last_polled_at": "2026-10-26T07:15:23.797346+10:00",
-      "live_sha256": "24fba0a7716a8bfae5de3278a65685c661045211b55cebd9a724ea643a529076",
-      "poll_state": "changed",
+      "last_polled_at": "2026-10-28T13:36:00.973084+10:00",
+      "live_sha256": "df48bf4b87ac6e912a06f2dfed41f2595f616f00be5a24e1cf7058c455cdc1a7",
+      "pdf_binary_sha256": "50740dd40fe0e75e4333a83b851562c241244efc8cf15bb73183694a95028d33",
+      "pdf_change_state": "pdf_unchanged",
+      "poll_state": "unchanged",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "changed_requires_human_review",
-      "pdf_binary_sha256": "50740dd40fe0e75e4333a83b851562c241244efc8cf15bb73183694a95028d33",
-      "pdf_change_state": "pdf_unchanged"
+      "validation_status": "hash_unchanged_only"
     }
   ],
   "footnotes": [
@@ -2254,6 +2257,36 @@
       "http_check_status": "http_200_ok",
       "licence_note_ko": "호주 연방·주·지방정부 공공자료 출처 표기 (CC BY 4.0 / 공식 DAR 공고 원문 기준, City of Kalgoorlie-Boulder)",
       "licence_note_en": "Commonwealth / State / Local Government public sector information attribution (CC BY 4.0 / Official Schedule, City of Kalgoorlie-Boulder)"
+    },
+    {
+      "id": 30,
+      "src_id": "src_030",
+      "grade": "A",
+      "source_type": "government",
+      "org": "Government of Western Australia (Migration WA)",
+      "title": "Goldfields employers continue to access the Goldfields DAMA until 31 December 2026",
+      "doc_version": "Migration WA News Notice (3 July 2026)",
+      "date": "2026-07-03",
+      "url": "https://migration.wa.gov.au/news/goldfields-employers-continue-access-goldfields-dama-until-31-december-2026",
+      "sha256": "92c40c7666cc7e75842ea8471dcf59977e7a007798694c85a9b78aec653985d5",
+      "http_check_status": "http_200_ok",
+      "licence_note_ko": "호주 연방·주·지방정부 공공자료 출처 표기 (CC BY 4.0 / 공식 공고 원문 기준, Government of Western Australia (Migration WA))",
+      "licence_note_en": "Commonwealth / State / Local Government public sector information attribution (CC BY 4.0 / Official Notice, Government of Western Australia (Migration WA))"
+    },
+    {
+      "id": 31,
+      "src_id": "src_031",
+      "grade": "A",
+      "source_type": "government",
+      "org": "Government of South Australia (Skilled & Business Migration SA)",
+      "title": "Extension for Designated Area Migration Agreements (Unchanged terms since June 2026 variation)",
+      "doc_version": "Migration SA News Notice (21 September 2026)",
+      "date": "2026-09-21",
+      "url": "https://migration.sa.gov.au/news/extension-for-designated-area-migration-agreements",
+      "sha256": "2cd9ab56340848ae36430e696691f5743e1496e61efeefcfa20622af217057d9",
+      "http_check_status": "http_200_ok",
+      "licence_note_ko": "호주 연방·주·지방정부 공공자료 출처 표기 (CC BY 4.0 / 공식 공고 원문 기준, Government of South Australia (Skilled & Business Migration SA))",
+      "licence_note_en": "Commonwealth / State / Local Government public sector information attribution (CC BY 4.0 / Official Notice, Government of South Australia (Skilled & Business Migration SA))"
     }
   ],
   "occupations": [
@@ -60133,7 +60166,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 advancement manager adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -60198,7 +60232,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 advancement professional adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -60263,7 +60298,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 clinical researcher adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -60328,7 +60364,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 data and analytics manager adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -60393,7 +60430,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 digital artist adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -60458,7 +60496,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 digital producer adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -60523,7 +60562,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 digital production manager adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -60588,7 +60628,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 digital supervisor adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -60653,7 +60694,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 senior digital artist adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -60718,7 +60760,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "111111 111111 chief executive or managing director adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -60783,7 +60826,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "111211 111211 corporate general manager adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -60848,7 +60892,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "131114 131114 public relations manager adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -60913,7 +60958,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "132111 132111 corporate services manager adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -60978,7 +61024,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "132411 132411 policy and planning manager adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -61043,7 +61090,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "132511 132511 research and development manager adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -61108,7 +61156,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "133311 133311 importer or exporter adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -61173,7 +61222,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "134499 134499 education managers nec adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -61238,7 +61288,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "135111 135111 chief information officer adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech 리셉션 사무직 행정 고객상담 판매 소매"
     },
@@ -61303,7 +61354,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "135112 135112 ict project manager adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech it 전산 네트워크 사이버보안 시스템관리자"
     },
@@ -61368,7 +61420,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "139911 139911 arts administrator or manager adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -61433,7 +61486,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "139913 139913 laboratory manager adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -61498,7 +61552,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "139999 139999 specialist managers nec adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -61563,7 +61618,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "212314 212314 film and video editor adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -61628,7 +61684,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "223311 223311 training and development professional adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -61693,7 +61750,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "224112 224112 mathematician adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -61758,7 +61816,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "224113 224113 statistician adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -61823,7 +61882,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "224611 224611 librarian adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -61888,7 +61948,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "224999 224999 information and organisation professionals nec adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -61953,7 +62014,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "232214 232214 other spatial scientist adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -62018,7 +62080,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "232411 232411 graphic designer adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -62083,7 +62146,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "232412 232412 illustrator adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -62148,7 +62212,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "232413 232413 multimedia designer adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech it 전산 네트워크 사이버보안 시스템관리자"
     },
@@ -62213,7 +62278,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "232414 232414 web designer adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -62278,7 +62344,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "233916 233916 naval architect adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -62343,7 +62410,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234211 234211 chemist adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -62408,7 +62476,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234313 234313 environmental research scientist adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -62473,7 +62542,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234399 234399 environmental scientists nec adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -62538,7 +62608,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234412 234412 geophysicist adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -62603,7 +62674,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234413 234413 hydrogeologist adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech 엔지니어 토목 광산 지질 측량 제도사"
     },
@@ -62668,7 +62740,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234511 234511 life scientist (general) adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -62733,7 +62806,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234513 234513 biochemist adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -62798,7 +62872,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234514 234514 biotechnologist adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -62863,7 +62938,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234515 234515 botanist adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -62928,7 +63004,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234516 234516 marine biologist adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -62993,7 +63070,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234517 234517 microbiologist adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -63058,7 +63136,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234599 234599 life scientists nec adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -63123,7 +63202,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234611 234611 medical laboratory scientist adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -63188,7 +63268,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234913 234913 meteorologist adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -63253,7 +63334,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234914 234914 physicist (medical physicist only) adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -63318,7 +63400,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234914 234914 physicist (non-medical) adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -63383,7 +63466,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234999 234999 natural and physical science professionals nec adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -63448,7 +63532,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "261211 261211 multimedia specialist adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech it 전산 네트워크 사이버보안 시스템관리자"
     },
@@ -63513,7 +63598,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "261212 261212 web developer adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech 개발자 프로그래머 소프트웨어 코딩 웹개발"
     },
@@ -63578,7 +63664,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "311411 311411 chemistry technician adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -63643,7 +63730,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "311412 311412 earth science technician adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -63708,7 +63796,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "311413 311413 life science technician adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -63773,7 +63862,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "311499 311499 science technicians nec adelaide city technology & innovation advancement dama 애들레이드 시티 기술·혁신 (adelaide city tech) dama sa adl-tech"
     },
@@ -63838,7 +63928,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 apiary supervisor south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -63903,7 +63994,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 aquaculture deckhand or farmhand south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 육가공 도축 정육 발골 정육사 수산 양식 어선 선원 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -63968,7 +64060,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 aquaculture process worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 육가공 도축 정육 발골 정육사 수산 양식 어선 선원"
     },
@@ -64033,7 +64126,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 aquaculture processing supervisor south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 육가공 도축 정육 발골 정육사 수산 양식 어선 선원"
     },
@@ -64098,7 +64192,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 automotive transmission technician south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 자동차정비사 정비공 디젤정비 판금 도장 메카닉"
     },
@@ -64163,7 +64258,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 care supervisor south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -64228,7 +64324,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 civil construction site supervisor south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -64293,7 +64390,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 civil construction tradeworker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -64358,7 +64456,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 cnc machinist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 용접사 용접 금속 피터 기계가공 보일러메이커 선반"
     },
@@ -64423,7 +64522,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 cnc operator south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -64488,7 +64588,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 cold store manager south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -64553,7 +64654,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 cold store operator south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -64618,7 +64720,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 cook (ethnic cuisine) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 요리사 셰프 조리사 주방 제과 제빵 베이커"
     },
@@ -64683,7 +64786,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 dairy cattle farm operator south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -64748,7 +64852,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 dance instructor south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -64813,7 +64918,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 dance studio manager south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -64878,7 +64984,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 electrical motor repairer or winder south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -64943,7 +65050,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 forestry and harvesting machine operator south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -65008,7 +65116,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 hospitality supervisor south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 바리스타 웨이터 서버 바텐더 카페 호텔 레스토랑 홀서빙 호스피탈리티"
     },
@@ -65073,7 +65182,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 hospitality worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 바리스타 웨이터 서버 바텐더 카페 호텔 레스토랑 홀서빙 호스피탈리티"
     },
@@ -65138,7 +65248,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 irrigation technician south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -65203,7 +65314,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 log truck driver south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 트럭운전사 트럭기사 버스운전 지게차 포크리프트 중장비 크레인 굴삭기 운송 배달"
     },
@@ -65268,7 +65380,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 poultry farm supervisor south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 육가공 도축 정육 발골 정육사 수산 양식 어선 선원 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -65333,7 +65446,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 poultry stockperson south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 육가공 도축 정육 발골 정육사 수산 양식 어선 선원"
     },
@@ -65398,7 +65512,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 production horticultural supervisor south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -65463,7 +65578,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 production horticulturist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -65528,7 +65644,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 production operator south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -65593,7 +65710,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 production supervisor south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -65658,7 +65776,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 rose budder south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -65723,7 +65842,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 senior dairy cattle farm worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -65788,7 +65908,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 senior piggery stockperson south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -65853,7 +65974,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 skilled horticultural worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -65918,7 +66040,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 sommelier south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -65983,7 +66106,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 start-up worker (digital) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -66048,7 +66172,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 vineyard manager south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -66113,7 +66238,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 vineyard supervisor south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -66178,7 +66304,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 welding engineer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -66243,7 +66370,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 welding inspector south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -66308,7 +66436,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 welding specialist supervisor south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -66373,7 +66502,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 welding technologist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -66438,7 +66568,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "070499 070499 winery worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -66503,7 +66634,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "121111 121111 aquaculture farmer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 육가공 도축 정육 발골 정육사 수산 양식 어선 선원 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -66568,7 +66700,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "121213 121213 fruit or nut grower south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -66633,7 +66766,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "121216 121216 mixed crop farmer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -66698,7 +66832,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "121221 121221 vegetable grower south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -66763,7 +66898,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "121311 121311 apiarist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -66828,7 +66964,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "121312 121312 beef cattle farmer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -66893,7 +67030,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "121313 121313 dairy cattle farmer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -66958,7 +67096,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "121317 121317 mixed livestock farmer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -67023,7 +67162,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "121318 121318 pig farmer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -67088,7 +67228,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "121321 121321 poultry farmer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 육가공 도축 정육 발골 정육사 수산 양식 어선 선원 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -67153,7 +67294,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "121323 121323 mixed cattle and sheep farmer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -67218,7 +67360,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "121411 121411 mixed crop and livestock farmer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -67283,7 +67426,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "121512 121512 grain, oilseed, pulse or pasture grower / field crop grower south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -67348,7 +67492,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "121599 121599 broadacre crop growers nec south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -67413,7 +67558,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "121612 121612 fruit grower south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -67478,7 +67624,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "121613 121613 nut grower south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -67543,7 +67690,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "121614 121614 production nursery grower south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -67608,7 +67756,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "121615 121615 turf grower south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -67673,7 +67822,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "121616 121616 vegetable grower (aus) / market gardener (nz) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -67738,7 +67888,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "121699 121699 horticultural crop growers nec south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -67803,7 +67954,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "121711 121711 broadacre crop and livestock farmer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -67868,7 +68020,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "121799 121799 mixed production farmers nec south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -67933,7 +68086,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "131112 131112 sales and marketing manager south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 리셉션 사무직 행정 고객상담 판매 소매"
     },
@@ -67998,7 +68152,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "133111 133111 construction project manager south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -68063,7 +68218,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "133211 133211 engineering manager south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -68128,7 +68284,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "133411 133411 manufacturer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -68193,7 +68350,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "133511 133511 production manager (forestry) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -68258,7 +68416,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "133512 133512 production manager (manufacturing) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -68323,7 +68482,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "133513 133513 production manager (mining) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -68388,7 +68548,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "133611 133611 supply and distribution manager south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -68453,7 +68614,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "133612 133612 procurement manager south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -68518,7 +68680,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "134111 134111 child care centre manager south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간병인 요양보호사 장애인 노인케어 에이지드케어 차일드케어 보육교사 유치원 사회복지"
     },
@@ -68583,7 +68746,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "139914 139914 quality assurance manager south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -68648,7 +68812,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "141111 141111 cafe or restaurant manager south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 바리스타 웨이터 서버 바텐더 카페 호텔 레스토랑 홀서빙 호스피탈리티"
     },
@@ -68713,7 +68878,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "141311 141311 hotel or motel manager south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 바리스타 웨이터 서버 바텐더 카페 호텔 레스토랑 홀서빙 호스피탈리티"
     },
@@ -68778,7 +68944,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "149913 149913 facilities manager south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -68843,7 +69010,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "212111 212111 artistic director south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -68908,7 +69076,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "225114 225114 content creator (marketing) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -68973,7 +69142,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "225115 225115 digital marketing analyst south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -69038,7 +69208,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "225499 225499 technical sales representatives nec south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 리셉션 사무직 행정 고객상담 판매 소매"
     },
@@ -69103,7 +69274,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "233211 233211 civil engineer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 엔지니어 토목 광산 지질 측량 제도사"
     },
@@ -69168,7 +69340,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "233214 233214 structural engineer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -69233,7 +69406,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "233215 233215 transport engineer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 트럭운전사 트럭기사 버스운전 지게차 포크리프트 중장비 크레인 굴삭기 운송 배달"
     },
@@ -69298,7 +69472,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "233311 233311 electrical engineer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 엔지니어 토목 광산 지질 측량 제도사"
     },
@@ -69363,7 +69538,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "233411 233411 electronics engineer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -69428,7 +69604,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "233511 233511 industrial engineer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -69493,7 +69670,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "233512 233512 mechanical engineer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 엔지니어 토목 광산 지질 측량 제도사"
     },
@@ -69558,7 +69736,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "233513 233513 production or plant engineer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -69623,7 +69802,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "233914 233914 engineering technologist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -69688,7 +69868,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234111 234111 agricultural consultant south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -69753,7 +69934,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234112 234112 agricultural scientist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -69818,7 +70000,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234113 234113 forester south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -69883,7 +70066,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234114 234114 agricultural research scientist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -69948,7 +70132,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234115 234115 agronomist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -70013,7 +70198,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234116 234116 aquaculture or fisheries scientist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 육가공 도축 정육 발골 정육사 수산 양식 어선 선원"
     },
@@ -70078,7 +70264,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234212 234212 food technologist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -70143,7 +70330,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234213 234213 wine maker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -70208,7 +70396,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234521 234521 entomologist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -70273,7 +70462,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234522 234522 zoologist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -70338,7 +70528,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234612 234612 respiratory scientist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -70403,7 +70594,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "234915 234915 exercise physiologist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -70468,7 +70660,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "241111 241111 early childhood (pre-primary school) teacher south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간병인 요양보호사 장애인 노인케어 에이지드케어 차일드케어 보육교사 유치원 사회복지"
     },
@@ -70533,7 +70726,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "241213 241213 primary school teacher south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -70598,7 +70792,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "241311 241311 middle school teacher south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -70663,7 +70858,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "241411 241411 secondary school teacher south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -70728,7 +70924,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "241511 241511 special needs teacher south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -70793,7 +70990,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "241512 241512 teacher of the hearing impaired south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -70858,7 +71056,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "241513 241513 teacher of the sight impaired south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -70923,7 +71122,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "241599 241599 special education teachers nec south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -70988,7 +71188,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "249212 249212 dance teacher (private tuition) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -71053,7 +71254,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "251111 251111 dietitian south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -71118,7 +71320,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "251214 251214 sonographer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -71183,7 +71386,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "251411 251411 optometrist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -71248,7 +71452,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "251412 251412 orthoptist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -71313,7 +71518,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "251912 251912 orthotist or prosthetist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -71378,7 +71584,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "251999 251999 health diagnostic and promotion professionals nec south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -71443,7 +71650,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "252111 252111 chiropractor south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -71508,7 +71716,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "252112 252112 osteopath south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -71573,7 +71782,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "252311 252311 dental specialist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -71638,7 +71848,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "252312 252312 dentist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -71703,7 +71914,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "252411 252411 occupational therapist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -71768,7 +71980,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "252511 252511 physiotherapist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -71833,7 +72046,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "252611 252611 podiatrist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -71898,7 +72112,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "252711 252711 audiologist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -71963,7 +72178,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "252712 252712 speech pathologist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -72028,7 +72244,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "253111 253111 general practitioner south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -72093,7 +72310,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "253112 253112 resident medical officer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건 리셉션 사무직 행정 고객상담 판매 소매"
     },
@@ -72158,7 +72376,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "253321 253321 paediatrician south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -72223,7 +72442,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "253411 253411 psychiatrist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -72288,7 +72508,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "254111 254111 midwife south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -72353,7 +72574,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "254411 254411 nurse practitioner south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -72418,7 +72640,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "254412 254412 registered nurse (aged care) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간병인 요양보호사 장애인 노인케어 에이지드케어 차일드케어 보육교사 유치원 사회복지 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -72483,7 +72706,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "254413 254413 registered nurse (child and family health) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -72548,7 +72772,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "254414 254414 registered nurse (community health) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -72613,7 +72838,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "254415 254415 registered nurse (critical care and emergency) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -72678,7 +72904,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "254416 254416 registered nurse (developmental disability) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -72743,7 +72970,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "254417 254417 registered nurse (disability and rehabilitation) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -72808,7 +73036,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "254418 254418 registered nurse (medical) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -72873,7 +73102,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "254421 254421 registered nurse (medical practice) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -72938,7 +73168,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "254422 254422 registered nurse (mental health) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -73003,7 +73234,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "254423 254423 registered nurse (perioperative) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -73068,7 +73300,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "254424 254424 registered nurse (surgical) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -73133,7 +73366,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "254425 254425 registered nurse (paediatrics) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -73198,7 +73432,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "254499 254499 registered nurses nec south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -73263,7 +73498,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "261111 261111 ict business analyst south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg it 전산 네트워크 사이버보안 시스템관리자"
     },
@@ -73328,7 +73564,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "261112 261112 systems analyst south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -73393,7 +73630,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "261113 261113 user experience designer (ict) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg it 전산 네트워크 사이버보안 시스템관리자"
     },
@@ -73458,7 +73696,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "261311 261311 analyst programmer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 개발자 프로그래머 소프트웨어 코딩 웹개발"
     },
@@ -73523,7 +73762,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "261312 261312 developer programmer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 개발자 프로그래머 소프트웨어 코딩 웹개발"
     },
@@ -73588,7 +73828,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "261313 261313 software engineer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 개발자 프로그래머 소프트웨어 코딩 웹개발"
     },
@@ -73653,7 +73894,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "261314 261314 software tester south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 개발자 프로그래머 소프트웨어 코딩 웹개발"
     },
@@ -73718,7 +73960,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "261315 261315 cyber security engineer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg it 전산 네트워크 사이버보안 시스템관리자"
     },
@@ -73783,7 +74026,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "261316 261316 devops engineer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -73848,7 +74092,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "261317 261317 penetration tester south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -73913,7 +74158,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "261399 261399 software and applications programmers nec south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 개발자 프로그래머 소프트웨어 코딩 웹개발"
     },
@@ -73978,7 +74224,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "262111 262111 database administrator south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg it 전산 네트워크 사이버보안 시스템관리자"
     },
@@ -74043,7 +74290,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "262113 262113 systems administrator south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg it 전산 네트워크 사이버보안 시스템관리자"
     },
@@ -74108,7 +74356,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "262114 262114 cyber governance risk and compliance specialist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg it 전산 네트워크 사이버보안 시스템관리자"
     },
@@ -74173,7 +74422,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "262115 262115 cyber security advice and assessment specialist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg it 전산 네트워크 사이버보안 시스템관리자"
     },
@@ -74238,7 +74488,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "262116 262116 cyber security analyst south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg it 전산 네트워크 사이버보안 시스템관리자"
     },
@@ -74303,7 +74554,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "262117 262117 cyber security architect south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg it 전산 네트워크 사이버보안 시스템관리자"
     },
@@ -74368,7 +74620,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "262118 262118 cyber security operations coordinator south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg it 전산 네트워크 사이버보안 시스템관리자"
     },
@@ -74433,7 +74686,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "263211 263211 ict quality assurance engineer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg it 전산 네트워크 사이버보안 시스템관리자"
     },
@@ -74498,7 +74752,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "263212 263212 ict support engineer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg it 전산 네트워크 사이버보안 시스템관리자"
     },
@@ -74563,7 +74818,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "263213 263213 ict systems test engineer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg it 전산 네트워크 사이버보안 시스템관리자"
     },
@@ -74628,7 +74884,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "263299 263299 ict support and test engineers nec south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg it 전산 네트워크 사이버보안 시스템관리자"
     },
@@ -74693,7 +74950,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "272114 272114 rehabilitation counsellor south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -74758,7 +75016,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "272199 272199 counsellors nec south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -74823,7 +75082,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "272311 272311 clinical psychologist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -74888,7 +75148,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "272312 272312 educational psychologist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -74953,7 +75214,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "272313 272313 organisational psychologist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -75018,7 +75280,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "272314 272314 psychotherapist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -75083,7 +75346,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "272399 272399 psychologists nec south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -75148,7 +75412,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "272412 272412 interpreter south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -75213,7 +75478,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "272511 272511 social worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -75278,7 +75544,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "272613 272613 welfare worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간병인 요양보호사 장애인 노인케어 에이지드케어 차일드케어 보육교사 유치원 사회복지"
     },
@@ -75343,7 +75610,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "311111 311111 agricultural technician south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -75408,7 +75676,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "311112 311112 agricultural and agritech technician south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -75473,7 +75742,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "311113 311113 animal husbandry technician south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -75538,7 +75808,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "311114 311114 aquaculture or fisheries technician south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 육가공 도축 정육 발골 정육사 수산 양식 어선 선원"
     },
@@ -75603,7 +75874,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "311115 311115 irrigation designer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -75668,7 +75940,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "311217 311217 respiratory technician south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -75733,7 +76006,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "311312 311312 meat inspector south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 육가공 도축 정육 발골 정육사 수산 양식 어선 선원"
     },
@@ -75798,7 +76072,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "311314 311314 primary products quality assurance officer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 리셉션 사무직 행정 고객상담 판매 소매"
     },
@@ -75863,7 +76138,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "311399 311399 primary products inspectors nec south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -75928,7 +76204,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "312211 312211 civil engineering draftsperson south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 엔지니어 토목 광산 지질 측량 제도사"
     },
@@ -75993,7 +76270,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "312311 312311 electrical engineering draftsperson south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 엔지니어 토목 광산 지질 측량 제도사"
     },
@@ -76058,7 +76336,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "312312 312312 electrical engineering technician south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 엔지니어 토목 광산 지질 측량 제도사"
     },
@@ -76123,7 +76402,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "312411 312411 electronic engineering draftsperson south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 엔지니어 토목 광산 지질 측량 제도사"
     },
@@ -76188,7 +76468,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "312412 312412 electronic engineering technician south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -76253,7 +76534,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "312511 312511 mechanical engineering draftsperson south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 엔지니어 토목 광산 지질 측량 제도사"
     },
@@ -76318,7 +76600,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "312512 312512 mechanical engineering technician south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 엔지니어 토목 광산 지질 측량 제도사"
     },
@@ -76383,7 +76666,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "312911 312911 maintenance planner south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -76448,7 +76732,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "312914 312914 other draftsperson south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 엔지니어 토목 광산 지질 측량 제도사"
     },
@@ -76513,7 +76798,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "321111 321111 automotive electrician south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 자동차정비사 정비공 디젤정비 판금 도장 메카닉 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -76578,7 +76864,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "321211 321211 motor mechanic (general) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 자동차정비사 정비공 디젤정비 판금 도장 메카닉"
     },
@@ -76643,7 +76930,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "321212 321212 diesel motor mechanic south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 자동차정비사 정비공 디젤정비 판금 도장 메카닉"
     },
@@ -76708,7 +76996,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "321213 321213 motorcycle mechanic south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -76773,7 +77062,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "322211 322211 sheetmetal trades worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 용접사 용접 금속 피터 기계가공 보일러메이커 선반"
     },
@@ -76838,7 +77128,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "322311 322311 metal fabricator south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 용접사 용접 금속 피터 기계가공 보일러메이커 선반"
     },
@@ -76903,7 +77194,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "322312 322312 pressure welder south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 용접사 용접 금속 피터 기계가공 보일러메이커 선반"
     },
@@ -76968,7 +77260,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "322313 322313 welder (first class) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 용접사 용접 금속 피터 기계가공 보일러메이커 선반"
     },
@@ -77033,7 +77326,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "323211 323211 fitter (general) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 용접사 용접 금속 피터 기계가공 보일러메이커 선반"
     },
@@ -77098,7 +77392,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "323212 323212 fitter and turner south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 용접사 용접 금속 피터 기계가공 보일러메이커 선반"
     },
@@ -77163,7 +77458,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "323213 323213 fitter-welder south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 용접사 용접 금속 피터 기계가공 보일러메이커 선반"
     },
@@ -77228,7 +77524,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "323214 323214 metal machinist (first class) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 용접사 용접 금속 피터 기계가공 보일러메이커 선반"
     },
@@ -77293,7 +77590,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "323299 323299 metal fitters and machinists nec south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 용접사 용접 금속 피터 기계가공 보일러메이커 선반"
     },
@@ -77358,7 +77656,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "323315 323315 saw doctor south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -77423,7 +77722,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "324111 324111 panelbeater south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 자동차정비사 정비공 디젤정비 판금 도장 메카닉"
     },
@@ -77488,7 +77788,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "324211 324211 vehicle body builder south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 자동차정비사 정비공 디젤정비 판금 도장 메카닉 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -77553,7 +77854,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "324212 324212 vehicle trimmer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 자동차정비사 정비공 디젤정비 판금 도장 메카닉"
     },
@@ -77618,7 +77920,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "324311 324311 vehicle painter south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 자동차정비사 정비공 디젤정비 판금 도장 메카닉 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -77683,7 +77986,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "331111 331111 bricklayer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -77748,7 +78052,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "331112 331112 stonemason south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -77813,7 +78118,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "331211 331211 carpenter and joiner south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -77878,7 +78184,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "331212 331212 carpenter south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -77943,7 +78250,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "331213 331213 joiner south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -78008,7 +78316,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "332111 332111 floor finisher south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -78073,7 +78382,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "332211 332211 painting trades worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -78138,7 +78448,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "333111 333111 glazier south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -78203,7 +78514,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "333211 333211 plasterer (wall and ceiling) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -78268,7 +78580,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "333212 333212 renderer (solid plaster) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -78333,7 +78646,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "333311 333311 roof tiler south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -78398,7 +78712,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "333411 333411 wall and floor tiler south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -78463,7 +78778,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "334111 334111 plumber (general) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -78528,7 +78844,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "334112 334112 airconditioning and mechanical services plumber south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -78593,7 +78910,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "334113 334113 drainer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -78658,7 +78976,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "334114 334114 gasfitter south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 용접사 용접 금속 피터 기계가공 보일러메이커 선반"
     },
@@ -78723,7 +79042,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "334115 334115 roof plumber south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -78788,7 +79108,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "334116 334116 plumber (general) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -78853,7 +79174,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "341111 341111 electrician (general) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -78918,7 +79240,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "341112 341112 electrician (special class) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -78983,7 +79306,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "342111 342111 airconditioning and refrigeration mechanic south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -79048,7 +79372,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "342211 342211 electrical linesworker / electrical line mechanic south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -79113,7 +79438,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "342212 342212 technical cable jointer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -79178,7 +79504,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "351111 351111 baker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 요리사 셰프 조리사 주방 제과 제빵 베이커"
     },
@@ -79243,7 +79570,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "351112 351112 pastry cook south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 요리사 셰프 조리사 주방 제과 제빵 베이커"
     },
@@ -79308,7 +79636,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "351311 351311 chef south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 요리사 셰프 조리사 주방 제과 제빵 베이커"
     },
@@ -79373,7 +79702,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "351411 351411 cook south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 요리사 셰프 조리사 주방 제과 제빵 베이커"
     },
@@ -79438,7 +79768,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "361311 361311 veterinary nurse south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -79503,7 +79834,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "362213 362213 landscape gardener south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -79568,7 +79900,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "362411 362411 nurseryperson south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -79633,7 +79966,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "362511 362511 arborist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -79698,7 +80032,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "362512 362512 tree worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -79763,7 +80098,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "362711 362711 landscape gardener south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -79828,7 +80164,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "362712 362712 irrigation technician south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -79893,7 +80230,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "363111 363111 aquaculture supervisor south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 육가공 도축 정육 발골 정육사 수산 양식 어선 선원"
     },
@@ -79958,7 +80296,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "363112 363112 fishing leading hand south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 육가공 도축 정육 발골 정육사 수산 양식 어선 선원"
     },
@@ -80023,7 +80362,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "363113 363113 forestry operations supervisor south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -80088,7 +80428,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "363114 363114 horticultural supervisor or specialist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -80153,7 +80494,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "363115 363115 senior broadacre crop and livestock farm worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -80218,7 +80560,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "363116 363116 senior broadacre crop farm worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -80283,7 +80626,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "363199 363199 senior aquaculture, crop and forestry workers nec south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 육가공 도축 정육 발골 정육사 수산 양식 어선 선원"
     },
@@ -80348,7 +80692,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "363211 363211 senior beef cattle station worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -80413,7 +80758,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "363212 363212 senior cattle and sheep farm worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -80478,7 +80824,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "363213 363213 senior dairy cattle farm worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -80543,7 +80890,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "363214 363214 senior piggery stockperson south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -80608,7 +80956,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "363215 363215 senior sheep farm worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -80673,7 +81022,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "363299 363299 senior livestock farm workers nec south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -80738,7 +81088,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "393114 393114 shoemaker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -80803,7 +81154,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "399211 399211 chemical plant operator south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -80868,7 +81220,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "399212 399212 gas or petroleum operator south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -80933,7 +81286,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "399213 399213 power generation plant operator south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -80998,7 +81352,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "399911 399911 diver south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -81063,7 +81418,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "399916 399916 plastics technician south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -81128,7 +81484,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "411211 411211 dental hygienist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -81193,7 +81550,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "411213 411213 dental technician south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -81258,7 +81616,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "411214 411214 dental therapist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -81323,7 +81682,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "411311 411311 diversional therapist south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -81388,7 +81748,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "411411 411411 enrolled nurse south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -81453,7 +81814,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "411711 411711 community worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간병인 요양보호사 장애인 노인케어 에이지드케어 차일드케어 보육교사 유치원 사회복지"
     },
@@ -81518,7 +81880,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "411712 411712 disabilities services officer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 리셉션 사무직 행정 고객상담 판매 소매"
     },
@@ -81583,7 +81946,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "411713 411713 family support worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -81648,7 +82012,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "411715 411715 residential care officer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 리셉션 사무직 행정 고객상담 판매 소매"
     },
@@ -81713,7 +82078,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "411716 411716 youth worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간병인 요양보호사 장애인 노인케어 에이지드케어 차일드케어 보육교사 유치원 사회복지"
     },
@@ -81778,7 +82144,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "421111 421111 child care worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간병인 요양보호사 장애인 노인케어 에이지드케어 차일드케어 보육교사 유치원 사회복지"
     },
@@ -81843,7 +82210,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "421111 421111 child care worker (group leaders only) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간병인 요양보호사 장애인 노인케어 에이지드케어 차일드케어 보육교사 유치원 사회복지"
     },
@@ -81908,7 +82276,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "423111 423111 aged or disabled carer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간병인 요양보호사 장애인 노인케어 에이지드케어 차일드케어 보육교사 유치원 사회복지"
     },
@@ -81973,7 +82342,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "423211 423211 dental assistant south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -82038,7 +82408,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "423312 423312 nursing support worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간병인 요양보호사 장애인 노인케어 에이지드케어 차일드케어 보육교사 유치원 사회복지"
     },
@@ -82103,7 +82474,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "423313 423313 personal care assistant south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간병인 요양보호사 장애인 노인케어 에이지드케어 차일드케어 보육교사 유치원 사회복지"
     },
@@ -82168,7 +82540,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "423314 423314 therapy aide south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 간병인 요양보호사 장애인 노인케어 에이지드케어 차일드케어 보육교사 유치원 사회복지"
     },
@@ -82233,7 +82606,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "451412 451412 tour guide south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -82298,7 +82672,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "452215 452215 outdoor adventure instructor south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -82363,7 +82738,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "452299 452299 outdoor adventure guides nec south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -82428,7 +82804,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "711313 711313 sawmilling operator south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -82493,7 +82870,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "711513 711513 plastics fabricator or welder south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 용접사 용접 금속 피터 기계가공 보일러메이커 선반"
     },
@@ -82558,7 +82936,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "711514 711514 plastics production machine operator (general) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -82623,7 +83002,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "711711 711711 footwear production machine operator south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -82688,7 +83068,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "711713 711713 knitting machine operator south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -82753,7 +83134,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "711913 711913 sand blaster south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -82818,7 +83200,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "712111 712111 crane, hoist or lift operator south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 트럭운전사 트럭기사 버스운전 지게차 포크리프트 중장비 크레인 굴삭기 운송 배달"
     },
@@ -82883,7 +83266,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "712211 712211 driller south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -82948,7 +83332,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "712212 712212 miner south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -83013,7 +83398,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "712213 712213 shot firer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -83078,7 +83464,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "712311 712311 engineering production worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -83143,7 +83530,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "721111 721111 agricultural and horticultural mobile plant operator south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -83208,7 +83596,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "721212 721212 backhoe operator south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -83273,7 +83662,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "733111 733111 truck driver (general) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 트럭운전사 트럭기사 버스운전 지게차 포크리프트 중장비 크레인 굴삭기 운송 배달"
     },
@@ -83338,7 +83728,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "821711 821711 construction rigger south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -83403,7 +83794,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "821713 821713 steel fixer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -83468,7 +83860,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "821714 821714 structural steel erector south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -83533,7 +83926,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "831211 831211 meat boner and slicer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 육가공 도축 정육 발골 정육사 수산 양식 어선 선원"
     },
@@ -83598,7 +83992,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "831212 831212 slaughterer south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 육가공 도축 정육 발골 정육사 수산 양식 어선 선원"
     },
@@ -83663,7 +84058,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "839311 839311 product examiner south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -83728,7 +84124,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "839312 839312 product grader south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -83793,7 +84190,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "839313 839313 product tester south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -83858,7 +84256,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "842214 842214 grain, oilseed, pulse and pasture farm worker (aus) / field farm worker (nz) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -83923,7 +84322,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "842222 842222 vineyard worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -83988,7 +84388,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "842311 842311 beef cattle farm worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -84053,7 +84454,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "842312 842312 cattle and sheep farm worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -84118,7 +84520,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "842313 842313 dairy cattle farm worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -84183,7 +84586,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "842314 842314 livestock husbandry worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -84248,7 +84652,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "842315 842315 piggery farm worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -84313,7 +84718,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "842316 842316 poultry farm worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 육가공 도축 정육 발골 정육사 수산 양식 어선 선원 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -84378,7 +84784,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "842317 842317 sheep farm worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -84443,7 +84850,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "843111 843111 forestry worker south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -84508,7 +84916,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "843112 843112 logging assistant south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -84573,7 +84982,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "843113 843113 tree faller south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg"
     },
@@ -84638,7 +85048,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "899212 899212 fishing hand south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 육가공 도축 정육 발골 정육사 수산 양식 어선 선원"
     },
@@ -84703,7 +85114,8 @@
         1,
         2,
         15,
-        16
+        16,
+        31
       ],
       "search_text": "899411 899411 motor vehicle parts and accessories fitter (general) south australia regional workforce dama 남호주 광역·지방 (sa regional workforce) dama sa sa-reg 용접사 용접 금속 피터 기계가공 보일러메이커 선반 자동차정비사 정비공 디젤정비 판금 도장 메카닉"
     },
@@ -133551,7 +133963,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "221111 221111 accountant (general) the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 회계사 회계사무원 북키퍼 경리 급여 세무 재무"
     },
@@ -133617,7 +134030,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "423111 423111 aged or disabled carer the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 간병인 요양보호사 장애인 노인케어 에이지드케어 차일드케어 보육교사 유치원 사회복지"
     },
@@ -133683,7 +134097,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "721111 721111 agricultural and horticultural mobile plant operator the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -133749,7 +134164,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "234112 234112 agricultural scientist the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -133815,7 +134231,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "070499# 070499# asphalt technician the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -133881,7 +134298,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "321111 321111 automotive electrician the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 자동차정비사 정비공 디젤정비 판금 도장 메카닉 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -133947,7 +134365,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "070499# 070499# bar attendant (supervisor) the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 바리스타 웨이터 서버 바텐더 카페 호텔 레스토랑 홀서빙 호스피탈리티"
     },
@@ -134013,7 +134432,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "431112 431112 barista the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 바리스타 웨이터 서버 바텐더 카페 호텔 레스토랑 홀서빙 호스피탈리티"
     },
@@ -134079,7 +134499,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "121312 121312 beef cattle farmer the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -134145,7 +134566,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "331212 331212 carpenter the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -134211,7 +134633,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "331211 331211 carpenter and joiner the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -134277,7 +134700,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "351311 351311 chef the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 요리사 셰프 조리사 주방 제과 제빵 베이커"
     },
@@ -134343,7 +134767,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "233111 233111 chemical engineer the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -134409,7 +134834,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "399211 399211 chemical plant operator the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -134475,7 +134901,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "234211 234211 chemist (industrial) the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -134541,7 +134968,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "311411 311411 chemistry technician the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -134607,7 +135035,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "134111 134111 child care centre manager the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 간병인 요양보호사 장애인 노인케어 에이지드케어 차일드케어 보육교사 유치원 사회복지"
     },
@@ -134673,7 +135102,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "421111 421111 child care group leader the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 간병인 요양보호사 장애인 노인케어 에이지드케어 차일드케어 보육교사 유치원 사회복지"
     },
@@ -134739,7 +135169,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "421111 421111 child care worker the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 간병인 요양보호사 장애인 노인케어 에이지드케어 차일드케어 보육교사 유치원 사회복지"
     },
@@ -134805,7 +135236,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "233211 233211 civil engineer the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 엔지니어 토목 광산 지질 측량 제도사"
     },
@@ -134871,7 +135303,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "312211 312211 civil engineering draftsperson the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 엔지니어 토목 광산 지질 측량 제도사"
     },
@@ -134937,7 +135370,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "312212 312212 civil engineering technician the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 엔지니어 토목 광산 지질 측량 제도사"
     },
@@ -135003,7 +135437,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "272311 272311 clinical psychologist the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -135069,7 +135504,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "411711 411711 community worker the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 간병인 요양보호사 장애인 노인케어 에이지드케어 차일드케어 보육교사 유치원 사회복지"
     },
@@ -135135,7 +135571,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "712914 712914 concrete batching plant operators the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -135201,7 +135638,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "351411 351411 cook the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 요리사 셰프 조리사 주방 제과 제빵 베이커"
     },
@@ -135267,7 +135705,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "149212 149212 customer service manager the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 리셉션 사무직 행정 고객상담 판매 소매"
     },
@@ -135333,7 +135772,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "732111 732111 delivery driver the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 트럭운전사 트럭기사 버스운전 지게차 포크리프트 중장비 크레인 굴삭기 운송 배달"
     },
@@ -135399,7 +135839,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "423211 423211 dental assistant the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -135465,7 +135906,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "252312 252312 dentist the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -135531,7 +135973,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "321212 321212 diesel motor mechanic the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 자동차정비사 정비공 디젤정비 판금 도장 메카닉"
     },
@@ -135597,7 +136040,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "411712 411712 disabilities services officer the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 리셉션 사무직 행정 고객상담 판매 소매"
     },
@@ -135663,7 +136107,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "712211 712211 driller the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -135729,7 +136174,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "821912 821912 driller's assistant the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -135795,7 +136241,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "241111 241111 early childhood (pre- primary school) teacher the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 간병인 요양보호사 장애인 노인케어 에이지드케어 차일드케어 보육교사 유치원 사회복지"
     },
@@ -135861,7 +136308,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "721211 721211 earth moving plant operator the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -135927,7 +136375,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "311412 311412 earth science technician the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -135993,7 +136442,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "233311 233311 electrical engineer the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 엔지니어 토목 광산 지질 측량 제도사"
     },
@@ -136059,7 +136509,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "312312 312312 electrical engineers technician the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 엔지니어 토목 광산 지질 측량 제도사"
     },
@@ -136125,7 +136576,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "341111 341111 electrician (general) the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -136191,7 +136643,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "341112 341112 electrician (special class) the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -136257,7 +136710,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "342315 342315 electronic instrument trades worker (special class) the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -136323,7 +136777,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "253912 253912 emergency medicine specialist the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -136389,7 +136844,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "441211 441211 emergency service worker the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -136455,7 +136911,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "133211 133211 engineering manager the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -136521,7 +136978,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "233914 233914 engineering technologist the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -136587,7 +137045,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "411411 411411 enrolled nurse the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -136653,7 +137112,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "234312 234312 environmental consultant the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -136719,7 +137179,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "251311 251311 environmental health officer the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 리셉션 사무직 행정 고객상담 판매 소매"
     },
@@ -136785,7 +137246,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "421112 421112 family day care educator the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -136851,7 +137313,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "411713 411713 family support worker the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -136917,7 +137380,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "222311 222311 financial investment advisor (financial planner) the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -136983,7 +137447,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "149112 149112 fitness centre manager the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -137049,7 +137514,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "323211 323211 fitter (general) the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 용접사 용접 금속 피터 기계가공 보일러메이커 선반"
     },
@@ -137115,7 +137581,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "323212 323212 fitter and turner the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 용접사 용접 금속 피터 기계가공 보일러메이커 선반"
     },
@@ -137181,7 +137648,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "323213 323213 fitter-welder the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 용접사 용접 금속 피터 기계가공 보일러메이커 선반"
     },
@@ -137247,7 +137715,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "253111 253111 general medical practitioner the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -137313,7 +137782,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "234411 234411 geologist the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 엔지니어 토목 광산 지질 측량 제도사"
     },
@@ -137379,7 +137849,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "234412 234412 geophysicist the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -137445,7 +137916,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "233212 233212 geotechnical engineer the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -137511,7 +137983,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "362311 362311 / 362313 362313 greenkeeper / sports turf trades worker the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -137577,7 +138050,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "391111 391111 hairdresser the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 미용사 헤어드레서 뷰티 마사지"
     },
@@ -137643,7 +138117,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "141311 141311 hotel or motel manager the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 바리스타 웨이터 서버 바텐더 카페 호텔 레스토랑 홀서빙 호스피탈리티"
     },
@@ -137709,7 +138184,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "431411 431411 hotel service manager the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 바리스타 웨이터 서버 바텐더 카페 호텔 레스토랑 홀서빙 호스피탈리티"
     },
@@ -137775,7 +138251,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "313112 313112 ict customer support officer the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 리셉션 사무직 행정 고객상담 판매 소매 it 전산 네트워크 사이버보안 시스템관리자"
     },
@@ -137841,7 +138318,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "313199 313199 ict support technicians nec the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields it 전산 네트워크 사이버보안 시스템관리자"
     },
@@ -137907,7 +138385,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "711211 711211 industrial spray painter the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -137973,7 +138452,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "139913 139913 laboratory manager the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -138039,7 +138519,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "399513 399513 light technician the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -138105,7 +138586,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "721216 721216 loader operator the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 트럭운전사 트럭기사 버스운전 지게차 포크리프트 중장비 크레인 굴삭기 운송 배달"
     },
@@ -138171,7 +138653,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "323313 323313 locksmith the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -138237,7 +138720,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "221112 221112 management accountant the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 회계사 회계사무원 북키퍼 경리 급여 세무 재무"
     },
@@ -138303,7 +138787,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "133411 133411 manufacturer the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -138369,7 +138854,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "831211 831211 meat boner and slicer the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 육가공 도축 정육 발골 정육사 수산 양식 어선 선원"
     },
@@ -138435,7 +138921,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "233512 233512 mechanical engineer the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 엔지니어 토목 광산 지질 측량 제도사"
     },
@@ -138501,7 +138988,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "312512 312512 mechanical engineers technician the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 엔지니어 토목 광산 지질 측량 제도사"
     },
@@ -138567,7 +139055,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "134211 134211 medical administrator the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -138633,7 +139122,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "253999 253999 medical practitioners nec the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -138699,7 +139189,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "322311 322311 metal fabricator the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 용접사 용접 금속 피터 기계가공 보일러메이커 선반"
     },
@@ -138765,7 +139256,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "323214 323214 metal machinist (first class) the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 용접사 용접 금속 피터 기계가공 보일러메이커 선반"
     },
@@ -138831,7 +139323,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "312912 312912 metallurgical or materials technician the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 용접사 용접 금속 피터 기계가공 보일러메이커 선반"
     },
@@ -138897,7 +139390,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "233611 233611 mining engineer (excluding petroleum) the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 엔지니어 토목 광산 지질 측량 제도사"
     },
@@ -138963,7 +139457,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "121411 121411 / 121711 121711 mixed crop and livestock farmer / broadacre crop and livestock farmer the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -139029,7 +139524,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "121216 121216 / 121711 121711 mixed crop farmer / broadacre crop and livestock farmer the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 농장 원예 농업 축산 낙농 과수원 와이너리 조경 가드너"
     },
@@ -139095,7 +139591,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "721999 721999 mobile plant operator nec the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -139161,7 +139658,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "321211 321211 motor mechanic (general) the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 자동차정비사 정비공 디젤정비 판금 도장 메카닉"
     },
@@ -139227,7 +139725,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "423312 423312 nursing support worker the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 간병인 요양보호사 장애인 노인케어 에이지드케어 차일드케어 보육교사 유치원 사회복지"
     },
@@ -139293,7 +139792,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "251312 251312 occupational health and safety adviser the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -139359,7 +139859,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "252411 252411 occupational therapist the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -139425,7 +139926,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "512111 512111 office manager (general) the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 리셉션 사무직 행정 고객상담 판매 소매"
     },
@@ -139491,7 +139993,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "251411 251411 optometrist the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -139557,7 +140060,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "251912 251912 orthotist or prosthetist the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -139623,7 +140127,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "351112 351112 pastrycook the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 요리사 셰프 조리사 주방 제과 제빵 베이커"
     },
@@ -139689,7 +140194,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "521111 521111 personal assistant the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -139755,7 +140261,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "423313 423313 personal care assistant the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 간병인 요양보호사 장애인 노인케어 에이지드케어 차일드케어 보육교사 유치원 사회복지"
     },
@@ -139821,7 +140328,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "252511 252511 physiotherapist the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -139887,7 +140395,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "241213 241213 primary school teacher the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -139953,7 +140462,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "070499# 070499# process technician the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -140019,7 +140529,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "133512 133512 production manager (manufacturing) the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -140085,7 +140596,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "233513 233513 production or plant engineer the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -140151,7 +140663,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "511112 511112 program or project administrator the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -140217,7 +140730,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "272399 272399 psychologists nec the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -140283,7 +140797,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "131114 131114 public relations manager the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -140349,7 +140864,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "313211 313211 radio communications technician the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -140415,7 +140931,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "223112 223112 recruitment consultant the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -140481,7 +140998,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "254412 254412 registered nurse (aged care) the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 간병인 요양보호사 장애인 노인케어 에이지드케어 차일드케어 보육교사 유치원 사회복지 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -140547,7 +141065,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "254418 254418 registered nurse (medical) the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -140613,7 +141132,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "142111 142111 retail manager (general) the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 리셉션 사무직 행정 고객상담 판매 소매"
     },
@@ -140679,7 +141199,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "251513 251513 retail pharmacist the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건 리셉션 사무직 행정 고객상담 판매 소매"
     },
@@ -140745,7 +141266,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "621511 621511 retail supervisor the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 리셉션 사무직 행정 고객상담 판매 소매"
     },
@@ -140811,7 +141333,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "721915 721915 road roller operator the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -140877,7 +141400,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "070499# 070499# rope access technician the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -140943,7 +141467,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "711516 711516 rubber production machine operator (belt splicer) the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -141009,7 +141534,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "312611 312611 safety inspector the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -141075,7 +141601,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "131112 131112 sales manager the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 리셉션 사무직 행정 고객상담 판매 소매"
     },
@@ -141141,7 +141668,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "821712 821712 scaffolder the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -141207,7 +141735,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "311499 311499 science technician the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -141273,7 +141802,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "241411 241411 secondary school teacher the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -141339,7 +141869,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "361211 361211 / 363311 363311 shearer the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -141405,7 +141936,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "831212 831212 slaughterer the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 육가공 도축 정육 발골 정육사 수산 양식 어선 선원"
     },
@@ -141471,7 +142003,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "272499 272499 social professionals nec the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -141537,7 +142070,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "272511 272511 social worker the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -141603,7 +142137,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "251214 251214 sonographer the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 간호사 의료 치과 약사 물리치료 작업치료 심리 방사선 보건"
     },
@@ -141669,7 +142204,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "070499# 070499# sound and light technician the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -141735,7 +142271,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "399516 399516 sound technician the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -141801,7 +142338,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "253399 253399 specialist physicians nec the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -141867,7 +142405,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "252712 252712 speech pathologist the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -141933,7 +142472,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "452321 452321 sports development officer the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 리셉션 사무직 행정 고객상담 판매 소매"
     },
@@ -141999,7 +142539,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "233214 233214 structural engineer the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -142065,7 +142606,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "133611 133611 supply and distribution manager the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -142131,7 +142673,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "253511 253511 surgeon (general) the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -142197,7 +142740,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "232212 232212 surveyor (mine surveyor) the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 엔지니어 토목 광산 지질 측량 제도사"
     },
@@ -142263,7 +142807,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "263311 263311 telecommunications engineer the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -142329,7 +142874,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "313212 313212 telecommunications field engineer the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -142395,7 +142941,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "263312 263312 telecommunications network engineer the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields it 전산 네트워크 사이버보안 시스템관리자"
     },
@@ -142461,7 +143008,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "313213 313213 telecommunications network planner the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields it 전산 네트워크 사이버보안 시스템관리자"
     },
@@ -142527,7 +143075,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "313214 313214 telecommunications technical officer or technologist the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 리셉션 사무직 행정 고객상담 판매 소매"
     },
@@ -142593,7 +143142,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "733111 733111 truck driver (general) the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 트럭운전사 트럭기사 버스운전 지게차 포크리프트 중장비 크레인 굴삭기 운송 배달"
     },
@@ -142659,7 +143209,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "232611 232611 urban and regional planner the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields"
     },
@@ -142725,7 +143276,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "324211 324211 vehicle body builder the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 자동차정비사 정비공 디젤정비 판금 도장 메카닉 목수 배관공 전기기사 타일 미장 페인터 도장 유리 지붕 콘크리트 건설 건축 시추"
     },
@@ -142791,7 +143343,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "431511 431511 waiter the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 바리스타 웨이터 서버 바텐더 카페 호텔 레스토랑 홀서빙 호스피탈리티"
     },
@@ -142857,7 +143410,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "070499# 070499# waiter (supervisor) the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 바리스타 웨이터 서버 바텐더 카페 호텔 레스토랑 홀서빙 호스피탈리티"
     },
@@ -142923,7 +143477,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "322313 322313 welder (first class) the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 용접사 용접 금속 피터 기계가공 보일러메이커 선반"
     },
@@ -142989,7 +143544,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "272613 272613 welfare worker the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 간병인 요양보호사 장애인 노인케어 에이지드케어 차일드케어 보육교사 유치원 사회복지"
     },
@@ -143055,7 +143611,8 @@
         2,
         24,
         25,
-        29
+        29,
+        30
       ],
       "search_text": "411716 411716 youth worker the goldfields dama (wa) 골드필즈 (the goldfields · 칼굴리/에스페란스/레이븐소프) dama wa goldfields 간병인 요양보호사 장애인 노인케어 에이지드케어 차일드케어 보육교사 유치원 사회복지"
     },

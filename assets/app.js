@@ -11,7 +11,7 @@
   const I18N = {
     ko: {
       brandTag: "IMMIGRATION LAW · REGIONAL DAMA PRACTICE",
-      pollBadge: "출처 모니터 (2026-10-20 · 실시간 14/15 · 캐시 1건 원문 확인 필요)",
+      pollBadge: "출처 모니터 동기화 중...",
       navEnquiry: "박앤코 상담·문의하기 →",
       urgentBadge: "2026–27 협약 일정 경보",
       urgentText: "서호주 South West DAMA 신청·변경 접수 마감: 2026-10-30 (협약 종료: 2026-12-14) / Goldfields DAMA 신청 접수 마감: 2026-11-13 (협약 종료: 2026-12-31 · 11.13 이후 신규 접수 불가, 기존 승인 협약·비자 자동 취소 아님) / 남호주 SA DAMA 현행 협약 2027-01-31까지 연장 운영 중(차기 5년 Statewide DAMA 협상 중).",
@@ -23,7 +23,7 @@
       specName: "박창민 대표변호사 (Chang Min Park)",
       specRole: "QLS Accredited Specialist in Immigration Law",
       specSlogan: "\"삶에 집중하세요, 법률은 저희가 맡겠습니다.\"",
-      specMeta: "법무법인 박앤코 (Park & Co Lawyers · Underwood QLD) | 공식 이메일: enquiry@parkcolawyers.com",
+      specMeta: "법무법인 박앤코 (Park & Co Lawyers · Underwood QLD) | 공식 이메일: cpark@parkcolawyers.com",
       specBtn: "온라인 문의 바로가기 (parklawyers.com.au) →",
 
       stat1Over: "ACTIVE DAMAS",
@@ -116,12 +116,12 @@
       discTitle: "법률 면책공고 (Legal Disclaimer) · 저작권 보호 및 각 주정부/연방정부 1차 출처 각주",
       discP1: "1. 일반 정보 제공 목적 및 법률자문 비구성 (No Legal Advice & No Solicitor-Client Relationship): 본 웹서비스('Park & Co DAMA Navigator')에 수록된 모든 정보는 2026년 10월 20일 기준 호주 연방 이민성(Department of Home Affairs) 및 13개 지정지역대표기관(DAR)이 공개한 공식 가이드라인과 직종 스케줄을 바탕으로 정리된 일반 탐색 정보이며, 개별 사안에 대한 법률자문(Legal Advice)이나 자격 확정 판정이 아닙니다. 본 서비스의 탐색 결과는 '검토 후보(Candidate)' 또는 '추가 확인 필요(Requires Verification)'를 안내할 뿐이며, 실제 DAMA DAR Endorsement, Labour Agreement 체결 및 비자(Subclass 482 / 494 / 186) 신청 가능 여부는 고용주의 근무지 우편번호, 재무 건전성, LMT/SMER 구인광고 적격성, 호주 시장임금(AMSR) 입증, 신청자의 세부 학력·경력(AQF 등급 및 풀타임 환산 경력) 및 각 DAR의 재량에 따라 달라지므로 반드시 QLS 공인 이민법 전문변호사(Accredited Specialist in Immigration Law)의 정식 자문을 받으시기 바랍니다.",
       discP2: "2. 저작권 보호 고지 (Copyright Protection Notice): © 2026 PNC Legal Pty Ltd t/a Park & Co Lawyers. All rights reserved. 본 웹서비스의 데이터베이스 구조, 국·영문 직종 매핑, 연령·영어·경력 요건 탐색 알고리즘, UI/UX 디자인 및 해설 문구에 대한 일체의 저작권과 지식재산권은 법무법인 박앤코에 귀속됩니다. 사전 서면 허가 없는 크롤링, 무단 복제, 재배포 또는 타 이주업체·법무법인의 상업적 도용을 엄격히 금지합니다.",
-      discP3: "3. 호주 연방·주·지방정부 및 관할 DAR 공식 출처 표기 (Government & DAR Attribution Notice): 본 서비스에 반영된 각 주·테리토리 정부 및 DAR의 직종 코드, 우편번호 범위, 수수료 및 완화된 기준 수치는 호주 공공저작물 라이선스(Creative Commons Attribution 4.0 International — CC BY 4.0) 및 출처 표시 원칙에 따라 아래 29개 1차 공식 출처([1]~[29])를 원문 링크 및 SHA-256 무결성 해시와 함께 하단 각주에 명시합니다.",
-      fnHeading: "1차 공식 출처 및 주정부·DAR 레퍼런스 각주 ([1] ~ [29])",
+      discP3: "3. 호주 연방·주·지방정부 및 관할 DAR 공식 출처 표기 (Government & DAR Attribution Notice): 본 서비스에 반영된 각 주·테리토리 정부 및 DAR의 직종 코드, 우편번호 범위, 수수료 및 완화된 기준 수치는 호주 공공저작물 라이선스(Creative Commons Attribution 4.0 International — CC BY 4.0) 및 출처 표시 원칙에 따라 아래 31개 1차 공식 출처([1]~[31])를 원문 링크 및 SHA-256 무결성 해시와 함께 하단 각주에 명시합니다.",
+      fnHeading: "1차 공식 출처 및 주정부·DAR 레퍼런스 각주 ([1] ~ [31])",
     },
     en: {
       brandTag: "IMMIGRATION LAW · REGIONAL DAMA PRACTICE",
-      pollBadge: "Source Monitor (2026-10-20 · Live 14/15 · 1 Cached — Verify Live)",
+      pollBadge: "Source Monitor syncing...",
       navEnquiry: "Make an Enquiry →",
       urgentBadge: "2026–27 SCHEDULE ALERT",
       urgentText: "WA South West DAMA Application/Variation Cutoff: 2026-10-30 (Agreement Expiry: 2026-12-14) / Goldfields DAMA Application Cutoff: 2026-11-13 (Agreement Expiry: 2026-12-31 · closed to new applications after 13 Nov; existing approved agreements/visas not auto-cancelled) / SA DAMAs extended to 2027-01-31 (proposed 5-year Statewide DAMA under negotiation).",
@@ -133,7 +133,7 @@
       specName: "Chang Min Park — Principal Lawyer",
       specRole: "QLS Accredited Specialist in Immigration Law",
       specSlogan: "\"You focus on life, we'll handle the law.\"",
-      specMeta: "Park & Co Lawyers (Underwood QLD) | Official Email: enquiry@parkcolawyers.com",
+      specMeta: "Park & Co Lawyers (Underwood QLD) | Official Email: cpark@parkcolawyers.com",
       specBtn: "Enquire Online (parklawyers.com.au) →",
 
       stat1Over: "ACTIVE DAMAS",
@@ -226,8 +226,8 @@
       discTitle: "Legal Disclaimer, Copyright Notice & Official Government/DAR Source Footnotes",
       discP1: "1. General Information Only (No Legal Advice / No Automated Eligibility Certification): The information provided on this web service ('Park & Co DAMA Navigator') is current as at 20 October 2026 based on official schedules published by the Australian Department of Home Affairs and the 13 Designated Area Representatives (DARs). It is an exploratory reference tool only and does not constitute legal advice or automated eligibility certification. Results are presented as 'Candidate' or 'Requires Verification'; actual DAMA endorsement, Labour Agreement approval, and visa grant (Subclasses 482 / 494 / 186) depend on verified employer postcode, financial viability, LMT/SMER compliance, Annual Market Salary Rate (AMSR), exact AQF qualifications, full-time equivalent work experience, and DAR discretion.",
       discP2: "2. Copyright Protection Notice: © 2026 PNC Legal Pty Ltd t/a Park & Co Lawyers (Underwood QLD). All rights reserved. The compilation, bilingual mapping, exploratory rule engine, UI design, and commentary in this web service are the proprietary intellectual property of Park & Co Lawyers.",
-      discP3: "3. Commonwealth, State/Territory Government & DAR Attribution: Underlying statistical codes, postcode boundaries, and official DAMA schedule figures are attributed to the Commonwealth of Australia (Department of Home Affairs) and the respective State/Territory Governments and Designated Area Representatives under Creative Commons Attribution 4.0 International (CC BY 4.0) and fair dealing principles. Full primary-source links and SHA-256 verification hashes are provided in Footnotes [1]–[29] below.",
-      fnHeading: "Verified Primary Sources & Official DAR Footnotes ([1] – [29])",
+      discP3: "3. Commonwealth, State/Territory Government & DAR Attribution: Underlying statistical codes, postcode boundaries, and official DAMA schedule figures are attributed to the Commonwealth of Australia (Department of Home Affairs) and the respective State/Territory Governments and Designated Area Representatives under Creative Commons Attribution 4.0 International (CC BY 4.0) and fair dealing principles. Full primary-source links and SHA-256 verification hashes are provided in Footnotes [1]–[31] below.",
+      fnHeading: "Verified Primary Sources & Official DAR Footnotes ([1] – [31])",
     },
   };
 
@@ -826,13 +826,20 @@
     const badgeEl = document.getElementById("polling-badge-label");
     const dotEl = document.getElementById("polling-badge-dot");
     const footerEl = document.getElementById("footer-poll-status");
+    const footerDateEl = document.getElementById("footer-currency-date");
     if (badgeEl) {
+      badgeEl.removeAttribute("data-ko-leaf");
       badgeEl.textContent = currentLang === "ko" ? (p.badge_label_ko || t("pollBadge")) : (p.badge_label_en || t("pollBadge"));
     }
     if (dotEl) {
       dotEl.style.background = p.overall_verification_status === "live_hash_unchanged" ? "#4ADE80" : "#F59E0B";
     }
+    if (footerDateEl) {
+      footerDateEl.removeAttribute("data-ko-leaf");
+      footerDateEl.textContent = p.last_polled_date || DATA.meta.currency_date || "Live";
+    }
     if (footerEl) {
+      footerEl.removeAttribute("data-ko-leaf");
       footerEl.textContent = `${p.live_count || 0}/${p.total_targets || 15} Live · ${p.cache_count || 0} Cache (${p.overall_verification_status || "monitored"})`;
     }
   }
@@ -1275,7 +1282,7 @@
       <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;background:#1A1211;color:#FFFFFF;padding:16px 20px;border-radius:10px;">
         <div>
           <strong style="display:block;font-size:15px;">${currentLang === "ko" ? "이 직종·지역으로 비자 또는 고용주 스폰서십을 준비 중이신가요?" : "Planning a DAMA sponsorship or visa application for this occupation?"}</strong>
-          <span style="font-size:13px;color:#CFC9BF;">${currentLang === "ko" ? "법무법인 박앤코 박창민 대표변호사 (QLS 공인 이민법 전문변호사) · enquiry@parkcolawyers.com" : "Park & Co Lawyers · Chang Min Park (QLS Accredited Specialist) · enquiry@parkcolawyers.com"}</span>
+          <span style="font-size:13px;color:#CFC9BF;">${currentLang === "ko" ? "법무법인 박앤코 박창민 대표변호사 (QLS 공인 이민법 전문변호사) · cpark@parkcolawyers.com" : "Park & Co Lawyers · Chang Min Park (QLS Accredited Specialist) · cpark@parkcolawyers.com"}</span>
         </div>
         <a href="https://parklawyers.com.au/links/?lang=ko" target="_blank" rel="noopener" class="btn-burgundy">
           ${currentLang === "ko" ? "박앤코 온라인 상담 문의하기 →" : "Enquire with Park & Co Lawyers →"}
@@ -1568,6 +1575,15 @@
   async function init() {
     const resp = await fetch("data/dama_navigator_data.json");
     DATA = await resp.json();
+    try {
+      const pResp = await fetch("data/polling_status.json");
+      if (pResp.ok) {
+        const pJson = await pResp.json();
+        if (pJson && pJson.last_polled_date) {
+          DATA.meta.polling = { ...(DATA.meta.polling || {}), ...pJson };
+        }
+      }
+    } catch (_) {}
 
     applyStaticTranslations();
     renderFootnotes();
@@ -1875,6 +1891,7 @@
     });
     var walk = function (el) {
       if (!el || el.tagName === "SCRIPT" || el.tagName === "STYLE" || el.tagName === "PRE") return;
+      if (el.id === "polling-badge-label" || el.id === "footer-currency-date" || el.id === "footer-poll-status") return;
       var hasElementChildren = false;
       for (var i = 0; i < el.children.length; i++) {
         if (el.children[i].tagName !== "BR") {
