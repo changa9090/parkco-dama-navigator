@@ -23,7 +23,7 @@
       specName: "박창민 대표변호사 (Chang Min Park)",
       specRole: "QLS Accredited Specialist in Immigration Law",
       specSlogan: "\"삶에 집중하세요, 법률은 저희가 맡겠습니다.\"",
-      specMeta: "법무법인 박앤코 (Park & Co Lawyers · Underwood QLD) | 공식 이메일: cpark@parkcolawyers.com",
+      specMeta: "법무법인 박앤코 (Park & Co Lawyers · Underwood QLD) | 공식 상담신청: https://parklawyers.com.au/links/?lang=ko",
       specBtn: "온라인 문의 바로가기 (parklawyers.com.au) →",
 
       stat1Over: "ACTIVE DAMAS",
@@ -130,10 +130,10 @@
       heroLead: "Search by occupation title or ANZSCO/OSCA code and filter by your age, English test score, location/postcode, and offered salary ($67,510–$79,423) across all 13 Australian DAMAs (2,474 regional occupation registration entries across 781 unique occupations). Every entry is classified into Candidate, Requires Verification, or Not Met, with explicit checklists of matched vs. unchecked legal criteria.",
       heroPrimaryCta: "Book a 1:1 Consultation with Park & Co Lawyers →",
       heroSecondaryCta: "Launch DAMA Explorer ↓",
-      specName: "Chang Min Park — Principal Lawyer",
+      specName: "Chang Min Park — Legal Practitioner Director",
       specRole: "QLS Accredited Specialist in Immigration Law",
       specSlogan: "\"You focus on life, we'll handle the law.\"",
-      specMeta: "Park & Co Lawyers (Underwood QLD) | Official Email: cpark@parkcolawyers.com",
+      specMeta: "Park & Co Lawyers (Underwood QLD) | Official Inquiry: https://parklawyers.com.au/links/",
       specBtn: "Enquire Online (parklawyers.com.au) →",
 
       stat1Over: "ACTIVE DAMAS",
@@ -1282,9 +1282,9 @@
       <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;background:#1A1211;color:#FFFFFF;padding:16px 20px;border-radius:10px;">
         <div>
           <strong style="display:block;font-size:15px;">${currentLang === "ko" ? "이 직종·지역으로 비자 또는 고용주 스폰서십을 준비 중이신가요?" : "Planning a DAMA sponsorship or visa application for this occupation?"}</strong>
-          <span style="font-size:13px;color:#CFC9BF;">${currentLang === "ko" ? "법무법인 박앤코 박창민 대표변호사 (QLS 공인 이민법 전문변호사) · cpark@parkcolawyers.com" : "Park & Co Lawyers · Chang Min Park (QLS Accredited Specialist) · cpark@parkcolawyers.com"}</span>
+          <span style="font-size:13px;color:#CFC9BF;">${currentLang === "ko" ? "법무법인 박앤코 박창민 대표변호사 (QLS 공인 이민법 전문변호사) · https://parklawyers.com.au/links/?lang=ko" : "Park & Co Lawyers · Chang Min Park (Legal Practitioner Director · QLS Accredited Specialist) · https://parklawyers.com.au/links/"}</span>
         </div>
-        <a href="https://parklawyers.com.au/links/?lang=ko" target="_blank" rel="noopener" class="btn-burgundy">
+        <a href="${currentLang === "ko" ? "https://parklawyers.com.au/links/?lang=ko" : "https://parklawyers.com.au/links/"}" target="_blank" rel="noopener" class="btn-burgundy">
           ${currentLang === "ko" ? "박앤코 온라인 상담 문의하기 →" : "Enquire with Park & Co Lawyers →"}
         </a>
       </div>
@@ -1367,7 +1367,7 @@
         <button type="button" class="btn-secondary" id="modal-filter-this-region" data-dama="${esc(d.id)}">
           ${currentLang === "ko" ? `이 지역(${d.code}) 직종 항목 ${d.total_occupations}건만 테이블에 필터링하기` : `Filter Table to ${d.code} (${d.total_occupations} occupation entries)`}
         </button>
-        <a href="https://parklawyers.com.au/links/?lang=ko" target="_blank" rel="noopener" class="btn-burgundy">
+        <a href="${currentLang === "ko" ? "https://parklawyers.com.au/links/?lang=ko" : "https://parklawyers.com.au/links/"}" target="_blank" rel="noopener" class="btn-burgundy">
           ${currentLang === "ko" ? "박앤코 상담·문의하기 →" : "Make an Enquiry →"}
         </a>
       </div>
@@ -1719,7 +1719,8 @@
     "가족법·재산분할": "Family Law & Property",
     "위기·ART": "Visa Crisis & ART",
     "← 전체 네비게이터 허브": "← All Navigators Hub",
-    "박창민 대표변호사 (Chang Min Park)": "Chang Min Park (Principal Solicitor)",
+    "💬 온라인 상담신청": "💬 Enquire Online",
+    "박창민 대표변호사 (Chang Min Park)": "Chang Min Park (Legal Practitioner Director)",
     "\"삶에 집중하세요, 법률은 저희가 맡겠습니다.\"": "\"You focus on life, we'll handle the law.\"",
     "법무법인 박앤코 (PNC Legal Pty Ltd t/a Park & Co Lawyers)": "PNC Legal Pty Ltd t/a Park & Co Lawyers",
     "법령 및 주정부 심사 근거": "Statutory & State Nomination Authority",
@@ -1888,6 +1889,9 @@
     document.querySelectorAll(".parkco-svc-link").forEach(function (lnk) {
       var h = isEn ? lnk.getAttribute("data-en-href") : lnk.getAttribute("data-ko-href");
       if (h) lnk.setAttribute("href", h);
+    });
+    document.querySelectorAll("a.cta-enquiry").forEach(function (a) {
+      a.setAttribute("href", isEn ? "https://parklawyers.com.au/links/" : "https://parklawyers.com.au/links/?lang=ko");
     });
     var walk = function (el) {
       if (!el || el.tagName === "SCRIPT" || el.tagName === "STYLE" || el.tagName === "PRE") return;

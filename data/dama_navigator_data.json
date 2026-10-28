@@ -783,8 +783,7 @@
       }
     ],
     "enquiry_url_ko": "https://parklawyers.com.au/links/?lang=ko",
-    "enquiry_url_en": "https://parklawyers.com.au/links/?lang=ko",
-    "contact_email": "cpark@parkcolawyers.com",
+    "enquiry_url_en": "https://parklawyers.com.au/links/",
     "polling": {
       "run_id": "poll-20261028-133559",
       "last_polled_at": "2026-10-28T13:35:59.643352+10:00",
@@ -803,7 +802,8 @@
       "unchanged_count": 15,
       "failed_count": 0,
       "salary_verification_status": "extracted_matches_79423"
-    }
+    },
+    "official_contact": "https://parklawyers.com.au/links/?lang=ko"
   },
   "damas": [
     {
