@@ -1,7 +1,7 @@
 # Park & Co DAMA Navigator — Internal Verification Report (`T01`–`T30`)
 
 - **Verification Date**: `2026-10-20`
-- **Test Runner**: `uv run --with playwright pytest -v /home/cp/ag/dama-navigator/tests/` (`11/11` test modules/suites **PASSED**, covering all `T01`–`T30` acceptance tests)
+- **Test Runner**: `uv run --with playwright pytest -v ./tests/` (`11/11` test modules/suites **PASSED**, covering all `T01`–`T30` acceptance tests)
 - **Dataset Summary**:
   - Active DAMAs: **13**
   - Active Regional Occupation Registration Entries (`total_records`): **2,474**

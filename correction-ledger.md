@@ -2,7 +2,7 @@
 
 - **Audit Reference**: `192.168.1.218:/home/chang/Codex/dama-audit-2026-10-20/ERRATA.md` & `GEMINI_CORRECTION_INSTRUCTIONS.md`
 - **Correction Date**: `2026-10-20`
-- **Pre-Correction Snapshot**: `/home/cp/ag/dama-navigator/audit_from_218/pre_correction_snapshot_20261020/`
+- **Pre-Correction Snapshot**: `./audit_from_218/pre_correction_snapshot_20261020/`
 
 | Errata ID | Severity | Previous Defect / Claim | Verified Primary-Source Fact & Fix Applied | Modified Files | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- |
