@@ -957,140 +957,56 @@ table.occ-table tr:hover td {
   flex-wrap: wrap;
 }
 
-/* Abacus Visit Counter & 30-Day Daily Chart Modal */
-.visit-counter {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 0 0 18px;
-}
-.visit-counter[hidden] {
-  display: none;
-}
-.visit-counter:not([hidden]) {
-  cursor: pointer;
-}
-.visit-counter:not([hidden]):hover span {
-  border-color: #D9A7AD;
-  background: #2C1F1D;
-}
-.visit-counter span {
-  background: #241918;
-  border: 1px solid #3D2B29;
-  border-radius: 999px;
-  padding: 5px 13px;
-  font-size: 12.5px;
-  color: #CFC9BF;
-  transition: border-color 0.15s ease, background 0.15s ease;
-}
-.visit-counter b {
-  color: #D9A7AD;
-  font-weight: 800;
-  margin-left: 6px;
-  font-variant-numeric: tabular-nums;
-}
-#vc-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 2200;
-  background: rgba(26, 18, 17, 0.55);
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-}
-#vc-modal.open {
-  display: flex;
-}
-#vc-modal .vc-dialog {
-  background: var(--color-white);
-  color: var(--color-charcoal);
-  border-radius: 14px;
-  box-shadow: 0 18px 44px rgba(46, 30, 20, 0.22);
-  width: min(700px, 100%);
-  max-height: calc(100vh - 32px);
-  overflow: auto;
-  padding: 18px 20px 16px;
-}
-#vc-modal h3 {
-  margin: 0 0 10px;
-  font-size: 1.05rem;
-  font-weight: 800;
-  padding-right: 28px;
-  color: var(--color-charcoal);
-}
-#vc-modal h3 small {
-  font-weight: 500;
-  color: var(--color-charcoal-soft);
-  font-size: 0.78rem;
-}
-#vc-modal .vc-close {
-  float: right;
-  border: 0;
-  background: none;
-  font-size: 1.4rem;
-  line-height: 1;
-  cursor: pointer;
-  color: var(--color-charcoal-soft);
-}
-.vc-svg {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.vc-grid {
-  stroke: var(--color-line);
-  stroke-width: 1;
-}
-.vc-ylab {
-  font-size: 11px;
-  fill: var(--color-charcoal-soft);
-  text-anchor: end;
-}
-.vc-xlab {
-  font-size: 11px;
-  fill: var(--color-charcoal-soft);
-  text-anchor: middle;
-}
-.vc-bar {
-  fill: var(--color-burgundy-wash);
-  stroke: #D9A7AD;
-}
-.vc-line {
-  fill: none;
-  stroke: var(--color-burgundy);
-  stroke-width: 2;
-}
-.vc-dot {
-  fill: var(--color-burgundy);
-}
-.vc-legend {
-  display: flex;
-  gap: 16px;
-  font-size: 0.8rem;
-  color: var(--color-charcoal-soft);
-  margin-top: 6px;
-}
-.vc-legend i {
-  display: inline-block;
-  width: 14px;
-  height: 10px;
-  margin-right: 6px;
-  vertical-align: middle;
-}
-.vc-k-bar {
-  background: var(--color-burgundy-wash);
-  border: 1px solid #D9A7AD;
-}
-.vc-k-line {
-  height: 2px !important;
-  background: var(--color-burgundy);
-}
-.vc-sum {
-  font-size: 0.8rem;
-  color: var(--color-charcoal-soft);
-  margin: 8px 0 0;
-}
+/* Park & Co Unified Visit Counter & Referral Modal v2 */
+.visit-counter { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; align-items: center; }
+.visit-counter[hidden] { display: none !important; }
+.visit-counter:not([hidden]) { cursor: pointer; }
+.visit-counter > span em { font-style: normal; }
+.visit-counter > span { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 999px; padding: 5px 13px; font-size: 12.5px; color: #E8E2D9; display: inline-flex; align-items: center; transition: border-color 0.15s ease, background 0.15s ease; }
+.visit-counter:not([hidden]):hover > span { border-color: #FDE68A; background: rgba(255, 255, 255, 0.11); }
+.visit-counter b { color: #FDE68A; font-weight: 800; margin-left: 6px; font-variant-numeric: tabular-nums; }
+#vc-modal { display: none; position: fixed; inset: 0; z-index: 3200; background: rgba(26, 18, 17, 0.56);
+  align-items: center; justify-content: center; padding: 16px; }
+#vc-modal.open { display: flex; }
+#vc-modal .vc-dialog { background: #FFFFFF; color: #1C1B1A; text-align: left; border-radius: 14px;
+  box-shadow: 0 20px 48px rgba(26, 18, 17, 0.28); width: min(700px, 100%); max-height: calc(100vh - 32px);
+  overflow: auto; padding: 18px 20px 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Noto Sans KR", "Segoe UI", sans-serif; }
+#vc-modal h3 { margin: 0 0 10px; font-size: 1.04rem; font-weight: 800; padding-right: 32px; color: #1C1B1A; line-height: 1.35; }
+#vc-modal h3 small { font-weight: 500; color: #5A5654; font-size: 0.78rem; }
+#vc-modal .vc-close { float: right; border: 0; background: none; font-size: 1.45rem; line-height: 1; cursor: pointer;
+  color: #5A5654; min-width: 34px; min-height: 34px; padding: 0; }
+#vc-modal .vc-close:hover { color: #7A1F2B; }
+.vc-svg { width: 100%; height: auto; display: block; }
+.vc-grid { stroke: #E5DEC9; stroke-width: 1; }
+.vc-ylab { font-size: 11px; fill: #5A5654; text-anchor: end; }
+.vc-xlab { font-size: 11px; fill: #5A5654; text-anchor: middle; }
+.vc-bar { fill: #F4E6E8; stroke: #D9A7AD; }
+.vc-line { fill: none; stroke: #7A1F2B; stroke-width: 2; }
+.vc-dot { fill: #7A1F2B; }
+.vc-legend { display: flex; gap: 16px; font-size: 0.8rem; color: #5A5654; margin-top: 6px; }
+.vc-legend i { display: inline-block; width: 14px; height: 10px; margin-right: 6px; vertical-align: middle; }
+.vc-k-bar { background: #F4E6E8; border: 1px solid #D9A7AD; }
+.vc-k-line { height: 2px !important; background: #7A1F2B; }
+.vc-sum { font-size: 0.8rem; color: #5A5654; margin: 8px 0 0; line-height: 1.5; }
+.vc-ref-box { margin-top: 14px; padding-top: 12px; border-top: 1px solid #E5DEC9; }
+.vc-ref-title { font-size: 0.86rem; font-weight: 800; color: #1C1B1A; margin: 0 0 6px;
+  display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px; }
+.vc-ref-title small { font-weight: 500; font-size: 0.75rem; color: #5A5654; }
+.vc-ref-list { display: grid; gap: 5px; margin: 6px 0 0; }
+.vc-ref-row { display: grid; grid-template-columns: minmax(135px, 1.35fr) minmax(80px, 2fr) auto;
+  align-items: center; gap: 8px; font-size: 0.79rem; }
+.vc-ref-name { font-weight: 600; color: #1C1B1A; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.vc-ref-track { height: 8px; background: #F4F0E8; border-radius: 999px; overflow: hidden; }
+.vc-ref-fill { height: 100%; background: #7A1F2B; border-radius: 999px; }
+.vc-ref-val { font-variant-numeric: tabular-nums; font-weight: 700; color: #5A5654; text-align: right; min-width: 74px; }
+.vc-ref-note { font-size: 0.74rem; color: #75706B; margin: 6px 0 0; line-height: 1.45; }
+.vc-share-box { margin-top: 12px; padding-top: 10px; border-top: 1px dashed #E5DEC9; }
+.vc-share-lbl { font-size: 0.76rem; font-weight: 700; color: #4A4644; margin: 0 0 6px; }
+.vc-share-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.vc-share-chip { border: 1px solid #DED6C8; background: #FAF7F2; color: #2E2A28; border-radius: 999px;
+  padding: 4px 10px; font-size: 0.74rem; font-weight: 600; cursor: pointer; transition: all 0.14s ease; }
+.vc-share-chip:hover { border-color: #7A1F2B; background: #F4E6E8; color: #7A1F2B; }
 
 /* Responsive Breakpoints */
 @media (max-width: 1024px) {
