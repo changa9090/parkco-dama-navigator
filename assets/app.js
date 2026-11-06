@@ -1,4 +1,4 @@
-/* Park & Co DAMA Navigator — Occupation, Region & Concession Explorer (KO/EN) */
+/* Park & Co DAMA Navigator · Occupation, Region & Concession Explorer (KO/EN) */
 (function () {
   "use strict";
 
@@ -17,7 +17,7 @@
       urgentText: "서호주 South West DAMA 신청·변경 접수 마감: 2026-10-30 (협약 종료: 2026-12-14) / Goldfields DAMA 신청 접수 마감: 2026-11-13 (협약 종료: 2026-12-31 · 11.13 이후 신규 접수 불가, 기존 승인 협약·비자 자동 취소 아님) / 남호주 SA DAMA 현행 협약 2027-01-31까지 연장 운영 중(차기 5년 Statewide DAMA 협상 중).",
       heroOverline: "AUSTRALIA-WIDE 13 DAMA · OCCUPATION, REGION & CONCESSION EXPLORER",
       heroTitle: "호주 13개 DAMA 직종 · 지역 및 협약 요건 탐색",
-      heroLead: "직업명(ANZSCO/OSCA/한국어), 나이, 영어 점수, 희망 지역/우편번호, 연봉($67,510~$79,423) 조건을 입력하면 호주 전역 13개 DAMA · 2,474건 지역별 직종 등록 항목(781개 고유 직종) 중 후보 지역과 협약 완화 요건(SID 482 · SESR 494 · ENS 186)을 탐색합니다. 모든 결과는 검토 후보 · 추가 확인 필요 · 조건 미충족 3단계로 구분되며, 최종 비자 적합성은 DAR·개별 Labour Agreement 원문 및 미확인 요건(학력·경력 세부, 근무지 우편번호, 시장임금 AMSR 등) 검증이 필수입니다.",
+      heroLead: "직업명(ANZSCO/OSCA/한국어), 나이, 영어 점수, 희망 지역·우편번호, 연봉($67,510~$79,423) 조건을 입력하면 호주 전역 13개 DAMA · 2,474건 지역별 직종 등록 항목(781개 고유 직종) 가운데 신청 가능한 지역과 협약 완화 요건(SID 482 · SESR 494 · ENS 186)을 바로 확인할 수 있습니다. 모든 결과는 검토 후보 · 추가 확인 필요 · 조건 미충족 3단계로 나뉘며, 실제 비자 적합 여부는 관할 DAR·개별 Labour Agreement 원문과 미확인 요건(학력·경력 세부 기준, 근무지 우편번호, 시장임금 AMSR 등)을 반드시 대조해야 합니다.",
       heroPrimaryCta: "박앤코 전문변호사 1:1 비자·스폰서십 상담 신청 →",
       heroSecondaryCta: "직종·조건 맞춤 탐색 바로가기 ↓",
       specName: "박창민 대표변호사 (Chang Min Park)",
@@ -47,7 +47,7 @@
 
       combOverline: "STEP 01 · OCCUPATION, REGION & CONCESSION EXPLORER",
       combTitle: "내 직종 · 지역 · 협약 조건 탐색기",
-      combSub: "한국어 직업명(예: 요리사, 용접사, 간병인, 바리스타, 청소, 트럭, 정비사, 간호사, 개발자, 회계), 영문 직종명, 또는 6자리 ANZSCO/OSCA 코드로 검색하고 희망 지역·우편번호·조건을 선택해 보세요. 각 뱃지(?)를 클릭하거나 마우스를 올리면 상세 법령 풍선 도움말(Balloon)이 열립니다.",
+      combSub: "한국어 직업명(예: 요리사, 용접사, 간병인, 바리스타, 청소, 트럭, 정비사, 간호사, 개발자, 회계), 영문 직종명, 6자리 ANZSCO/OSCA 코드로 검색한 뒤 희망 지역·우편번호·세부 조건을 골라 보세요. 각 배지(?)를 누르거나 마우스를 올리면 법령 근거와 세부 요건 안내가 열립니다.",
       searchPlaceholder: "직종 검색: 예) 요리사, Chef, Cook, 351411, 용접, Welder, 간병인, Carer, 개발자, 회계...",
       locationPlaceholder: "근무지 LGA / 도시 / 우편번호 (예: Cairns, Perth, 5950, Ravensthorpe)",
       resetBtn: "필터 초기화",
@@ -69,8 +69,8 @@
       optStateWA: "── 서호주 (WA: 주전역 Cat 2/3 · 필바라 · 골드필즈 · 남서부 · 킴벌리) ──",
 
       optAgeAll: "연령 무관 / 전체 보기",
-      optAgeUnder45: "만 45세 미만 (표준 연령 상한 충족 — 세부 요건 별도 확인)",
-      optAge45_49: "만 45세 ~ 49세 (DAMA 연령 완화 구간 — 직종별 상한 50/55세 확인)",
+      optAgeUnder45: "만 45세 미만 (표준 연령 상한 충족 · 세부 요건 별도 확인)",
+      optAge45_49: "만 45세 ~ 49세 (DAMA 연령 완화 구간 · 직종별 상한 50/55세 확인)",
       optAge50_54: "만 50세 ~ 54세 (만 55세 미만 완화 직종만 후보 · 전환 시점 연령 확인)",
 
       optEngAll: "영어 점수 전체 (IELTS 6.0+ 표준 포함)",
@@ -90,13 +90,13 @@
       optNonAnzsco: "070499 비-ANZSCO 특화 직종만 보기",
 
       optPathAll: "전체 보기",
-      optPathDirect186: "Direct ENS 186 조항 보유 지역 (FNQ·NT·Kimberley — 개별 LA·DAR 확인 필수)",
+      optPathDirect186: "Direct ENS 186 조항 보유 지역 (FNQ·NT·Kimberley · 개별 LA·DAR 확인 필수)",
       optPathFreeDar: "DAR 승인 수수료 $0 (무료) 주정부 지역만 (NT · SA · WA State-wide)",
       optPathNoSl5Upgrade: "SL5 승진 조건 없이 186 영주권 경로가 열려 있는 직종",
 
       regOverline: "STEP 02 · WHERE TO FIND YOUR REGIONAL EMPLOYER SPONSOR",
       regTitle: "13개 DAMA 지역별 매칭 직종 등록 항목 수 & 지역 상세 가이드",
-      regSub: "현재 선택한 검색어·조건에 부합하는 직종 등록 항목이 각 지역에 몇 건 있는지 실시간으로 표시됩니다. 지역 카드를 클릭하면 해당 지역으로 필터링되며, [지역 요건·우편번호 상세] 버튼을 누르면 전체 커버리지와 협약 요건을 팝업으로 확인합니다.",
+      regSub: "선택한 검색어와 조건에 맞는 직종 등록 항목이 지역별로 몇 건인지 실시간으로 집계됩니다. 지역 카드를 누르면 해당 DAMA만 따로 추려 볼 수 있고, '지역 요건 · 우편번호 상세' 버튼을 누르면 관할 구역과 협약 기준 전체가 팝업으로 열립니다.",
       regDetailBtn: "지역 요건 · 우편번호 상세",
       regFilterHint: "클릭하여 이 지역만 필터",
 
@@ -114,9 +114,9 @@
 
       discOverline: "LEGAL DISCLAIMER, COPYRIGHT & GOVERNMENT ATTRIBUTION",
       discTitle: "법률 면책공고 (Legal Disclaimer) · 저작권 보호 및 각 주정부/연방정부 1차 출처 각주",
-      discP1: "1. 일반 정보 제공 목적 및 법률자문 비구성 (No Legal Advice & No Solicitor-Client Relationship): 본 웹서비스('Park & Co DAMA Navigator')에 수록된 모든 정보는 2026년 10월 20일 기준 호주 연방 이민성(Department of Home Affairs) 및 13개 지정지역대표기관(DAR)이 공개한 공식 가이드라인과 직종 스케줄을 바탕으로 정리된 일반 탐색 정보이며, 개별 사안에 대한 법률자문(Legal Advice)이나 자격 확정 판정이 아닙니다. 본 서비스의 탐색 결과는 '검토 후보(Candidate)' 또는 '추가 확인 필요(Requires Verification)'를 안내할 뿐이며, 실제 DAMA DAR Endorsement, Labour Agreement 체결 및 비자(Subclass 482 / 494 / 186) 신청 가능 여부는 고용주의 근무지 우편번호, 재무 건전성, LMT/SMER 구인광고 적격성, 호주 시장임금(AMSR) 입증, 신청자의 세부 학력·경력(AQF 등급 및 풀타임 환산 경력) 및 각 DAR의 재량에 따라 달라지므로 반드시 QLS 공인 이민법 전문변호사(Accredited Specialist in Immigration Law)의 정식 자문을 받으시기 바랍니다.",
+      discP1: "1. 일반 정보 안내 및 법률자문 비구성 (No Legal Advice & No Solicitor-Client Relationship): 이 웹서비스('Park & Co DAMA Navigator')에 수록된 정보는 2026년 10월 20일 기준 호주 연방 이민성(Department of Home Affairs)과 13개 지정지역대표기관(DAR)이 공개한 공식 가이드라인·직종 스케줄을 토대로 정리한 일반 참고 자료이며, 개별 사안에 대한 법률자문(Legal Advice)이나 자격 확정 판정이 아닙니다. 탐색 결과는 '검토 후보(Candidate)' 또는 '추가 확인 필요(Requires Verification)' 여부를 가늠하는 용도일 뿐이며, 실제 DAMA DAR Endorsement, Labour Agreement 체결 및 비자(Subclass 482 / 494 / 186) 신청 가능 여부는 사업장 우편번호, 재무 건전성, LMT/SMER 구인광고 적격성, 호주 시장임금(AMSR) 입증, 신청자의 세부 학력·경력(AQF 등급 및 풀타임 환산 경력)과 각 DAR 심사에 따라 달라집니다. 구체적인 진행 전에는 반드시 QLS 공인 이민법 전문변호사(Accredited Specialist in Immigration Law)의 정식 자문을 받으시기 바랍니다.",
       discP2: "2. 저작권 보호 고지 (Copyright Protection Notice): © 2026 PNC Legal Pty Ltd t/a Park & Co Lawyers. All rights reserved. 본 웹서비스의 데이터베이스 구조, 국·영문 직종 매핑, 연령·영어·경력 요건 탐색 알고리즘, UI/UX 디자인 및 해설 문구에 대한 일체의 저작권과 지식재산권은 법무법인 박앤코에 귀속됩니다. 사전 서면 허가 없는 크롤링, 무단 복제, 재배포 또는 타 이주업체·법무법인의 상업적 도용을 엄격히 금지합니다.",
-      discP3: "3. 호주 연방·주·지방정부 및 관할 DAR 공식 출처 표기 (Government & DAR Attribution Notice): 본 서비스에 반영된 각 주·테리토리 정부 및 DAR의 직종 코드, 우편번호 범위, 수수료 및 완화된 기준 수치는 호주 공공저작물 라이선스(Creative Commons Attribution 4.0 International — CC BY 4.0) 및 출처 표시 원칙에 따라 아래 31개 1차 공식 출처([1]~[31])를 원문 링크 및 SHA-256 무결성 해시와 함께 하단 각주에 명시합니다.",
+      discP3: "3. 호주 연방·주·지방정부 및 관할 DAR 공식 출처 표기 (Government & DAR Attribution Notice): 본 서비스에 반영된 각 주·테리토리 정부 및 DAR의 직종 코드, 우편번호 범위, 수수료 및 완화된 기준 수치는 호주 공공저작물 라이선스(Creative Commons Attribution 4.0 International · CC BY 4.0) 및 출처 표시 원칙에 따라 아래 31개 1차 공식 출처([1]~[31])를 원문 링크 및 SHA-256 무결성 해시와 함께 하단 각주에 명시합니다.",
       fnHeading: "1차 공식 출처 및 주정부·DAR 레퍼런스 각주 ([1] ~ [31])",
     },
     en: {
@@ -130,7 +130,7 @@
       heroLead: "Search by occupation title or ANZSCO/OSCA code and filter by your age, English test score, location/postcode, and offered salary ($67,510–$79,423) across all 13 Australian DAMAs (2,474 regional occupation registration entries across 781 unique occupations). Every entry is classified into Candidate, Requires Verification, or Not Met, with explicit checklists of matched vs. unchecked legal criteria.",
       heroPrimaryCta: "Book a 1:1 Consultation with Park & Co Lawyers →",
       heroSecondaryCta: "Launch DAMA Explorer ↓",
-      specName: "Chang Min Park — Legal Practitioner Director",
+      specName: "Chang Min Park · Legal Practitioner Director",
       specRole: "QLS Accredited Specialist in Immigration Law",
       specSlogan: "\"You focus on life, we'll handle the law.\"",
       specMeta: "Park & Co Lawyers (Underwood QLD) | Official Inquiry: https://parklawyers.com.au/links/",
@@ -179,9 +179,9 @@
       optStateWA: "── Western Australia (WA: State-wide Cat 2/3, Pilbara, Goldfields, SW, Kimberley) ──",
 
       optAgeAll: "Any Age / Show All",
-      optAgeUnder45: "Under 45 (Meets standard age cap — verify other criteria)",
-      optAge45_49: "Age 45–49 (DAMA Age Concession Band — verify 50/55 cap)",
-      optAge50_54: "Age 50–54 (Under-55 cap roles only — check transition age)",
+      optAgeUnder45: "Under 45 (Meets standard age cap · verify other criteria)",
+      optAge45_49: "Age 45–49 (DAMA Age Concession Band · verify 50/55 cap)",
+      optAge50_54: "Age 50–54 (Under-55 cap roles only · check transition age)",
 
       optEngAll: "Any English Score (incl. Standard IELTS 6.0+)",
       optEng50NoBand: "IELTS 5.0 avg · Explicit No Band Minimum only",
@@ -200,7 +200,7 @@
       optNonAnzsco: "070499 Non-ANZSCO Occupations Only",
 
       optPathAll: "Show All Pathways",
-      optPathDirect186: "Direct ENS 186 Provision Regions (FNQ, NT, Kimberley — Verify LA/DAR)",
+      optPathDirect186: "Direct ENS 186 Provision Regions (FNQ, NT, Kimberley · Verify LA/DAR)",
       optPathFreeDar: "$0 Free DAR Endorsement Fee Only (NT, SA, WA State-wide)",
       optPathNoSl5Upgrade: "No SL5 Promotion Required for ENS 186",
 
@@ -400,7 +400,7 @@
         req494Overall = 4.5;
         req494Band = 4.0;
       } else if (locCheck.zone === "adelaide_metro" || locCheck.zone === "inner_regional") {
-        // Type 1 applies (IELTS 5.0 overall, min 4.0 each band) — Type 2 (4.5) is NOT permitted in Metro (e.g. 5950) or Inner Regional!
+        // Type 1 applies (IELTS 5.0 overall, min 4.0 each band) · Type 2 (4.5) is NOT permitted in Metro (e.g. 5950) or Inner Regional!
         req482Overall = 5.0;
         req482Band = 4.0;
         req494Overall = 5.0;
@@ -810,8 +810,8 @@
       <option value="great_south_coast_dama">&nbsp;&nbsp;• [VIC] ${esc(currentLang === "ko" ? "Great South Coast (워남불 등 6개 LGA · 114건)" : "Great South Coast (GSC) DAMA (114)")}</option>
       <option value="state:WA">${esc(t("optStateWA"))}</option>
       <option value="wa_statewide_dama">&nbsp;&nbsp;• [WA] ${esc(currentLang === "ko" ? "WA State-wide 전체 (Cat 2 퍼스 271건 + Cat 3 지방 358건)" : "WA State-wide All (Cat 2 Metro 271 / Cat 3 Regional 358)")}</option>
-      <option value="wa_statewide_dama:cat2_metro">&nbsp;&nbsp;&nbsp;&nbsp;↳ [WA Cat 2] ${esc(currentLang === "ko" ? "퍼스 대도시권 (Metro Perth · 271건 · 3년 후 186)" : "WA Category 2 — Metropolitan Perth Only (271 · 3y to 186)")}</option>
-      <option value="wa_statewide_dama:cat3_regional">&nbsp;&nbsp;&nbsp;&nbsp;↳ [WA Cat 3] ${esc(currentLang === "ko" ? "서호주 지방 (Regional WA · 358건 · 2년 후 186)" : "WA Category 3 — Regional WA (358 · 2y to 186)")}</option>
+      <option value="wa_statewide_dama:cat2_metro">&nbsp;&nbsp;&nbsp;&nbsp;↳ [WA Cat 2] ${esc(currentLang === "ko" ? "퍼스 대도시권 (Metro Perth · 271건 · 3년 후 186)" : "WA Category 2 · Metropolitan Perth Only (271 · 3y to 186)")}</option>
+      <option value="wa_statewide_dama:cat3_regional">&nbsp;&nbsp;&nbsp;&nbsp;↳ [WA Cat 3] ${esc(currentLang === "ko" ? "서호주 지방 (Regional WA · 358건 · 2년 후 186)" : "WA Category 3 · Regional WA (358 · 2y to 186)")}</option>
       <option value="pilbara_dama">&nbsp;&nbsp;• [WA] ${esc(currentLang === "ko" ? "Pilbara DAMA (카라사·포트헤들랜드·뉴먼 · 139건)" : "Pilbara DAMA (139)")}</option>
       <option value="goldfields_dama">&nbsp;&nbsp;• [WA] ${esc(currentLang === "ko" ? "The Goldfields DAMA (신청마감 2026-11-13 / 협약종료 2026-12-31 · 242건)" : "The Goldfields DAMA (Cutoff 2026-11-13 / Expiry 2026-12-31 · 242)")}</option>
       <option value="south_west_dama">&nbsp;&nbsp;• [WA] ${esc(currentLang === "ko" ? "South West DAMA (신청마감 2026-10-30 / 협약종료 2026-12-14 · 113건)" : "South West DAMA (Cutoff 2026-10-30 / Expiry 2026-12-14 · 113)")}</option>
@@ -851,32 +851,32 @@
     if (f.location) {
       alerts.push(
         currentLang === "ko"
-          ? `<div><strong>[근무지·우편번호 필터 적용 중: "${esc(f.location)}"]</strong> 입력하신 지역·LGA·우편번호가 공식 커버리지에 포함되는 직종 등록 항목만 표시합니다 (예: FNQ는 11개 공식 LGA만 포함·Carpentaria 등 제외 / Goldfields는 Ravensthorpe 포함·Wiluna 제외 / SA 5950은 Adelaide Metro로 분류).</div>`
-          : `<div><strong>[Location / Postcode Filter Active: "${esc(f.location)}"]</strong> Showing only occupation entries where "${esc(f.location)}" is within the official LGA/postcode boundary (e.g. FNQ covers 11 LGAs excluding Carpentaria; Goldfields includes Ravensthorpe and excludes Wiluna; SA 5950 is classified as Adelaide Metropolitan).</div>`
+          ? `<div><strong>근무지·우편번호 필터 적용 중 ("${esc(f.location)}"):</strong> 입력하신 지역·LGA·우편번호가 공식 커버리지에 포함되는 직종 등록 항목만 표시합니다 (예: FNQ는 11개 공식 LGA만 포함·Carpentaria 등 제외 / Goldfields는 Ravensthorpe 포함·Wiluna 제외 / SA 5950은 Adelaide Metro로 분류).</div>`
+          : `<div><strong>Location / Postcode Filter Active ("${esc(f.location)}"):</strong> Showing only occupation entries where "${esc(f.location)}" is within the official LGA/postcode boundary (e.g. FNQ covers 11 LGAs excluding Carpentaria; Goldfields includes Ravensthorpe and excludes Wiluna; SA 5950 is classified as Adelaide Metropolitan).</div>`
       );
     }
 
     if (f.age === "50-54") {
       alerts.push(
         currentLang === "ko"
-          ? `<div><strong>[만 50~54세 연령 상한 및 전환 시점 주의]</strong> DAMA의 만 55세 미만 연령 완화는 <strong>ENS 186 또는 SESR 494 노미네이션 접수 시점</strong>에 적용됩니다 <a href="#fn-3">[3]</a>. 2년 전환 지역에서는 <strong>만 53~54세</strong>(3년 전환 지역인 Pilbara·WA Cat 2 퍼스는 <strong>만 52~54세</strong>)에 SID 482를 먼저 받으면 186 전환 시점에 만 55세가 넘어 186 연령 상한을 초과하게 됩니다(단, 만 52세에 2년 전환 지역 482를 받으면 2년 뒤 만 54세이므로 55세 미만 요건 충족 가능). <strong>대안:</strong> 만 55세 도래 전에 <strong>Subclass 494(SESR)</strong>를 먼저 접수한 뒤 3년 후 연령 제한이 없는 <strong>Subclass 191</strong>로 전환하는 경로를 검토하십시오.</div>`
-          : `<div><strong>[Age 50–54 Transition Timing Notice]</strong> The Under-55 age concession applies at <strong>ENS 186 or SESR 494 nomination lodgement</strong> <a href="#fn-3">[3]</a>. On a 2-year pathway, workers aged <strong>53–54</strong> (or aged <strong>52–54</strong> on a 3-year pathway such as Pilbara or WA Cat 2 Metro Perth) who start on SID 482 will reach 55 before ENS 186 nomination (whereas age 52 + 2 years = 54 remains under 55). Consider lodging <strong>Subclass 494 (SESR)</strong> before turning 55 and transitioning to <strong>Subclass 191 (no age limit)</strong>.</div>`
+          ? `<div><strong>만 50~54세 연령 상한 및 전환 시점 안내:</strong> DAMA의 만 55세 미만 연령 완화는 <strong>ENS 186 또는 SESR 494 노미네이션 접수 시점</strong>에 적용됩니다 <a href="#fn-3">[3]</a>. 2년 전환 지역에서는 <strong>만 53~54세</strong>(3년 전환 지역인 Pilbara·WA Cat 2 퍼스는 <strong>만 52~54세</strong>)에 SID 482를 먼저 받으면 186 전환 시점에 만 55세가 넘어 186 연령 상한을 초과하게 됩니다(단, 만 52세에 2년 전환 지역 482를 받으면 2년 뒤 만 54세이므로 55세 미만 요건 충족 가능). <strong>대안:</strong> 만 55세 도래 전에 <strong>Subclass 494(SESR)</strong>를 먼저 접수한 뒤 3년 후 연령 제한이 없는 <strong>Subclass 191</strong>로 전환하는 경로를 검토하십시오.</div>`
+          : `<div><strong>Age 50–54 Transition Timing Notice:</strong> The Under-55 age concession applies at <strong>ENS 186 or SESR 494 nomination lodgement</strong> <a href="#fn-3">[3]</a>. On a 2-year pathway, workers aged <strong>53–54</strong> (or aged <strong>52–54</strong> on a 3-year pathway such as Pilbara or WA Cat 2 Metro Perth) who start on SID 482 will reach 55 before ENS 186 nomination (whereas age 52 + 2 years = 54 remains under 55). Consider lodging <strong>Subclass 494 (SESR)</strong> before turning 55 and transitioning to <strong>Subclass 191 (no age limit)</strong>.</div>`
       );
     }
 
     if (f.english === "4.5-min40") {
       alerts.push(
         currentLang === "ko"
-          ? `<div><strong>[IELTS 4.5 (각 과목 4.0 이상) 적용 조건]</strong> <strong>NT DAMA III(196개 직종)</strong> 및 <strong>SA Regional Workforce DAMA(공식 Outer Regional SA 우편번호 5220~5734 소재 고용주 Type 2 한정)</strong>에서만 482/494 단계 IELTS 4.5(각 4.0)가 허용됩니다 <a href="#fn-11">[11]</a> <a href="#fn-15">[15]</a>. 남호주 Adelaide Metropolitan(5000~5199, 5950, 5960) 및 Inner Regional 우편번호는 IELTS 4.5 대상이 아니며, ENS 186 단계에서는 별도 영어 기준(IELTS 5.0 등)을 다시 충족해야 합니다.</div>`
-          : `<div><strong>[IELTS 4.5 (min 4.0 each) Rules]</strong> Accepted for 482/494 only in <strong>NT DAMA III (196 occupations)</strong> and <strong>SA Regional Workforce DAMA (Type 2 — verified Outer Regional SA postcodes only)</strong> <a href="#fn-11">[11]</a> <a href="#fn-15">[15]</a>. Adelaide Metropolitan postcodes (including 5950 and 5960) and Inner Regional SA postcodes do NOT qualify for IELTS 4.5, and ENS 186 requires separate English assessment.</div>`
+          ? `<div><strong>IELTS 4.5 (각 과목 4.0 이상) 적용 조건:</strong> <strong>NT DAMA III(196개 직종)</strong> 및 <strong>SA Regional Workforce DAMA(공식 Outer Regional SA 우편번호 5220~5734 소재 고용주 Type 2 한정)</strong>에서만 482/494 단계 IELTS 4.5(각 4.0)가 허용됩니다 <a href="#fn-11">[11]</a> <a href="#fn-15">[15]</a>. 남호주 Adelaide Metropolitan(5000~5199, 5950, 5960) 및 Inner Regional 우편번호는 IELTS 4.5 대상이 아니며, ENS 186 단계에서는 별도 영어 기준(IELTS 5.0 등)을 다시 충족해야 합니다.</div>`
+          : `<div><strong>IELTS 4.5 (min 4.0 each) Rules:</strong> Accepted for 482/494 only in <strong>NT DAMA III (196 occupations)</strong> and <strong>SA Regional Workforce DAMA (Type 2 · verified Outer Regional SA postcodes only)</strong> <a href="#fn-11">[11]</a> <a href="#fn-15">[15]</a>. Adelaide Metropolitan postcodes (including 5950 and 5960) and Inner Regional SA postcodes do NOT qualify for IELTS 4.5, and ENS 186 requires separate English assessment.</div>`
       );
     }
 
     if (f.region === "south_west_dama" || f.region === "goldfields_dama") {
       alerts.push(
         currentLang === "ko"
-          ? `<div><strong>[서호주 일몰 협약 마감일 구분 안내]</strong> • <strong>South West DAMA:</strong> 신청·변경 접수 마감 <strong>2026-10-30</strong> / 협약 종료 <strong>2026-12-14</strong> (ENS 186 영어 감면 없음 — IELTS 각 6.0 필수) <a href="#fn-26">[26]</a> <a href="#fn-27">[27]</a>.<br/>• <strong>Goldfields DAMA:</strong> 신청 접수 마감 <strong>2026-11-13</strong> / 협약 종료 <strong>2026-12-31</strong> (11월 13일 이후 신규 신청 불가 · 단, 협약 종료가 기존 승인된 고용주 Labour Agreement나 기존 비자를 자동 취소시키지 않음) <a href="#fn-24">[24]</a>.</div>`
-          : `<div><strong>[WA Sunset DAMA Cutoff vs Expiry Dates]</strong> • <strong>South West DAMA:</strong> Application/Variation Cutoff <strong>2026-10-30</strong> / Agreement Expiry <strong>2026-12-14</strong> (No ENS 186 English concession — IELTS 6.0 each required) <a href="#fn-26">[26]</a> <a href="#fn-27">[27]</a>.<br/>• <strong>Goldfields DAMA:</strong> Application Cutoff <strong>2026-11-13</strong> / Agreement Expiry <strong>2026-12-31</strong> (Closed to new applications after 13 Nov 2026; existing approved Labour Agreements and visas are NOT automatically cancelled) <a href="#fn-24">[24]</a>.</div>`
+          ? `<div><strong>서호주 일몰 협약 마감일 구분 안내:</strong> • <strong>South West DAMA:</strong> 신청·변경 접수 마감 <strong>2026-10-30</strong> / 협약 종료 <strong>2026-12-14</strong> (ENS 186 영어 감면 없음 · IELTS 각 6.0 필수) <a href="#fn-26">[26]</a> <a href="#fn-27">[27]</a>.<br/>• <strong>Goldfields DAMA:</strong> 신청 접수 마감 <strong>2026-11-13</strong> / 협약 종료 <strong>2026-12-31</strong> (11월 13일 이후 신규 신청 불가 · 단, 협약 종료가 기존 승인된 고용주 Labour Agreement나 기존 비자를 자동 취소시키지 않음) <a href="#fn-24">[24]</a>.</div>`
+          : `<div><strong>WA Sunset DAMA Cutoff vs Expiry Dates:</strong> • <strong>South West DAMA:</strong> Application/Variation Cutoff <strong>2026-10-30</strong> / Agreement Expiry <strong>2026-12-14</strong> (No ENS 186 English concession · IELTS 6.0 each required) <a href="#fn-26">[26]</a> <a href="#fn-27">[27]</a>.<br/>• <strong>Goldfields DAMA:</strong> Application Cutoff <strong>2026-11-13</strong> / Agreement Expiry <strong>2026-12-31</strong> (Closed to new applications after 13 Nov 2026; existing approved Labour Agreements and visas are NOT automatically cancelled) <a href="#fn-24">[24]</a>.</div>`
       );
     }
 
@@ -1002,8 +1002,8 @@
           // Salary badge with balloon
           const salBalloon =
             currentLang === "ko"
-              ? `[${damaName} 급여 규칙] ${o.min_salary_2026} — ${o.tsmit_detail}. ${d.salary_rule_ko}`
-              : `[${damaName} Salary Rule] ${o.min_salary_2026} — ${o.tsmit_detail}. ${d.salary_rule_en}`;
+              ? `[${damaName} 급여 규칙] ${o.min_salary_2026} · ${o.tsmit_detail}. ${d.salary_rule_ko}`
+              : `[${damaName} Salary Rule] ${o.min_salary_2026} · ${o.tsmit_detail}. ${d.salary_rule_en}`;
           const salBadge =
             o.min_salary_aud === 67510
               ? `<span class="badge badge-burgundy" data-balloon="${esc(salBalloon)}">$67,510 (85% · AMSR 필수) <span class="balloon-icon">?</span></span>`
@@ -1158,7 +1158,7 @@
     const rowEval = evaluateRowStatus(o, f);
 
     const damaName = currentLang === "ko" ? o.dama_name_ko : o.dama_name_en;
-    titleEl.textContent = `${o.occupation_title} (${o.classification_scheme || "ANZSCO"} ${o.anzsco_code} · Skill Level ${o.skill_level}) — ${damaName}`;
+    titleEl.textContent = `${o.occupation_title} (${o.classification_scheme || "ANZSCO"} ${o.anzsco_code} · Skill Level ${o.skill_level}) · ${damaName}`;
 
     const fnRefs = o.footnote_ids
       .map((id) => {
@@ -1202,7 +1202,7 @@
         <ul style="padding-left:18px;font-size:14px;line-height:1.7;">
           <li>${transitionTrackKo}</li>
           <li><strong>연령 전환 시점 주의 구간 (만 ${trapRangeStr}세):</strong> 연령 상한(만 ${o.max_age}세 미만)은 <strong>ENS 186 노미네이션 접수 시점</strong>에 적용됩니다. 따라서 ${transitionYearsForAge}년 전환 경로 기준 만 ${trapRangeStr}세에 482를 먼저 받으면 ${transitionYearsForAge}년 뒤 만 ${o.max_age}세 이상이 되어 186 전환이 불가할 수 있습니다(반면 만 ${trapStart - 1}세 이하는 ${transitionYearsForAge}년 뒤 만 ${o.max_age - 1}세 이하이므로 상한 내). 해당 연령대는 만 ${o.max_age}세 도래 전에 <strong>SESR Subclass 494 비자</strong>를 먼저 접수한 뒤 3년 후 <strong>연령 제한이 없는 Subclass 191 영주권</strong>으로 전환하는 방안을 검토하십시오.</li>
-          ${o.direct_186 ? `<li style="color:#7A1F2B;font-weight:700;">★ 조건부 Direct ENS 186 조항 (추가 확인 필수): 이 지역은 비-DAMA 임시비자 2년 지역 경력을 인정하는 조항이 있으나, 자동으로 신청 가능한 것이 아니라 ① 스폰서 고용주의 DAR Endorsement, ② 개별 Labour Agreement 내 ENS 186 스트림 승인 여부, ③ 해당 직종·숙련도 요건 충족이 반드시 확인되어야 합니다.</li>` : ""}
+          ${o.direct_186 ? `<li style="color:#7A1F2B;font-weight:700;">★ 조건부 Direct ENS 186 조항 (추가 확인 필수): 이 지역은 비-DAMA 임시비자 2년 지역 경력을 인정하는 조항이 있으나 자동으로 신청할 수 있는 것은 아니며, ① 스폰서 고용주의 DAR Endorsement, ② 개별 Labour Agreement 내 ENS 186 스트림 승인 여부, ③ 해당 직종·숙련도 요건 충족을 반드시 확인해야 합니다.</li>` : ""}
           ${o.sl5_upgrade_req ? `<li style="color:#B23A2E;font-weight:700;">⚠ Skill Level 5 승진 필수 주의: 이 지역에서는 SL5 직종 근로자가 ENS 186 영주권을 받으려면 반드시 Skill Level 1~4 상위 직종으로 승진(Progression)하여 최소 2년간 근무해야 합니다.</li>` : ""}
           ${o.no_186_eng_concession ? `<li style="color:#B23A2E;font-weight:700;">⚠ 186 영어 함정 주의: 사우스 웨스트 DAMA는 ENS 186 단계에서 영어 감면이 없어 IELTS 각 6.0이 필수입니다.</li>` : ""}
         </ul>
@@ -1212,7 +1212,7 @@
         <ul style="padding-left:18px;font-size:14px;line-height:1.7;">
           <li>${transitionTrackEn}</li>
           <li><strong>Age ${trapRangeStr} Transition Timing Notice (Under-${o.max_age} Cap):</strong> Because the Under-${o.max_age} age cap applies at ENS 186 nomination lodgement, applicants aged ${trapRangeStr} on a ${transitionYearsForAge}-year transition pathway will reach ${o.max_age}+ before 186 nomination (whereas age ${trapStart - 1} + ${transitionYearsForAge}y = ${o.max_age - 1} remains under ${o.max_age}). Applicants aged ${trapRangeStr} should consider lodging <strong>SESR Subclass 494</strong> before turning ${o.max_age}, then transitioning after 3 years to <strong>Subclass 191 PR (no age limit)</strong>.</li>
-          ${o.direct_186 ? `<li style="color:#7A1F2B;font-weight:700;">★ Conditional Direct ENS 186 Provision (Requires Verification): While this DAMA allows counting 2 years of regional work on non-DAMA temporary visas, Direct ENS 186 is NOT automatic — it requires verified employer DAR endorsement, an approved Labour Agreement covering the ENS 186 stream, and occupation/skill-level compliance.</li>` : ""}
+          ${o.direct_186 ? `<li style="color:#7A1F2B;font-weight:700;">★ Conditional Direct ENS 186 Provision (Requires Verification): While this DAMA allows counting 2 years of regional work on non-DAMA temporary visas, Direct ENS 186 is NOT automatic · it requires verified employer DAR endorsement, an approved Labour Agreement covering the ENS 186 stream, and occupation/skill-level compliance.</li>` : ""}
           ${o.sl5_upgrade_req ? `<li style="color:#B23A2E;font-weight:700;">⚠ SL5 Promotion Requirement: Skill Level 5 workers in this DAMA must progress into a Skill Level 1–4 occupation for at least 2 years to qualify for ENS 186.</li>` : ""}
         </ul>
       `;
@@ -1225,7 +1225,7 @@
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-bottom:16px;">
         <div style="background:#E7F3EC;border-left:4px solid #2E6B4F;padding:12px 14px;border-radius:0 8px 8px 0;">
           <h4 style="color:#2E6B4F;font-size:13.5px;font-weight:800;margin-bottom:6px;">
-            ${currentLang === "ko" ? `탐색 상태: ${rowEval.label_ko} — 충족된 필터 조건` : `Explorer Status: ${rowEval.label_en} — Matched Filter Criteria`}
+            ${currentLang === "ko" ? `탐색 상태: ${rowEval.label_ko} · 충족된 필터 조건` : `Explorer Status: ${rowEval.label_en} · Matched Filter Criteria`}
           </h4>
           <ul style="padding-left:16px;font-size:12.5px;line-height:1.55;margin:0;">${matchedListHtml}</ul>
         </div>
@@ -1302,8 +1302,8 @@
 
     titleEl.textContent =
       currentLang === "ko"
-        ? `${d.name_ko} (${d.name_en}) — 지역 전체 협약 요건 및 우편번호 가이드`
-        : `${d.name_en} — Complete Regional Rules & Postcode Coverage`;
+        ? `${d.name_ko} (${d.name_en}) · 지역 전체 협약 요건 및 우편번호 가이드`
+        : `${d.name_en} · Complete Regional Rules & Postcode Coverage`;
 
     const fnRefs = d.footnote_ids
       .map((id) => {
@@ -1491,7 +1491,7 @@
           <div class="footnote-item" id="fn-${fn.id}">
             <div class="fn-badge">[${fn.id}]</div>
             <div>
-              <div><strong>${esc(fn.org)}</strong> — <em>${esc(fn.title)}</em> (${esc(fn.date)})</div>
+              <div><strong>${esc(fn.org)}</strong> · <em>${esc(fn.title)}</em> (${esc(fn.date)})</div>
               <div style="margin-top:2px;">
                 <a href="${esc(fn.url)}" target="_blank" rel="noopener">${esc(fn.url)} ↗</a>
               </div>
@@ -1766,64 +1766,64 @@
     "Schedule 6D 11대 평가 항목 입력": "Schedule 6D 11-Factor Assessment Inputs",
     "1. 초청 시점 만 나이 (Part 6D.1)": "1. Age at Time of Invitation (Part 6D.1)",
     "만 18세 ~ 24세 (25점)": "Aged 18–24 (25 pts)",
-    "만 25세 ~ 32세 (30점 — 최고 배점)": "Aged 25–32 (30 pts — Maximum)",
+    "만 25세 ~ 32세 (30점 · 최고 배점)": "Aged 25–32 (30 pts · Maximum)",
     "만 33세 ~ 39세 (25점)": "Aged 33–39 (25 pts)",
     "만 40세 ~ 44세 (15점)": "Aged 40–44 (15 pts)",
-    "만 45세 이상 (0점 — GSM 189/190/491 신청 불가)": "Aged 45+ (0 pts — Ineligible for GSM 189/190/491)",
-    "2. 영어 능력 (Part 6D.2 — 유효기간 3년)": "2. English Language Ability (Part 6D.2 — 3-Year Validity)",
-    "Competent English — IELTS 각 6.0 / PTE 50 (0점 · 최소 기본요건)": "Competent English — IELTS 6.0 / PTE 50 (0 pts · Minimum Threshold)",
-    "Proficient English — IELTS 각 7.0 / PTE 65 (10점)": "Proficient English — IELTS 7.0 / PTE 65 (10 pts)",
-    "Superior English — IELTS 각 8.0 / PTE 79 (20점)": "Superior English — IELTS 8.0 / PTE 79 (20 pts)",
-    "3. 해외 숙련 경력 (Part 6D.3 — 최근 10년 내 주 20h+)": "3. Overseas Skilled Employment (Part 6D.3 — 20h+/wk in last 10 yrs)",
+    "만 45세 이상 (0점 · GSM 189/190/491 신청 불가)": "Aged 45+ (0 pts · Ineligible for GSM 189/190/491)",
+    "2. 영어 능력 (Part 6D.2 · 유효기간 3년)": "2. English Language Ability (Part 6D.2 · 3-Year Validity)",
+    "Competent English · IELTS 각 6.0 / PTE 50 (0점 · 최소 기본요건)": "Competent English · IELTS 6.0 / PTE 50 (0 pts · Minimum Threshold)",
+    "Proficient English · IELTS 각 7.0 / PTE 65 (10점)": "Proficient English · IELTS 7.0 / PTE 65 (10 pts)",
+    "Superior English · IELTS 각 8.0 / PTE 79 (20점)": "Superior English · IELTS 8.0 / PTE 79 (20 pts)",
+    "3. 해외 숙련 경력 (Part 6D.3 · 최근 10년 내 주 20h+)": "3. Overseas Skilled Employment (Part 6D.3 · 20h+/wk in last 10 yrs)",
     "3년 미만 (0점)": "Under 3 years (0 pts)",
     "3년 이상 ~ 5년 미만 (5점)": "3 to <5 years (5 pts)",
     "5년 이상 ~ 8년 미만 (10점)": "5 to <8 years (10 pts)",
     "8년 이상 (15점)": "8+ years (15 pts)",
-    "4. 호주 내 숙련 경력 (Part 6D.4 — 최근 10년 내 주 20h+)": "4. Australian Skilled Employment (Part 6D.4 — 20h+/wk in last 10 yrs)",
+    "4. 호주 내 숙련 경력 (Part 6D.4 · 최근 10년 내 주 20h+)": "4. Australian Skilled Employment (Part 6D.4 · 20h+/wk in last 10 yrs)",
     "1년 미만 (0점)": "Under 1 year (0 pts)",
     "1년 이상 ~ 3년 미만 (5점)": "1 to <3 years (5 pts)",
     "8년 이상 (20점)": "8+ years (20 pts)",
     "5. 최종 학력/자격 (Part 6D.7)": "5. Educational Qualifications (Part 6D.7)",
-    "박사 학위 (Doctorate / PhD — 20점)": "Doctorate / PhD (20 pts)",
+    "박사 학위 (Doctorate / PhD · 20점)": "Doctorate / PhD (20 pts)",
     "학사(Bachelor) 또는 석사(Masters) 학위 (15점)": "Bachelor or Masters Degree (15 pts)",
     "호주 Diploma / Trade 학위 또는 기술심사기관 인정 자격 (10점)": "Australian Diploma / Trade Qualification or Recognised Award (10 pts)",
     "인정 학력 없음 (0점)": "No Recognised Qualification (0 pts)",
     "6. 배우자/파트너 자격 또는 미혼 (Part 6D.11)": "6. Partner Skills or Single Status (Part 6D.11)",
-    "미혼(Single) 또는 파트너가 호주 시민권자/영주권자 (10점 — 6D112)": "Single OR Partner is Australian Citizen/PR (10 pts — 6D112)",
-    "파트너가 만 45세 미만 + Competent 영어 + 동일 리스트 기술심사 보유 (10점 — 6D111)": "Partner <45 + Competent English + Skilled Assessment (10 pts — 6D111)",
-    "파트너가 Competent 영어(IELTS 6.0)만 보유 (5점 — 6D113)": "Partner has Competent English (IELTS 6.0) only (5 pts — 6D113)",
+    "미혼(Single) 또는 파트너가 호주 시민권자/영주권자 (10점 · 6D112)": "Single OR Partner is Australian Citizen/PR (10 pts · 6D112)",
+    "파트너가 만 45세 미만 + Competent 영어 + 동일 리스트 기술심사 보유 (10점 · 6D111)": "Partner <45 + Competent English + Skilled Assessment (10 pts · 6D111)",
+    "파트너가 Competent 영어(IELTS 6.0)만 보유 (5점 · 6D113)": "Partner has Competent English (IELTS 6.0) only (5 pts · 6D113)",
     "파트너가 시민권/영주권자가 아니며 영어/기술심사 미보유 (0점)": "Partner is non-citizen/PR without English or Skills Assessment (0 pts)",
-    "7. 추가 가점 항목 (해당 항목 모두 체크 — Part 6D.6 / 6D.7A / 6D.8 / 6D.9 / 6D.10)": "7. Bonus Point Factors (Tick all that apply — Parts 6D.6–6D.10)",
+    "7. 추가 가점 항목 (해당 항목 모두 체크 · Part 6D.6 / 6D.7A / 6D.8 / 6D.9 / 6D.10)": "7. Bonus Point Factors (Tick all that apply · Parts 6D.6–6D.10)",
     "Subclass 189 · 190 · 491 법정 점수 산출 결과": "Subclass 189 · 190 · 491 Statutory Points Breakdown",
     "8개 주/준주 중 현재 바로 노미네이션 신청(또는 ROI/Matrix 접수)이 가능한 주와 부족한 개월 수를 즉시 판정": "Instantly identify eligible States/Territories and any remaining residency/work months required",
     "내 거주지 · 근무 개월 · 주당 시간 · 졸업생 프로필 입력": "Your Current State, Work Months, Weekly Hours & Graduate Profile",
     "1. 현재 거주 중인 주/준주 (또는 해외)": "1. Current State/Territory of Residence (or Offshore)",
-    "Queensland (QLD — 브리즈번 / 골드코스트·지방 QLD)": "Queensland (QLD — Brisbane / Gold Coast & Regional QLD)",
-    "New South Wales (NSW — 시드니 / 지방 NSW)": "New South Wales (NSW — Sydney / Regional NSW)",
-    "Victoria (VIC — 멜버른 / 지방 VIC)": "Victoria (VIC — Melbourne / Regional VIC)",
-    "Western Australia (WA — 퍼스 및 서호주 전역)": "Western Australia (WA — Perth & Statewide WA)",
-    "South Australia (SA — 애들레이드 및 외곽 SA)": "South Australia (SA — Adelaide & Regional SA)",
-    "Tasmania (TAS — 호바트·론세스턴 등 전역)": "Tasmania (TAS — Hobart, Launceston & Statewide)",
-    "Australian Capital Territory (ACT — 캔버라)": "Australian Capital Territory (ACT — Canberra)",
-    "Northern Territory (NT — 다윈·앨리스스프링스 등)": "Northern Territory (NT — Darwin & Regional NT)",
-    "해외 거주 중 (Offshore — 한국 등 호주 외 거주)": "Residing Offshore (Outside Australia)",
+    "Queensland (QLD · 브리즈번 / 골드코스트·지방 QLD)": "Queensland (QLD · Brisbane / Gold Coast & Regional QLD)",
+    "New South Wales (NSW · 시드니 / 지방 NSW)": "New South Wales (NSW · Sydney / Regional NSW)",
+    "Victoria (VIC · 멜버른 / 지방 VIC)": "Victoria (VIC · Melbourne / Regional VIC)",
+    "Western Australia (WA · 퍼스 및 서호주 전역)": "Western Australia (WA · Perth & Statewide WA)",
+    "South Australia (SA · 애들레이드 및 외곽 SA)": "South Australia (SA · Adelaide & Regional SA)",
+    "Tasmania (TAS · 호바트·론세스턴 등 전역)": "Tasmania (TAS · Hobart, Launceston & Statewide)",
+    "Australian Capital Territory (ACT · 캔버라)": "Australian Capital Territory (ACT · Canberra)",
+    "Northern Territory (NT · 다윈·앨리스스프링스 등)": "Northern Territory (NT · Darwin & Regional NT)",
+    "해외 거주 중 (Offshore · 한국 등 호주 외 거주)": "Residing Offshore (Outside Australia)",
     "2. 직군 산업 분야 (Priority Sector)": "2. Occupation Industry Sector",
     "일반 기술·전문직·기능직 (General CSOL/State List)": "General Skilled / Professional / Trade Occupation",
-    "건축·건설·트레이드 (Building & Construction — QLD·WA·SA 최우선 우대)": "Building & Construction Trades (Priority in QLD, WA, SA)",
+    "건축·건설·트레이드 (Building & Construction · QLD·WA·SA 최우선 우대)": "Building & Construction Trades (Priority in QLD, WA, SA)",
     "보건·의료·간호·교육·사회복지 (Health, Nursing, Teaching, Social Work)": "Health, Nursing, Teaching & Social Work",
     "3. 현 거주 주(State) 연속 거주 개월 수 (개월)": "3. Continuous Residency in Current State (Months)",
     "4. 현 거주 주 내 숙련 직무 연속 근무 개월 수 (개월)": "4. Continuous Skilled Employment in Current State (Months)",
     "5. 주당 평균 유급 근무시간 (시간/주)": "5. Average Paid Working Hours per Week",
-    "주 35~38시간 이상 (Full-time — 전 주정부 190/491 기준 충족)": "35–38+ hrs/wk (Full-time — Meets all State 190/491 thresholds)",
+    "주 35~38시간 이상 (Full-time · 전 주정부 190/491 기준 충족)": "35–38+ hrs/wk (Full-time · Meets all State 190/491 thresholds)",
     "주 30시간 이상 (QLD·SA·ACT 190 기준 충족)": "30+ hrs/wk (Meets QLD, SA, ACT 190 thresholds)",
     "주 20시간 이상 (NSW·TAS·SA 491 기준 충족)": "20+ hrs/wk (Meets NSW, TAS, SA 491 thresholds)",
     "주 15시간 이상 (ACT 491 13/15주 기준 충족)": "15+ hrs/wk (Meets ACT 491 threshold)",
     "현재 미취업 (졸업생 무경력 스트림 또는 해외 경력 활용)": "Currently Unemployed (Graduate stream or offshore experience)",
     "6. 현 거주 주(State) 내 대학/VET 졸업 여부": "6. Graduate of a University/VET Institution in Current State?",
     "아니오 (일반 숙련 근로자 스트림)": "No (Standard Skilled Worker Stream)",
-    "예 — 해당 주에서 학사/석사/학위(2년+) 졸업 (Regional NSW·WA·TAS·SA·NT 졸업생 특례)": "Yes — Bachelor/Masters (2+ yrs) in this State (Graduate concessions)",
-    "예 — 해당 주에서 박사(PhD) 학위 취득 (ACT 무료·자동초청 / QLD·WA·SA 우대)": "Yes — Doctorate (PhD) completed in this State (Priority stream)",
-    "예 — 해당 주에서 2년 이상 VET (Cert III/IV/Diploma) 졸업 (WA·TAS·SA 졸업생)": "Yes — 2+ yr VET (Cert III/IV/Diploma) in this State",
+    "예 · 해당 주에서 학사/석사/학위(2년+) 졸업 (Regional NSW·WA·TAS·SA·NT 졸업생 특례)": "Yes · Bachelor/Masters (2+ yrs) in this State (Graduate concessions)",
+    "예 · 해당 주에서 박사(PhD) 학위 취득 (ACT 무료·자동초청 / QLD·WA·SA 우대)": "Yes · Doctorate (PhD) completed in this State (Priority stream)",
+    "예 · 해당 주에서 2년 이상 VET (Cert III/IV/Diploma) 졸업 (WA·TAS·SA 졸업생)": "Yes · 2+ yr VET (Cert III/IV/Diploma) in this State",
     "내 프로필 기준 주정부 노미네이션(190 · 491) 적격 판정": "State Nomination (190 · 491) Eligibility Assessment",
     "8개 주/준주별 190·491 세부 스트림 · 거주/근무/고용계약 · 수수료 · 숨은 함정 총정리": "8-State/Territory 190 & 491 Streams, Residency/Work Rules, Fees & Key Traps",
     "QLD (퀸즐랜드)": "QLD (Queensland)",
@@ -1838,14 +1838,14 @@
     "주정부 노미네이션 수수료 + FY2026–27 연방 비자비(VAC) 총합": "State Nomination Fee + FY2026–27 Federal VAC Total",
     "비자 종류 · 노미네이션 주 · 가족 수 · [491/494 전용] 191 전환 요건": "Visa Subclass, Nominating State, Family Size & [491/494 Only] 191 PR Check",
     "1. 신청 비자 서브클래스": "1. Target Visa Subclass",
-    "Subclass 491 — 지방 주정부/가족 지명 임시 5년 (3년 후 191 영주권 전환 대상 · VAC $6,140)": "Subclass 491 — Regional Provisional 5-Yr (Eligible for 191 PR after 3 yrs · VAC $6,140)",
-    "Subclass 191 — [491/494 소지자 전용] 3년 후 영주권 전환 신청 (VAC $630 · 주정부 비용 $0)": "Subclass 191 — [491/494 Holders Only] 3-Yr PR Transition (VAC $630 · State Fee $0)",
-    "Subclass 190 — 주정부 지명 영주비자 (처음부터 영주권 Direct PR · 191 전환 대상 아님 · VAC $6,140)": "Subclass 190 — State Nominated Direct PR (Direct PR · Not a 191 pathway · VAC $6,140)",
-    "Subclass 189 — 독립기술 영주비자 (처음부터 영주권 Direct PR · 주정부/191 대상 아님 · VAC $6,135)": "Subclass 189 — Skilled Independent Direct PR (Direct PR · Not a 191 pathway · VAC $6,135)",
+    "Subclass 491 · 지방 주정부/가족 지명 임시 5년 (3년 후 191 영주권 전환 대상 · VAC $6,140)": "Subclass 491 · Regional Provisional 5-Yr (Eligible for 191 PR after 3 yrs · VAC $6,140)",
+    "Subclass 191 · [491/494 소지자 전용] 3년 후 영주권 전환 신청 (VAC $630 · 주정부 비용 $0)": "Subclass 191 · [491/494 Holders Only] 3-Yr PR Transition (VAC $630 · State Fee $0)",
+    "Subclass 190 · 주정부 지명 영주비자 (처음부터 영주권 Direct PR · 191 전환 대상 아님 · VAC $6,140)": "Subclass 190 · State Nominated Direct PR (Direct PR · Not a 191 pathway · VAC $6,140)",
+    "Subclass 189 · 독립기술 영주비자 (처음부터 영주권 Direct PR · 주정부/191 대상 아님 · VAC $6,135)": "Subclass 189 · Skilled Independent Direct PR (Direct PR · Not a 191 pathway · VAC $6,135)",
     "2. 노미네이션 신청 주/준주 (190·491만 해당)": "2. Nominating State/Territory (190 & 491 Only)",
-    "QLD — $630.30 (Onshore GST 포함)": "QLD — $630.30 (incl. Onshore GST)",
-    "NSW — $346.50 (Onshore GST 포함)": "NSW — $346.50 (incl. Onshore GST)",
-    "WA — $0 (서호주 주정부 신청비 전면 무료!)": "WA — $0 (Western Australia $0 Nomination Fee)",
+    "QLD · $630.30 (Onshore GST 포함)": "QLD · $630.30 (incl. Onshore GST)",
+    "NSW · $346.50 (Onshore GST 포함)": "NSW · $346.50 (incl. Onshore GST)",
+    "WA · $0 (서호주 주정부 신청비 전면 무료!)": "WA · $0 (Western Australia $0 Nomination Fee)",
     "3. 동반 성인 가족 수 (만 18세 이상 배우자 등)": "3. Accompanying Adult Applicants (18+ Partner/Dependants)",
     "0명 (단독 신청)": "0 (Single Applicant)",
     "1명 (+$3,070 / 191은 +$315)": "1 Adult (+$3,070 / 191 is +$315)",
@@ -1860,8 +1860,8 @@
     "491/494 보유 3년 이상 + ATO Notice of Assessment 3개 연도 확보 완료": "Held 491/494 for 3+ yrs + 3 income years of ATO NOAs ready",
     "아직 3년 미만 보유 중 (5년 비자 기간 중 총 3개 과세연도 NOA 확보 필요)": "Held <3 yrs (Must complete 3 years and 3 ATO NOAs within 5-yr validity)",
     "6. [491/494 소지자 전용] 지방 거주·근무 조건(8579) 준수": "6. [491/494 Holders Only] Condition 8579 Regional Compliance",
-    "준수 완료 — 지정 지방(Designated Regional Area) 내 거주·근무·학업 유지": "Compliant — Resided, worked & studied exclusively in Designated Regional Areas",
-    "주의 필요 — 대도시(시드니·멜버른·브리즈번) 장기 체류 또는 주소 변경 미신고(8578)": "Caution — Extended metro stay (Sydney/Melbourne/Brisbane) or unnotified address (8578)",
+    "준수 완료 · 지정 지방(Designated Regional Area) 내 거주·근무·학업 유지": "Compliant · Resided, worked & studied exclusively in Designated Regional Areas",
+    "주의 필요 · 대도시(시드니·멜버른·브리즈번) 장기 체류 또는 주소 변경 미신고(8578)": "Caution · Extended metro stay (Sydney/Melbourne/Brisbane) or unnotified address (8578)",
     "FY2026–27 총비용 & Subclass 191 영주권 전환 판정": "FY2026–27 Total Statutory Cost & Subclass 191 PR Assessment",
     "내 기술이민 점수(Schedule 6D) & 주정부 노미네이션 진단서 복사 · 인쇄(PDF) & 상담 메일 발송": "Copy, Print (PDF) & Email Your GSM Points & State Nomination Brief",
     "위 모듈에서 계산된 189·190·491 점수, 거주 주 노미네이션 적격 판정, 총비용 요약문을 즉시 복사하거나 상담 메일에 첨부할 수 있어요.": "Copy or email your calculated 189/190/491 points, state nomination eligibility, and fee breakdown directly to Park & Co.",
