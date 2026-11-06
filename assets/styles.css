@@ -957,7 +957,7 @@ table.occ-table tr:hover td {
   flex-wrap: wrap;
 }
 
-/* Park & Co Unified Visit Counter & Referral Modal v2 */
+/* Park & Co Unified Visit Counter & Referral Modal v2.1 */
 .visit-counter { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; align-items: center; }
 .visit-counter[hidden] { display: none !important; }
 .visit-counter:not([hidden]) { cursor: pointer; }
@@ -977,6 +977,11 @@ table.occ-table tr:hover td {
 #vc-modal .vc-close { float: right; border: 0; background: none; font-size: 1.45rem; line-height: 1; cursor: pointer;
   color: #5A5654; min-width: 34px; min-height: 34px; padding: 0; }
 #vc-modal .vc-close:hover { color: #7A1F2B; }
+.vc-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin: 0 0 8px; flex-wrap: wrap; }
+.vc-range-tabs { display: inline-flex; gap: 4px; background: #F4F0E8; padding: 3px; border-radius: 999px; }
+.vc-range-btn { border: 0; background: transparent; color: #5A5654; font-size: 0.75rem; font-weight: 700;
+  padding: 4px 10px; border-radius: 999px; cursor: pointer; }
+.vc-range-btn.active { background: #7A1F2B; color: #FFFFFF; }
 .vc-svg { width: 100%; height: auto; display: block; }
 .vc-grid { stroke: #E5DEC9; stroke-width: 1; }
 .vc-ylab { font-size: 11px; fill: #5A5654; text-anchor: end; }
