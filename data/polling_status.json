@@ -6,7 +6,7 @@
   "overall_verification_status": "changes_detected_pending_legal_review",
   "badge_label_ko": "원문 변경 감지 (2026-11-05 · 1건 수동 검토 필요)",
   "badge_label_en": "Source Changed (2026-11-05 · 1 Pending Review)",
-  "scope_disclaimer_ko": "해시 불변(unchanged)은 수집 대상 웹페이지 텍스트 및 직종 리스트 원본 PDF 바이너리의 SHA-256 해시 변경이 감지되지 않았음을 의미하며, 2,474개 전 직종 세부 요건에 대한 실시간 법률 인증을 대체하지 않습니다.",
+  "scope_disclaimer_ko": "해시 불변(unchanged)은 수집 대상 웹페이지 텍스트 및 직종 리스트 원본 PDF 바이너리의 SHA-256 해시 변경이 감지되지 않았음을 의미하며 2,474개 전 직종 세부 요건에 대한 실시간 법률 인증을 대체하지 않습니다.",
   "scope_disclaimer_en": "An unchanged hash indicates no text or official occupation PDF binary SHA-256 change was detected on the monitored URLs; it does not constitute automated legal certification of all 2,474 occupation entries.",
   "total_targets": 15,
   "live_count": 15,
@@ -64,7 +64,7 @@
       "head_agreement_expiry": "2026-12-14",
       "accepting_new_applications": false,
       "existing_agreements_visas_auto_cancelled": false,
-      "note_ko": "신규·변경 DAR 신청 접수 마감됨 (마감일: 2026-10-30 / 협약 종료일: 2026-12-14). 신규 접수는 불가하며, 기존 승인 협약 및 기존 비자가 자동 취소되지는 않습니다.",
+      "note_ko": "신규·변경 DAR 신청 접수 마감됨 (마감일: 2026-10-30 / 협약 종료일: 2026-12-14). 신규 접수는 불가하며 기존 승인 협약 및 기존 비자가 자동 취소되지는 않습니다.",
       "note_en": "Closed to new/variation DAR applications (Cutoff: 2026-10-30 / Agreement Expiry: 2026-12-14). Existing approved agreements and visas are not automatically cancelled."
     },
     "goldfields_dama": {

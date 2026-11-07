@@ -4,26 +4,39 @@
 
   const PAGE_SIZE = 40;
   let DATA = null;
-  let currentLang = (new URLSearchParams(window.location.search).get("lang") === "en") ? "en" : "ko";
+  let currentLang =
+    typeof window !== "undefined" && window.location && new URLSearchParams(window.location.search).get("lang") === "en"
+      ? "en"
+      : "ko";
   let currentPage = 1;
   let filteredOccupations = [];
+  let userInteracted = false;
 
   const I18N = {
     ko: {
+      navBrandTitle: "법무법인 박앤코 · 13개 DAMA 탐색기",
+      navExplorer: "직종·우편번호 탐색",
+      navRegions: "13개 지역 비교",
+      navResults: "협약 요건표",
+      navSources: "공식 출처 [1]–[31]",
+      navFaq: "이민 FAQ",
+      btnDemoFill: "예시 데이터 넣어보기",
+      neutralTitle: "검색어·우편번호 또는 연령·영어 조건을 선택하여 맞춤 후보를 좁혀 보십시오",
+      neutralDesc: "현재 전체 13개 DAMA · 2,474건 등록 항목이 준비되어 있습니다. 우편번호(예: 4810 Townsville · 6430 Kalgoorlie)를 입력하거나 [예시 데이터 넣어보기]를 누르면 실전 조합 예시가 적용됩니다.",
       brandTag: "IMMIGRATION LAW · REGIONAL DAMA PRACTICE",
       pollBadge: "출처 모니터 동기화 중...",
       navEnquiry: "박앤코 상담·문의하기 →",
       urgentBadge: "2026–27 협약 일정 경보",
-      urgentText: "서호주 South West DAMA 신청·변경 접수 마감: 2026-10-30 (협약 종료: 2026-12-14) / Goldfields DAMA 신청 접수 마감: 2026-11-13 (협약 종료: 2026-12-31 · 11.13 이후 신규 접수 불가, 기존 승인 협약·비자 자동 취소 아님) / 남호주 SA DAMA 현행 협약 2027-01-31까지 연장 운영 중(차기 5년 Statewide DAMA 협상 중).",
-      heroOverline: "AUSTRALIA-WIDE 13 DAMA · OCCUPATION, REGION & CONCESSION EXPLORER",
+      urgentText: "서호주 South West DAMA 신청·변경 접수 마감: 2026-10-30 (⛔ 신규 접수 마감 · 협약 종료: 2026-12-14) / Goldfields DAMA 신청 접수 마감: 2026-11-13 (⚠️ 마감 임박 · 협약 종료: 2026-12-31 · 11.13 이후 신규 접수 불가 · 기존 승인 협약·비자 자동 취소 아님) / 남호주 SA DAMA 현행 협약 2027-01-31까지 연장 운영 중입니다.",
+      heroOverline: "AUSTRALIA-WIDE 13 DAMA (DESIGNATED AREA MIGRATION AGREEMENTS) EXPLORER",
       heroTitle: "호주 13개 DAMA 직종 · 지역 및 협약 요건 탐색",
-      heroLead: "직업명(ANZSCO/OSCA/한국어), 나이, 영어 점수, 희망 지역·우편번호, 연봉($67,510~$79,423) 조건을 입력하면 호주 전역 13개 DAMA · 2,474건 지역별 직종 등록 항목(781개 고유 직종) 가운데 신청 가능한 지역과 협약 완화 요건(SID 482 · SESR 494 · ENS 186)을 바로 확인할 수 있습니다. 모든 결과는 검토 후보 · 추가 확인 필요 · 조건 미충족 3단계로 나뉘며, 실제 비자 적합 여부는 관할 DAR·개별 Labour Agreement 원문과 미확인 요건(학력·경력 세부 기준, 근무지 우편번호, 시장임금 AMSR 등)을 반드시 대조해야 합니다.",
+      heroLead: "직업명(ANZSCO/OSCA/한국어), 나이, 영어 점수, 희망 지역·4자리 우편번호(예: 4810 타운즈빌 TNQ / 4870 케언즈 FNQ / 6430 칼굴리 Goldfields), 연봉($67,510~$79,423) 조건을 입력하면 호주 전역 13개 DAMA · 2,474건 지역별 직종 등록 항목(781개 고유 직종) 가운데 신청 가능한 지역과 협약 완화 요건(SID 482 · SESR 494 · ENS 186)을 바로 확인할 수 있습니다. 모든 결과는 검토 후보 · 추가 확인 필요 · 조건 미충족 3단계로 나뉘고 실제 비자 적합 여부는 관할 DAR·개별 Labour Agreement 원문과 미확인 요건(학력·경력 세부 기준, 근무지 우편번호, 시장임금 AMSR 등)을 반드시 대조해야 합니다.",
       heroPrimaryCta: "박앤코 전문변호사 1:1 비자·스폰서십 상담 신청 →",
-      heroSecondaryCta: "직종·조건 맞춤 탐색 바로가기 ↓",
+      heroSecondaryCta: "13개 지역 카드 보기 ↓",
       specName: "박창민 대표변호사 (Chang Min Park)",
       specRole: "QLS Accredited Specialist in Immigration Law",
       specSlogan: "\"삶에 집중하세요, 법률은 저희가 맡겠습니다.\"",
-      specMeta: "법무법인 박앤코 (Park & Co Lawyers · Underwood QLD) | 공식 상담신청: https://parklawyers.com.au/links/?lang=ko",
+      specMeta: "법무법인 박앤코 (Park & Co Lawyers · Underwood QLD) | 문의: enquiry@parkcolawyers.com | 상담신청: https://parklawyers.com.au/links/?lang=ko",
       specBtn: "온라인 문의 바로가기 (parklawyers.com.au) →",
 
       stat1Over: "ACTIVE DAMAS",
@@ -40,16 +53,16 @@
       stat4Sub: "표준 10% 감면 (지역별 Type 1/2/3 상한 상이)",
       stat5Over: "85% NT DAMA III",
       stat5Val: "$67,510",
-      stat5Sub: "NT 최저 급여선 (단, 시장임금 AMSR 이상 필수) [11]",
+      stat5Sub: "NT 최저 급여선 (단 시장임금 AMSR 이상 필수) [11]",
       stat6Over: "MAX AGE CONCESSION",
       stat6Val: "만 55세 미만",
       stat6Sub: "SL1–4 만 55세 / SL5 만 50세 (SA는 55세)",
 
-      combOverline: "STEP 01 · OCCUPATION, REGION & CONCESSION EXPLORER",
-      combTitle: "내 직종 · 지역 · 협약 조건 탐색기",
-      combSub: "한국어 직업명(예: 요리사, 용접사, 간병인, 바리스타, 청소, 트럭, 정비사, 간호사, 개발자, 회계), 영문 직종명, 6자리 ANZSCO/OSCA 코드로 검색한 뒤 희망 지역·우편번호·세부 조건을 골라 보세요. 각 배지(?)를 누르거나 마우스를 올리면 법령 근거와 세부 요건 안내가 열립니다.",
+      combOverline: "STEP 01 · OCCUPATION, POSTCODE & CONCESSION EXPLORER",
+      combTitle: "내 직종 · 우편번호 · 협약 조건 탐색기",
+      combSub: "한국어 직업명(예: 요리사, 용접사, 간병인, 바리스타, 청소, 트럭, 정비사, 간호사, 개발자, 회계), 영문 직종명, 6자리 ANZSCO/OSCA 코드로 검색한 뒤 희망 지역·4자리 우편번호·세부 조건을 선택하시기 바랍니다. 각 배지(?)를 누르거나 마우스를 올리면 법령 근거와 세부 요건 안내가 열립니다.",
       searchPlaceholder: "직종 검색: 예) 요리사, Chef, Cook, 351411, 용접, Welder, 간병인, Carer, 개발자, 회계...",
-      locationPlaceholder: "근무지 LGA / 도시 / 우편번호 (예: Cairns, Perth, 5950, Ravensthorpe)",
+      locationPlaceholder: "근무지 우편번호 / 도시 / LGA (예: 4810, 4870, 6430, Cairns, Perth, 5950)",
       resetBtn: "필터 초기화",
       presetLabel: "인기 검색 직종:",
 
@@ -61,9 +74,9 @@
       lblPathway: "6. 영주권(ENS 186) 및 특별 조건",
 
       optRegionAll: "호주 전체 (13개 DAMA 전 지역 · 2,474건)",
-      optStateQLD: "── 퀸즐랜드 (QLD: FNQ 11개 LGA · 타운즈빌) ──",
-      optStateNSW: "── 뉴사우스웨일즈 (NSW: 오라나 51개 LGA · 129개 직종) ──",
-      optStateNT: "── 노던 테리토리 (NT DAMA III 전역 · 325개 직종) ──",
+      optStateQLD: "── 퀸즐랜드 (QLD: FNQ 11개 LGA · 타운즈빌 TNQ) ──",
+      optStateNSW: "── 뉴사우스웨일즈 (NSW: 오라나 51개 LGA) ──",
+      optStateNT: "── 노던 테리토리 (NT DAMA III 전역) ──",
       optStateSA: "── 남호주 (SA: 애들레이드 Tech · 남호주 Regional) ──",
       optStateVIC: "── 빅토리아 (VIC: 굴번밸리 · 워남불 GSC) ──",
       optStateWA: "── 서호주 (WA: 주전역 Cat 2/3 · 필바라 · 골드필즈 · 남서부 · 킴벌리) ──",
@@ -96,7 +109,7 @@
 
       regOverline: "STEP 02 · WHERE TO FIND YOUR REGIONAL EMPLOYER SPONSOR",
       regTitle: "13개 DAMA 지역별 매칭 직종 등록 항목 수 & 지역 상세 가이드",
-      regSub: "선택한 검색어와 조건에 맞는 직종 등록 항목이 지역별로 몇 건인지 실시간으로 집계됩니다. 지역 카드를 누르면 해당 DAMA만 따로 추려 볼 수 있고, '지역 요건 · 우편번호 상세' 버튼을 누르면 관할 구역과 협약 기준 전체가 팝업으로 열립니다.",
+      regSub: "선택한 검색어와 조건에 맞는 직종 등록 항목이 지역별로 몇 건인지 실시간으로 집계됩니다. 지역 카드를 누르면 해당 DAMA만 따로 추려 볼 수 있으며 '지역 요건 · 우편번호 상세' 버튼을 누르면 관할 구역과 협약 기준 전체가 팝업으로 열립니다.",
       regDetailBtn: "지역 요건 · 우편번호 상세",
       regFilterHint: "클릭하여 이 지역만 필터",
 
@@ -114,26 +127,35 @@
 
       discOverline: "LEGAL DISCLAIMER, COPYRIGHT & GOVERNMENT ATTRIBUTION",
       discTitle: "법률 면책공고 (Legal Disclaimer) · 저작권 보호 및 각 주정부/연방정부 1차 출처 각주",
-      discP1: "1. 일반 정보 안내 및 법률자문 비구성 (No Legal Advice & No Solicitor-Client Relationship): 이 웹서비스('Park & Co DAMA Navigator')에 수록된 정보는 2026년 10월 20일 기준 호주 연방 이민성(Department of Home Affairs)과 13개 지정지역대표기관(DAR)이 공개한 공식 가이드라인·직종 스케줄을 토대로 정리한 일반 참고 자료이며, 개별 사안에 대한 법률자문(Legal Advice)이나 자격 확정 판정이 아닙니다. 탐색 결과는 '검토 후보(Candidate)' 또는 '추가 확인 필요(Requires Verification)' 여부를 가늠하는 용도일 뿐이며, 실제 DAMA DAR Endorsement, Labour Agreement 체결 및 비자(Subclass 482 / 494 / 186) 신청 가능 여부는 사업장 우편번호, 재무 건전성, LMT/SMER 구인광고 적격성, 호주 시장임금(AMSR) 입증, 신청자의 세부 학력·경력(AQF 등급 및 풀타임 환산 경력)과 각 DAR 심사에 따라 달라집니다. 구체적인 진행 전에는 반드시 QLS 공인 이민법 전문변호사(Accredited Specialist in Immigration Law)의 정식 자문을 받으시기 바랍니다.",
+      discP1: "1. 일반 정보 안내 및 법률자문 비구성 (No Legal Advice & No Solicitor-Client Relationship): 이 웹서비스('Park & Co DAMA Navigator')에 수록된 정보는 2026년 10월 20일 기준 호주 연방 이민성(Department of Home Affairs)과 13개 지정지역대표기관(DAR)이 공개한 공식 가이드라인·직종 스케줄을 토대로 정리한 일반 참고 자료로서 개별 사안에 대한 법률자문(Legal Advice)이나 자격 확정 판정이 아닙니다. 탐색 결과는 '검토 후보(Candidate)' 또는 '추가 확인 필요(Requires Verification)' 여부를 가늠하는 용도일 뿐이고 실제 DAMA DAR Endorsement, Labour Agreement 체결 및 비자(Subclass 482 / 494 / 186) 신청 가능 여부는 사업장 우편번호, 재무 건전성, LMT/SMER 구인광고 적격성, 호주 시장임금(AMSR) 입증, 신청자의 세부 학력·경력(AQF 등급 및 풀타임 환산 경력)과 각 DAR 심사에 따라 달라집니다. 구체적인 진행 전에는 반드시 QLS 공인 이민법 전문변호사(Accredited Specialist in Immigration Law)의 정식 자문을 받으시기 바랍니다.",
       discP2: "2. 저작권 보호 고지 (Copyright Protection Notice): © 2026 PNC Legal Pty Ltd t/a Park & Co Lawyers. All rights reserved. 본 웹서비스의 데이터베이스 구조, 국·영문 직종 매핑, 연령·영어·경력 요건 탐색 알고리즘, UI/UX 디자인 및 해설 문구에 대한 일체의 저작권과 지식재산권은 법무법인 박앤코에 귀속됩니다. 사전 서면 허가 없는 크롤링, 무단 복제, 재배포 또는 타 이주업체·법무법인의 상업적 도용을 엄격히 금지합니다.",
       discP3: "3. 호주 연방·주·지방정부 및 관할 DAR 공식 출처 표기 (Government & DAR Attribution Notice): 본 서비스에 반영된 각 주·테리토리 정부 및 DAR의 직종 코드, 우편번호 범위, 수수료 및 완화된 기준 수치는 호주 공공저작물 라이선스(Creative Commons Attribution 4.0 International · CC BY 4.0) 및 출처 표시 원칙에 따라 아래 31개 1차 공식 출처([1]~[31])를 원문 링크 및 SHA-256 무결성 해시와 함께 하단 각주에 명시합니다.",
       fnHeading: "1차 공식 출처 및 주정부·DAR 레퍼런스 각주 ([1] ~ [31])",
     },
     en: {
+      navBrandTitle: "Park & Co · 13 DAMA Explorer",
+      navExplorer: "Occupation & Postcode Search",
+      navRegions: "13 DAMA Regions",
+      navResults: "Concession Table",
+      navSources: "Primary Sources [1]–[31]",
+      navFaq: "Immigration FAQ",
+      btnDemoFill: "Load Sample Profile",
+      neutralTitle: "Enter an occupation, 4-digit postcode, or concession filter to narrow your candidates",
+      neutralDesc: "All 13 Australian DAMAs (2,474 regional occupation entries) are ready. Enter a postcode (e.g. 4810 Townsville · 6430 Kalgoorlie) or click [Load Sample Profile] to see an instant example.",
       brandTag: "IMMIGRATION LAW · REGIONAL DAMA PRACTICE",
       pollBadge: "Source Monitor syncing...",
       navEnquiry: "Make an Enquiry →",
       urgentBadge: "2026–27 SCHEDULE ALERT",
-      urgentText: "WA South West DAMA Application/Variation Cutoff: 2026-10-30 (Agreement Expiry: 2026-12-14) / Goldfields DAMA Application Cutoff: 2026-11-13 (Agreement Expiry: 2026-12-31 · closed to new applications after 13 Nov; existing approved agreements/visas not auto-cancelled) / SA DAMAs extended to 2027-01-31 (proposed 5-year Statewide DAMA under negotiation).",
-      heroOverline: "AUSTRALIA-WIDE 13 DAMA · OCCUPATION, REGION & CONCESSION EXPLORER",
+      urgentText: "WA South West DAMA Application/Variation Cutoff: 2026-10-30 (⛔ Closed to New Applications · Agreement Expiry: 2026-12-14) / Goldfields DAMA Application Cutoff: 2026-11-13 (⚠️ Closing Soon · Agreement Expiry: 2026-12-31 · existing approved agreements/visas not auto-cancelled) / SA DAMAs extended to 2027-01-31.",
+      heroOverline: "AUSTRALIA-WIDE 13 DAMA (DESIGNATED AREA MIGRATION AGREEMENTS) EXPLORER",
       heroTitle: "Australia 13 DAMA Occupation, Region & Concession Explorer",
-      heroLead: "Search by occupation title or ANZSCO/OSCA code and filter by your age, English test score, location/postcode, and offered salary ($67,510–$79,423) across all 13 Australian DAMAs (2,474 regional occupation registration entries across 781 unique occupations). Every entry is classified into Candidate, Requires Verification, or Not Met, with explicit checklists of matched vs. unchecked legal criteria.",
+      heroLead: "Search Designated Area Migration Agreements by occupation title or ANZSCO/OSCA code and filter by your age, English test score, 4-digit postcode (e.g. 4810 Townsville TNQ vs 4870 Cairns FNQ), and offered salary ($67,510–$79,423) across all 13 Australian DAMAs (2,474 regional occupation registration entries across 781 unique occupations).",
       heroPrimaryCta: "Book a 1:1 Consultation with Park & Co Lawyers →",
-      heroSecondaryCta: "Launch DAMA Explorer ↓",
+      heroSecondaryCta: "View 13 Region Cards ↓",
       specName: "Chang Min Park · Legal Practitioner Director",
       specRole: "QLS Accredited Specialist in Immigration Law",
       specSlogan: "\"You focus on life, we'll handle the law.\"",
-      specMeta: "Park & Co Lawyers (Underwood QLD) | Official Inquiry: https://parklawyers.com.au/links/",
+      specMeta: "Park & Co Lawyers (Underwood QLD) | Email: enquiry@parkcolawyers.com | Official Inquiry: https://parklawyers.com.au/links/",
       specBtn: "Enquire Online (parklawyers.com.au) →",
 
       stat1Over: "ACTIVE DAMAS",
@@ -232,9 +254,119 @@
   };
 
   function esc(str) {
-    const div = document.createElement("div");
-    div.textContent = str == null ? "" : String(str);
-    return div.innerHTML;
+    return String(str == null ? "" : str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function todayBrisbaneIso() {
+    try {
+      return new Intl.DateTimeFormat("en-CA", {
+        timeZone: "Australia/Brisbane",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      }).format(new Date());
+    } catch (_) {
+      const now = new Date();
+      const y = now.getFullYear();
+      const m = String(now.getMonth() + 1).padStart(2, "0");
+      const d = String(now.getDate()).padStart(2, "0");
+      return `${y}-${m}-${d}`;
+    }
+  }
+
+  function diffIsoDays(fromIso, toIso) {
+    const p1 = String(fromIso || "").split("-").map(Number);
+    const p2 = String(toIso || "").split("-").map(Number);
+    if (p1.length !== 3 || p2.length !== 3 || p1.some(isNaN) || p2.some(isNaN)) return null;
+    const u1 = Date.UTC(p1[0], p1[1] - 1, p1[2]);
+    const u2 = Date.UTC(p2[0], p2[1] - 1, p2[2]);
+    return Math.round((u2 - u1) / 86400000);
+  }
+
+  function evaluateIntakeStatus(d, refIsoOpt) {
+    if (!d) return { state: "open", cutoff: null, expiry: null, days_to_cutoff: null, badge_ko: "", badge_en: "" };
+    const refIso = refIsoOpt || todayBrisbaneIso();
+    const cutoff = d.new_application_cutoff || null;
+    const expiry = d.head_agreement_expiry || null;
+    const daysToCutoff = cutoff ? diffIsoDays(refIso, cutoff) : null;
+    const daysToExpiry = expiry ? diffIsoDays(refIso, expiry) : null;
+
+    const isClosedByCutoff = daysToCutoff !== null && daysToCutoff < 0;
+    const isClosedByExpiry = daysToExpiry !== null && daysToExpiry < 0;
+    const isExplicitClosed = !refIsoOpt && d.sunset_status === "closed_to_new_applications";
+
+    if (isClosedByCutoff || isClosedByExpiry || isExplicitClosed) {
+      const refDateLabel = cutoff || expiry || d.sunset_date || "";
+      return {
+        state: "closed",
+        cutoff: cutoff,
+        expiry: expiry,
+        days_to_cutoff: daysToCutoff,
+        badge_ko: `⛔ 신규 접수 마감 (${refDateLabel})`,
+        badge_en: `⛔ Closed to New Applications (${refDateLabel})`,
+      };
+    }
+
+    if (daysToCutoff !== null && daysToCutoff >= 0 && daysToCutoff <= 14) {
+      return {
+        state: "imminent",
+        cutoff: cutoff,
+        expiry: expiry,
+        days_to_cutoff: daysToCutoff,
+        badge_ko: `⚠️ 마감 임박 · D-${daysToCutoff} (${cutoff})`,
+        badge_en: `⚠️ Closing Soon · D-${daysToCutoff} (${cutoff})`,
+      };
+    }
+
+    return {
+      state: "open",
+      cutoff: cutoff,
+      expiry: expiry,
+      days_to_cutoff: daysToCutoff,
+      badge_ko: "",
+      badge_en: "",
+    };
+  }
+
+  function renderIntakeBadgeHtml(d, refIsoOpt) {
+    const st = evaluateIntakeStatus(d, refIsoOpt);
+    if (st.state === "open") return "";
+    const cls = st.state === "closed" ? "pk-intake-badge pk-intake-badge--closed" : "pk-intake-badge pk-intake-badge--imminent";
+    const note = currentLang === "ko" ? (d.sunset_note_ko || st.badge_ko) : (d.sunset_note_en || st.badge_en);
+    const label = currentLang === "ko" ? st.badge_ko : st.badge_en;
+    return `<span class="${cls}" data-balloon="${esc(note)}">${esc(label)}</span>`;
+  }
+
+  function matchesPostcodeSpec(d, pcStr) {
+    const pc = String(pcStr || "").trim();
+    if (!/^\d{4}$/.test(pc) || !d) return false;
+    if (d.id === "goldfields_dama" && pc === "6646") return false;
+
+    const rawSpec = String(d.postcodes || "")
+      .replace(/\b\d{4}\b[^,·|)]*(?:제외|exclud[^,·|)]*)/gi, "")
+      .replace(/(?:제외|exclud[^,·|)]*)[^,·|)]*\b\d{4}\b/gi, "");
+
+    const pcNum = Number(pc);
+    const rangeRegex = /(\d{4})\s*[–—-]\s*(\d{4})/g;
+    let m;
+    while ((m = rangeRegex.exec(rawSpec)) !== null) {
+      const lo = Number(m[1]);
+      const hi = Number(m[2]);
+      if (pcNum >= Math.min(lo, hi) && pcNum <= Math.max(lo, hi)) {
+        return true;
+      }
+    }
+
+    const withoutRanges = rawSpec.replace(/(\d{4})\s*[–—-]\s*(\d{4})/g, " ");
+    const singleRegex = /\b(\d{4})\b/g;
+    while ((m = singleRegex.exec(withoutRanges)) !== null) {
+      if (m[1] === pc) return true;
+    }
+    return false;
   }
 
   function t(key) {
@@ -299,7 +431,7 @@
       }
     }
 
-    // Check 4-digit postcode rules
+    // Check 4-digit postcode rules across all 13 DAMAs
     if (/^\d{4}$/.test(loc)) {
       if (d.id === "adelaide_city_dama") {
         const saZone = classifySaPostcode(loc);
@@ -339,6 +471,13 @@
         }
         return { matched: true, zone: waZone, reason: null };
       }
+
+      const pcMatched = matchesPostcodeSpec(d, loc);
+      return {
+        matched: pcMatched,
+        zone: pcMatched ? "matched_postcode" : "outside_postcode_range",
+        reason: pcMatched ? null : `Postcode ${loc} is outside ${d.code} postcode schedule.`,
+      };
     }
 
     // Named WA Metro Perth vs Regional WA check (T10)
@@ -358,10 +497,13 @@
       }
     }
 
-    // Check Official Included LGAs / Postcodes / Region text
+    // Check Official Included LGAs / Postcodes / Region text (with exclusion clauses stripped)
+    const cleanLgasKo = String(d.lgas_ko || "").replace(/[^,·(]*제외/g, " ");
+    const cleanLgasEn = String(d.lgas_en || "").replace(/exclud[^,·)]*/gi, " ");
     const haystack = [
       (d.lgas_list_en || d.official_lgas || []).join(" "),
-      d.postcodes || "",
+      cleanLgasKo,
+      cleanLgasEn,
       d.name_en || "",
       d.name_ko || "",
       d.state || "",
@@ -769,6 +911,41 @@
     };
   }
 
+  function getRegionEntryCounts() {
+    const counts = {
+      total: 0,
+      byDama: {},
+      byState: {},
+      waCat2: 0,
+      waCat3: 0,
+    };
+    if (!DATA || !Array.isArray(DATA.occupations)) return counts;
+    counts.total = DATA.occupations.length;
+    DATA.occupations.forEach((o) => {
+      counts.byDama[o.dama_id] = (counts.byDama[o.dama_id] || 0) + 1;
+      counts.byState[o.state] = (counts.byState[o.state] || 0) + 1;
+      if (o.dama_id === "wa_statewide_dama") {
+        if (o.wa_cat2_perth || o.wa_metro_available) counts.waCat2 += 1;
+        if (o.wa_cat3_regional || o.wa_regional_available) counts.waCat3 += 1;
+      }
+    });
+    return counts;
+  }
+
+  function formatOptionIntakeTag(d) {
+    if (!d) return "";
+    const st = evaluateIntakeStatus(d);
+    if (st.state === "closed") {
+      return currentLang === "ko" ? ` · ⛔ 신규마감 (${st.cutoff || st.expiry})` : ` · ⛔ Closed (${st.cutoff || st.expiry})`;
+    }
+    if (st.state === "imminent") {
+      return currentLang === "ko"
+        ? ` · ⚠️ 마감임박 D-${st.days_to_cutoff} (${st.cutoff})`
+        : ` · ⚠️ Closing D-${st.days_to_cutoff} (${st.cutoff})`;
+    }
+    return "";
+  }
+
   function applyStaticTranslations() {
     document.documentElement.lang = currentLang;
     document.querySelectorAll("[data-i18n]").forEach((el) => {
@@ -790,32 +967,38 @@
       updatePollingIndicators();
     }
 
-    // Populate region dropdown while preserving value
+    const rc = getRegionEntryCounts();
+    const dMap = getDamaMap();
+    const c = (id) => rc.byDama[id] || 0;
+    const sc = (st) => rc.byState[st] || 0;
+    const allTotalLabel = rc.total ? rc.total.toLocaleString() : "2,474";
+
+    // Populate region dropdown dynamically from DATA.occupations while preserving value
     const regSelect = document.getElementById("filter-region");
     const prevVal = regSelect.value || "all";
     regSelect.innerHTML = `
-      <option value="all">${esc(t("optRegionAll"))}</option>
-      <option value="state:QLD">${esc(t("optStateQLD"))}</option>
-      <option value="fnq_dama">&nbsp;&nbsp;• [QLD] ${esc(currentLang === "ko" ? "FNQ (케언즈 등 공식 11개 LGA · 232건)" : "Far North Queensland (FNQ · 11 Official LGAs · 232)")}</option>
-      <option value="tnq_dama">&nbsp;&nbsp;• [QLD] ${esc(currentLang === "ko" ? "TNQ (타운즈빌 · 북부 퀸즐랜드 · 195건)" : "Townsville North Queensland (TNQ · 195)")}</option>
-      <option value="state:NSW">${esc(t("optStateNSW"))}</option>
-      <option value="orana_dama">&nbsp;&nbsp;• [NSW] ${esc(currentLang === "ko" ? "Orana DAMA (NSW 51개 카운슬 · 현행 129건)" : "Orana DAMA (51 Regional NSW LGAs · 129 Active)")}</option>
-      <option value="state:NT">${esc(t("optStateNT"))}</option>
-      <option value="nt_dama_iii">&nbsp;&nbsp;• [NT] ${esc(currentLang === "ko" ? "NT DAMA III (다윈·앨리스스프링스 등 NT 전역 · 325건)" : "Northern Territory DAMA III (State-wide · 325)")}</option>
-      <option value="state:SA">${esc(t("optStateSA"))}</option>
-      <option value="adelaide_city_dama">&nbsp;&nbsp;• [SA] ${esc(currentLang === "ko" ? "Adelaide City Tech (애들레이드 광역 · 2027.01.31 연장 · 65건)" : "Adelaide City Tech DAMA (Extended to 31 Jan 2027 · 65)")}</option>
-      <option value="sa_regional_workforce_dama">&nbsp;&nbsp;• [SA] ${esc(currentLang === "ko" ? "SA Regional Workforce (남호주 지방 · 2027.01.31 연장 · 327건)" : "SA Regional Workforce DAMA (Extended to 31 Jan 2027 · 327)")}</option>
-      <option value="state:VIC">${esc(t("optStateVIC"))}</option>
-      <option value="goulburn_valley_dama">&nbsp;&nbsp;• [VIC] ${esc(currentLang === "ko" ? "Goulburn Valley (셰파튼·캠파스피·모이라 · 184건)" : "Goulburn Valley (GV) DAMA (184)")}</option>
-      <option value="great_south_coast_dama">&nbsp;&nbsp;• [VIC] ${esc(currentLang === "ko" ? "Great South Coast (워남불 등 6개 LGA · 114건)" : "Great South Coast (GSC) DAMA (114)")}</option>
-      <option value="state:WA">${esc(t("optStateWA"))}</option>
-      <option value="wa_statewide_dama">&nbsp;&nbsp;• [WA] ${esc(currentLang === "ko" ? "WA State-wide 전체 (Cat 2 퍼스 271건 + Cat 3 지방 358건)" : "WA State-wide All (Cat 2 Metro 271 / Cat 3 Regional 358)")}</option>
-      <option value="wa_statewide_dama:cat2_metro">&nbsp;&nbsp;&nbsp;&nbsp;↳ [WA Cat 2] ${esc(currentLang === "ko" ? "퍼스 대도시권 (Metro Perth · 271건 · 3년 후 186)" : "WA Category 2 · Metropolitan Perth Only (271 · 3y to 186)")}</option>
-      <option value="wa_statewide_dama:cat3_regional">&nbsp;&nbsp;&nbsp;&nbsp;↳ [WA Cat 3] ${esc(currentLang === "ko" ? "서호주 지방 (Regional WA · 358건 · 2년 후 186)" : "WA Category 3 · Regional WA (358 · 2y to 186)")}</option>
-      <option value="pilbara_dama">&nbsp;&nbsp;• [WA] ${esc(currentLang === "ko" ? "Pilbara DAMA (카라사·포트헤들랜드·뉴먼 · 139건)" : "Pilbara DAMA (139)")}</option>
-      <option value="goldfields_dama">&nbsp;&nbsp;• [WA] ${esc(currentLang === "ko" ? "The Goldfields DAMA (신청마감 2026-11-13 / 협약종료 2026-12-31 · 242건)" : "The Goldfields DAMA (Cutoff 2026-11-13 / Expiry 2026-12-31 · 242)")}</option>
-      <option value="south_west_dama">&nbsp;&nbsp;• [WA] ${esc(currentLang === "ko" ? "South West DAMA (신청마감 2026-10-30 / 협약종료 2026-12-14 · 113건)" : "South West DAMA (Cutoff 2026-10-30 / Expiry 2026-12-14 · 113)")}</option>
-      <option value="east_kimberley_dama">&nbsp;&nbsp;• [WA] ${esc(currentLang === "ko" ? "Kimberley DAMA (브룸·쿠누누라·더비·홀스크릭 · 52건)" : "Kimberley (East Kimberley) DAMA (52)")}</option>
+      <option value="all">${esc(currentLang === "ko" ? `호주 전체 (13개 DAMA 전 지역 · ${allTotalLabel}건)` : `All Australia (All 13 DAMAs · ${allTotalLabel} Entries)`)}</option>
+      <option value="state:QLD">${esc(currentLang === "ko" ? `── 퀸즐랜드 (QLD 전체 · ${sc("QLD")}건) ──` : `── Queensland (QLD All · ${sc("QLD")}) ──`)}</option>
+      <option value="fnq_dama">&nbsp;&nbsp;• [QLD] ${esc(currentLang === "ko" ? `FNQ (케언즈 등 공식 11개 LGA · ${c("fnq_dama")}건)` : `Far North Queensland (FNQ · 11 Official LGAs · ${c("fnq_dama")})`)}</option>
+      <option value="tnq_dama">&nbsp;&nbsp;• [QLD] ${esc(currentLang === "ko" ? `TNQ (타운즈빌 · 북부 퀸즐랜드 · ${c("tnq_dama")}건)` : `Townsville North Queensland (TNQ · ${c("tnq_dama")})`)}</option>
+      <option value="state:NSW">${esc(currentLang === "ko" ? `── 뉴사우스웨일즈 (NSW 전체 · ${sc("NSW")}건) ──` : `── New South Wales (NSW All · ${sc("NSW")}) ──`)}</option>
+      <option value="orana_dama">&nbsp;&nbsp;• [NSW] ${esc(currentLang === "ko" ? `Orana DAMA (NSW 51개 카운슬 · 현행 ${c("orana_dama")}건)` : `Orana DAMA (51 Regional NSW LGAs · ${c("orana_dama")} Active)`)}</option>
+      <option value="state:NT">${esc(currentLang === "ko" ? `── 노던 테리토리 (NT 전체 · ${sc("NT")}건) ──` : `── Northern Territory (NT All · ${sc("NT")}) ──`)}</option>
+      <option value="nt_dama_iii">&nbsp;&nbsp;• [NT] ${esc(currentLang === "ko" ? `NT DAMA III (다윈·앨리스스프링스 등 NT 전역 · ${c("nt_dama_iii")}건)` : `Northern Territory DAMA III (State-wide · ${c("nt_dama_iii")})`)}</option>
+      <option value="state:SA">${esc(currentLang === "ko" ? `── 남호주 (SA 전체 · ${sc("SA")}건) ──` : `── South Australia (SA All · ${sc("SA")}) ──`)}</option>
+      <option value="adelaide_city_dama">&nbsp;&nbsp;• [SA] ${esc(currentLang === "ko" ? `Adelaide City Tech (애들레이드 광역 · 2027.01.31 연장 · ${c("adelaide_city_dama")}건)` : `Adelaide City Tech DAMA (Extended to 31 Jan 2027 · ${c("adelaide_city_dama")})`)}</option>
+      <option value="sa_regional_workforce_dama">&nbsp;&nbsp;• [SA] ${esc(currentLang === "ko" ? `SA Regional Workforce (남호주 지방 · 2027.01.31 연장 · ${c("sa_regional_workforce_dama")}건)` : `SA Regional Workforce DAMA (Extended to 31 Jan 2027 · ${c("sa_regional_workforce_dama")})`)}</option>
+      <option value="state:VIC">${esc(currentLang === "ko" ? `── 빅토리아 (VIC 전체 · ${sc("VIC")}건) ──` : `── Victoria (VIC All · ${sc("VIC")}) ──`)}</option>
+      <option value="goulburn_valley_dama">&nbsp;&nbsp;• [VIC] ${esc(currentLang === "ko" ? `Goulburn Valley (셰파튼·캠파스피·모이라 · ${c("goulburn_valley_dama")}건)` : `Goulburn Valley (GV) DAMA (${c("goulburn_valley_dama")})`)}</option>
+      <option value="great_south_coast_dama">&nbsp;&nbsp;• [VIC] ${esc(currentLang === "ko" ? `Great South Coast (워남불 등 6개 LGA · ${c("great_south_coast_dama")}건)` : `Great South Coast (GSC) DAMA (${c("great_south_coast_dama")})`)}</option>
+      <option value="state:WA">${esc(currentLang === "ko" ? `── 서호주 (WA 전체 · ${sc("WA")}건) ──` : `── Western Australia (WA All · ${sc("WA")}) ──`)}</option>
+      <option value="wa_statewide_dama">&nbsp;&nbsp;• [WA] ${esc(currentLang === "ko" ? `WA State-wide 전체 (${c("wa_statewide_dama")}건 · Cat 2 퍼스 ${rc.waCat2}건 / Cat 3 지방 ${rc.waCat3}건)` : `WA State-wide All (${c("wa_statewide_dama")} · Cat 2 Metro ${rc.waCat2} / Cat 3 Regional ${rc.waCat3})`)}</option>
+      <option value="wa_statewide_dama:cat2_metro">&nbsp;&nbsp;&nbsp;&nbsp;↳ [WA Cat 2] ${esc(currentLang === "ko" ? `퍼스 대도시권 (Metro Perth · ${rc.waCat2}건 · 3년 후 186)` : `WA Category 2 · Metropolitan Perth Only (${rc.waCat2} · 3y to 186)`)}</option>
+      <option value="wa_statewide_dama:cat3_regional">&nbsp;&nbsp;&nbsp;&nbsp;↳ [WA Cat 3] ${esc(currentLang === "ko" ? `서호주 지방 (Regional WA · ${rc.waCat3}건 · 2년 후 186)` : `WA Category 3 · Regional WA (${rc.waCat3} · 2y to 186)`)}</option>
+      <option value="pilbara_dama">&nbsp;&nbsp;• [WA] ${esc(currentLang === "ko" ? `Pilbara DAMA (카라사·포트헤들랜드·뉴먼 · ${c("pilbara_dama")}건)` : `Pilbara DAMA (${c("pilbara_dama")})`)}</option>
+      <option value="goldfields_dama">&nbsp;&nbsp;• [WA] ${esc(currentLang === "ko" ? `The Goldfields DAMA (${c("goldfields_dama")}건${formatOptionIntakeTag(dMap.goldfields_dama)})` : `The Goldfields DAMA (${c("goldfields_dama")}${formatOptionIntakeTag(dMap.goldfields_dama)})`)}</option>
+      <option value="south_west_dama">&nbsp;&nbsp;• [WA] ${esc(currentLang === "ko" ? `South West DAMA (${c("south_west_dama")}건${formatOptionIntakeTag(dMap.south_west_dama)})` : `South West DAMA (${c("south_west_dama")}${formatOptionIntakeTag(dMap.south_west_dama)})`)}</option>
+      <option value="east_kimberley_dama">&nbsp;&nbsp;• [WA] ${esc(currentLang === "ko" ? `Kimberley DAMA (브룸·쿠누누라·더비·홀스크릭 · ${c("east_kimberley_dama")}건)` : `Kimberley (East Kimberley) DAMA (${c("east_kimberley_dama")})`)}</option>
     `;
     regSelect.value = prevVal;
   }
@@ -849,17 +1032,27 @@
     const alerts = [];
 
     if (f.location) {
+      const cleanLoc = f.location.trim();
+      let qldPostcodeNoteKo = "";
+      let qldPostcodeNoteEn = "";
+      if (cleanLoc === "4810") {
+        qldPostcodeNoteKo = " <strong>[우편번호 4810 확인]:</strong> 4810은 퀸즐랜드 <strong>타운즈빌(Townsville · TNQ DAMA 194건)</strong> 관할 우편번호이며 케언즈(Cairns · FNQ DAMA 4870)와 구분됩니다.";
+        qldPostcodeNoteEn = " <strong>[Postcode 4810 Verified]:</strong> Postcode 4810 maps to <strong>Townsville North Queensland (TNQ DAMA · 194 entries)</strong>, distinct from Cairns FNQ (4870).";
+      } else if (cleanLoc === "4870") {
+        qldPostcodeNoteKo = " <strong>[우편번호 4870 확인]:</strong> 4870은 퀸즐랜드 <strong>케언즈(Cairns · FNQ DAMA 226건)</strong> 관할 우편번호이며 타운즈빌(Townsville · TNQ DAMA 4810)과 구분됩니다.";
+        qldPostcodeNoteEn = " <strong>[Postcode 4870 Verified]:</strong> Postcode 4870 maps to <strong>Cairns Far North Queensland (FNQ DAMA · 226 entries)</strong>, distinct from Townsville TNQ (4810).";
+      }
       alerts.push(
         currentLang === "ko"
-          ? `<div><strong>근무지·우편번호 필터 적용 중 ("${esc(f.location)}"):</strong> 입력하신 지역·LGA·우편번호가 공식 커버리지에 포함되는 직종 등록 항목만 표시합니다 (예: FNQ는 11개 공식 LGA만 포함·Carpentaria 등 제외 / Goldfields는 Ravensthorpe 포함·Wiluna 제외 / SA 5950은 Adelaide Metro로 분류).</div>`
-          : `<div><strong>Location / Postcode Filter Active ("${esc(f.location)}"):</strong> Showing only occupation entries where "${esc(f.location)}" is within the official LGA/postcode boundary (e.g. FNQ covers 11 LGAs excluding Carpentaria; Goldfields includes Ravensthorpe and excludes Wiluna; SA 5950 is classified as Adelaide Metropolitan).</div>`
+          ? `<div><strong>근무지·우편번호 필터 적용 중 ("${esc(f.location)}"):</strong> 입력하신 지역·LGA·4자리 우편번호가 공식 커버리지에 포함되는 직종 등록 항목만 표시합니다.${qldPostcodeNoteKo}</div>`
+          : `<div><strong>Location / Postcode Filter Active ("${esc(f.location)}"):</strong> Showing only occupation entries where "${esc(f.location)}" falls within the official LGA/postcode schedule.${qldPostcodeNoteEn}</div>`
       );
     }
 
     if (f.age === "50-54") {
       alerts.push(
         currentLang === "ko"
-          ? `<div><strong>만 50~54세 연령 상한 및 전환 시점 안내:</strong> DAMA의 만 55세 미만 연령 완화는 <strong>ENS 186 또는 SESR 494 노미네이션 접수 시점</strong>에 적용됩니다 <a href="#fn-3">[3]</a>. 2년 전환 지역에서는 <strong>만 53~54세</strong>(3년 전환 지역인 Pilbara·WA Cat 2 퍼스는 <strong>만 52~54세</strong>)에 SID 482를 먼저 받으면 186 전환 시점에 만 55세가 넘어 186 연령 상한을 초과하게 됩니다(단, 만 52세에 2년 전환 지역 482를 받으면 2년 뒤 만 54세이므로 55세 미만 요건 충족 가능). <strong>대안:</strong> 만 55세 도래 전에 <strong>Subclass 494(SESR)</strong>를 먼저 접수한 뒤 3년 후 연령 제한이 없는 <strong>Subclass 191</strong>로 전환하는 경로를 검토하십시오.</div>`
+          ? `<div><strong>만 50~54세 연령 상한 및 전환 시점 안내:</strong> DAMA의 만 55세 미만 연령 완화는 <strong>ENS 186 또는 SESR 494 노미네이션 접수 시점</strong>에 적용됩니다 <a href="#fn-3">[3]</a>. 2년 전환 지역에서는 <strong>만 53~54세</strong>(3년 전환 지역인 Pilbara·WA Cat 2 퍼스는 <strong>만 52~54세</strong>)에 SID 482를 먼저 받으면 186 전환 시점에 만 55세가 넘어 186 연령 상한을 초과하게 됩니다(단 만 52세에 2년 전환 지역 482를 받으면 2년 뒤 만 54세이므로 55세 미만 요건 충족 가능). <strong>대안:</strong> 만 55세 도래 전에 <strong>Subclass 494(SESR)</strong>를 먼저 접수한 뒤 3년 후 연령 제한이 없는 <strong>Subclass 191</strong>로 전환하는 경로를 검토하십시오.</div>`
           : `<div><strong>Age 50–54 Transition Timing Notice:</strong> The Under-55 age concession applies at <strong>ENS 186 or SESR 494 nomination lodgement</strong> <a href="#fn-3">[3]</a>. On a 2-year pathway, workers aged <strong>53–54</strong> (or aged <strong>52–54</strong> on a 3-year pathway such as Pilbara or WA Cat 2 Metro Perth) who start on SID 482 will reach 55 before ENS 186 nomination (whereas age 52 + 2 years = 54 remains under 55). Consider lodging <strong>Subclass 494 (SESR)</strong> before turning 55 and transitioning to <strong>Subclass 191 (no age limit)</strong>.</div>`
       );
     }
@@ -867,17 +1060,39 @@
     if (f.english === "4.5-min40") {
       alerts.push(
         currentLang === "ko"
-          ? `<div><strong>IELTS 4.5 (각 과목 4.0 이상) 적용 조건:</strong> <strong>NT DAMA III(196개 직종)</strong> 및 <strong>SA Regional Workforce DAMA(공식 Outer Regional SA 우편번호 5220~5734 소재 고용주 Type 2 한정)</strong>에서만 482/494 단계 IELTS 4.5(각 4.0)가 허용됩니다 <a href="#fn-11">[11]</a> <a href="#fn-15">[15]</a>. 남호주 Adelaide Metropolitan(5000~5199, 5950, 5960) 및 Inner Regional 우편번호는 IELTS 4.5 대상이 아니며, ENS 186 단계에서는 별도 영어 기준(IELTS 5.0 등)을 다시 충족해야 합니다.</div>`
+          ? `<div><strong>IELTS 4.5 (각 과목 4.0 이상) 적용 조건:</strong> <strong>NT DAMA III(196개 직종)</strong> 및 <strong>SA Regional Workforce DAMA(공식 Outer Regional SA 우편번호 5220~5734 소재 고용주 Type 2 한정)</strong>에서만 482/494 단계 IELTS 4.5(각 4.0)가 허용됩니다 <a href="#fn-11">[11]</a> <a href="#fn-15">[15]</a>. 남호주 Adelaide Metropolitan(5000~5199, 5950, 5960) 및 Inner Regional 우편번호는 IELTS 4.5 대상이 아니며 ENS 186 단계에서는 별도 영어 기준(IELTS 5.0 등)을 다시 충족해야 합니다.</div>`
           : `<div><strong>IELTS 4.5 (min 4.0 each) Rules:</strong> Accepted for 482/494 only in <strong>NT DAMA III (196 occupations)</strong> and <strong>SA Regional Workforce DAMA (Type 2 · verified Outer Regional SA postcodes only)</strong> <a href="#fn-11">[11]</a> <a href="#fn-15">[15]</a>. Adelaide Metropolitan postcodes (including 5950 and 5960) and Inner Regional SA postcodes do NOT qualify for IELTS 4.5, and ENS 186 requires separate English assessment.</div>`
       );
     }
 
-    if (f.region === "south_west_dama" || f.region === "goldfields_dama") {
-      alerts.push(
-        currentLang === "ko"
-          ? `<div><strong>서호주 일몰 협약 마감일 구분 안내:</strong> • <strong>South West DAMA:</strong> 신청·변경 접수 마감 <strong>2026-10-30</strong> / 협약 종료 <strong>2026-12-14</strong> (ENS 186 영어 감면 없음 · IELTS 각 6.0 필수) <a href="#fn-26">[26]</a> <a href="#fn-27">[27]</a>.<br/>• <strong>Goldfields DAMA:</strong> 신청 접수 마감 <strong>2026-11-13</strong> / 협약 종료 <strong>2026-12-31</strong> (11월 13일 이후 신규 신청 불가 · 단, 협약 종료가 기존 승인된 고용주 Labour Agreement나 기존 비자를 자동 취소시키지 않음) <a href="#fn-24">[24]</a>.</div>`
-          : `<div><strong>WA Sunset DAMA Cutoff vs Expiry Dates:</strong> • <strong>South West DAMA:</strong> Application/Variation Cutoff <strong>2026-10-30</strong> / Agreement Expiry <strong>2026-12-14</strong> (No ENS 186 English concession · IELTS 6.0 each required) <a href="#fn-26">[26]</a> <a href="#fn-27">[27]</a>.<br/>• <strong>Goldfields DAMA:</strong> Application Cutoff <strong>2026-11-13</strong> / Agreement Expiry <strong>2026-12-31</strong> (Closed to new applications after 13 Nov 2026; existing approved Labour Agreements and visas are NOT automatically cancelled) <a href="#fn-24">[24]</a>.</div>`
-      );
+    if (DATA && Array.isArray(DATA.damas)) {
+      const flaggedDamas = DATA.damas.filter((d) => {
+        const st = evaluateIntakeStatus(d);
+        if (st.state === "open") return false;
+        if (f.region === d.id || f.region === `state:${d.state}`) return true;
+        if (f.location && DATA.occupations.some((o) => o.dama_id === d.id && checkLocationMatch(d, o, f.location).matched)) {
+          return true;
+        }
+        return false;
+      });
+
+      flaggedDamas.forEach((d) => {
+        const st = evaluateIntakeStatus(d);
+        const badgeHtml = renderIntakeBadgeHtml(d);
+        if (st.state === "closed") {
+          alerts.push(
+            currentLang === "ko"
+              ? `<div>${badgeHtml} <strong>${esc(d.name_ko)} 신규 신청 마감 안내:</strong> 신규 신청·변경 접수 마감일(<strong>${esc(d.new_application_cutoff)}</strong>)이 경과하여 신규 DAR Endorsement 접수가 중단되었습니다(협약 종료일: <strong>${esc(d.head_agreement_expiry)}</strong>). 서호주 지방 사업장은 현행 <strong>WA State-wide DAMA (Category 3 Regional WA · 358건)</strong> 등 대체 협약을 우선 검토하시기 바랍니다 <a href="#fn-26">[26]</a> <a href="#fn-27">[27]</a>.</div>`
+              : `<div>${badgeHtml} <strong>${esc(d.name_en)} Closed to New Intake:</strong> New application/variation intake closed on <strong>${esc(d.new_application_cutoff)}</strong> (Agreement Expiry: <strong>${esc(d.head_agreement_expiry)}</strong>). Regional WA employers should check <strong>WA State-wide DAMA (Category 3 Regional WA · 358 entries)</strong> <a href="#fn-26">[26]</a> <a href="#fn-27">[27]</a>.</div>`
+          );
+        } else if (st.state === "imminent") {
+          alerts.push(
+            currentLang === "ko"
+              ? `<div>${badgeHtml} <strong>${esc(d.name_ko)} 접수 마감 임박 경보:</strong> 신규 신청 접수 마감일(<strong>${esc(d.new_application_cutoff)} · D-${st.days_to_cutoff}</strong>)이 임박했습니다(협약 종료일: <strong>${esc(d.head_agreement_expiry)}</strong> · 마감 이후 신규 접수 불가하나 기존 승인된 Labour Agreement 및 비자는 자동 취소되지 않습니다) <a href="#fn-24">[24]</a>.</div>`
+              : `<div>${badgeHtml} <strong>${esc(d.name_en)} Intake Closing Imminently:</strong> New application cutoff is <strong>${esc(d.new_application_cutoff)} (D-${st.days_to_cutoff})</strong>; Agreement Expiry is <strong>${esc(d.head_agreement_expiry)}</strong> (existing approved Labour Agreements and visas are NOT automatically cancelled) <a href="#fn-24">[24]</a>.</div>`
+          );
+        }
+      });
     }
 
     if (alerts.length === 0) {
@@ -905,6 +1120,7 @@
     const htmlCards = DATA.damas.map((d) => {
       const matchCount = countsByDama[d.id] || 0;
       const isSelected = f.region === d.id || f.region.startsWith(d.id + ":");
+      const intakeBadge = renderIntakeBadgeHtml(d);
       const cardCls = [
         "dama-card",
         isSelected ? "selected" : "",
@@ -930,9 +1146,10 @@
         ? `<span class="badge badge-warn" data-balloon="${esc(currentLang === "ko" ? d.pr_rule_ko : d.pr_rule_en)}">Direct 186 (조건부) <span class="balloon-icon">?</span></span>`
         : "";
 
-      const sunsetBadge = d.sunset_warning
-        ? `<span class="badge badge-danger" data-balloon="${esc(currentLang === "ko" ? d.sunset_note_ko : d.sunset_note_en)}">⏰ ${esc(d.new_application_cutoff ? `마감 ${d.new_application_cutoff} / 종료 ${d.head_agreement_expiry}` : d.sunset_date)} <span class="balloon-icon">?</span></span>`
-        : "";
+      const sunsetBadge =
+        !intakeBadge && d.sunset_warning
+          ? `<span class="badge badge-danger" data-balloon="${esc(currentLang === "ko" ? d.sunset_note_ko : d.sunset_note_en)}">⏰ ${esc(d.new_application_cutoff ? `마감 ${d.new_application_cutoff} / 종료 ${d.head_agreement_expiry}` : d.sunset_date)} <span class="balloon-icon">?</span></span>`
+          : "";
 
       return `
         <div class="${cardCls}" data-dama-card="${esc(d.id)}">
@@ -944,6 +1161,7 @@
             <h3 class="clickable" data-select-dama="${esc(d.id)}">${esc(name)}</h3>
             <div class="dama-card-lga" title="${esc(lga)}">${esc(lga)}</div>
             <div class="dama-badges">
+              ${intakeBadge}
               ${salBadge}
               ${feeBadge}
               ${directBadge}
@@ -983,7 +1201,7 @@
           <td colspan="8" style="text-align:center;padding:36px;color:#5A5654;">
             ${
               currentLang === "ko"
-                ? "선택하신 조건에 부합하는 직종 등록 항목이 없습니다. 위 필터 조건이나 근무지 우편번호를 조정하거나 [필터 초기화]를 눌러보세요."
+                ? "선택하신 조건에 부합하는 직종 등록 항목이 없습니다. 위 필터 조건이나 근무지 우편번호를 조정하거나 [필터 초기화]를 누르시기 바랍니다."
                 : "No occupation entries match all selected filters. Try adjusting your filters or location query, or click Reset Filters."
             }
           </td>
@@ -998,6 +1216,7 @@
           const damaName = currentLang === "ko" ? o.dama_name_ko : o.dama_name_en;
           const fnLinks = o.footnote_ids.map((fid) => `<a href="#fn-${fid}" class="fn-ref">[${fid}]</a>`).join(" ");
           const rowEval = evaluateRowStatus(o, f);
+          const intakeRowBadge = renderIntakeBadgeHtml(d);
 
           // Salary badge with balloon
           const salBalloon =
@@ -1064,7 +1283,8 @@
             <tr>
               <td>
                 <div style="font-weight:800;color:#2E2E2E;">${esc(damaName)}</div>
-                <div style="font-size:12px;color:#5A5654;margin-top:2px;">
+                ${intakeRowBadge ? `<div style="margin-top:4px;">${intakeRowBadge}</div>` : ""}
+                <div style="font-size:12px;color:#5A5654;margin-top:3px;">
                   <span class="state-tag" style="font-size:10px;padding:1px 6px;">${esc(o.state)}</span>
                   <button type="button" class="btn-region-detail" style="padding:1px 6px;font-size:11px;margin-left:4px;" data-open-region="${esc(o.dama_id)}">${currentLang === "ko" ? "우편번호·지역규칙" : "Postcodes"}</button>
                   ${fnLinks}
@@ -1141,6 +1361,21 @@
     const clearBtn = document.getElementById("clear-search-btn");
     clearBtn.style.display = f.q ? "inline-flex" : "none";
 
+    const isDefaultState =
+      !userInteracted &&
+      !f.q &&
+      !f.location &&
+      f.region === "all" &&
+      f.age === "all" &&
+      f.english === "all" &&
+      f.salary === "all" &&
+      f.skill === "all" &&
+      f.pathway === "all";
+    const neutralEl = document.getElementById("dama-neutral-helper");
+    if (neutralEl) {
+      neutralEl.style.display = isDefaultState ? "block" : "none";
+    }
+
     filteredOccupations = DATA.occupations.filter((o) => rowMatches(o, f, false));
     renderCombinatorAlert(f, filteredOccupations.length);
     renderRegionCards(f);
@@ -1156,6 +1391,7 @@
     const bodyEl = document.getElementById("modal-body-content");
     const f = getFilters();
     const rowEval = evaluateRowStatus(o, f);
+    const modalIntakeBadge = renderIntakeBadgeHtml(d);
 
     const damaName = currentLang === "ko" ? o.dama_name_ko : o.dama_name_en;
     titleEl.textContent = `${o.occupation_title} (${o.classification_scheme || "ANZSCO"} ${o.anzsco_code} · Skill Level ${o.skill_level}) · ${damaName}`;
@@ -1181,7 +1417,7 @@
         transitionTrackEn = `<strong>WA State-wide Transition Period (Category-Specific):</strong> <strong>Category 2 (Metropolitan Perth, postcodes 6000–6199 etc.): minimum 3 years</strong> full-time work before ENS 186 / <strong>Category 3 (Regional WA): minimum 2 years</strong> full-time work before ENS 186.`;
       } else {
         transitionYearsForAge = 2;
-        transitionTrackKo = `<strong>WA Category 3 (서호주 지방 Regional WA 전용 · 퍼스 대도시권 불가):</strong> 이 직종은 퍼스 대도시권(Cat 2)에서는 스폰서십이 불가하며, 서호주 지방(Cat 3) 우편번호 소재 고용주 밑에서 <strong>최소 2년</strong> 풀타임 근무 후 ENS 186 전환이 가능합니다.`;
+        transitionTrackKo = `<strong>WA Category 3 (서호주 지방 Regional WA 전용 · 퍼스 대도시권 불가):</strong> 이 직종은 퍼스 대도시권(Cat 2)에서는 스폰서십이 불가하며 서호주 지방(Cat 3) 우편번호 소재 고용주 밑에서 <strong>최소 2년</strong> 풀타임 근무 후 ENS 186 전환이 가능합니다.`;
         transitionTrackEn = `<strong>WA Category 3 (Regional WA Only · Excludes Metro Perth):</strong> Not available in Category 2 Metropolitan Perth. Requires <strong>minimum 2 years</strong> full-time work in a Category 3 Regional WA postcode before ENS 186.`;
       }
     } else if (o.dama_id === "pilbara_dama") {
@@ -1202,7 +1438,7 @@
         <ul style="padding-left:18px;font-size:14px;line-height:1.7;">
           <li>${transitionTrackKo}</li>
           <li><strong>연령 전환 시점 주의 구간 (만 ${trapRangeStr}세):</strong> 연령 상한(만 ${o.max_age}세 미만)은 <strong>ENS 186 노미네이션 접수 시점</strong>에 적용됩니다. 따라서 ${transitionYearsForAge}년 전환 경로 기준 만 ${trapRangeStr}세에 482를 먼저 받으면 ${transitionYearsForAge}년 뒤 만 ${o.max_age}세 이상이 되어 186 전환이 불가할 수 있습니다(반면 만 ${trapStart - 1}세 이하는 ${transitionYearsForAge}년 뒤 만 ${o.max_age - 1}세 이하이므로 상한 내). 해당 연령대는 만 ${o.max_age}세 도래 전에 <strong>SESR Subclass 494 비자</strong>를 먼저 접수한 뒤 3년 후 <strong>연령 제한이 없는 Subclass 191 영주권</strong>으로 전환하는 방안을 검토하십시오.</li>
-          ${o.direct_186 ? `<li style="color:#7A1F2B;font-weight:700;">★ 조건부 Direct ENS 186 조항 (추가 확인 필수): 이 지역은 비-DAMA 임시비자 2년 지역 경력을 인정하는 조항이 있으나 자동으로 신청할 수 있는 것은 아니며, ① 스폰서 고용주의 DAR Endorsement, ② 개별 Labour Agreement 내 ENS 186 스트림 승인 여부, ③ 해당 직종·숙련도 요건 충족을 반드시 확인해야 합니다.</li>` : ""}
+          ${o.direct_186 ? `<li style="color:#7A1F2B;font-weight:700;">★ 조건부 Direct ENS 186 조항 (추가 확인 필수): 이 지역은 비-DAMA 임시비자 2년 지역 경력을 인정하는 조항이 있으나 자동으로 신청할 수 있는 것은 아니며 ① 스폰서 고용주의 DAR Endorsement ② 개별 Labour Agreement 내 ENS 186 스트림 승인 여부 ③ 해당 직종·숙련도 요건 충족을 반드시 확인해야 합니다.</li>` : ""}
           ${o.sl5_upgrade_req ? `<li style="color:#B23A2E;font-weight:700;">⚠ Skill Level 5 승진 필수 주의: 이 지역에서는 SL5 직종 근로자가 ENS 186 영주권을 받으려면 반드시 Skill Level 1~4 상위 직종으로 승진(Progression)하여 최소 2년간 근무해야 합니다.</li>` : ""}
           ${o.no_186_eng_concession ? `<li style="color:#B23A2E;font-weight:700;">⚠ 186 영어 함정 주의: 사우스 웨스트 DAMA는 ENS 186 단계에서 영어 감면이 없어 IELTS 각 6.0이 필수입니다.</li>` : ""}
         </ul>
@@ -1222,6 +1458,7 @@
     const uncheckedListHtml = rowEval.unchecked_criteria.map((c) => `<li>⚠ ${esc(c)}</li>`).join("");
 
     bodyEl.innerHTML = `
+      ${modalIntakeBadge ? `<div style="margin-bottom:12px;">${modalIntakeBadge} <span style="font-size:12.5px;color:#5A5654;margin-left:6px;">${esc(currentLang === "ko" ? (d.sunset_note_ko || "") : (d.sunset_note_en || ""))}</span></div>` : ""}
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-bottom:16px;">
         <div style="background:#E7F3EC;border-left:4px solid #2E6B4F;padding:12px 14px;border-radius:0 8px 8px 0;">
           <h4 style="color:#2E6B4F;font-size:13.5px;font-weight:800;margin-bottom:6px;">
@@ -1279,10 +1516,10 @@
         <ul style="padding-left:18px;font-size:13px;">${fnRefs}</ul>
       </div>
 
-      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;background:#1A1211;color:#FFFFFF;padding:16px 20px;border-radius:10px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;background:#0E3A3E;color:#FFFFFF;padding:16px 20px;border-radius:10px;">
         <div>
           <strong style="display:block;font-size:15px;">${currentLang === "ko" ? "이 직종·지역으로 비자 또는 고용주 스폰서십을 준비 중이신가요?" : "Planning a DAMA sponsorship or visa application for this occupation?"}</strong>
-          <span style="font-size:13px;color:#CFC9BF;">${currentLang === "ko" ? "법무법인 박앤코 박창민 대표변호사 (QLS 공인 이민법 전문변호사) · https://parklawyers.com.au/links/?lang=ko" : "Park & Co Lawyers · Chang Min Park (Legal Practitioner Director · QLS Accredited Specialist) · https://parklawyers.com.au/links/"}</span>
+          <span style="font-size:13px;color:#E5DFD3;">${currentLang === "ko" ? "법무법인 박앤코 박창민 대표변호사 · enquiry@parkcolawyers.com · https://parklawyers.com.au/links/?lang=ko" : "Park & Co Lawyers · Chang Min Park (Legal Practitioner Director) · enquiry@parkcolawyers.com · https://parklawyers.com.au/links/"}</span>
         </div>
         <a href="${currentLang === "ko" ? "https://parklawyers.com.au/links/?lang=ko" : "https://parklawyers.com.au/links/"}" target="_blank" rel="noopener" class="btn-burgundy">
           ${currentLang === "ko" ? "박앤코 온라인 상담 문의하기 →" : "Enquire with Park & Co Lawyers →"}
@@ -1299,6 +1536,7 @@
     const modal = document.getElementById("detail-modal");
     const titleEl = document.getElementById("modal-title");
     const bodyEl = document.getElementById("modal-body-content");
+    const regIntakeBadge = renderIntakeBadgeHtml(d);
 
     titleEl.textContent =
       currentLang === "ko"
@@ -1316,13 +1554,16 @@
 
     const lifecycleHtml =
       d.new_application_cutoff || d.head_agreement_expiry
-        ? `<p style="margin-top:6px;color:#7A1F2B;font-weight:700;">
-            ${
-              currentLang === "ko"
-                ? `일정 구분: 신청 접수 마감 ${d.new_application_cutoff || "연중 상시"} / 협약 종료 ${d.head_agreement_expiry || "연중"} (${d.sunset_note_ko || ""})`
-                : `Schedule: Application Cutoff ${d.new_application_cutoff || "Open"} / Agreement Expiry ${d.head_agreement_expiry || "Current"} (${d.sunset_note_en || ""})`
-            }
-          </p>`
+        ? `<div style="margin-top:6px;">
+            ${regIntakeBadge ? `<div style="margin-bottom:4px;">${regIntakeBadge}</div>` : ""}
+            <p style="color:#7A1F2B;font-weight:700;">
+              ${
+                currentLang === "ko"
+                  ? `일정 구분: 신청 접수 마감 ${d.new_application_cutoff || "연중 상시"} / 협약 종료 ${d.head_agreement_expiry || "연중"} (${d.sunset_note_ko || ""})`
+                  : `Schedule: Application Cutoff ${d.new_application_cutoff || "Open"} / Agreement Expiry ${d.head_agreement_expiry || "Current"} (${d.sunset_note_en || ""})`
+              }
+            </p>
+          </div>`
         : "";
 
     bodyEl.innerHTML = `
@@ -1556,13 +1797,54 @@
     window.addEventListener("scroll", hideBalloon, { passive: true });
   }
 
-  // Expose programmatic verification API on window.DAMA_NAVIGATOR for acceptance testing (T01–T30)
-  window.DAMA_NAVIGATOR = {
+  function syncLangUrl(lang) {
+    if (typeof window === "undefined" || !window.history || !window.location) return;
+    try {
+      const url = new URL(window.location.href);
+      url.searchParams.set("lang", lang);
+      window.history.replaceState({}, "", url.toString());
+    } catch (_) {}
+  }
+
+  function applySampleProfile() {
+    if (typeof document === "undefined") return;
+    userInteracted = true;
+    const sInput = document.getElementById("search-input");
+    const locInput = document.getElementById("filter-location");
+    if (sInput) sInput.value = "Chef";
+    if (locInput) locInput.value = "4810";
+    const regEl = document.getElementById("filter-region");
+    const ageEl = document.getElementById("filter-age");
+    const engEl = document.getElementById("filter-english");
+    const salEl = document.getElementById("filter-salary");
+    const sklEl = document.getElementById("filter-skill");
+    const pthEl = document.getElementById("filter-pathway");
+    if (regEl) regEl.value = "all";
+    if (ageEl) ageEl.value = "45-49";
+    if (engEl) engEl.value = "5.0-min40";
+    if (salEl) salEl.value = "71481";
+    if (sklEl) sklEl.value = "all";
+    if (pthEl) pthEl.value = "all";
+    document.querySelectorAll(".preset-chip").forEach((c) => c.classList.remove("active"));
+    applyFilters(true);
+  }
+
+  // Expose programmatic verification API on window/globalThis/module.exports for acceptance testing (T01–T30 + Lane D)
+  const DAMA_NAVIGATOR_API = {
     getData: () => DATA,
+    setData: (d) => {
+      DATA = d;
+    },
     getFilteredOccupations: () => filteredOccupations,
     classifySaPostcode,
     classifyWaPostcode,
+    matchesPostcodeSpec,
     checkLocationMatch,
+    evaluateIntakeStatus,
+    renderIntakeBadgeHtml,
+    getRegionEntryCounts,
+    todayBrisbaneIso,
+    diffIsoDays,
     evaluateEnglishBySubclass,
     evaluateSalaryPackage,
     evaluateAgeAndTransition,
@@ -1570,7 +1852,11 @@
     rowMatches,
     openOccupationModal,
     openRegionModal,
+    applySampleProfile,
   };
+  if (typeof window !== "undefined") window.DAMA_NAVIGATOR = DAMA_NAVIGATOR_API;
+  if (typeof globalThis !== "undefined") globalThis.DAMA_NAVIGATOR = DAMA_NAVIGATOR_API;
+  if (typeof module !== "undefined" && module.exports) module.exports = DAMA_NAVIGATOR_API;
 
   async function init() {
     const resp = await fetch("data/dama_navigator_data.json");
@@ -1593,33 +1879,52 @@
     // Language toggle events
     document.getElementById("lang-toggle-ko").addEventListener("click", () => {
       currentLang = "ko";
+      syncLangUrl("ko");
       applyStaticTranslations();
       renderFootnotes();
       applyFilters(false);
     });
     document.getElementById("lang-toggle-en").addEventListener("click", () => {
       currentLang = "en";
+      syncLangUrl("en");
       applyStaticTranslations();
       renderFootnotes();
       applyFilters(false);
     });
 
     // Search & filter events
-    document.getElementById("search-input").addEventListener("input", () => applyFilters(true));
+    document.getElementById("search-input").addEventListener("input", () => {
+      userInteracted = true;
+      applyFilters(true);
+    });
     const locInput = document.getElementById("filter-location");
     if (locInput) {
-      locInput.addEventListener("input", () => applyFilters(true));
+      locInput.addEventListener("input", () => {
+        userInteracted = true;
+        applyFilters(true);
+      });
     }
     document.getElementById("clear-search-btn").addEventListener("click", () => {
       document.getElementById("search-input").value = "";
       applyFilters(true);
     });
     ["filter-region", "filter-age", "filter-english", "filter-salary", "filter-skill", "filter-pathway"].forEach((id) => {
-      document.getElementById(id).addEventListener("change", () => applyFilters(true));
+      document.getElementById(id).addEventListener("change", () => {
+        userInteracted = true;
+        applyFilters(true);
+      });
+    });
+
+    // Demo sample profile buttons
+    document.querySelectorAll(".pk-demo-trigger").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        applySampleProfile();
+      });
     });
 
     // Reset button
     document.getElementById("reset-filters-btn").addEventListener("click", () => {
+      userInteracted = false;
       document.getElementById("search-input").value = "";
       if (locInput) locInput.value = "";
       document.getElementById("filter-region").value = "all";
@@ -1635,6 +1940,7 @@
     // Preset chips
     document.querySelectorAll(".preset-chip").forEach((chip) => {
       chip.addEventListener("click", () => {
+        userInteracted = true;
         const q = chip.getAttribute("data-query") || "";
         const sInput = document.getElementById("search-input");
         if (sInput.value === q) {
@@ -1684,6 +1990,7 @@
       }
       const selDamaEl = e.target.closest("[data-select-dama]");
       if (selDamaEl) {
+        userInteracted = true;
         const did = selDamaEl.getAttribute("data-select-dama");
         const regSelect = document.getElementById("filter-region");
         regSelect.value = regSelect.value === did ? "all" : did;
@@ -1705,7 +2012,9 @@
     });
   }
 
-  document.addEventListener("DOMContentLoaded", init);
+  if (typeof document !== "undefined") {
+    document.addEventListener("DOMContentLoaded", init);
+  }
 })();
 
 
@@ -1721,9 +2030,9 @@
     "⚖️ 노미네이션·비자 거절 무료 ART Case Review™ →": "⚖️ Free Nomination/Visa Refusal ART Case Review™ →",
     "🚨 비자응급실 (s 57·s 116·s 137Q 무료 진단) →": "🚨 Visa Emergency (Free s 57 / s 116 / s 137Q Triage) →",
     "박앤코 온라인 상담·문의 바로가기 →": "Request Online Consultation with Park & Co →",
-    "DAMA 고용주 스폰서십(DAR Endorsement · Labour Agreement) 및 비자(SID 482 · SESR 494 · ENS 186) 전략 수립이 필요하시면 지금 바로 문의해 주세요.": "Contact us for DAMA employer sponsorship (DAR Endorsement & Labour Agreement) and SID 482 / SESR 494 / ENS 186 strategy.",
+    "DAMA 고용주 스폰서십(DAR Endorsement · Labour Agreement) 및 비자(SID 482 · SESR 494 · ENS 186) 전략 수립이 필요하시면 지금 바로 연락해 주십시오.": "Contact us for DAMA employer sponsorship (DAR Endorsement & Labour Agreement) and SID 482 / SESR 494 / ENS 186 strategy.",
     "🧭 내 경력의 6자리 ANZSCO/OSCA 직종코드를 모르시거나 일반 CSOL·MLTSSL 직종도 함께 비교하고 싶으신가요?": "🧭 Unsure of Your 6-Digit ANZSCO/OSCA Code or Want to Compare Standard CSOL & MLTSSL Lists?",
-    "영문 이력서 기반 무료 ANZSCO 직종추론(#module-resume), 일반 482·186·189·190·491 통합 직종검색(#module-sol), 그리고 스폰서·DAMA 실전 FAQ를 통합 가이드에서 바로 확인해 보세요.": "Use free English Resume ANZSCO Inference (#module-resume), unified CSOL/MLTSSL occupation search (#module-sol), and real-world Sponsorship & DAMA FAQs.",
+    "영문 이력서 기반 무료 ANZSCO 직종추론(#module-resume), 일반 482·186·189·190·491 통합 직종검색(#module-sol), 그리고 스폰서·DAMA 실전 FAQ를 통합 가이드에서 바로 확인하실 수 있습니다.": "Use free English Resume ANZSCO Inference (#module-resume), unified CSOL/MLTSSL occupation search (#module-sol), and real-world Sponsorship & DAMA FAQs.",
     "📄 영문 이력서 ANZSCO 직종추론 (#module-resume) →": "📄 English Resume ANZSCO Inference (#module-resume) →",
     "🔎 일반 CSOL·MLTSSL 통합 검색 (#module-sol) →": "🔎 Standard CSOL & MLTSSL Search (#module-sol) →",
     "💡 호주이민 실전 FAQ 백과 →": "💡 Australian Immigration FAQ →",
@@ -1760,7 +2069,7 @@
     "배우자 +$315 · 미성년 자녀 +$160": "Partner +$315 · Child +$160",
     "190·491 최소 거주·근무 개월 수 및 주정부 수수료 비교": "190/491 Minimum Residency/Work Months & State Fee Comparison",
     "그래프 1 · 8개 주/준주 일반 거주자 190 vs 491 필수 근무/거주 개월 수 & 신청비 비교": "Chart 1 · 8-State/Territory Onshore 190 vs 491 Minimum Work/Residency Months & Fees",
-    "WA는 491 고용계약·경력 면제 및 신청비 $0이며, QLD는 2025–26부터 190 9개월 / 491 6개월로 강화되었어요.": "WA waives application fees ($0) and 491 job-offer rules; QLD requires 9 months (190) / 6 months (491).",
+    "WA는 491 고용계약·경력 면제 및 신청비 $0이고 QLD는 2025–26부터 190 9개월 / 491 6개월로 강화되었습니다.": "WA waives application fees ($0) and 491 job-offer rules; QLD requires 9 months (190) / 6 months (491).",
     "그래프 2 · Schedule 6D 항목별 최대 배점 및 해외+호주 경력 20점 통합 상한(Item 6D51)": "Chart 2 · Schedule 6D Maximum Points & Item 6D51 20-Point Combined Work Experience Cap",
     "나이(30점) + 영어(20점) + 경력합산(최대 20점) + 학력/STEM/호주학업/파트너 + 주정부 가점(+5/+15점).": "Age (30) + English (20) + Combined Work (max 20) + Education/STEM/Study/Partner + State (+5/+15).",
     "Schedule 6D 11대 평가 항목 입력": "Schedule 6D 11-Factor Assessment Inputs",
@@ -1864,7 +2173,7 @@
     "주의 필요 · 대도시(시드니·멜버른·브리즈번) 장기 체류 또는 주소 변경 미신고(8578)": "Caution · Extended metro stay (Sydney/Melbourne/Brisbane) or unnotified address (8578)",
     "FY2026–27 총비용 & Subclass 191 영주권 전환 판정": "FY2026–27 Total Statutory Cost & Subclass 191 PR Assessment",
     "내 기술이민 점수(Schedule 6D) & 주정부 노미네이션 진단서 복사 · 인쇄(PDF) & 상담 메일 발송": "Copy, Print (PDF) & Email Your GSM Points & State Nomination Brief",
-    "위 모듈에서 계산된 189·190·491 점수, 거주 주 노미네이션 적격 판정, 총비용 요약문을 즉시 복사하거나 상담 메일에 첨부할 수 있어요.": "Copy or email your calculated 189/190/491 points, state nomination eligibility, and fee breakdown directly to Park & Co.",
+    "위 모듈에서 계산된 189·190·491 점수, 거주 주 노미네이션 적격 판정, 총비용 요약문을 즉시 복사하거나 상담 메일에 첨부할 수 있습니다.": "Copy or email your calculated 189/190/491 points, state nomination eligibility, and fee breakdown directly to Park & Co.",
     "📋 진단 요약 클립보드 복사": "📋 Copy Diagnostic Summary",
     "📋 긴급 진단서 클립보드 복사": "📋 Copy Urgent Diagnostic Brief",
     "🖨️ PDF / 브리프 인쇄": "🖨️ Print / Save PDF",
@@ -1946,23 +2255,25 @@
     walk(document.body);
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
-    var btns = document.querySelectorAll("#lang-en, #lang-ko, #lang-toggle-en, #lang-toggle-ko, .lang-btn");
-    btns.forEach(function (b) {
-      b.addEventListener("click", function () {
-        var isEn = (b.id && b.id.indexOf("en") !== -1) || b.getAttribute("data-lang") === "en";
-        document.documentElement.lang = isEn ? "en" : "ko";
-        setTimeout(function () { applyUniversalLeafTranslation(isEn ? "en" : "ko"); }, 20);
+  if (typeof document !== "undefined") {
+    document.addEventListener("DOMContentLoaded", function () {
+      var btns = document.querySelectorAll("#lang-en, #lang-ko, #lang-toggle-en, #lang-toggle-ko, .lang-btn");
+      btns.forEach(function (b) {
+        b.addEventListener("click", function () {
+          var isEn = (b.id && b.id.indexOf("en") !== -1) || b.getAttribute("data-lang") === "en";
+          document.documentElement.lang = isEn ? "en" : "ko";
+          setTimeout(function () { applyUniversalLeafTranslation(isEn ? "en" : "ko"); }, 20);
+        });
       });
-    });
 
-    var params = new URLSearchParams(window.location.search);
-    if (params.get("lang") === "en") {
-      var enBtn = document.getElementById("lang-en") || document.getElementById("lang-toggle-en") || document.querySelector('[data-lang="en"]');
-      if (enBtn) {
-        enBtn.click();
-        setTimeout(function () { enBtn.click(); applyUniversalLeafTranslation("en"); }, 180);
+      var params = new URLSearchParams(window.location.search);
+      if (params.get("lang") === "en") {
+        var enBtn = document.getElementById("lang-en") || document.getElementById("lang-toggle-en") || document.querySelector('[data-lang="en"]');
+        if (enBtn) {
+          enBtn.click();
+          setTimeout(function () { enBtn.click(); applyUniversalLeafTranslation("en"); }, 180);
+        }
       }
-    }
-  });
+    });
+  }
 })();

@@ -10,45 +10,9 @@
   <link rel="icon" type="image/png" href="assets/brand/icon-32.png" sizes="32x32" />
   <link rel="icon" type="image/png" href="assets/brand/icon-192.png" sizes="192x192" />
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
-  <!-- Universal Ecosystem Strip -->
-  <div id="parkco-eco-strip" style="background:#120C0B;color:#CFC9BF;font-size:12px;padding:7px 16px;border-bottom:1px solid rgba(255,255,255,0.12);">
-    <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;max-width:100%;">
-      <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;min-width:0;">
-        <a href="https://changa9090.github.io/" style="color:#FDE68A;font-weight:800;text-decoration:none;">&larr; 박앤코 법률·비자 통합 허브</a>
-        <span style="margin:0 6px;opacity:0.4;">|</span>
-        <a class="parkco-svc-link" href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=ko#module-resume" data-ko-href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=ko#module-resume" data-en-href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=en#module-resume" style="color:#A7F3D0;font-weight:700;text-decoration:none;">🧭 비자 솔루션 가이드(직종추론·SOL)</a>
-        <span style="margin:0 4px;opacity:0.4;">&middot;</span>
-        <a class="parkco-svc-link" href="https://faq.immispecialist.com/?lang=ko" data-ko-href="https://faq.immispecialist.com/?lang=ko" data-en-href="https://faq.immispecialist.com/?lang=en" target="_blank" rel="noopener" style="color:#BAE6FD;font-weight:700;text-decoration:none;">💡 호주이민 FAQ</a>
-        <span style="margin:0 6px;opacity:0.4;">|</span>
-        <a href="https://changa9090.github.io/parkco-gsm-state-navigator/" style="color:#E5E0D8;text-decoration:none;">GSM 189·190·491</a>
-        <span style="margin:0 4px;opacity:0.4;">&middot;</span>
-        <a href="https://changa9090.github.io/parkco-sid-ens-navigator/" style="color:#E5E0D8;text-decoration:none;">SID 482·186</a>
-        <span style="margin:0 4px;opacity:0.4;">&middot;</span>
-        <a href="https://changa9090.github.io/parkco-partner-graduate-navigator/" style="color:#E5E0D8;text-decoration:none;">파트너(820)·485</a>
-        <span style="margin:0 4px;opacity:0.4;">&middot;</span>
-        <a href="https://changa9090.github.io/parkco-employment-law-navigator/" style="color:#E5E0D8;text-decoration:none;">고용법(FWC)</a>
-        <span style="margin:0 4px;opacity:0.4;">&middot;</span>
-        <a href="https://changa9090.github.io/parkco-family-law-navigator/" style="color:#E5E0D8;text-decoration:none;">가족법·재산분할</a>
-      </div>
-      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;min-width:0;">
-        <a class="parkco-svc-link" href="https://parklawyers.com.au/appealing-visa-decision/?lang=ko" data-ko-href="https://parklawyers.com.au/appealing-visa-decision/?lang=ko" data-en-href="https://parklawyers.com.au/appealing-visa-decision/" target="_blank" rel="noopener" style="color:#93C5FD;font-weight:800;text-decoration:none;">⚖️ ART 무료 재심검토</a>
-        <span style="opacity:0.35;">|</span>
-        <a class="parkco-svc-link" href="https://parklawyers.com.au/case-emergency/visa/?lang=ko" data-ko-href="https://parklawyers.com.au/case-emergency/visa/?lang=ko" data-en-href="https://parklawyers.com.au/case-emergency/visa/" target="_blank" rel="noopener" style="color:#FCA5A5;font-weight:800;text-decoration:none;">🚨 비자응급실(무료 통지서 진단)</a>
-        <span style="opacity:0.35;">|</span>
-        <a class="parkco-svc-link" href="https://parklawyers.com.au/case-review/gsm-case-review/?lang=ko" data-ko-href="https://parklawyers.com.au/case-review/gsm-case-review/?lang=ko" data-en-href="https://parklawyers.com.au/case-review/gsm-case-review/" target="_blank" rel="noopener" style="color:#FDE68A;font-weight:800;text-decoration:none;">📋 GSM 서류검토(Case Review™)</a>
-        <span style="opacity:0.35;">|</span>
-        <a class="parkco-svc-link" href="https://parklawyers.com.au/links/?lang=ko" data-ko-href="https://parklawyers.com.au/links/?lang=ko" data-en-href="https://parklawyers.com.au/links/" target="_blank" rel="noopener" style="color:#6EE7B7;font-weight:700;text-decoration:none;">💬 온라인 상담신청</a>
-      </div>
-    </div>
-  </div>
-
   <!-- Floating Interactive Balloon Popover -->
   <div id="floating-balloon" role="tooltip" aria-live="polite">
     <div class="b-title">
@@ -58,142 +22,86 @@
     <div id="floating-balloon-body"></div>
   </div>
 
-  <!-- 1. Sticky Top Bar -->
-  <nav class="top-nav" aria-label="Main Navigation">
-    <div class="container top-nav-inner">
-      <div class="brand-lockup">
-        <a href="https://changa9090.github.io/" style="display:inline-flex;align-items:center;" title="Park &amp; Co Legal &amp; Visa Hub">
-          <img src="assets/logo-negative.png" alt="Park &amp; Co Lawyers" class="brand-logo" />
-        </a>
-        <div class="brand-divider"></div>
-        <span class="brand-tag" data-i18n="brandTag">IMMIGRATION LAW · REGIONAL DAMA PRACTICE</span>
-      </div>
+  <!-- 1-Row Compact Sticky Header -->
+  <header class="pk-unified-header" role="banner">
+    <div class="pk-unified-header__inner">
+      <a class="pk-unified-header__brand" href="https://changa9090.github.io/" aria-label="법무법인 박앤코 통합 허브">
+        <img src="assets/logo-negative.png" alt="Park &amp; Co Lawyers" style="height:26px;width:auto;filter:brightness(0) saturate(100%) invert(17%) sepia(35%) saturate(938%) hue-rotate(140deg) brightness(92%) contrast(94%);" />
+        <span class="pk-unified-header__brand-text">
+          <span class="pk-unified-header__brand-title" data-i18n="navBrandTitle">법무법인 박앤코 · 13개 DAMA 탐색기</span>
+          <span class="pk-unified-header__brand-sub" data-i18n="brandTag">IMMIGRATION LAW · REGIONAL DAMA PRACTICE</span>
+        </span>
+      </a>
 
-      <div class="nav-actions">
-        <button type="button" id="btn-polling-status" class="btn-secondary" style="background:rgba(46,107,79,0.22);border-color:#2E6B4F;color:#E7F3EC !important;font-size:12.5px;padding:6px 12px;">
-          <span id="polling-badge-dot" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#F59E0B;margin-right:4px;"></span>
-          <span id="polling-badge-label" data-i18n="pollBadge">주간 해시 모니터 로딩 중...</span>
+      <nav class="pk-unified-header__links" aria-label="Main Navigation">
+        <a href="#combinator-section" data-i18n="navExplorer">직종·우편번호 탐색</a>
+        <a href="#regions-section" data-i18n="navRegions">13개 지역 비교</a>
+        <a href="#results-section" data-i18n="navResults">협약 요건표</a>
+        <a href="#legal-disclaimer" data-i18n="navSources">공식 출처 [1]–[31]</a>
+        <a class="parkco-svc-link" href="https://faq.immispecialist.com/?lang=ko" data-ko-href="https://faq.immispecialist.com/?lang=ko" data-en-href="https://faq.immispecialist.com/?lang=en" target="_blank" rel="noopener" data-i18n="navFaq">이민 FAQ</a>
+      </nav>
+
+      <div class="pk-unified-header__actions">
+        <button type="button" id="btn-polling-status" class="pk-poll-pill" title="Weekly Source Hash Monitor">
+          <span id="polling-badge-dot" class="pk-poll-dot"></span>
+          <span id="polling-badge-label" data-i18n="pollBadge">주간 해시 모니터 확인 중</span>
         </button>
-        <div class="lang-switch" role="group" aria-label="Language Switcher">
-          <button type="button" id="lang-toggle-ko" class="lang-btn active">한국어 (KO)</button>
-          <button type="button" id="lang-toggle-en" class="lang-btn">English (EN)</button>
-        </div>
-        <a href="https://parklawyers.com.au/links/?lang=ko" target="_blank" rel="noopener" class="btn-burgundy cta-enquiry" data-i18n="navEnquiry">
-          박앤코 상담·문의하기 &rarr;
-        </a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- 2. Urgent 2026 Sunset Strip -->
-  <div class="urgent-strip">
-    <div class="container urgent-strip-inner">
-      <div>
-        <span class="urgent-badge" data-i18n="urgentBadge">2026–27 협약 일정 경보</span>
-        <span data-i18n="urgentText">서호주 South West DAMA 신청·변경 접수 마감: 2026-10-30 (협약 종료: 2026-12-14) / Goldfields DAMA 신청 접수 마감: 2026-11-13 (협약 종료: 2026-12-31 · 11.13 이후 신규 접수 불가, 기존 승인 협약·비자 자동 취소 아님) / 남호주 SA DAMA 현행 협약 2027-01-31까지 연장 운영 중(차기 5년 Statewide DAMA 협상 중).</span>
-      </div>
-      <a href="#legal-disclaimer" style="color:#D9A7AD;font-weight:700;font-size:12.5px;white-space:nowrap;">[1]–[31] 공식 출처 각주 &darr;</a>
-    </div>
-  </div>
-
-  <!-- 3. Hero Banner -->
-  <header class="hero">
-    <div class="container hero-grid">
-      <div>
-        <span class="overline-serif" data-i18n="heroOverline">AUSTRALIA-WIDE 13 DAMA · OCCUPATION, REGION &amp; CONCESSION EXPLORER</span>
-        <h1 data-i18n="heroTitle">호주 13개 DAMA 직종 · 지역 및 협약 요건 탐색</h1>
-        <p class="hero-lead" data-i18n="heroLead">
-          직업명(ANZSCO/OSCA/한국어), 나이, 영어 점수, 희망 지역·우편번호, 연봉($67,510~$79,423) 조건을 입력하면 호주 전역 13개 DAMA · 2,474건 지역별 직종 등록 항목(781개 고유 직종) 가운데 신청 가능한 지역과 협약 완화 요건(SID 482 · SESR 494 · ENS 186)을 바로 확인할 수 있습니다. 모든 결과는 <strong>검토 후보 · 추가 확인 필요 · 조건 미충족</strong> 3단계로 나뉘며, 실제 비자 적합 여부는 관할 DAR·개별 Labour Agreement 원문과 미확인 요건(학력·경력 세부 기준, 근무지 우편번호, 시장임금 AMSR 등)을 반드시 대조해야 합니다.
-        </p>
-        <div class="hero-cta-group">
-          <a href="https://parklawyers.com.au/links/?lang=ko" target="_blank" rel="noopener" class="btn-burgundy cta-enquiry" data-i18n="heroPrimaryCta">
-            박앤코 전문변호사 1:1 비자·스폰서십 상담 신청 &rarr;
-          </a>
-          <a href="#combinator-section" class="btn-secondary" data-i18n="heroSecondaryCta">
-            직종·조건 맞춤 탐색 바로가기 &darr;
-          </a>
+        <a href="https://parklawyers.com.au/links/?lang=ko" data-ko-href="https://parklawyers.com.au/links/?lang=ko" data-en-href="https://parklawyers.com.au/links/" target="_blank" rel="noopener" class="pk-unified-header__hub-btn cta-enquiry parkco-svc-link" data-i18n="navEnquiry">공식 문의 허브</a>
+        <div class="pk-lang-toggle" role="group" aria-label="Language Switcher">
+          <button type="button" id="lang-toggle-ko" class="lang-btn active" data-lang="ko">KO</button>
+          <button type="button" id="lang-toggle-en" class="lang-btn" data-lang="en">EN</button>
         </div>
       </div>
-
-      <!-- Specialist Card -->
-      <aside class="specialist-card" aria-label="Accredited Specialist Profile">
-        <a class="specialist-top parkco-svc-link" href="https://parklawyers.com.au/our-people/chang-park/?lang=ko" data-ko-href="https://parklawyers.com.au/our-people/chang-park/?lang=ko" data-en-href="https://parklawyers.com.au/our-people/chang-park/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
-          <img src="assets/badge-qls-accredited-specialist-immigration.jpg" alt="QLS Accredited Specialist in Immigration Law" />
-          <div>
-            <div class="specialist-name" data-i18n="specName">박창민 대표변호사 (Chang Min Park)</div>
-            <div class="specialist-role" data-i18n="specRole">QLS Accredited Specialist in Immigration Law</div>
-          </div>
-        </a>
-        <div class="specialist-slogan" data-i18n="specSlogan">"삶에 집중하세요, 법률은 저희가 맡겠습니다."</div>
-        <div class="specialist-meta" data-i18n="specMeta">
-          법무법인 박앤코 (Park &amp; Co Lawyers · Underwood QLD) | 공식 상담신청: https://parklawyers.com.au/links/?lang=ko
-        </div>
-        <a href="https://parklawyers.com.au/links/?lang=ko" target="_blank" rel="noopener" class="btn-burgundy cta-enquiry" style="width:100%;justify-content:center;" data-i18n="specBtn">
-          온라인 문의 바로가기 (parklawyers.com.au) &rarr;
-        </a>
-      </aside>
     </div>
   </header>
 
-  <!-- 4. Charcoal Stat Band -->
-  <section class="stat-band" aria-label="Key DAMA Figures">
-    <div class="container stat-row">
-      <div class="stat-cell">
-        <div class="s-over" data-i18n="stat1Over">ACTIVE DAMAS</div>
-        <div class="s-num" data-i18n="stat1Val">13개 지역</div>
-        <div class="s-sub" data-i18n="stat1Sub">호주 연방·주정부 현행 협약 전수 반영 [1]</div>
+  <!-- 2. Urgent 2026 Sunset Strip -->
+  <div class="urgent-strip pk-urgent-strip">
+    <div class="container urgent-strip-inner pk-urgent-strip__inner">
+      <div>
+        <span class="urgent-badge pk-urgent-badge" data-i18n="urgentBadge">2026–27 협약 일정 경보</span>
+        <span data-i18n="urgentText">서호주 South West DAMA 신청·변경 접수 마감: 2026-10-30 (⛔ 신규 접수 마감 · 협약 종료: 2026-12-14) / Goldfields DAMA 신청 접수 마감: 2026-11-13 (⚠️ 마감 임박 · 협약 종료: 2026-12-31 · 기존 승인 협약·비자 자동 취소 아님) / 남호주 SA DAMA 현행 협약 2027-01-31까지 연장 운영 중입니다.</span>
       </div>
-      <div class="stat-cell">
-        <div class="s-over" data-i18n="stat2Over">OCCUPATION ENTRIES</div>
-        <div class="s-num" data-i18n="stat2Val">2,474건</div>
-        <div class="s-sub" data-i18n="stat2Sub">지역별 직종 등록 항목 수 (고유 직종 781개)</div>
-      </div>
-      <div class="stat-cell">
-        <div class="s-over" data-i18n="stat3Over">2026–27 STANDARD CSIT</div>
-        <div class="s-num" data-i18n="stat3Val">$79,423</div>
-        <div class="s-sub" data-i18n="stat3Sub">2026.07.01 발효 법정 기준연봉 [2]</div>
-      </div>
-      <div class="stat-cell">
-        <div class="s-over" data-i18n="stat4Over">90% DAMA CONCESSION</div>
-        <div class="s-num" data-i18n="stat4Val">$71,481</div>
-        <div class="s-sub" data-i18n="stat4Sub">표준 10% 감면 (지역별 Type 1/2/3 상한 상이)</div>
-      </div>
-      <div class="stat-cell">
-        <div class="s-over" data-i18n="stat5Over">85% NT DAMA III</div>
-        <div class="s-num" data-i18n="stat5Val">$67,510</div>
-        <div class="s-sub" data-i18n="stat5Sub">NT 최저 급여선 (단, 시장임금 AMSR 이상 필수) [11]</div>
-      </div>
-      <div class="stat-cell">
-        <div class="s-over" data-i18n="stat6Over">MAX AGE CONCESSION</div>
-        <div class="s-num" data-i18n="stat6Val">만 55세 미만</div>
-        <div class="s-sub" data-i18n="stat6Sub">SL1–4 만 55세 / SL5 만 50세 (SA는 55세)</div>
+      <a href="#legal-disclaimer" style="font-weight:800;font-size:12px;white-space:nowrap;">[1]–[31] 공식 출처 &darr;</a>
+    </div>
+  </div>
+
+  <!-- 3. Compact Tools-First Hero (< 700px to #combinator-section on 390x844 mobile) -->
+  <section class="pk-compact-hero">
+    <div class="container">
+      <div class="pk-compact-hero__eyebrow" data-i18n="heroOverline">AUSTRALIA-WIDE 13 DAMA (DESIGNATED AREA MIGRATION AGREEMENTS) EXPLORER</div>
+      <h1 data-i18n="heroTitle">호주 13개 DAMA 직종 · 지역 및 협약 요건 탐색</h1>
+      <p class="pk-compact-hero__lead" data-i18n="heroLead">
+        직업명(ANZSCO/OSCA/한국어)·4자리 우편번호(예: 4810 타운즈빌 TNQ / 4870 케언즈 FNQ / 6430 칼굴리 Goldfields)·연령·영어 점수·급여($67,510~$79,423) 조건으로 호주 13개 DAMA(Designated Area Migration Agreements) 2,474건 직종 등록 항목을 즉시 대조합니다.
+      </p>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:10px;">
+        <button type="button" id="btn-dama-demo" class="btn-secondary pk-demo-trigger" style="font-size:12.5px;padding:7px 13px;" data-i18n="btnDemoFill">예시 데이터 넣어보기</button>
+        <a href="#regions-section" class="btn-secondary" style="font-size:12.5px;padding:7px 13px;" data-i18n="heroSecondaryCta">13개 지역 카드 보기 &darr;</a>
+        <a href="https://parklawyers.com.au/links/?lang=ko" data-ko-href="https://parklawyers.com.au/links/?lang=ko" data-en-href="https://parklawyers.com.au/links/" target="_blank" rel="noopener" class="btn-burgundy cta-enquiry parkco-svc-link" style="font-size:12.5px;padding:7px 14px;" data-i18n="heroPrimaryCta">박앤코 1:1 비자·스폰서십 문의 &rarr;</a>
       </div>
     </div>
   </section>
 
-  <!-- 5. Interactive Eligibility Combinator & Search Panel -->
+  <!-- 4. Interactive Eligibility Combinator & Search Panel (Tools-First Above the Fold) -->
   <section class="band-ivory" id="combinator-section">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head" style="margin-bottom:12px;">
         <div>
-          <span class="overline-serif light-mode" data-i18n="combOverline">STEP 01 · OCCUPATION, REGION &amp; CONCESSION EXPLORER</span>
-          <h2 data-i18n="combTitle">내 직종 · 지역 · 협약 조건 탐색기</h2>
+          <span class="overline-serif light-mode" data-i18n="combOverline">STEP 01 · OCCUPATION, POSTCODE &amp; CONCESSION EXPLORER</span>
+          <h2 data-i18n="combTitle">내 직종 · 우편번호 · 협약 조건 탐색기</h2>
           <p data-i18n="combSub">
-            한국어 직업명(예: 요리사, 용접사, 간병인, 바리스타, 청소, 트럭, 정비사, 간호사, 개발자, 회계), 영문 직종명, 6자리 ANZSCO/OSCA 코드로 검색한 뒤 희망 지역·우편번호·세부 조건을 골라 보세요. 각 배지(?)를 누르거나 마우스를 올리면 법령 근거와 세부 요건 안내가 열립니다.
+            한국어·영문 직종명이나 6자리 ANZSCO/OSCA 코드 및 근무지 4자리 우편번호·도시를 입력하면 신청 가능 지역과 접수 마감 상태(⛔ 마감 / ⚠️ 마감 임박)를 함께 안내합니다.
           </p>
         </div>
       </div>
 
-      <div id="dama-ecosystem-callout" style="margin-bottom:18px;padding:16px 18px;background:linear-gradient(180deg, #F8FAFC 0%, #EFF6FF 100%);border:1.5px solid #1E3A8A;border-radius:12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:100%;box-sizing:border-box;">
-        <div style="flex:1 1 240px;min-width:0;">
-          <span class="overline-serif light-mode" style="margin-bottom:4px;">ECOSYSTEM CROSS-CHECK · AI RESUME ANZSCO INFERENCE &amp; GENERAL SOL SEARCH</span>
-          <h3 style="margin:0 0 4px 0;font-size:16px;font-weight:800;color:#1E3A8A;">🧭 내 경력의 6자리 ANZSCO/OSCA 직종코드를 모르시거나 일반 CSOL·MLTSSL 직종도 함께 비교하고 싶으신가요?</h3>
-          <p style="margin:0;font-size:13px;color:#334155;">영문 이력서 기반 무료 ANZSCO 직종추론(#module-resume), 일반 482·186·189·190·491 통합 직종검색(#module-sol), 그리고 스폰서·DAMA 실전 FAQ를 통합 가이드에서 바로 확인해 보세요.</p>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;min-width:0;max-width:100%;">
-          <a href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=ko#module-resume" data-ko-href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=ko#module-resume" data-en-href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=en#module-resume" target="_blank" rel="noopener" class="btn-burgundy parkco-svc-link" style="font-size:12.5px;padding:9px 14px;background:#1E3A8A;border-color:#1E3A8A;white-space:normal;max-width:100%;">📄 영문 이력서 ANZSCO 직종추론 (#module-resume) &rarr;</a>
-          <a href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=ko#module-sol" data-ko-href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=ko#module-sol" data-en-href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=en#module-sol" target="_blank" rel="noopener" class="btn-burgundy parkco-svc-link" style="font-size:12.5px;padding:9px 14px;background:#0F766E;border-color:#0F766E;white-space:normal;max-width:100%;">🔎 일반 CSOL·MLTSSL 통합 검색 (#module-sol) &rarr;</a>
-          <a href="https://faq.immispecialist.com/?lang=ko" data-ko-href="https://faq.immispecialist.com/?lang=ko" data-en-href="https://faq.immispecialist.com/?lang=en" target="_blank" rel="noopener" class="btn-secondary parkco-svc-link" style="font-size:12.5px;padding:9px 14px;color:#1E3A8A !important;border-color:#1E3A8A;background:#FFFFFF;white-space:normal;max-width:100%;">💡 호주이민 실전 FAQ 백과 &rarr;</a>
+      <div id="dama-neutral-helper" class="pk-empty-prompt" style="margin-bottom:14px;padding:12px 16px;text-align:left;">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+          <div>
+            <div class="pk-empty-prompt__title" style="margin-bottom:2px;" data-i18n="neutralTitle">검색어·우편번호 또는 연령·영어 조건을 선택하여 맞춤 후보를 좁혀 보십시오</div>
+            <p class="pk-empty-prompt__desc" style="margin:0;" data-i18n="neutralDesc">현재 전체 13개 DAMA · 2,474건 등록 항목이 준비되어 있습니다. 우편번호(예: 4810 Townsville · 6430 Kalgoorlie)를 입력하거나 [예시 데이터 넣어보기]를 누르면 실전 조합 예시가 적용됩니다.</p>
+          </div>
+          <button type="button" class="btn-secondary pk-demo-trigger" style="font-size:12.5px;padding:7px 13px;" data-i18n="btnDemoFill">예시 데이터 넣어보기</button>
         </div>
       </div>
 
@@ -209,7 +117,7 @@
             <button type="button" id="clear-search-btn" class="clear-search-btn" aria-label="Clear search">&times;</button>
           </div>
           <div class="search-input-wrap" style="flex:1 1 240px;">
-            <input type="search" id="filter-location" class="search-input" style="padding-left:14px;" aria-label="Filter by LGA, Suburb, or Postcode" placeholder="근무지 LGA / 도시 / 우편번호 (예: Cairns, Perth, 5950, Ravensthorpe)" />
+            <input type="search" id="filter-location" class="search-input" style="padding-left:14px;" aria-label="Filter by LGA, Suburb, or Postcode" placeholder="근무지 우편번호 / 도시 / LGA (예: 4810, 4870, 6430, Cairns, Perth, 5950)" />
           </div>
           <button type="button" id="reset-filters-btn" class="btn-secondary" data-i18n="resetBtn">필터 초기화</button>
         </div>
@@ -256,7 +164,7 @@
           <div class="filter-group">
             <label for="filter-english" class="filter-label">
               <span data-i18n="lblEnglish">3. 보유 영어 점수 (IELTS / PTE)</span>
-              <span class="badge badge-teal" data-balloon="482·494·186 비자 단계별 영어 요건과 과목별 최저점(No Band Min vs Min 4.0 vs Min 4.5)이 다릅니다. GV Table 6(64개 직종) 및 GSC(43개 직종)만 과목별 최저점 없음(No Band Min)이며, GV Table 6.1(4개 직종)은 각 과목 4.0 이상이 필수입니다.">점수 기준 <span class="balloon-icon">?</span></span>
+              <span class="badge badge-teal" data-balloon="482·494·186 비자 단계별 영어 요건과 과목별 최저점(No Band Min vs Min 4.0 vs Min 4.5)이 다릅니다. GV Table 6(64개 직종) 및 GSC(43개 직종)만 과목별 최저점 없음(No Band Min)이고 GV Table 6.1(4개 직종)은 각 과목 4.0 이상이 필수입니다.">점수 기준 <span class="balloon-icon">?</span></span>
             </label>
             <select id="filter-english" class="filter-select">
               <option value="all" data-i18n="optEngAll">영어 점수 전체 (IELTS 6.0+ 표준 포함)</option>
@@ -269,7 +177,7 @@
           <div class="filter-group">
             <label for="filter-salary" class="filter-label">
               <span data-i18n="lblSalary">4. 고용주 제시 가능 연봉 (Salary)</span>
-              <span class="badge badge-teal" data-balloon="2026.7.1 기준 표준 CSIT는 $79,423입니다. DAMA 90% 감면($71,481) 및 NT 85% 감면($67,510) 모두 호주 시장임금(AMSR) 이상이어야 하며, FNQ Type 2 비금전 혜택 상한은 CSIT의 10%($7,942.30)이고 최소 총연봉은 $79,423입니다.">2026 급여선 <span class="balloon-icon">?</span></span>
+              <span class="badge badge-teal" data-balloon="2026.7.1 기준 표준 CSIT는 $79,423입니다. DAMA 90% 감면($71,481) 및 NT 85% 감면($67,510) 모두 호주 시장임금(AMSR) 이상이어야 하며 FNQ Type 2 비금전 혜택 상한은 CSIT의 10%($7,942.30)이고 최소 총연봉은 $79,423입니다.">2026 급여선 <span class="balloon-icon">?</span></span>
             </label>
             <select id="filter-salary" class="filter-select">
               <option value="all" data-i18n="optSalAll">연봉 무관 ($79,423 표준 CSIT 이상 가능 포함)</option>
@@ -281,7 +189,7 @@
           <div class="filter-group">
             <label for="filter-skill" class="filter-label">
               <span data-i18n="lblSkill">5. 직종 숙련도 (Skill Level / 학력)</span>
-              <span class="badge badge-neutral" data-balloon="일반 482 비자는 SL 1–3만 가능하나, DAMA에서는 반숙련(SL 4) 및 기초노무(SL 5), 그리고 ANZSCO에 없는 특화 직종(070499)까지 협약 대상에 포함됩니다.">SL 안내 <span class="balloon-icon">?</span></span>
+              <span class="badge badge-neutral" data-balloon="일반 482 비자는 SL 1–3만 가능하나 DAMA에서는 반숙련(SL 4) 및 기초노무(SL 5)와 ANZSCO에 없는 특화 직종(070499)까지 협약 대상에 포함됩니다.">SL 안내 <span class="balloon-icon">?</span></span>
             </label>
             <select id="filter-skill" class="filter-select">
               <option value="all" data-i18n="optSkillAll">모든 Skill Level (SL 1~5 및 비-ANZSCO)</option>
@@ -296,7 +204,7 @@
           <div class="filter-group">
             <label for="filter-pathway" class="filter-label">
               <span data-i18n="lblPathway">6. 영주권(ENS 186) 및 특별 조건</span>
-              <span class="badge badge-success" data-balloon="FNQ, NT DAMA III, Kimberley 3개 지역은 비-DAMA 비자 지역 경력 인정 조항이 있으나 고용주 DAR Endorsement와 개별 Labour Agreement에 ENS 186 스트림이 승인되어 있어야 하며, 직종·숙련도 요건 충족 여부도 꼭 확인해야 합니다.">Direct 186 <span class="balloon-icon">?</span></span>
+              <span class="badge badge-success" data-balloon="FNQ·NT DAMA III·Kimberley 3개 지역은 비-DAMA 비자 지역 경력 인정 조항이 있으나 고용주 DAR Endorsement와 개별 Labour Agreement에 ENS 186 스트림이 승인되어 있어야 하며 직종·숙련도 요건 충족 여부도 확인해야 합니다.">Direct 186 <span class="balloon-icon">?</span></span>
             </label>
             <select id="filter-pathway" class="filter-select">
               <option value="all" data-i18n="optPathAll">전체 보기</option>
@@ -321,7 +229,7 @@
           <span class="overline-serif light-mode" data-i18n="regOverline">STEP 02 · WHERE TO FIND YOUR REGIONAL EMPLOYER SPONSOR</span>
           <h2 data-i18n="regTitle">13개 DAMA 지역별 매칭 직종 등록 항목 수 &amp; 지역 상세 가이드</h2>
           <p data-i18n="regSub">
-            선택한 검색어와 조건에 맞는 직종 등록 항목이 지역별로 몇 건인지 실시간으로 집계됩니다. 지역 카드를 누르면 해당 DAMA만 따로 추려 볼 수 있고, '지역 요건 · 우편번호 상세' 버튼을 누르면 관할 구역과 협약 기준 전체가 팝업으로 열립니다.
+            선택한 검색어와 조건에 맞는 직종 등록 항목이 지역별로 몇 건인지 실시간으로 집계됩니다. 지역 카드를 누르면 해당 DAMA만 따로 추려 볼 수 있으며 '지역 요건 · 우편번호 상세' 버튼을 누르면 관할 구역과 협약 기준 전체가 팝업으로 열립니다.
           </p>
         </div>
       </div>
@@ -371,33 +279,97 @@
     </div>
   </section>
 
-  <!-- 8. Consultation CTA Band -->
-  <section class="band-sand">
-    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;">
-      <div>
-        <span class="overline-serif light-mode">PARK &amp; CO LAWYERS · ACCREDITED SPECIALIST IN IMMIGRATION LAW</span>
-        <h2 style="font-size:24px;font-weight:800;color:#2E2E2E;margin-bottom:4px;">
-          "삶에 집중하세요, 법률은 저희가 맡겠습니다." (You focus on life, we'll handle the law.)
-        </h2>
-        <p style="font-size:15px;color:#5A5654;">
-          DAMA 고용주 스폰서십(DAR Endorsement · Labour Agreement) 및 비자(SID 482 · SESR 494 · ENS 186) 전략 수립이 필요하시면 지금 바로 문의해 주세요.
-        </p>
+  <!-- Key DAMA Stat Band (Below Interactive Explorer) -->
+  <section class="stat-band" aria-label="Key DAMA Figures">
+    <div class="container stat-row">
+      <div class="stat-cell">
+        <div class="s-over" data-i18n="stat1Over">ACTIVE DAMAS</div>
+        <div class="s-num" data-i18n="stat1Val">13개 지역</div>
+        <div class="s-sub" data-i18n="stat1Sub">호주 연방·주정부 현행 협약 전수 반영 [1]</div>
       </div>
-      <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;">
-        <a href="https://parklawyers.com.au/links/?lang=ko" target="_blank" rel="noopener" class="btn-burgundy cta-enquiry" style="font-size:15px;padding:12px 24px;">
-          박앤코 온라인 상담·문의 바로가기 &rarr;
-        </a>
-        <a href="https://parklawyers.com.au/appealing-visa-decision/?lang=ko" data-ko-href="https://parklawyers.com.au/appealing-visa-decision/?lang=ko" data-en-href="https://parklawyers.com.au/appealing-visa-decision/" target="_blank" rel="noopener" class="btn-burgundy parkco-svc-link" style="font-size:13.5px;padding:11px 18px;background:#1E3A8A;border-color:#1E3A8A;">
-          ⚖️ 노미네이션·비자 거절 무료 ART Case Review™ &rarr;
-        </a>
-        <a href="https://parklawyers.com.au/case-emergency/visa/?lang=ko" data-ko-href="https://parklawyers.com.au/case-emergency/visa/?lang=ko" data-en-href="https://parklawyers.com.au/case-emergency/visa/" target="_blank" rel="noopener" class="btn-burgundy parkco-svc-link" style="font-size:13.5px;padding:11px 18px;background:#B23A2E;border-color:#B23A2E;">
-          🚨 비자응급실 (s 57·s 116·s 137Q 무료 진단) &rarr;
-        </a>
+      <div class="stat-cell">
+        <div class="s-over" data-i18n="stat2Over">OCCUPATION ENTRIES</div>
+        <div class="s-num" data-i18n="stat2Val">2,474건</div>
+        <div class="s-sub" data-i18n="stat2Sub">지역별 직종 등록 항목 수 (고유 직종 781개)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="s-over" data-i18n="stat3Over">2026–27 STANDARD CSIT</div>
+        <div class="s-num" data-i18n="stat3Val">$79,423</div>
+        <div class="s-sub" data-i18n="stat3Sub">2026.07.01 발효 법정 기준연봉 [2]</div>
+      </div>
+      <div class="stat-cell">
+        <div class="s-over" data-i18n="stat4Over">90% DAMA CONCESSION</div>
+        <div class="s-num" data-i18n="stat4Val">$71,481</div>
+        <div class="s-sub" data-i18n="stat4Sub">표준 10% 감면 (지역별 Type 1/2/3 상한 상이)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="s-over" data-i18n="stat5Over">85% NT DAMA III</div>
+        <div class="s-num" data-i18n="stat5Val">$67,510</div>
+        <div class="s-sub" data-i18n="stat5Sub">NT 최저 급여선 (단 시장임금 AMSR 이상 필수) [11]</div>
+      </div>
+      <div class="stat-cell">
+        <div class="s-over" data-i18n="stat6Over">MAX AGE CONCESSION</div>
+        <div class="s-num" data-i18n="stat6Val">만 55세 미만</div>
+        <div class="s-sub" data-i18n="stat6Sub">SL1–4 만 55세 / SL5 만 50세 (SA는 55세)</div>
       </div>
     </div>
   </section>
 
-  <!-- 9. Legal Disclaimer, Copyright & 29 Primary Source Footnotes -->
+  <!-- 8. Consultation CTA & Specialist Profile Band -->
+  <section class="band-sand">
+    <div class="container">
+      <div id="dama-ecosystem-callout" style="margin-bottom:18px;padding:16px 18px;background:#FFFFFF;border:1px solid #E5DFD3;border-radius:12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:100%;box-sizing:border-box;">
+        <div style="flex:1 1 240px;min-width:0;">
+          <span class="overline-serif light-mode" style="margin-bottom:4px;">ECOSYSTEM CROSS-CHECK · AI RESUME ANZSCO INFERENCE &amp; GENERAL SOL SEARCH</span>
+          <h3 style="margin:0 0 4px 0;font-size:16px;font-weight:800;color:#0E3A3E;">🧭 내 경력의 6자리 ANZSCO/OSCA 직종코드를 모르시거나 일반 CSOL·MLTSSL 직종도 함께 비교하고 싶으신가요?</h3>
+          <p style="margin:0;font-size:13px;color:#4A5D60;">영문 이력서 기반 무료 ANZSCO 직종추론(#module-resume)과 일반 482·186·189·190·491 통합 직종검색(#module-sol) 및 실전 FAQ를 통합 가이드에서 확인하실 수 있습니다.</p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;min-width:0;max-width:100%;">
+          <a href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=ko#module-resume" data-ko-href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=ko#module-resume" data-en-href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=en#module-resume" target="_blank" rel="noopener" class="btn-burgundy parkco-svc-link" style="font-size:12.5px;padding:9px 14px;">📄 영문 이력서 ANZSCO 직종추론 (#module-resume) &rarr;</a>
+          <a href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=ko#module-sol" data-ko-href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=ko#module-sol" data-en-href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=en#module-sol" target="_blank" rel="noopener" class="btn-secondary parkco-svc-link" style="font-size:12.5px;padding:9px 14px;">🔎 일반 CSOL·MLTSSL 통합 검색 (#module-sol) &rarr;</a>
+          <a href="https://faq.immispecialist.com/?lang=ko" data-ko-href="https://faq.immispecialist.com/?lang=ko" data-en-href="https://faq.immispecialist.com/?lang=en" target="_blank" rel="noopener" class="btn-secondary parkco-svc-link" style="font-size:12.5px;padding:9px 14px;">💡 호주이민 실전 FAQ 백과 &rarr;</a>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px;align-items:center;">
+        <div>
+          <span class="overline-serif light-mode">PARK &amp; CO LAWYERS · ACCREDITED SPECIALIST IN IMMIGRATION LAW</span>
+          <h2 style="font-size:22px;font-weight:800;color:#14282A;margin-bottom:6px;">
+            "삶에 집중하세요, 법률은 저희가 맡겠습니다." (You focus on life, we'll handle the law.)
+          </h2>
+          <p style="font-size:14.5px;color:#4A5D60;margin-bottom:12px;">
+            DAMA 고용주 스폰서십(DAR Endorsement · Labour Agreement) 및 비자(SID 482 · SESR 494 · ENS 186) 전략 수립이 필요하시면 공식 문의 채널로 연락해 주십시오.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;">
+            <a href="https://parklawyers.com.au/links/?lang=ko" data-ko-href="https://parklawyers.com.au/links/?lang=ko" data-en-href="https://parklawyers.com.au/links/" target="_blank" rel="noopener" class="btn-burgundy cta-enquiry parkco-svc-link" style="font-size:14px;padding:11px 20px;">
+              박앤코 온라인 상담·문의 바로가기 &rarr;
+            </a>
+            <a href="https://parklawyers.com.au/appealing-visa-decision/?lang=ko" data-ko-href="https://parklawyers.com.au/appealing-visa-decision/?lang=ko" data-en-href="https://parklawyers.com.au/appealing-visa-decision/" target="_blank" rel="noopener" class="btn-secondary parkco-svc-link" style="font-size:13px;padding:10px 16px;">
+              ⚖️ 노미네이션·비자 거절 무료 ART Case Review™ &rarr;
+            </a>
+            <a href="https://parklawyers.com.au/case-emergency/visa/?lang=ko" data-ko-href="https://parklawyers.com.au/case-emergency/visa/?lang=ko" data-en-href="https://parklawyers.com.au/case-emergency/visa/" target="_blank" rel="noopener" class="btn-secondary parkco-svc-link" style="font-size:13px;padding:10px 16px;">
+              🚨 비자응급실 (s 57·s 116·s 137Q 무료 진단) &rarr;
+            </a>
+          </div>
+        </div>
+
+        <aside class="specialist-card" aria-label="Accredited Specialist Profile" style="background:#FFFFFF;border:1px solid #E5DFD3;color:#14282A;">
+          <a class="specialist-top parkco-svc-link" href="https://parklawyers.com.au/our-people/chang-park/?lang=ko" data-ko-href="https://parklawyers.com.au/our-people/chang-park/?lang=ko" data-en-href="https://parklawyers.com.au/our-people/chang-park/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
+            <img src="assets/badge-qls-accredited-specialist-immigration.jpg" alt="QLS Accredited Specialist in Immigration Law" />
+            <div>
+              <div class="specialist-name" data-i18n="specName" style="color:#14282A;">박창민 대표변호사 (Chang Min Park)</div>
+              <div class="specialist-role" data-i18n="specRole" style="color:#0E3A3E;">QLS Accredited Specialist in Immigration Law</div>
+            </div>
+          </a>
+          <div class="specialist-meta" data-i18n="specMeta" style="color:#4A5D60;margin-top:8px;">
+            법무법인 박앤코 (Park &amp; Co Lawyers · Underwood QLD) | 문의: enquiry@parkcolawyers.com
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Legal Disclaimer, Copyright & 31 Primary Source Footnotes -->
   <section class="band-stone" id="legal-disclaimer">
     <div class="container">
       <div class="disclaimer-card">
@@ -408,7 +380,7 @@
         <p data-i18n="discP3" style="margin-bottom:0;"></p>
       </div>
 
-      <h3 style="font-size:18px;font-weight:800;color:#2E2E2E;margin-bottom:14px;" data-i18n="fnHeading">
+      <h3 style="font-size:18px;font-weight:800;color:#14282A;margin-bottom:14px;" data-i18n="fnHeading">
         1차 공식 출처 및 주정부·DAR 레퍼런스 각주 ([1] ~ [31])
       </h3>
       <div id="footnotes-container" class="footnotes-list"></div>
@@ -418,7 +390,7 @@
   <!-- 10. Footer -->
   <footer class="site-footer">
     <div class="container">
-      <div class="visit-counter" id="visit-counter" title="클릭하면 최근 30일 방문 추이와 유입 경로를 볼 수 있어요" hidden>
+      <div class="visit-counter" id="visit-counter" title="클릭하면 최근 30일 방문 추이와 유입 경로를 확인할 수 있습니다" hidden>
         <span><em id="vc-lbl-total">누적 방문</em><b id="vc-total">-</b></span>
         <span><em id="vc-lbl-today">오늘 방문</em><b id="vc-today">-</b></span>
         <span><em id="vc-lbl-visitors">방문자</em><b id="vc-visitors">-</b></span>
@@ -428,7 +400,7 @@
           <img src="assets/logo-negative.png" alt="Park &amp; Co Lawyers" style="height:36px;width:auto;" />
           <div>
             <strong style="color:#FFFFFF;">법무법인 박앤코 (PNC Legal Pty Ltd t/a Park &amp; Co Lawyers)</strong> · 박창민 대표변호사 (QLS Accredited Specialist in Immigration Law)<br/>
-            Official Inquiry: <a class="parkco-svc-link cta-enquiry" href="https://parklawyers.com.au/links/?lang=ko" data-ko-href="https://parklawyers.com.au/links/?lang=ko" data-en-href="https://parklawyers.com.au/links/" target="_blank" rel="noopener" style="color:#D9A7AD;">https://parklawyers.com.au/links/?lang=ko</a>
+            공식 문의 허브: <a class="parkco-svc-link cta-enquiry" href="https://parklawyers.com.au/links/?lang=ko" data-ko-href="https://parklawyers.com.au/links/?lang=ko" data-en-href="https://parklawyers.com.au/links/" target="_blank" rel="noopener" style="color:#E7D3AD;">https://parklawyers.com.au/links/?lang=ko</a> · 이메일: <a href="mailto:enquiry@parkcolawyers.com" style="color:#E7D3AD;">enquiry@parkcolawyers.com</a>
           </div>
         </div>
         <div style="text-align:right;font-size:12.5px;">
@@ -526,7 +498,7 @@
     if (lv) lv.textContent = en ? 'Visitors' : '방문자';
     box.title = en
       ? 'Click for daily visits & referral sources'
-      : '클릭하면 일별 방문 추이와 유입 경로를 볼 수 있어요';
+      : '클릭하면 일별 방문 추이와 유입 경로를 확인할 수 있습니다';
     var mt = document.getElementById('vc-modal-title');
     if (mt) {
       mt.innerHTML = en
@@ -756,10 +728,12 @@
     } catch (e) {}
   });
 
+  function pad2(n) { return n < 10 ? '0' + n : String(n); }
   function lastDays(n) {
-    var p = today.split('-').map(Number), base = Date.UTC(p[0], p[1] - 1, p[2]), out = [];
+    var p = today.split('-').map(Number), out = [];
     for (var i = n - 1; i >= 0; i--) {
-      var s = new Date(base - i * 864e5).toISOString().slice(0, 10);
+      var dt = new Date(p[0], p[1] - 1, p[2] - i);
+      var s = dt.getFullYear() + '-' + pad2(dt.getMonth() + 1) + '-' + pad2(dt.getDate());
       if (s >= START) out.push(s);
     }
     return out.length ? out : [today];
@@ -923,7 +897,7 @@
       return head + '<p class="vc-ref-note">' +
         (isEn
           ? 'Anonymous referral channel buckets (Naver, Cafe, KakaoTalk, Threads, Hub, Direct) are recorded once per browser per day as new visits arrive (zero personal or URL path data stored).'
-          : '익명 유입 경로(검색·카페·카카오톡·스레드·허브 이동 등) 집계는 신규 방문부터 하루 브라우저당 1회씩 기록돼요 (세부 URL·개인정보 미수집).') +
+          : '익명 유입 경로(검색·카페·카카오톡·스레드·허브 이동 등) 집계는 신규 방문부터 하루 브라우저당 1회씩 기록됩니다 (세부 URL·개인정보 미수집).') +
         '</p>';
     }
     var rowsHtml = items.map(function (item) {
@@ -997,8 +971,8 @@
     var fullDays = lastDays(30);
     var days = activeRange === 7 ? lastDays(7) : fullDays;
     var body = modal.querySelector('.vc-body');
-    var chartWaitMsg = isEn ? 'Loading daily statistics&hellip;' : '일별 통계를 불러오는 중이에요&hellip;';
-    var refWaitMsg = isEn ? 'Loading today&rsquo;s referral channels&hellip;' : '오늘 유입 채널 집계를 불러오는 중이에요&hellip;';
+    var chartWaitMsg = isEn ? 'Loading daily statistics&hellip;' : '일별 통계를 불러오는 중입니다&hellip;';
+    var refWaitMsg = isEn ? 'Loading today&rsquo;s referral channels&hellip;' : '오늘 유입 채널 집계를 불러오는 중입니다&hellip;';
     var existingRefHtml = (!refreshRefs && cachedRefMap) ? renderReferrerBox(cachedRefMap) : ('<div class="vc-ref-note">' + refWaitMsg + '</div>');
 
     /* Render toolbar, loading placeholder, referral box, and 1-click share bar IMMEDIATELY (0ms) */
@@ -1022,7 +996,7 @@
       .catch(function () {
         var slot = document.getElementById('vc-chart-slot');
         if (slot && !slot.querySelector('svg')) {
-          slot.textContent = uiLang() === 'en' ? 'Could not load the chart.' : '그래프를 불러오지 못했어요.';
+          slot.textContent = uiLang() === 'en' ? 'Could not load the chart.' : '그래프를 불러오지 못했습니다.';
         }
       });
   }
