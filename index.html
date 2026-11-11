@@ -11,6 +11,63 @@
   <link rel="icon" type="image/png" href="assets/brand/icon-192.png" sizes="192x192" />
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
   <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+/* Park & Co Unified Visit Counter & Referral Modal v3.0 */
+.visit-counter { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; align-items: center; }
+.visit-counter[hidden] { display: none !important; }
+.visit-counter:not([hidden]) { display: flex !important; cursor: pointer; }
+.visit-counter > span em { font-style: normal; }
+.visit-counter > span { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 999px; padding: 5px 13px; font-size: 12.5px; color: #E8E2D9; display: inline-flex; align-items: center; transition: border-color 0.15s ease, background 0.15s ease; }
+.visit-counter:not([hidden]):hover > span { border-color: #FDE68A; background: rgba(255, 255, 255, 0.11); }
+.visit-counter b { color: #FDE68A; font-weight: 800; margin-left: 6px; font-variant-numeric: tabular-nums; }
+#vc-modal { display: none; position: fixed; inset: 0; z-index: 3200; background: rgba(26, 18, 17, 0.56);
+  align-items: center; justify-content: center; padding: 16px; }
+#vc-modal.open { display: flex; }
+#vc-modal .vc-dialog { background: #FFFFFF; color: #1C1B1A; text-align: left; border-radius: 14px;
+  box-shadow: 0 20px 48px rgba(26, 18, 17, 0.28); width: min(700px, 100%); max-height: calc(100vh - 32px);
+  overflow: auto; padding: 18px 20px 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Noto Sans KR", "Segoe UI", sans-serif; }
+#vc-modal h3 { margin: 0 0 10px; font-size: 1.04rem; font-weight: 800; padding-right: 32px; color: #1C1B1A; line-height: 1.35; }
+#vc-modal h3 small { font-weight: 500; color: #5A5654; font-size: 0.78rem; }
+#vc-modal .vc-close { float: right; border: 0; background: none; font-size: 1.45rem; line-height: 1; cursor: pointer;
+  color: #5A5654; min-width: 34px; min-height: 34px; padding: 0; }
+#vc-modal .vc-close:hover { color: #7A1F2B; }
+.vc-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin: 0 0 8px; flex-wrap: wrap; }
+.vc-range-tabs { display: inline-flex; gap: 4px; background: #F4F0E8; padding: 3px; border-radius: 999px; }
+.vc-range-btn { border: 0; background: transparent; color: #5A5654; font-size: 0.75rem; font-weight: 700;
+  padding: 4px 10px; border-radius: 999px; cursor: pointer; }
+.vc-range-btn.active { background: #7A1F2B; color: #FFFFFF; }
+.vc-svg { width: 100%; height: auto; display: block; }
+.vc-grid { stroke: #E5DEC9; stroke-width: 1; }
+.vc-ylab { font-size: 11px; fill: #5A5654; text-anchor: end; }
+.vc-xlab { font-size: 11px; fill: #5A5654; text-anchor: middle; }
+.vc-bar { fill: #F4E6E8; stroke: #D9A7AD; }
+.vc-line { fill: none; stroke: #7A1F2B; stroke-width: 2; }
+.vc-dot { fill: #7A1F2B; }
+.vc-legend { display: flex; gap: 16px; font-size: 0.8rem; color: #5A5654; margin-top: 6px; }
+.vc-legend i { display: inline-block; width: 14px; height: 10px; margin-right: 6px; vertical-align: middle; }
+.vc-k-bar { background: #F4E6E8; border: 1px solid #D9A7AD; }
+.vc-k-line { height: 2px !important; background: #7A1F2B; }
+.vc-sum { font-size: 0.8rem; color: #5A5654; margin: 8px 0 0; line-height: 1.5; }
+.vc-ref-box { margin-top: 14px; padding-top: 12px; border-top: 1px solid #E5DEC9; }
+.vc-ref-title { font-size: 0.86rem; font-weight: 800; color: #1C1B1A; margin: 0 0 6px;
+  display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px; }
+.vc-ref-title small { font-weight: 500; font-size: 0.75rem; color: #5A5654; }
+.vc-ref-list { display: grid; gap: 5px; margin: 6px 0 0; }
+.vc-ref-row { display: grid; grid-template-columns: minmax(135px, 1.35fr) minmax(80px, 2fr) auto;
+  align-items: center; gap: 8px; font-size: 0.79rem; }
+.vc-ref-name { font-weight: 600; color: #1C1B1A; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.vc-ref-track { height: 8px; background: #F4F0E8; border-radius: 999px; overflow: hidden; }
+.vc-ref-fill { height: 100%; background: #7A1F2B; border-radius: 999px; }
+.vc-ref-val { font-variant-numeric: tabular-nums; font-weight: 700; color: #5A5654; text-align: right; min-width: 74px; }
+.vc-ref-note { font-size: 0.74rem; color: #75706B; margin: 6px 0 0; line-height: 1.45; }
+.vc-share-box { margin-top: 12px; padding-top: 10px; border-top: 1px dashed #E5DEC9; }
+.vc-share-lbl { font-size: 0.76rem; font-weight: 700; color: #4A4644; margin: 0 0 6px; }
+.vc-share-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.vc-share-chip { border: 1px solid #DED6C8; background: #FAF7F2; color: #2E2A28; border-radius: 999px;
+  padding: 4px 10px; font-size: 0.74rem; font-weight: 600; cursor: pointer; transition: all 0.14s ease; }
+.vc-share-chip:hover { border-color: #7A1F2B; background: #F4E6E8; color: #7A1F2B; }
+  </style>
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
   <link rel="canonical" href="https://changa9090.github.io/parkco-dama-navigator/" />
   <link rel="alternate" hreflang="ko" href="https://changa9090.github.io/parkco-dama-navigator/" />
@@ -31,7 +88,7 @@
   <!-- 1-Row Compact Sticky Header -->
   <header class="pk-unified-header" role="banner">
     <div class="pk-unified-header__inner">
-      <a class="pk-unified-header__brand" href="https://changa9090.github.io/" aria-label="법무법인 박앤코 통합 허브">
+      <a class="pk-unified-header__brand" id="header-brand-link" href="https://changa9090.github.io/" aria-label="법무법인 박앤코 통합 허브">
         <img src="assets/logo-negative.png" alt="Park &amp; Co Lawyers" style="height:26px;width:auto;filter:brightness(0) saturate(100%) invert(17%) sepia(35%) saturate(938%) hue-rotate(140deg) brightness(92%) contrast(94%);" />
         <span class="pk-unified-header__brand-text">
           <span class="pk-unified-header__brand-title" data-i18n="navBrandTitle">법무법인 박앤코 · 13개 DAMA 탐색기</span>
@@ -48,6 +105,9 @@
       </nav>
 
       <div class="pk-unified-header__actions">
+        <button type="button" id="btn-open-compare-drawer" class="btn-secondary pk-compare-bar-btn" aria-controls="dama-compare-drawer">
+          📌 비교함 (0/3)
+        </button>
         <button type="button" id="btn-polling-status" class="pk-poll-pill" title="Weekly Source Hash Monitor">
           <span id="polling-badge-dot" class="pk-poll-dot"></span>
           <span id="polling-badge-label" data-i18n="pollBadge">주간 해시 모니터 확인 중</span>
@@ -61,14 +121,14 @@
     </div>
   </header>
 
-  <!-- 2. Urgent 2026 Sunset Strip -->
+  <!-- 2. Urgent 2026 Sunset Strip (Dynamic Goldfields D-N / D-Day / Closed) -->
   <div class="urgent-strip pk-urgent-strip">
     <div class="container urgent-strip-inner pk-urgent-strip__inner">
       <div>
         <span class="urgent-badge pk-urgent-badge" data-i18n="urgentBadge">2026–27 협약 일정 경보</span>
-        <span data-i18n="urgentText">서호주 South West DAMA 정기 마감: 2026-10-30 (⛔ 정기 마감 · 단 2026-10-30 DAR 공지상 협약 종료 2026-12-14 전 dama@dardanup.wa.gov.au 문의 시 추가 접수 가능) / Goldfields DAMA 신청 마감: 2026-11-13 (⚠️ 마감 임박 · 협약 종료: 2026-12-31 · 기존 승인 협약·비자 자동 취소 아님 / WA DAMA 전환 시 표준 CSIT $79,423 및 Note 1 확인 필수) / 남호주 SA DAMA 2027-01-31까지 연장 운영 중입니다.</span>
+        <span id="urgent-banner-text" data-i18n="urgentText">서호주 South West DAMA 정기 마감: 2026-10-30 (⛔ 정기 마감 · 단 2026-10-30 DAR 공지상 협약 종료 2026-12-14 전 dama@dardanup.wa.gov.au 문의 시 추가 접수 가능) / Goldfields DAMA 신청 마감: 2026-11-13 (⚠️ 마감 임박 D-2 · 협약 종료: 2026-12-31 · 기존 승인 협약·비자 자동 취소 아님 / WA DAMA 전환 시 표준 CSIT $79,423 및 Note 1 확인 필수) / 남호주 SA DAMA 2027-01-31까지 연장 운영 중입니다.</span>
       </div>
-      <a href="#legal-disclaimer" style="font-weight:800;font-size:12px;white-space:nowrap;">[1]–[31] 공식 출처 &darr;</a>
+      <a href="#legal-disclaimer" style="font-weight:800;font-size:12px;white-space:nowrap;" data-i18n="urgentSourceLink">[1]–[31] 공식 출처 &darr;</a>
     </div>
   </div>
 
@@ -82,6 +142,7 @@
       </p>
       <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:10px;">
         <button type="button" id="btn-dama-demo" class="btn-secondary pk-demo-trigger" style="font-size:12.5px;padding:7px 13px;" data-i18n="btnDemoFill">예시 데이터 넣어보기</button>
+        <button type="button" class="btn-secondary pk-compare-bar-btn btn-open-compare-mirror" style="font-size:12.5px;padding:7px 13px;">📌 비교함 (0/3)</button>
         <a href="#regions-section" class="btn-secondary" style="font-size:12.5px;padding:7px 13px;" data-i18n="heroSecondaryCta">13개 지역 카드 보기 &darr;</a>
         <a href="https://parklawyers.com.au/links/?lang=ko" data-ko-href="https://parklawyers.com.au/links/?lang=ko" data-en-href="https://parklawyers.com.au/links/" target="_blank" rel="noopener" class="btn-burgundy cta-enquiry parkco-svc-link" style="font-size:12.5px;padding:7px 14px;" data-i18n="heroPrimaryCta">박앤코 1:1 비자·스폰서십 문의 &rarr;</a>
       </div>
@@ -131,18 +192,18 @@
         <!-- Popular Quick Search Chips -->
         <div class="preset-chips-row">
           <span class="preset-label" data-i18n="presetLabel">인기 검색 직종:</span>
-          <button type="button" class="preset-chip" data-query="요리사">요리사 (Chef / Cook)</button>
-          <button type="button" class="preset-chip" data-query="Barista">바리스타 · 웨이터 (Barista / Waiter)</button>
-          <button type="button" class="preset-chip" data-query="간병인">간병인 · 케어 (Aged/Disabled Carer)</button>
-          <button type="button" class="preset-chip" data-query="Child Care">보육교사 (Child Care)</button>
-          <button type="button" class="preset-chip" data-query="용접사">용접 · 금속 (Welder / Fitter)</button>
-          <button type="button" class="preset-chip" data-query="정비사">자동차·디젤 정비 (Mechanic)</button>
-          <button type="button" class="preset-chip" data-query="Truck Driver">트럭 · 지게차 (Truck / Forklift)</button>
-          <button type="button" class="preset-chip" data-query="청소">청소 · 하우스키핑 (Cleaner / Housekeeper)</button>
-          <button type="button" class="preset-chip" data-query="Kitchenhand">주방보조 (Kitchenhand)</button>
-          <button type="button" class="preset-chip" data-query="육가공">육가공 · 도축 (Meat / Slaughterer)</button>
-          <button type="button" class="preset-chip" data-query="농장">농장 · 원예 (Farm / Horticulture)</button>
-          <button type="button" class="preset-chip" data-query="070499">비-ANZSCO (070499)</button>
+          <button type="button" class="preset-chip" data-query="요리사" data-query-ko="요리사" data-query-en="Chef" data-i18n="chipChef">요리사 (Chef / Cook)</button>
+          <button type="button" class="preset-chip" data-query="Barista" data-query-ko="Barista" data-query-en="Barista" data-i18n="chipBarista">바리스타 · 웨이터 (Barista / Waiter)</button>
+          <button type="button" class="preset-chip" data-query="간병인" data-query-ko="간병인" data-query-en="Carer" data-i18n="chipCarer">간병인 · 케어 (Aged/Disabled Carer)</button>
+          <button type="button" class="preset-chip" data-query="Child Care" data-query-ko="Child Care" data-query-en="Child Care" data-i18n="chipChildCare">보육교사 (Child Care)</button>
+          <button type="button" class="preset-chip" data-query="용접사" data-query-ko="용접사" data-query-en="Welder" data-i18n="chipWelder">용접 · 금속 (Welder / Fitter)</button>
+          <button type="button" class="preset-chip" data-query="정비사" data-query-ko="정비사" data-query-en="Mechanic" data-i18n="chipMechanic">자동차·디젤 정비 (Mechanic)</button>
+          <button type="button" class="preset-chip" data-query="Truck Driver" data-query-ko="Truck Driver" data-query-en="Truck Driver" data-i18n="chipTruck">트럭 · 지게차 (Truck / Forklift)</button>
+          <button type="button" class="preset-chip" data-query="청소" data-query-ko="청소" data-query-en="Cleaner" data-i18n="chipCleaner">청소 · 하우스키핑 (Cleaner / Housekeeper)</button>
+          <button type="button" class="preset-chip" data-query="Kitchenhand" data-query-ko="Kitchenhand" data-query-en="Kitchenhand" data-i18n="chipKitchen">주방보조 (Kitchenhand)</button>
+          <button type="button" class="preset-chip" data-query="육가공" data-query-ko="육가공" data-query-en="Slaughterer" data-i18n="chipMeat">육가공 · 도축 (Meat / Slaughterer)</button>
+          <button type="button" class="preset-chip" data-query="농장" data-query-ko="농장" data-query-en="Horticulture" data-i18n="chipFarm">농장 · 원예 (Farm / Horticulture)</button>
+          <button type="button" class="preset-chip" data-query="070499" data-query-ko="070499" data-query-en="070499" data-i18n="chipNonAnzsco">비-ANZSCO (070499)</button>
         </div>
 
         <!-- 6 Condition Selectors -->
@@ -157,7 +218,7 @@
           <div class="filter-group">
             <label for="filter-age" class="filter-label">
               <span data-i18n="lblAge">2. 신청자 현재 나이 (Age)</span>
-              <span class="badge badge-burgundy" data-balloon="DAMA 연령 상한 완화(SL1–4 만 55세 미만, SL5 만 50세 미만; 남호주 SA는 전 직종 만 55세 미만)는 SESR 494 또는 ENS 186 노미네이션 접수 시점에 적용됩니다.">연령 기준 <span class="balloon-icon">?</span></span>
+              <span class="badge badge-burgundy" data-balloon="DAMA 연령 상한 완화(SL1–4 만 55세 미만, SL5 만 50세 미만; 남호주 SA는 전 직종 만 55세 미만)는 SESR 494 또는 ENS 186 노미네이션 접수 시점에 적용됩니다." data-balloon-ko="DAMA 연령 상한 완화(SL1–4 만 55세 미만, SL5 만 50세 미만; 남호주 SA는 전 직종 만 55세 미만)는 SESR 494 또는 ENS 186 노미네이션 접수 시점에 적용됩니다." data-balloon-en="DAMA age cap concessions (Under 55 for SL1–4, Under 50 for SL5; Under 55 across all SL1–5 in SA) apply at SESR 494 or ENS 186 nomination lodgement."><span data-i18n="badgeAgeRule">연령 기준</span> <span class="balloon-icon">?</span></span>
             </label>
             <select id="filter-age" class="filter-select">
               <option value="all" data-i18n="optAgeAll">연령 무관 / 전체 보기</option>
@@ -170,7 +231,7 @@
           <div class="filter-group">
             <label for="filter-english" class="filter-label">
               <span data-i18n="lblEnglish">3. 보유 영어 점수 (IELTS / PTE)</span>
-              <span class="badge badge-teal" data-balloon="482·494·186 비자 단계별 영어 요건과 과목별 최저점(No Band Min vs Min 4.0 vs Min 4.5)이 다릅니다. GV Table 6(64개 직종) 및 GSC(43개 직종)만 과목별 최저점 없음(No Band Min)이고 GV Table 6.1(4개 직종)은 각 과목 4.0 이상이 필수입니다.">점수 기준 <span class="balloon-icon">?</span></span>
+              <span class="badge badge-teal" data-balloon="482·494·186 비자 단계별 영어 요건과 과목별 최저점(No Band Min vs Min 4.0 vs Min 4.5)이 다릅니다. GV Table 6(64개 직종) 및 GSC(43개 직종)만 과목별 최저점 없음(No Band Min)이고 GV Table 6.1(4개 직종)은 각 과목 4.0 이상이 필수입니다." data-balloon-ko="482·494·186 비자 단계별 영어 요건과 과목별 최저점(No Band Min vs Min 4.0 vs Min 4.5)이 다릅니다. GV Table 6(64개 직종) 및 GSC(43개 직종)만 과목별 최저점 없음(No Band Min)이고 GV Table 6.1(4개 직종)은 각 과목 4.0 이상이 필수입니다." data-balloon-en="English rules and minimum band scores (No Band Min vs Min 4.0 vs Min 4.5) differ across Subclasses 482, 494, and 186. Only GV Table 6 (64 roles) and GSC (43 roles) have No Band Minimum; GV Table 6.1 (4 roles) requires min 4.0 in each band."><span data-i18n="badgeEngRule">점수 기준</span> <span class="balloon-icon">?</span></span>
             </label>
             <select id="filter-english" class="filter-select">
               <option value="all" data-i18n="optEngAll">영어 점수 전체 (IELTS 6.0+ 표준 포함)</option>
@@ -183,7 +244,7 @@
           <div class="filter-group">
             <label for="filter-salary" class="filter-label">
               <span data-i18n="lblSalary">4. 고용주 제시 가능 연봉 (Salary)</span>
-              <span class="badge badge-teal" data-balloon="2026.7.1 기준 표준 CSIT는 $79,423입니다. DAMA 90% 감면($71,481) 및 NT 85% 감면($67,510) 모두 호주 시장임금(AMSR) 이상이어야 하며 FNQ Type 2 비금전 혜택 상한은 CSIT의 10%($7,942.30)이고 최소 총연봉은 $79,423입니다.">2026 급여선 <span class="balloon-icon">?</span></span>
+              <span class="badge badge-teal" data-balloon="2026.7.1 기준 표준 CSIT는 $79,423입니다. DAMA 90% 감면($71,481) 및 NT 85% 감면($67,510) 모두 호주 시장임금(AMSR) 이상이어야 하며 FNQ Type 2 비금전 혜택 상한은 CSIT의 10%($7,942.30)이고 최소 총연봉은 $79,423입니다." data-balloon-ko="2026.7.1 기준 표준 CSIT는 $79,423입니다. DAMA 90% 감면($71,481) 및 NT 85% 감면($67,510) 모두 호주 시장임금(AMSR) 이상이어야 하며 FNQ Type 2 비금전 혜택 상한은 CSIT의 10%($7,942.30)이고 최소 총연봉은 $79,423입니다." data-balloon-en="From 1 Jul 2026, Standard CSIT is $79,423. Both DAMA 90% ($71,481) and NT 85% ($67,510) concessions must still meet the market salary rate (AMSR); FNQ Type 2 non-monetary benefits are capped at 10% of CSIT ($7,942.30) with $79,423 minimum total earnings."><span data-i18n="badgeSalRule">2026 급여선</span> <span class="balloon-icon">?</span></span>
             </label>
             <select id="filter-salary" class="filter-select">
               <option value="all" data-i18n="optSalAll">연봉 무관 ($79,423 표준 CSIT 이상 가능 포함)</option>
@@ -195,7 +256,7 @@
           <div class="filter-group">
             <label for="filter-skill" class="filter-label">
               <span data-i18n="lblSkill">5. 직종 숙련도 (Skill Level / 학력)</span>
-              <span class="badge badge-neutral" data-balloon="일반 482 비자는 SL 1–3만 가능하나 DAMA에서는 반숙련(SL 4) 및 기초노무(SL 5)와 ANZSCO에 없는 특화 직종(070499)까지 협약 대상에 포함됩니다.">SL 안내 <span class="balloon-icon">?</span></span>
+              <span class="badge badge-neutral" data-balloon="일반 482 비자는 SL 1–3만 가능하나 DAMA에서는 반숙련(SL 4) 및 기초노무(SL 5)와 ANZSCO에 없는 특화 직종(070499)까지 협약 대상에 포함됩니다." data-balloon-ko="일반 482 비자는 SL 1–3만 가능하나 DAMA에서는 반숙련(SL 4) 및 기초노무(SL 5)와 ANZSCO에 없는 특화 직종(070499)까지 협약 대상에 포함됩니다." data-balloon-en="Standard SID 482 covers SL 1–3 only, whereas DAMAs include semi-skilled (SL 4), entry-level (SL 5), and Non-ANZSCO specialist roles (070499)."><span data-i18n="badgeSlRule">SL 안내</span> <span class="balloon-icon">?</span></span>
             </label>
             <select id="filter-skill" class="filter-select">
               <option value="all" data-i18n="optSkillAll">모든 Skill Level (SL 1~5 및 비-ANZSCO)</option>
@@ -210,7 +271,7 @@
           <div class="filter-group">
             <label for="filter-pathway" class="filter-label">
               <span data-i18n="lblPathway">6. 영주권(ENS 186) 및 특별 조건</span>
-              <span class="badge badge-success" data-balloon="FNQ·NT DAMA III·Kimberley 3개 지역은 비-DAMA 비자 지역 경력 인정 조항이 있으나 고용주 DAR Endorsement와 개별 Labour Agreement에 ENS 186 스트림이 승인되어 있어야 하며 직종·숙련도 요건 충족 여부도 확인해야 합니다.">Direct 186 <span class="balloon-icon">?</span></span>
+              <span class="badge badge-success" data-balloon="FNQ·NT DAMA III·Kimberley 3개 지역은 비-DAMA 비자 지역 경력 인정 조항이 있으나 고용주 DAR Endorsement와 개별 Labour Agreement에 ENS 186 스트림이 승인되어 있어야 하며 직종·숙련도 요건 충족 여부도 확인해야 합니다." data-balloon-ko="FNQ·NT DAMA III·Kimberley 3개 지역은 비-DAMA 비자 지역 경력 인정 조항이 있으나 고용주 DAR Endorsement와 개별 Labour Agreement에 ENS 186 스트림이 승인되어 있어야 하며 직종·숙련도 요건 충족 여부도 확인해야 합니다." data-balloon-en="FNQ, NT DAMA III, and Kimberley allow counting non-DAMA regional work toward ENS 186, subject to verified employer DAR endorsement, an approved ENS 186 stream in the Labour Agreement, and occupation/skill-level compliance."><span data-i18n="badgeDirectRule">Direct 186</span> <span class="balloon-icon">?</span></span>
             </label>
             <select id="filter-pathway" class="filter-select">
               <option value="all" data-i18n="optPathAll">전체 보기</option>
@@ -235,9 +296,10 @@
           <span class="overline-serif light-mode" data-i18n="regOverline">STEP 02 · WHERE TO FIND YOUR REGIONAL EMPLOYER SPONSOR</span>
           <h2 data-i18n="regTitle">13개 DAMA 지역별 매칭 직종 등록 항목 수 &amp; 지역 상세 가이드</h2>
           <p data-i18n="regSub">
-            선택한 검색어와 조건에 맞는 직종 등록 항목이 지역별로 몇 건인지 실시간으로 집계됩니다. 지역 카드를 누르면 해당 DAMA만 따로 추려 볼 수 있으며 '지역 요건 · 우편번호 상세' 버튼을 누르면 관할 구역과 협약 기준 전체가 팝업으로 열립니다.
+            선택한 검색어와 조건에 맞는 직종 등록 항목이 지역별로 몇 건인지 실시간으로 집계됩니다. 지역 카드를 누르면 해당 DAMA만 따로 추려 볼 수 있으며 [📌 비교함 담기]로 최대 3개 지역·직종을 나란히 비교할 수 있습니다.
           </p>
         </div>
+        <button type="button" class="btn-secondary pk-compare-bar-btn btn-open-compare-mirror">📌 비교함 (0/3)</button>
       </div>
 
       <div id="region-cards-grid" class="region-cards-grid"></div>
@@ -252,12 +314,15 @@
           <span class="overline-serif light-mode" data-i18n="tblOverline">STEP 03 · VERIFIED OCCUPATION &amp; CONCESSION EXPLORER TABLE</span>
           <h2 data-i18n="tblTitle">조건별 직종 등록 항목 &amp; 협약 완화 요건 탐색 리스트</h2>
         </div>
-        <div class="results-counter">
-          Matches: <strong id="results-count-value">2,474</strong> / <span id="results-total-value">2,474</span>
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:10px;">
+          <button type="button" class="btn-secondary pk-compare-bar-btn btn-open-compare-mirror">📌 비교함 (0/3)</button>
+          <div class="results-counter">
+            <span data-i18n="lblMatches">검색 결과:</span> <strong id="results-count-value">2,474</strong> / <span id="results-total-value">2,474</span>
+          </div>
         </div>
       </div>
 
-      <div class="results-table-wrap">
+      <div class="results-table-wrap table-scroll">
         <table class="occ-table">
           <thead>
             <tr>
@@ -278,8 +343,8 @@
       <div class="pagination-bar">
         <div id="page-info" style="font-size:14px;color:#5A5654;font-weight:600;"></div>
         <div style="display:flex;gap:8px;">
-          <button type="button" id="btn-prev-page" class="btn-secondary">&larr; Prev</button>
-          <button type="button" id="btn-next-page" class="btn-secondary">Next &rarr;</button>
+          <button type="button" id="btn-prev-page" class="btn-secondary" data-i18n="btnPrev">&larr; 이전</button>
+          <button type="button" id="btn-next-page" class="btn-secondary" data-i18n="btnNext">다음 &rarr;</button>
         </div>
       </div>
     </div>
@@ -327,33 +392,33 @@
       <div id="dama-ecosystem-callout" style="margin-bottom:18px;padding:16px 18px;background:#FFFFFF;border:1px solid #E5DFD3;border-radius:12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:100%;box-sizing:border-box;">
         <div style="flex:1 1 240px;min-width:0;">
           <span class="overline-serif light-mode" style="margin-bottom:4px;">ECOSYSTEM CROSS-CHECK · AI RESUME ANZSCO INFERENCE &amp; GENERAL SOL SEARCH</span>
-          <h3 style="margin:0 0 4px 0;font-size:16px;font-weight:800;color:#0E3A3E;">🧭 내 경력의 6자리 ANZSCO/OSCA 직종코드를 모르시거나 일반 CSOL·MLTSSL 직종도 함께 비교하고 싶으신가요?</h3>
-          <p style="margin:0;font-size:13px;color:#4A5D60;">영문 이력서 기반 무료 ANZSCO 직종추론(#module-resume)과 일반 482·186·189·190·491 통합 직종검색(#module-sol) 및 실전 FAQ를 통합 가이드에서 확인하실 수 있습니다.</p>
+          <h3 style="margin:0 0 4px 0;font-size:16px;font-weight:800;color:#0E3A3E;" data-i18n="ecoTitle">🧭 내 경력의 6자리 ANZSCO/OSCA 직종코드를 모르시거나 일반 CSOL·MLTSSL 직종도 함께 비교하고 싶으신가요?</h3>
+          <p style="margin:0;font-size:13px;color:#4A5D60;" data-i18n="ecoDesc">영문 이력서 기반 무료 ANZSCO 직종추론(#module-resume)과 일반 482·186·189·190·491 통합 직종검색(#module-sol) 및 실전 FAQ를 통합 가이드에서 확인하실 수 있습니다.</p>
         </div>
         <div style="display:flex;flex-wrap:wrap;gap:8px;min-width:0;max-width:100%;">
-          <a href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=ko#module-resume" data-ko-href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=ko#module-resume" data-en-href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=en#module-resume" target="_blank" rel="noopener" class="btn-burgundy parkco-svc-link" style="font-size:12.5px;padding:9px 14px;">📄 영문 이력서 ANZSCO 직종추론 (#module-resume) &rarr;</a>
-          <a href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=ko#module-sol" data-ko-href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=ko#module-sol" data-en-href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=en#module-sol" target="_blank" rel="noopener" class="btn-secondary parkco-svc-link" style="font-size:12.5px;padding:9px 14px;">🔎 일반 CSOL·MLTSSL 통합 검색 (#module-sol) &rarr;</a>
-          <a href="https://faq.immispecialist.com/?lang=ko" data-ko-href="https://faq.immispecialist.com/?lang=ko" data-en-href="https://faq.immispecialist.com/?lang=en" target="_blank" rel="noopener" class="btn-secondary parkco-svc-link" style="font-size:12.5px;padding:9px 14px;">💡 호주이민 실전 FAQ 백과 &rarr;</a>
+          <a href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=ko#module-resume" data-ko-href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=ko#module-resume" data-en-href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=en#module-resume" target="_blank" rel="noopener" class="btn-burgundy parkco-svc-link" style="font-size:12.5px;padding:9px 14px;" data-i18n="ecoBtnResume">📄 영문 이력서 ANZSCO 직종추론 (#module-resume) &rarr;</a>
+          <a href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=ko#module-sol" data-ko-href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=ko#module-sol" data-en-href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=en#module-sol" target="_blank" rel="noopener" class="btn-secondary parkco-svc-link" style="font-size:12.5px;padding:9px 14px;" data-i18n="ecoBtnSol">🔎 일반 CSOL·MLTSSL 통합 검색 (#module-sol) &rarr;</a>
+          <a href="https://faq.immispecialist.com/?lang=ko" data-ko-href="https://faq.immispecialist.com/?lang=ko" data-en-href="https://faq.immispecialist.com/?lang=en" target="_blank" rel="noopener" class="btn-secondary parkco-svc-link" style="font-size:12.5px;padding:9px 14px;" data-i18n="ecoBtnFaq">💡 호주이민 실전 FAQ 백과 &rarr;</a>
         </div>
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px;align-items:center;">
-        <div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:20px;align-items:center;">
+        <div style="min-width:0;max-width:100%;">
           <span class="overline-serif light-mode">PARK &amp; CO LAWYERS · ACCREDITED SPECIALIST IN IMMIGRATION LAW</span>
-          <h2 style="font-size:22px;font-weight:800;color:#14282A;margin-bottom:6px;">
+          <h2 style="font-size:22px;font-weight:800;color:#14282A;margin-bottom:6px;" data-i18n="ctaHeading">
             "삶에 집중하세요, 법률은 저희가 맡겠습니다." (You focus on life, we'll handle the law.)
           </h2>
-          <p style="font-size:14.5px;color:#4A5D60;margin-bottom:12px;">
+          <p style="font-size:14.5px;color:#4A5D60;margin-bottom:12px;" data-i18n="ctaDesc">
             DAMA 고용주 스폰서십(DAR Endorsement · Labour Agreement) 및 비자(SID 482 · SESR 494 · ENS 186) 전략 수립이 필요하시면 공식 문의 채널로 연락해 주십시오.
           </p>
           <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;">
-            <a href="https://parklawyers.com.au/links/?lang=ko" data-ko-href="https://parklawyers.com.au/links/?lang=ko" data-en-href="https://parklawyers.com.au/links/" target="_blank" rel="noopener" class="btn-burgundy cta-enquiry parkco-svc-link" style="font-size:14px;padding:11px 20px;">
+            <a href="https://parklawyers.com.au/links/?lang=ko" data-ko-href="https://parklawyers.com.au/links/?lang=ko" data-en-href="https://parklawyers.com.au/links/" target="_blank" rel="noopener" class="btn-burgundy cta-enquiry parkco-svc-link" style="font-size:14px;padding:11px 20px;" data-i18n="ctaBtnPrimary">
               박앤코 온라인 상담·문의 바로가기 &rarr;
             </a>
-            <a href="https://parklawyers.com.au/appealing-visa-decision/?lang=ko" data-ko-href="https://parklawyers.com.au/appealing-visa-decision/?lang=ko" data-en-href="https://parklawyers.com.au/appealing-visa-decision/" target="_blank" rel="noopener" class="btn-secondary parkco-svc-link" style="font-size:13px;padding:10px 16px;">
+            <a href="https://parklawyers.com.au/appealing-visa-decision/?lang=ko" data-ko-href="https://parklawyers.com.au/appealing-visa-decision/?lang=ko" data-en-href="https://parklawyers.com.au/appealing-visa-decision/" target="_blank" rel="noopener" class="btn-secondary parkco-svc-link" style="font-size:13px;padding:10px 16px;" data-i18n="ctaBtnArt">
               ⚖️ 노미네이션·비자 거절 무료 ART Case Review™ &rarr;
             </a>
-            <a href="https://parklawyers.com.au/case-emergency/visa/?lang=ko" data-ko-href="https://parklawyers.com.au/case-emergency/visa/?lang=ko" data-en-href="https://parklawyers.com.au/case-emergency/visa/" target="_blank" rel="noopener" class="btn-secondary parkco-svc-link" style="font-size:13px;padding:10px 16px;">
+            <a href="https://parklawyers.com.au/case-emergency/visa/?lang=ko" data-ko-href="https://parklawyers.com.au/case-emergency/visa/?lang=ko" data-en-href="https://parklawyers.com.au/case-emergency/visa/" target="_blank" rel="noopener" class="btn-secondary parkco-svc-link" style="font-size:13px;padding:10px 16px;" data-i18n="ctaBtnEmergency">
               🚨 비자응급실 (s 57·s 116·s 137Q 무료 진단) &rarr;
             </a>
           </div>
@@ -393,35 +458,54 @@
     </div>
   </section>
 
+  <!-- Up-to-3 DAMA Side-by-Side Comparison Pin Drawer -->
+  <aside id="dama-compare-drawer" class="dama-compare-drawer" aria-label="DAMA Side-by-Side Comparison Drawer" hidden>
+    <div class="container dama-compare-drawer__inner">
+      <div class="dama-compare-drawer__head">
+        <div class="dama-compare-drawer__title-group">
+          <span id="dama-compare-count-pill" class="dama-compare-drawer__pill">0/3</span>
+          <strong id="dama-compare-title" data-i18n="cmpDrawerTitle">DAMA 최대 3개 지역·직종 나란히 비교함</strong>
+          <span id="dama-compare-toast" class="dama-compare-drawer__toast" role="status" aria-live="polite"></span>
+        </div>
+        <div class="dama-compare-drawer__actions">
+          <button type="button" id="btn-sample-compare" class="btn-secondary dama-compare-btn-sm" data-i18n="cmpSampleBtn">추천 3개 지역 담기</button>
+          <button type="button" id="btn-clear-compare" class="btn-secondary dama-compare-btn-sm" data-i18n="cmpClearAll">비교함 비우기</button>
+          <button type="button" id="btn-toggle-compare-drawer" class="btn-secondary dama-compare-btn-sm" data-i18n="cmpCollapseBtn">접기 ▼</button>
+        </div>
+      </div>
+      <div id="dama-compare-drawer-body" class="dama-compare-drawer__body"></div>
+    </div>
+  </aside>
+
   <!-- 10. Footer -->
   <footer class="site-footer">
     <div class="container">
-      <div class="visit-counter" id="visit-counter" title="클릭하면 최근 30일 방문 추이와 유입 경로를 확인할 수 있습니다" hidden>
+      <div class="visit-counter" id="visit-counter" title="클릭하면 일별 방문 추이와 유입 경로를 볼 수 있어요" hidden>
         <span><em id="vc-lbl-total">누적 방문</em><b id="vc-total">-</b></span>
         <span><em id="vc-lbl-today">오늘 방문</em><b id="vc-today">-</b></span>
         <span><em id="vc-lbl-visitors">방문자</em><b id="vc-visitors">-</b></span>
       </div>
       <div class="footer-grid">
-        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;min-width:0;max-width:100%;">
           <img src="assets/logo-negative.png" alt="Park &amp; Co Lawyers" style="height:36px;width:auto;" />
-          <div>
-            <strong style="color:#FFFFFF;">법무법인 박앤코 (PNC Legal Pty Ltd t/a Park &amp; Co Lawyers)</strong> · 박창민 대표변호사 (QLS Accredited Specialist in Immigration Law)<br/>
-            공식 문의 허브: <a class="parkco-svc-link cta-enquiry" href="https://parklawyers.com.au/links/?lang=ko" data-ko-href="https://parklawyers.com.au/links/?lang=ko" data-en-href="https://parklawyers.com.au/links/" target="_blank" rel="noopener" style="color:#E7D3AD;">https://parklawyers.com.au/links/?lang=ko</a> · 이메일: <a href="mailto:enquiry@parkcolawyers.com" style="color:#E7D3AD;">enquiry@parkcolawyers.com</a>
+          <div style="min-width:0;max-width:100%;">
+            <strong style="color:#FFFFFF;" data-i18n="footerFirmName">법무법인 박앤코 (PNC Legal Pty Ltd t/a Park &amp; Co Lawyers)</strong> · <span data-i18n="footerPrincipal">박창민 대표변호사 (QLS Accredited Specialist in Immigration Law)</span><br/>
+            <span data-i18n="footerHubLabel">공식 문의 허브:</span> <a id="footer-hub-url" class="parkco-svc-link cta-enquiry" href="https://parklawyers.com.au/links/?lang=ko" data-ko-href="https://parklawyers.com.au/links/?lang=ko" data-en-href="https://parklawyers.com.au/links/" target="_blank" rel="noopener" style="color:#E7D3AD;">https://parklawyers.com.au/links/?lang=ko</a> · <span data-i18n="footerEmailLabel">이메일:</span> <a href="mailto:enquiry@parkcolawyers.com" style="color:#E7D3AD;">enquiry@parkcolawyers.com</a>
           </div>
         </div>
-        <div style="text-align:right;font-size:12.5px;">
+        <div style="text-align:right;font-size:12.5px;min-width:0;max-width:100%;">
           <div id="footer-currency-line">Primary Source Currency: <strong id="footer-currency-date">Live</strong> · Source Monitor: <code id="footer-poll-status">15/15 Live</code></div>
           <div>&copy; 2026 PNC Legal Pty Ltd t/a Park &amp; Co Lawyers. All rights reserved.</div>
         </div>
       </div>
       <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.12);display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:12px;max-width:100%;">
-        <a href="https://changa9090.github.io/" style="color:#FDE68A;font-weight:700;text-decoration:none;">&larr; 박앤코 법률·비자 통합 허브</a>
+        <a href="https://changa9090.github.io/" style="color:#FDE68A;font-weight:700;text-decoration:none;" data-i18n="footerLinkHub">&larr; 박앤코 법률·비자 통합 허브</a>
         <span style="opacity:0.35;">|</span>
-        <a class="parkco-svc-link" href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=ko#module-resume" data-ko-href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=ko#module-resume" data-en-href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=en#module-resume" target="_blank" rel="noopener" style="color:#A7F3D0;text-decoration:none;">📄 비자 솔루션 가이드 (이력서 직종추론)</a>
+        <a class="parkco-svc-link" href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=ko#module-resume" data-ko-href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=ko#module-resume" data-en-href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=en#module-resume" target="_blank" rel="noopener" style="color:#A7F3D0;text-decoration:none;" data-i18n="footerLinkGuide">📄 비자 솔루션 가이드 (이력서 직종추론)</a>
         <span style="opacity:0.35;">|</span>
-        <a class="parkco-svc-link" href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=ko#module-sol" data-ko-href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=ko#module-sol" data-en-href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=en#module-sol" target="_blank" rel="noopener" style="color:#A7F3D0;text-decoration:none;">🔎 일반 CSOL·MLTSSL 통합 검색 (#module-sol)</a>
+        <a class="parkco-svc-link" href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=ko#module-sol" data-ko-href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=ko#module-sol" data-en-href="https://changa9090.github.io/parkco-visa-solution-guide/?lang=en#module-sol" target="_blank" rel="noopener" style="color:#A7F3D0;text-decoration:none;" data-i18n="footerLinkSol">🔎 일반 CSOL·MLTSSL 통합 검색 (#module-sol)</a>
         <span style="opacity:0.35;">|</span>
-        <a class="parkco-svc-link" href="https://faq.immispecialist.com/?lang=ko" data-ko-href="https://faq.immispecialist.com/?lang=ko" data-en-href="https://faq.immispecialist.com/?lang=en" target="_blank" rel="noopener" style="color:#BAE6FD;text-decoration:none;">💡 호주이민 실전 FAQ 아카이브</a>
+        <a class="parkco-svc-link" href="https://faq.immispecialist.com/?lang=ko" data-ko-href="https://faq.immispecialist.com/?lang=ko" data-en-href="https://faq.immispecialist.com/?lang=en" target="_blank" rel="noopener" style="color:#BAE6FD;text-decoration:none;" data-i18n="footerLinkFaq">💡 호주이민 실전 FAQ 아카이브</a>
       </div>
     </div>
   </footer>
@@ -438,17 +522,17 @@
   </div>
 
   <script src="assets/app.js"></script>
-  <script>/* Resilient Visit Counters + Daily Chart (dama-hist-v1) + Privacy-Safe Referral Channels v2.1 */
+  <script>
+/* Resilient Self-Hosted Visit Counters + Daily Chart (dama-vc-v3) + Privacy-Safe Referral Channels v3.0 */
 (function () {
-  var NS = 'changa9090.github.io', API = 'https://abacus.jasoncameron.dev/', START = '2026-10-20';
+  var VC_BASE = 'https://faq.immispecialist.com/vc/', START = '2026-10-20';
   var SELF_PATH = '/parkco-dama-navigator';
   var IS_PROD = (location.hostname === 'changa9090.github.io');
   var P = 'dama' + (IS_PROD ? '' : '-dev');
   var BASE_P = 'dama';
-  var LEGACY_TOTAL = IS_PROD ? 0 : 0;
-  var LEGACY_VIS = IS_PROD ? 0 : 0;
-  var CACHE_KEY = P + '-counts-cache-v1';
-  var HIST_KEY = P + '-hist-v1';
+  var SEED_FLOOR_TOTAL = IS_PROD ? 0 : 0;
+  var SEED_FLOOR_VIS = IS_PROD ? 0 : 0;
+  var CACHE_KEY = P + '-counts-cache-v3';
   var REF_BUCKETS = [
     { id: 'naver-search', ko: '네이버 통합·웹검색', en: 'Naver Search' },
     { id: 'naver-cafe', ko: '네이버 카페 (호주이민 사랑방 등)', en: 'Naver Cafe' },
@@ -504,7 +588,7 @@
     if (lv) lv.textContent = en ? 'Visitors' : '방문자';
     box.title = en
       ? 'Click for daily visits & referral sources'
-      : '클릭하면 일별 방문 추이와 유입 경로를 확인할 수 있습니다';
+      : '클릭하면 일별 방문 추이와 유입 경로를 볼 수 있어요';
     var mt = document.getElementById('vc-modal-title');
     if (mt) {
       mt.innerHTML = en
@@ -553,7 +637,6 @@
 
   var liveTodayViews = (cached.day === day && typeof cached.today === 'number') ? cached.today : null;
   var liveTodayVis = (cached.day === day && typeof cached.todayVis === 'number') ? cached.todayVis : null;
-  var liveRefHints = {};
 
   function classifyReferralBucket() {
     try {
@@ -631,121 +714,77 @@
     if (tot != null || tod != null || vis != null) box.hidden = false;
   }
 
-  var seedTot = Number(box.getAttribute('data-seed-total')) || LEGACY_TOTAL || 0;
-  var seedVis = Number(box.getAttribute('data-seed-visitors')) || LEGACY_VIS || 0;
+  var seedTot = Number(box.getAttribute('data-seed-total')) || SEED_FLOOR_TOTAL || 0;
+  var seedVis = Number(box.getAttribute('data-seed-visitors')) || SEED_FLOOR_VIS || 0;
   var initTot = Math.max(cached.total || 0, seedTot) || null;
   var initVis = Math.max(cached.visitors || 0, seedVis) || null;
   if (initTot != null || initVis != null) {
     renderBadge(initTot, liveTodayViews, initVis);
   }
 
-  /* 429-aware retry spanning >15s across retries to cleanly outlast Abacus 30;w=10 windows */
-  function fetchRetry(url, isHit, attempt) {
-    var tries = attempt || 0;
+  function fetchJson(url, opts) {
     var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
-    var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 15000) : null;
-    var opts = { mode: 'cors' };
-    if (ctrl) opts.signal = ctrl.signal;
-    if (isHit) opts.keepalive = true;
-    return fetch(url, opts)
-      .then(function (r) {
-        if (timer) clearTimeout(timer);
-        if (!isHit && r.status === 404) return { value: 0 };
-        if (r.status === 429) {
-          var err429 = new Error('HTTP 429');
-          err429.isRateLimit = true;
-          throw err429;
-        }
-        if (!r.ok) throw new Error('HTTP ' + r.status);
-        return r.json();
-      })
-      .then(function (j) {
-        if (typeof j.value !== 'number') throw new Error('bad payload');
-        return j.value;
-      })
-      .catch(function (err) {
-        if (timer) clearTimeout(timer);
-        var maxTries = (err && err.isRateLimit) ? 3 : 2;
-        if (tries < maxTries) {
-          var waitMs = (err && err.isRateLimit) ? (3800 + tries * 3600) : (1100 * (tries + 1));
-          return new Promise(function (res) { setTimeout(res, waitMs); })
-            .then(function () { return fetchRetry(url, isHit, tries + 1); });
-        }
-        throw err;
-      });
+    var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 6500) : null;
+    var reqOpts = opts || { mode: 'cors' };
+    if (ctrl) reqOpts.signal = ctrl.signal;
+    return fetch(url, reqOpts).then(function (r) {
+      if (timer) clearTimeout(timer);
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    }).catch(function (err) {
+      if (timer) clearTimeout(timer);
+      throw err;
+    });
   }
 
-  function call(kind, key) {
-    return fetchRetry(API + kind + '/' + NS + '/' + P + '-' + key, kind === 'hit', 0);
-  }
-  function delay(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+  var incVisitor = !seen;
+  var incVday = (lastDay !== day);
+  var refBucket = (lastRefDay !== day) ? classifyReferralBucket() : '';
+  var hitPayload = JSON.stringify({
+    prefix: P,
+    day: day,
+    inc_view: true,
+    inc_visitor: incVisitor,
+    inc_vday: incVday,
+    ref_bucket: refBucket
+  });
 
-  if (lastDay !== day) {
-    call('hit', 'vday-' + day).then(function (v) {
-      liveTodayVis = v;
-      try {
-        localStorage.setItem(P + '-day', day);
-        var cur = JSON.parse(localStorage.getItem(CACHE_KEY) || '{}') || {};
-        cur.todayVis = v;
-        cur.day = day;
-        localStorage.setItem(CACHE_KEY, JSON.stringify(cur));
-      } catch (e) {}
-    }).catch(function () {});
-  }
-
-  if (lastRefDay !== day) {
-    var refBucket = classifyReferralBucket();
-    delay(220).then(function () {
-      return call('hit', 'ref-' + refBucket + '-' + day);
-    }).then(function (rv) {
-      liveRefHints[refBucket] = rv;
-      try {
-        localStorage.setItem(P + '-ref-day', day);
-        localStorage.setItem(P + '-ref-bucket', refBucket);
-      } catch (e) {}
-    }).catch(function () {});
-  }
-
-  Promise.allSettled([
-    call('hit', 'total'),
-    delay(80).then(function () { return call('hit', 'day-' + day); }),
-    delay(160).then(function () {
-      return call(seen ? 'get' : 'hit', 'visitors').then(function (val) {
-        if (!seen) {
-          try { localStorage.setItem(P + '-seen', '1'); } catch (e) {}
-        }
-        return val;
-      });
-    })
-  ]).then(function (res) {
-    var tot = res[0].status === 'fulfilled' ? (res[0].value + LEGACY_TOTAL) : initTot;
-    var tod = res[1].status === 'fulfilled' ? res[1].value : liveTodayViews;
-    var vis = res[2].status === 'fulfilled' ? (res[2].value + LEGACY_VIS) : initVis;
-    if (typeof tod === 'number') liveTodayViews = tod;
+  fetchJson(VC_BASE + 'hit', {
+    method: 'POST',
+    mode: 'cors',
+    keepalive: true,
+    headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+    body: hitPayload
+  }).then(function (j) {
+    if (!j || !j.ok) return;
+    var tot = Math.max(Number(j.total) || 0, seedTot);
+    var tod = typeof j.today === 'number' ? j.today : liveTodayViews;
+    var vis = Math.max(Number(j.visitors) || 0, seedVis);
+    var tvis = typeof j.today_visitors === 'number' ? j.today_visitors : liveTodayVis;
+    liveTodayViews = tod;
+    liveTodayVis = tvis;
     renderBadge(tot, tod, vis);
     try {
+      if (incVisitor) localStorage.setItem(P + '-seen', '1');
+      if (incVday) localStorage.setItem(P + '-day', day);
+      if (refBucket) {
+        localStorage.setItem(P + '-ref-day', day);
+        localStorage.setItem(P + '-ref-bucket', refBucket);
+      }
       localStorage.setItem(CACHE_KEY, JSON.stringify({
-        total: tot != null ? tot : initTot,
-        today: tod != null ? tod : liveTodayViews,
-        todayVis: liveTodayVis,
-        visitors: vis != null ? vis : initVis,
+        total: tot,
+        today: tod,
+        todayVis: tvis,
+        visitors: vis,
         day: day
       }));
     } catch (e) {}
+  }).catch(function () {
+    if (initTot != null || initVis != null) renderBadge(initTot, liveTodayViews || 1, initVis);
   });
 
-  function pad2(n) { return n < 10 ? '0' + n : String(n); }
-  function lastDays(n) {
-    var p = today.split('-').map(Number), out = [];
-    for (var i = n - 1; i >= 0; i--) {
-      var dt = new Date(p[0], p[1] - 1, p[2] - i);
-      var s = dt.getFullYear() + '-' + pad2(dt.getMonth() + 1) + '-' + pad2(dt.getDate());
-      if (s >= START) out.push(s);
-    }
-    return out.length ? out : [today];
-  }
-
   var activeRange = 7;
+  var cachedSummary = null;
   var modal = document.createElement('div');
   modal.id = 'vc-modal';
   modal.innerHTML = '<div class="vc-dialog" role="dialog" aria-modal="true" aria-labelledby="vc-modal-title">' +
@@ -862,48 +901,22 @@
       '<p class="vc-sum">' + summaryLine + '</p>';
   }
 
-  function loadTodayReferrers(dayKey) {
-    if (liveTodayViews === 0 && liveTodayVis === 0) {
-      return Promise.resolve({});
-    }
-    var out = {};
-    var remaining = [];
-    REF_BUCKETS.forEach(function (b) {
-      if (typeof liveRefHints[b.id] === 'number') {
-        out[b.id] = liveRefHints[b.id];
-      } else {
-        remaining.push(b);
-      }
-    });
-    var firstSlice = remaining.slice(0, 6);
-    var secondSlice = remaining.slice(6);
-    return Promise.all(firstSlice.map(function (b) {
-      return call('get', 'ref-' + b.id + '-' + dayKey).catch(function () { return 0; }).then(function (v) { out[b.id] = v || 0; });
-    })).then(function () {
-      return secondSlice.length ? delay(260) : Promise.resolve();
-    }).then(function () {
-      return Promise.all(secondSlice.map(function (b) {
-        return call('get', 'ref-' + b.id + '-' + dayKey).catch(function () { return 0; }).then(function (v) { out[b.id] = v || 0; });
-      }));
-    }).then(function () {
-      return out;
-    });
-  }
-
-  function renderReferrerBox(countsMap) {
+  function renderReferrerBox(countsMap, isWindowFallback) {
     var isEn = uiLang() === 'en';
+    var mapObj = countsMap || {};
     var items = REF_BUCKETS.map(function (b) {
-      return { id: b.id, label: isEn ? b.en : b.ko, count: countsMap[b.id] || 0 };
+      return { id: b.id, label: isEn ? b.en : b.ko, count: mapObj[b.id] || 0 };
     }).filter(function (x) { return x.count > 0; }).sort(function (a, b) { return b.count - a.count; });
     var totalRef = items.reduce(function (acc, x) { return acc + x.count; }, 0);
-    var head = '<div class="vc-ref-title"><span>' +
-      (isEn ? ('Today&rsquo;s Referral Channels (' + today + ')') : ('오늘 유입 채널 분포 (' + today + ')')) +
+    var titleKo = isWindowFallback ? '최근 30일 유입 채널 누적 분포' : ('오늘 유입 채널 분포 (' + today + ')');
+    var titleEn = isWindowFallback ? 'Referral Channels (Last 30 Days)' : ('Today&rsquo;s Referral Channels (' + today + ')');
+    var head = '<div class="vc-ref-title"><span>' + (isEn ? titleEn : titleKo) +
       '</span><small>' + (isEn ? ('Tracked visitors: ' + fmt(totalRef)) : ('채널 집계 방문자: ' + fmt(totalRef) + '명')) + '</small></div>';
     if (!items.length) {
       return head + '<p class="vc-ref-note">' +
         (isEn
           ? 'Anonymous referral channel buckets (Naver, Cafe, KakaoTalk, Threads, Hub, Direct) are recorded once per browser per day as new visits arrive (zero personal or URL path data stored).'
-          : '익명 유입 경로(검색·카페·카카오톡·스레드·허브 이동 등) 집계는 신규 방문부터 하루 브라우저당 1회씩 기록됩니다 (세부 URL·개인정보 미수집).') +
+          : '익명 유입 경로(검색·카페·카카오톡·스레드·허브 이동 등) 집계는 신규 방문부터 하루 브라우저당 1회씩 기록돼요 (세부 URL·개인정보 미수집).') +
         '</p>';
     }
     var rowsHtml = items.map(function (item) {
@@ -920,89 +933,46 @@
     return head + '<div class="vc-ref-list">' + rowsHtml + '</div><p class="vc-ref-note">' + note + '</p>';
   }
 
-  function loadHistoryRows(days) {
-    var histCache = {};
-    try { histCache = JSON.parse(localStorage.getItem(HIST_KEY) || '{}') || {}; } catch (e) {}
-    var results = new Array(days.length);
-    var pending = [];
-    days.forEach(function (d, idx) {
-      if (d < today && Array.isArray(histCache[d])) {
-        results[idx] = histCache[d];
-      } else if (d === today && typeof liveTodayViews === 'number' && typeof liveTodayVis === 'number') {
-        results[idx] = [liveTodayViews, liveTodayVis];
-      } else {
-        pending.push({ d: d, idx: idx });
-      }
-    });
-
-    var batchSize = pending.length > 7 ? 4 : 6;
-    var pauseMs = pending.length > 7 ? 2900 : 180;
-    var chain = Promise.resolve();
-    for (var c = 0; c < pending.length; c += batchSize) {
-      (function (slice, waitFirst) {
-        chain = chain.then(function () {
-          return (waitFirst ? delay(pauseMs) : Promise.resolve()).then(function () {
-            return Promise.all(slice.map(function (item) {
-              var k = item.d.replace(/-/g, '');
-              var pViews = (item.d === today && typeof liveTodayViews === 'number')
-                ? Promise.resolve(liveTodayViews)
-                : call('get', 'day-' + k).catch(function () { return null; });
-              var pVis = (item.d === today && typeof liveTodayVis === 'number')
-                ? Promise.resolve(liveTodayVis)
-                : call('get', 'vday-' + k).catch(function () { return null; });
-              return Promise.all([pViews, pVis]).then(function (pair) {
-                var v0 = pair[0] == null ? 0 : pair[0];
-                var v1 = pair[1] == null ? 0 : pair[1];
-                results[item.idx] = [v0, v1];
-                if (item.d < today && pair[0] !== null && pair[1] !== null) {
-                  histCache[item.d] = [v0, v1];
-                }
-              });
-            }));
-          });
-        });
-      })(pending.slice(c, c + batchSize), c > 0);
-    }
-    return chain.then(function () {
-      try { localStorage.setItem(HIST_KEY, JSON.stringify(histCache)); } catch (e) {}
-      return results.map(function (r) { return r || [0, 0]; });
-    });
+  function renderFromSummary(summary) {
+    var isEn = uiLang() === 'en';
+    var rawSeries = Array.isArray(summary.series) ? summary.series : [];
+    var filtered = rawSeries.filter(function (s) { return s && s.date >= START; });
+    if (!filtered.length) filtered = [{ date: today, views: liveTodayViews || 0, visitors: liveTodayVis || 0 }];
+    var slice = activeRange === 7 ? filtered.slice(-7) : filtered;
+    var days = slice.map(function (s) { return s.date; });
+    var rows = slice.map(function (s) { return [Number(s.views) || 0, Number(s.visitors) || 0]; });
+    var refToday = summary.referrals_today || {};
+    var refWin = summary.referrals_window || {};
+    var hasTodayRef = Object.keys(refToday).some(function (k) { return refToday[k] > 0; });
+    var useWin = (activeRange === 30) || (!hasTodayRef && Object.keys(refWin).length > 0);
+    var body = modal.querySelector('.vc-body');
+    body.innerHTML = renderToolbar(isEn, filtered.length) +
+      '<div id="vc-chart-slot">' + renderChartSvg(days, rows, isEn) + '</div>' +
+      '<div id="vc-ref-box" class="vc-ref-box">' + renderReferrerBox(useWin ? refWin : refToday, useWin) + '</div>' +
+      renderShareBar(isEn);
   }
 
-  var cachedRefMap = null;
-
-  function loadAndRenderModal(refreshRefs) {
+  function loadAndRenderModal(forceFetch) {
     syncCounterLang();
+    if (!forceFetch && cachedSummary) {
+      renderFromSummary(cachedSummary);
+      return;
+    }
     var isEn = uiLang() === 'en';
-    var fullDays = lastDays(30);
-    var days = activeRange === 7 ? lastDays(7) : fullDays;
     var body = modal.querySelector('.vc-body');
-    var chartWaitMsg = isEn ? 'Loading daily statistics&hellip;' : '일별 통계를 불러오는 중입니다&hellip;';
-    var refWaitMsg = isEn ? 'Loading today&rsquo;s referral channels&hellip;' : '오늘 유입 채널 집계를 불러오는 중입니다&hellip;';
-    var existingRefHtml = (!refreshRefs && cachedRefMap) ? renderReferrerBox(cachedRefMap) : ('<div class="vc-ref-note">' + refWaitMsg + '</div>');
-
-    /* Render toolbar, loading placeholder, referral box, and 1-click share bar IMMEDIATELY (0ms) */
-    body.innerHTML = renderToolbar(isEn, fullDays.length) +
-      '<div id="vc-chart-slot"><p class="vc-sum">' + chartWaitMsg + '</p></div>' +
-      '<div id="vc-ref-box" class="vc-ref-box">' + existingRefHtml + '</div>' +
-      renderShareBar(isEn);
-
-    loadHistoryRows(days)
-      .then(function (rows) {
-        var slot = document.getElementById('vc-chart-slot');
-        if (slot) slot.innerHTML = renderChartSvg(days, rows, uiLang() === 'en');
-        if (!refreshRefs && cachedRefMap) return cachedRefMap;
-        return delay(180).then(function () { return loadTodayReferrers(day); });
-      })
-      .then(function (refMap) {
-        if (refMap) cachedRefMap = refMap;
-        var refBox = document.getElementById('vc-ref-box');
-        if (refBox && refMap) refBox.innerHTML = renderReferrerBox(refMap);
+    var chartWaitMsg = isEn ? 'Loading daily statistics&hellip;' : '일별 통계를 불러오는 중이에요&hellip;';
+    body.innerHTML = '<div id="vc-chart-slot"><p class="vc-sum">' + chartWaitMsg + '</p></div>' + renderShareBar(isEn);
+    var url = VC_BASE + 'summary?prefix=' + encodeURIComponent(P) + '&days=30&day=' + encodeURIComponent(day) + '&start=' + encodeURIComponent(START);
+    fetchJson(url, { mode: 'cors' })
+      .then(function (j) {
+        if (!j || !j.ok) throw new Error('bad summary');
+        cachedSummary = j;
+        renderFromSummary(j);
       })
       .catch(function () {
         var slot = document.getElementById('vc-chart-slot');
-        if (slot && !slot.querySelector('svg')) {
-          slot.textContent = uiLang() === 'en' ? 'Could not load the chart.' : '그래프를 불러오지 못했습니다.';
+        if (slot) {
+          slot.textContent = uiLang() === 'en' ? 'Could not load the chart.' : '그래프를 불러오지 못했어요.';
         }
       });
   }

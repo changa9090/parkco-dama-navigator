@@ -3,6 +3,7 @@
   "use strict";
 
   const PAGE_SIZE = 40;
+  const MAX_PINNED_ITEMS = 3;
   let DATA = null;
   let currentLang =
     typeof window !== "undefined" && window.location && new URLSearchParams(window.location.search).get("lang") === "en"
@@ -11,9 +12,15 @@
   let currentPage = 1;
   let filteredOccupations = [];
   let userInteracted = false;
+  let pinnedItems = [];
+  let compareDrawerCollapsed = false;
+  let compareToastMsg = "";
+  let compareToastTimer = null;
 
   const I18N = {
     ko: {
+      pageTitle: "호주 13개 DAMA 직종 · 지역 및 협약 요건 탐색 (Park & Co DAMA Navigator 2026)",
+      brandAriaLabel: "법무법인 박앤코 통합 허브",
       navBrandTitle: "법무법인 박앤코 · 13개 DAMA 탐색기",
       navExplorer: "직종·우편번호 탐색",
       navRegions: "13개 지역 비교",
@@ -27,7 +34,8 @@
       pollBadge: "출처 모니터 동기화 중...",
       navEnquiry: "박앤코 상담·문의하기 →",
       urgentBadge: "2026–27 협약 일정 경보",
-      urgentText: "서호주 South West DAMA 정기 마감: 2026-10-30 (⛔ 정기 마감 · 단 2026-10-30 DAR 공지상 협약 종료 2026-12-14 전 dama@dardanup.wa.gov.au 문의 시 추가 접수 가능) / Goldfields DAMA 신청 마감: 2026-11-13 (⚠️ 마감 임박 · 협약 종료: 2026-12-31 · 기존 승인 협약·비자 자동 취소 아님 / WA DAMA 전환 시 표준 CSIT $79,423 및 Note 1 확인 필수) / 남호주 SA DAMA 2027-01-31까지 연장 운영 중입니다.",
+      urgentText: "",
+      urgentSourceLink: "[1]–[31] 공식 출처 ↓",
       heroOverline: "AUSTRALIA-WIDE 13 DAMA (DESIGNATED AREA MIGRATION AGREEMENTS) EXPLORER",
       heroTitle: "호주 13개 DAMA 직종 · 지역 및 협약 요건 탐색",
       heroLead: "직업명(ANZSCO/OSCA/한국어), 나이, 영어 점수, 희망 지역·4자리 우편번호(예: 4810 타운즈빌 TNQ / 4870 케언즈 FNQ / 6430 칼굴리 Goldfields), 연봉($67,510~$79,423) 조건을 입력하면 호주 전역 13개 DAMA · 2,474건 지역별 직종 등록 항목(781개 고유 직종) 가운데 신청 가능한 지역과 협약 완화 요건(SID 482 · SESR 494 · ENS 186)을 바로 확인할 수 있습니다. 모든 결과는 검토 후보 · 추가 확인 필요 · 조건 미충족 3단계로 나뉘고 실제 비자 적합 여부는 관할 DAR·개별 Labour Agreement 원문과 미확인 요건(학력·경력 세부 기준, 근무지 우편번호, 시장임금 AMSR 등)을 반드시 대조해야 합니다.",
@@ -65,6 +73,18 @@
       locationPlaceholder: "근무지 우편번호 / 도시 / LGA (예: 4810, 4870, 6430, Cairns, Perth, 5950)",
       resetBtn: "필터 초기화",
       presetLabel: "인기 검색 직종:",
+      chipChef: "요리사 (Chef / Cook)",
+      chipBarista: "바리스타 · 웨이터 (Barista / Waiter)",
+      chipCarer: "간병인 · 케어 (Aged/Disabled Carer)",
+      chipChildCare: "보육교사 (Child Care)",
+      chipWelder: "용접 · 금속 (Welder / Fitter)",
+      chipMechanic: "자동차·디젤 정비 (Mechanic)",
+      chipTruck: "트럭 · 지게차 (Truck / Forklift)",
+      chipCleaner: "청소 · 하우스키핑 (Cleaner / Housekeeper)",
+      chipKitchen: "주방보조 (Kitchenhand)",
+      chipMeat: "육가공 · 도축 (Meat / Slaughterer)",
+      chipFarm: "농장 · 원예 (Farm / Horticulture)",
+      chipNonAnzsco: "비-ANZSCO (070499)",
 
       lblRegion: "1. 희망 주(State) / DAMA 지역",
       lblAge: "2. 신청자 현재 나이 (Age)",
@@ -72,6 +92,11 @@
       lblSalary: "4. 고용주 제시 가능 연봉 (Salary)",
       lblSkill: "5. 직종 숙련도 (Skill Level / 학력)",
       lblPathway: "6. 영주권(ENS 186) 및 특별 조건",
+      badgeAgeRule: "연령 기준",
+      badgeEngRule: "점수 기준",
+      badgeSalRule: "2026 급여선",
+      badgeSlRule: "SL 안내",
+      badgeDirectRule: "Direct 186",
 
       optRegionAll: "호주 전체 (13개 DAMA 전 지역 · 2,474건)",
       optStateQLD: "── 퀸즐랜드 (QLD: FNQ 11개 LGA · 타운즈빌 TNQ) ──",
@@ -109,12 +134,13 @@
 
       regOverline: "STEP 02 · WHERE TO FIND YOUR REGIONAL EMPLOYER SPONSOR",
       regTitle: "13개 DAMA 지역별 매칭 직종 등록 항목 수 & 지역 상세 가이드",
-      regSub: "선택한 검색어와 조건에 맞는 직종 등록 항목이 지역별로 몇 건인지 실시간으로 집계됩니다. 지역 카드를 누르면 해당 DAMA만 따로 추려 볼 수 있으며 '지역 요건 · 우편번호 상세' 버튼을 누르면 관할 구역과 협약 기준 전체가 팝업으로 열립니다.",
+      regSub: "선택한 검색어와 조건에 맞는 직종 등록 항목이 지역별로 몇 건인지 실시간으로 집계됩니다. 지역 카드를 누르면 해당 DAMA만 따로 추려 볼 수 있으며 [📌 비교함 담기]로 최대 3개 지역·직종을 나란히 비교할 수 있습니다.",
       regDetailBtn: "지역 요건 · 우편번호 상세",
       regFilterHint: "클릭하여 이 지역만 필터",
 
       tblOverline: "STEP 03 · VERIFIED OCCUPATION & CONCESSION EXPLORER TABLE",
       tblTitle: "조건별 직종 등록 항목 & 협약 완화 요건 탐색 리스트",
+      lblMatches: "검색 결과:",
       thDama: "DAMA 지역 · 주(State)",
       thOcc: "직종명 (ANZSCO/OSCA · 상태)",
       thSl: "숙련도 (SL)",
@@ -124,6 +150,40 @@
       thQuals: "학력 · 경력 요약 (482/494/186)",
       thAction: "탐색 판정 · 상세",
       btnRowModal: "요건 · 검증체크 상세",
+      btnPrev: "← 이전",
+      btnNext: "다음 →",
+
+      ecoTitle: "🧭 내 경력의 6자리 ANZSCO/OSCA 직종코드를 모르시거나 일반 CSOL·MLTSSL 직종도 함께 비교하고 싶으신가요?",
+      ecoDesc: "영문 이력서 기반 무료 ANZSCO 직종추론(#module-resume)과 일반 482·186·189·190·491 통합 직종검색(#module-sol) 및 실전 FAQ를 통합 가이드에서 확인하실 수 있습니다.",
+      ecoBtnResume: "📄 영문 이력서 ANZSCO 직종추론 (#module-resume) →",
+      ecoBtnSol: "🔎 일반 CSOL·MLTSSL 통합 검색 (#module-sol) →",
+      ecoBtnFaq: "💡 호주이민 실전 FAQ 백과 →",
+
+      ctaHeading: "\"삶에 집중하세요, 법률은 저희가 맡겠습니다.\" (You focus on life, we'll handle the law.)",
+      ctaDesc: "DAMA 고용주 스폰서십(DAR Endorsement · Labour Agreement) 및 비자(SID 482 · SESR 494 · ENS 186) 전략 수립이 필요하시면 공식 문의 채널로 연락해 주십시오.",
+      ctaBtnPrimary: "박앤코 온라인 상담·문의 바로가기 →",
+      ctaBtnArt: "⚖️ 노미네이션·비자 거절 무료 ART Case Review™ →",
+      ctaBtnEmergency: "🚨 비자응급실 (s 57·s 116·s 137Q 무료 진단) →",
+
+      footerFirmName: "법무법인 박앤코 (PNC Legal Pty Ltd t/a Park & Co Lawyers)",
+      footerPrincipal: "박창민 대표변호사 (QLS Accredited Specialist in Immigration Law)",
+      footerHubLabel: "공식 문의 허브:",
+      footerEmailLabel: "이메일:",
+      footerLinkHub: "← 박앤코 법률·비자 통합 허브",
+      footerLinkGuide: "📄 비자 솔루션 가이드 (이력서 직종추론)",
+      footerLinkSol: "🔎 일반 CSOL·MLTSSL 통합 검색 (#module-sol)",
+      footerLinkFaq: "💡 호주이민 실전 FAQ 아카이브",
+
+      cmpDrawerTitle: "DAMA 최대 3개 지역·직종 나란히 비교함",
+      cmpSampleBtn: "추천 3개 지역 담기",
+      cmpClearAll: "비교함 비우기",
+      cmpCollapseBtn: "접기 ▼",
+      cmpExpandBtn: "펼치기 ▲",
+      cmpPinAdd: "📌 비교함 담기",
+      cmpPinAdded: "✓ 비교함 담김",
+      cmpRemoveItem: "✕ 제외",
+      cmpMaxToast: "최대 3개까지 비교할 수 있습니다. 기존 항목을 하나 제외한 뒤 추가해 주세요.",
+      cmpEmptyPrompt: "비교함에 담긴 지역·직종이 없습니다. 위 13개 지역 카드나 직종 표에서 [📌 비교함 담기]를 누르거나 [추천 3개 지역 담기]를 눌러 최대 3곳의 협약 조건을 한눈에 비교해 보십시오.",
 
       discOverline: "LEGAL DISCLAIMER, COPYRIGHT & GOVERNMENT ATTRIBUTION",
       discTitle: "법률 면책공고 (Legal Disclaimer) · 저작권 보호 및 각 주정부/연방정부 1차 출처 각주",
@@ -133,6 +193,8 @@
       fnHeading: "1차 공식 출처 및 주정부·DAR 레퍼런스 각주 ([1] ~ [31])",
     },
     en: {
+      pageTitle: "Australia 13-Region DAMA Occupation & Concession Navigator (2026) | Park & Co Lawyers",
+      brandAriaLabel: "Park & Co Legal & Visa Hub",
       navBrandTitle: "Park & Co · 13 DAMA Explorer",
       navExplorer: "Occupation & Postcode Search",
       navRegions: "13 DAMA Regions",
@@ -146,7 +208,8 @@
       pollBadge: "Source Monitor syncing...",
       navEnquiry: "Make an Enquiry →",
       urgentBadge: "2026–27 SCHEDULE ALERT",
-      urgentText: "WA South West DAMA Standard Cutoff: 2026-10-30 (⛔ Post-cutoff inquiries open via dama@dardanup.wa.gov.au per 30 Oct 2026 DAR update until 2026-12-14 expiry) / Goldfields DAMA Application Cutoff: 2026-11-13 (⚠️ Closing Soon · Expiry: 2026-12-31 · existing approved agreements/visas not auto-cancelled; WA DAMA transition requires $79,423 CSIT & Note 1 check) / SA DAMAs extended to 2027-01-31.",
+      urgentText: "",
+      urgentSourceLink: "[1]–[31] Official Sources ↓",
       heroOverline: "AUSTRALIA-WIDE 13 DAMA (DESIGNATED AREA MIGRATION AGREEMENTS) EXPLORER",
       heroTitle: "Australia 13 DAMA Occupation, Region & Concession Explorer",
       heroLead: "Search Designated Area Migration Agreements by occupation title or ANZSCO/OSCA code and filter by your age, English test score, 4-digit postcode (e.g. 4810 Townsville TNQ vs 4870 Cairns FNQ), and offered salary ($67,510–$79,423) across all 13 Australian DAMAs (2,474 regional occupation registration entries across 781 unique occupations).",
@@ -184,6 +247,18 @@
       locationPlaceholder: "LGA / Suburb / Postcode (e.g. Cairns, Perth, 5950, Ravensthorpe)",
       resetBtn: "Reset Filters",
       presetLabel: "Popular Occupations:",
+      chipChef: "Chef & Cook",
+      chipBarista: "Barista & Waiter",
+      chipCarer: "Aged & Disabled Carer",
+      chipChildCare: "Child Care Educator",
+      chipWelder: "Welder & Metal Fitter",
+      chipMechanic: "Motor & Diesel Mechanic",
+      chipTruck: "Truck & Forklift Driver",
+      chipCleaner: "Cleaner & Housekeeper",
+      chipKitchen: "Kitchenhand",
+      chipMeat: "Meat Processing & Slaughterer",
+      chipFarm: "Farm & Horticulture Worker",
+      chipNonAnzsco: "Non-ANZSCO (070499)",
 
       lblRegion: "1. State / DAMA Region",
       lblAge: "2. Applicant Current Age",
@@ -191,6 +266,11 @@
       lblSalary: "4. Employer Offered Salary (AUD)",
       lblSkill: "5. Skill Level & Qualification",
       lblPathway: "6. PR (ENS 186) & Special Rules",
+      badgeAgeRule: "Age Rule",
+      badgeEngRule: "Score Rule",
+      badgeSalRule: "2026 Floor",
+      badgeSlRule: "SL Guide",
+      badgeDirectRule: "Direct 186",
 
       optRegionAll: "All Australia (All 13 DAMAs · 2,474 Entries)",
       optStateQLD: "── Queensland (QLD: FNQ 11 LGAs & Townsville) ──",
@@ -228,12 +308,13 @@
 
       regOverline: "STEP 02 · WHERE TO FIND YOUR REGIONAL EMPLOYER SPONSOR",
       regTitle: "Matching Occupation Registration Entries by DAMA Region (13 Regions)",
-      regSub: "Live count of occupation registration entries matching your filters in each region. Click any card to filter the table by that DAMA, or click [Region Rules & Postcodes] for the full regional profile.",
+      regSub: "Live count of occupation registration entries matching your filters in each region. Click any card to filter the table by that DAMA, or click [📌 Compare] to pin up to 3 regions/occupations side-by-side.",
       regDetailBtn: "Region Rules & Postcodes",
       regFilterHint: "Click to filter by region",
 
       tblOverline: "STEP 03 · VERIFIED OCCUPATION & CONCESSION EXPLORER TABLE",
       tblTitle: "Matching Occupation Entries & Concession Verification Table",
+      lblMatches: "Matches:",
       thDama: "DAMA Region · State",
       thOcc: "Occupation (ANZSCO/OSCA & Status)",
       thSl: "Skill Level",
@@ -243,6 +324,40 @@
       thQuals: "Qualifications & Work Exp",
       thAction: "Status & Details",
       btnRowModal: "Status & Checklist",
+      btnPrev: "← Prev",
+      btnNext: "Next →",
+
+      ecoTitle: "🧭 Unsure of Your 6-Digit ANZSCO/OSCA Code or Want to Compare Standard CSOL & MLTSSL Lists?",
+      ecoDesc: "Use free English Resume ANZSCO Inference (#module-resume), unified CSOL/MLTSSL occupation search (#module-sol), and real-world Sponsorship & DAMA FAQs.",
+      ecoBtnResume: "📄 English Resume ANZSCO Inference (#module-resume) →",
+      ecoBtnSol: "🔎 Standard CSOL & MLTSSL Search (#module-sol) →",
+      ecoBtnFaq: "💡 Australian Immigration FAQ →",
+
+      ctaHeading: "\"You focus on life, we'll handle the law.\"",
+      ctaDesc: "Contact Park & Co Lawyers for DAMA employer sponsorship (DAR Endorsement & Labour Agreement) and SID 482 / SESR 494 / ENS 186 visa strategy.",
+      ctaBtnPrimary: "Enquire Online with Park & Co →",
+      ctaBtnArt: "⚖️ Free Nomination/Visa Refusal ART Case Review™ →",
+      ctaBtnEmergency: "🚨 Visa Emergency (Free s 57 / s 116 / s 137Q Triage) →",
+
+      footerFirmName: "PNC Legal Pty Ltd t/a Park & Co Lawyers",
+      footerPrincipal: "Chang Min Park (Legal Practitioner Director · QLS Accredited Specialist in Immigration Law)",
+      footerHubLabel: "Official Inquiry Hub:",
+      footerEmailLabel: "Email:",
+      footerLinkHub: "← Park & Co Legal & Visa Hub",
+      footerLinkGuide: "📄 Visa Solution Guide (Resume ANZSCO Inference)",
+      footerLinkSol: "🔎 Standard CSOL & MLTSSL Search (#module-sol)",
+      footerLinkFaq: "💡 Immigration FAQ Knowledge Base",
+
+      cmpDrawerTitle: "Side-by-Side DAMA Comparison (Up to 3)",
+      cmpSampleBtn: "Load 3 Sample Regions",
+      cmpClearAll: "Clear All",
+      cmpCollapseBtn: "Collapse ▼",
+      cmpExpandBtn: "Expand ▲",
+      cmpPinAdd: "📌 Compare",
+      cmpPinAdded: "✓ Pinned",
+      cmpRemoveItem: "✕ Remove",
+      cmpMaxToast: "Up to 3 items can be compared side-by-side. Remove an existing item to add another.",
+      cmpEmptyPrompt: "No DAMA regions or occupations pinned yet. Click [📌 Compare] on any region card or occupation row, or click [Load 3 Sample Regions] to compare up to 3 DAMA agreements side-by-side.",
 
       discOverline: "LEGAL DISCLAIMER, COPYRIGHT & GOVERNMENT ATTRIBUTION",
       discTitle: "Legal Disclaimer, Copyright Notice & Official Government/DAR Source Footnotes",
@@ -287,6 +402,31 @@
     return Math.round((u2 - u1) / 86400000);
   }
 
+  // Dynamic Urgent Cutoff Banner for Goldfields 2026-11-13 (D-N / D-Day / Closed) using Brisbane todayIso
+  function buildUrgentBannerText(lang, todayIso) {
+    const useLang = lang === "en" ? "en" : "ko";
+    const refIso = todayIso || todayBrisbaneIso();
+    const diffDays = diffIsoDays(refIso, "2026-11-13");
+
+    if (useLang === "en") {
+      if (diffDays !== null && diffDays > 0) {
+        return `WA South West DAMA Standard Cutoff: 2026-10-30 (⛔ Post-cutoff inquiries open via dama@dardanup.wa.gov.au per 30 Oct 2026 DAR update until 2026-12-14 expiry) / Goldfields DAMA Application Cutoff: 2026-11-13 (⚠️ Closing in D-${diffDays} · Expiry: 2026-12-31 · existing approved agreements/visas not auto-cancelled; WA DAMA transition requires $79,423 CSIT & Note 1 check) / SA DAMAs extended to 2027-01-31.`;
+      }
+      if (diffDays === 0) {
+        return `WA South West DAMA Standard Cutoff: 2026-10-30 (⛔ Closed) / Goldfields DAMA Application Cutoff: 2026-11-13 (🚨 D-Day (Closes Today) · Expiry: 2026-12-31 · existing approved agreements/visas not auto-cancelled; WA DAMA transition requires $79,423 CSIT & Note 1 check) / SA DAMAs extended to 2027-01-31.`;
+      }
+      return `WA South West DAMA Standard Cutoff: 2026-10-30 (⛔ Closed) / Goldfields DAMA (2026-11-13): 13 Nov 2026 round closed · check next intake (transitioned to WA State-wide DAMA · Expiry: 2026-12-31 · existing approved agreements/visas not auto-cancelled) / SA DAMAs extended to 2027-01-31.`;
+    }
+
+    if (diffDays !== null && diffDays > 0) {
+      return `서호주 South West DAMA 정기 마감: 2026-10-30 (⛔ 정기 마감 · 단 2026-10-30 DAR 공지상 협약 종료 2026-12-14 전 dama@dardanup.wa.gov.au 문의 시 추가 접수 가능) / Goldfields DAMA 신청 마감: 2026-11-13 (⚠️ 마감 임박 D-${diffDays} · 협약 종료: 2026-12-31 · 기존 승인 협약·비자 자동 취소 아님 / WA DAMA 전환 시 표준 CSIT $79,423 및 Note 1 확인 필수) / 남호주 SA DAMA 2027-01-31까지 연장 운영 중입니다.`;
+    }
+    if (diffDays === 0) {
+      return `서호주 South West DAMA 정기 마감: 2026-10-30 (⛔ 정기 마감) / Goldfields DAMA 신청 마감: 2026-11-13 (🚨 D-Day (오늘 마감) · 협약 종료: 2026-12-31 · 기존 승인 협약·비자 자동 취소 아님 / WA DAMA 전환 시 표준 CSIT $79,423 및 Note 1 확인 필수) / 남호주 SA DAMA 2027-01-31까지 연장 운영 중입니다.`;
+    }
+    return `서호주 South West DAMA 정기 마감: 2026-10-30 (⛔ 정기 마감) / Goldfields DAMA (2026-11-13): 2026년 11월 13일 마감 완료 · 차기 라운드 일정 확인 요망 (WA State-wide DAMA 전환 안내 · 협약 종료: 2026-12-31 · 기존 승인 협약·비자 자동 취소 아님) / 남호주 SA DAMA 2027-01-31까지 연장 운영 중입니다.`;
+  }
+
   function evaluateIntakeStatus(d, refIsoOpt) {
     if (!d) return { state: "open", cutoff: null, expiry: null, days_to_cutoff: null, badge_ko: "", badge_en: "" };
     const refIso = refIsoOpt || todayBrisbaneIso();
@@ -311,7 +451,18 @@
       };
     }
 
-    if (daysToCutoff !== null && daysToCutoff >= 0 && daysToCutoff <= 14) {
+    if (daysToCutoff === 0) {
+      return {
+        state: "imminent",
+        cutoff: cutoff,
+        expiry: expiry,
+        days_to_cutoff: 0,
+        badge_ko: `🚨 D-Day · 오늘 마감 (${cutoff})`,
+        badge_en: `🚨 D-Day · Closes Today (${cutoff})`,
+      };
+    }
+
+    if (daysToCutoff !== null && daysToCutoff > 0 && daysToCutoff <= 14) {
       return {
         state: "imminent",
         cutoff: cutoff,
@@ -370,7 +521,9 @@
   }
 
   function t(key) {
-    return (I18N[currentLang] && I18N[currentLang][key]) || I18N.ko[key] || key;
+    return (I18N[currentLang] && I18N[currentLang][key] !== undefined && I18N[currentLang][key] !== "")
+      ? I18N[currentLang][key]
+      : (I18N.ko[key] || key);
   }
 
   function getDamaMap() {
@@ -682,11 +835,15 @@
       } else if (hasTwoYearsNonDamaRegionalWork) {
         direct186Status = "requires_verification";
         direct186Note =
-          "추가 확인 필요 (Requires Verification): 2년 지역 경력 외에 고용주 DAR Endorsement, 개별 Labour Agreement 내 ENS 186 스트림 승인 여부, 승인 직종 및 숙련도 요건 충족 확인이 필수입니다.";
+          currentLang === "ko"
+            ? "추가 확인 필요 (Requires Verification): 2년 지역 경력 외에 고용주 DAR Endorsement, 개별 Labour Agreement 내 ENS 186 스트림 승인 여부, 승인 직종 및 숙련도 요건 충족 확인이 필수입니다."
+            : "Requires Verification: In addition to 2 years of regional work, employer DAR endorsement, an approved ENS 186 stream in the Labour Agreement, and occupation/skill-level compliance must be verified.";
       } else {
         direct186Status = "requires_verification";
         direct186Note =
-          "조건부 가능 (Conditional): 2년 풀타임 지역 경력 + 고용주 DAR Endorsement + 개별 Labour Agreement 내 ENS 186 승인 확인 필요.";
+          currentLang === "ko"
+            ? "조건부 가능 (Conditional): 2년 풀타임 지역 경력 + 고용주 DAR Endorsement + 개별 Labour Agreement 내 ENS 186 승인 확인 필요."
+            : "Conditional: Requires 2 years of full-time regional work + employer DAR endorsement + approved ENS 186 stream in the Labour Agreement.";
       }
     }
 
@@ -705,16 +862,26 @@
   }
 
   function getFilters() {
+    if (typeof document === "undefined") {
+      return { q: "", location: "", region: "all", age: "all", english: "all", salary: "all", skill: "all", pathway: "all" };
+    }
     const locEl = document.getElementById("filter-location");
+    const sEl = document.getElementById("search-input");
+    const regEl = document.getElementById("filter-region");
+    const ageEl = document.getElementById("filter-age");
+    const engEl = document.getElementById("filter-english");
+    const salEl = document.getElementById("filter-salary");
+    const sklEl = document.getElementById("filter-skill");
+    const pthEl = document.getElementById("filter-pathway");
     return {
-      q: (document.getElementById("search-input").value || "").trim().toLowerCase(),
+      q: (sEl ? sEl.value || "" : "").trim().toLowerCase(),
       location: locEl ? (locEl.value || "").trim() : "",
-      region: document.getElementById("filter-region").value,
-      age: document.getElementById("filter-age").value,
-      english: document.getElementById("filter-english").value,
-      salary: document.getElementById("filter-salary").value,
-      skill: document.getElementById("filter-skill").value,
-      pathway: document.getElementById("filter-pathway").value,
+      region: regEl ? regEl.value || "all" : "all",
+      age: ageEl ? ageEl.value || "all" : "all",
+      english: engEl ? engEl.value || "all" : "all",
+      salary: salEl ? salEl.value || "all" : "all",
+      skill: sklEl ? sklEl.value || "all" : "all",
+      pathway: pthEl ? pthEl.value || "all" : "all",
     };
   }
 
@@ -939,6 +1106,9 @@
       return currentLang === "ko" ? ` · ⛔ 신규마감 (${st.cutoff || st.expiry})` : ` · ⛔ Closed (${st.cutoff || st.expiry})`;
     }
     if (st.state === "imminent") {
+      if (st.days_to_cutoff === 0) {
+        return currentLang === "ko" ? ` · 🚨 오늘마감 D-Day (${st.cutoff})` : ` · 🚨 Closes Today D-Day (${st.cutoff})`;
+      }
       return currentLang === "ko"
         ? ` · ⚠️ 마감임박 D-${st.days_to_cutoff} (${st.cutoff})`
         : ` · ⚠️ Closing D-${st.days_to_cutoff} (${st.cutoff})`;
@@ -946,19 +1116,408 @@
     return "";
   }
 
+  /* === Up-to-3 DAMA Side-by-Side Comparison Pin Drawer === */
+  function isItemPinned(key) {
+    return pinnedItems.some((it) => it.key === key);
+  }
+
+  function showCompareToast(msg) {
+    compareToastMsg = msg || "";
+    if (compareToastTimer) clearTimeout(compareToastTimer);
+    if (typeof document !== "undefined") {
+      const toastEl = document.getElementById("dama-compare-toast");
+      if (toastEl) toastEl.textContent = compareToastMsg;
+    }
+    if (compareToastMsg) {
+      compareToastTimer = setTimeout(() => {
+        compareToastMsg = "";
+        if (typeof document !== "undefined") {
+          const toastEl = document.getElementById("dama-compare-toast");
+          if (toastEl) toastEl.textContent = "";
+        }
+      }, 4000);
+    }
+  }
+
+  function refreshPinnedButtonStates() {
+    if (typeof document === "undefined") return;
+    const n = pinnedItems.length;
+    const barLabel = currentLang === "ko" ? `📌 비교함 (${n}/3)` : `📌 Compare (${n}/3)`;
+    document.querySelectorAll("#btn-open-compare-drawer, .btn-open-compare-mirror").forEach((btn) => {
+      btn.textContent = barLabel;
+      btn.classList.toggle("has-pins", n > 0);
+    });
+    document.querySelectorAll("[data-pin-region]").forEach((btn) => {
+      const did = btn.getAttribute("data-pin-region");
+      const pinned = isItemPinned(`region:${did}`);
+      btn.classList.toggle("pinned", pinned);
+      btn.textContent = pinned ? t("cmpPinAdded") : t("cmpPinAdd");
+    });
+    document.querySelectorAll("[data-pin-occ]").forEach((btn) => {
+      const oid = btn.getAttribute("data-pin-occ");
+      const pinned = isItemPinned(`occ:${oid}`);
+      btn.classList.toggle("pinned", pinned);
+      btn.textContent = pinned ? t("cmpPinAdded") : t("cmpPinAdd");
+    });
+  }
+
+  function buildComparisonColumns(refIsoOpt) {
+    if (!DATA || !Array.isArray(DATA.damas)) return [];
+    const dMap = getDamaMap();
+    return pinnedItems
+      .map((item) => {
+        const d = dMap[item.damaId];
+        if (!d) return null;
+        const o = item.type === "occ" && Array.isArray(DATA.occupations)
+          ? DATA.occupations.find((x) => x.id === Number(item.occId))
+          : null;
+        const st = evaluateIntakeStatus(d, refIsoOpt);
+        const regName = currentLang === "ko" ? d.name_ko : d.name_en;
+
+        let intakeText = "";
+        if (st.state === "closed") {
+          intakeText = currentLang === "ko" ? st.badge_ko : st.badge_en;
+        } else if (st.state === "imminent") {
+          intakeText = currentLang === "ko" ? st.badge_ko : st.badge_en;
+        } else {
+          intakeText = currentLang === "ko" ? "✅ 상시 접수 중 (Open)" : "✅ Open for Applications";
+        }
+        const darFeeSummary = d.dar_fee_free
+          ? (currentLang === "ko" ? "DAR 수수료 $0 (무료)" : "DAR Fee $0 (Free)")
+          : (currentLang === "ko" ? d.dar_fee_ko : d.dar_fee_en);
+
+        let colTitle = regName;
+        let colSub = `${d.state} · ${d.code}`;
+        if (o) {
+          colTitle = `${o.occupation_title} (${o.anzsco_code})`;
+          colSub = `${regName} · SL ${o.skill_level}`;
+        }
+
+        const ageText = o
+          ? (currentLang === "ko"
+              ? `만 ${o.max_age}세 미만 (SL${o.skill_level} · 494/186 노미네이션 시점)`
+              : `Under ${o.max_age} (SL${o.skill_level} · at 494/186 nomination)`)
+          : (currentLang === "ko" ? d.age_rule_ko : d.age_rule_en);
+
+        let salaryText = "";
+        if (o) {
+          const floorLabel = o.min_salary_aud === 67510
+            ? (currentLang === "ko" ? "85% CSIT ($67,510 · AMSR 필수)" : "85% CSIT ($67,510 · AMSR req.)")
+            : o.tsmit_concession
+            ? "90% CSIT ($71,481)"
+            : (currentLang === "ko" ? "표준 CSIT ($79,423)" : "Standard CSIT ($79,423)");
+          salaryText = `${floorLabel} · ${o.tsmit_detail}`;
+        } else {
+          const regFloor = d.min_salary_floor_aud === 67510
+            ? (currentLang === "ko" ? "최저 85% CSIT ($67,510)" : "85% CSIT Floor ($67,510)")
+            : d.tsmit_concession_count > 0
+            ? (currentLang === "ko" ? `90% CSIT ($71,481 · ${d.tsmit_concession_count}건)` : `90% CSIT ($71,481 · ${d.tsmit_concession_count} roles)`)
+            : (currentLang === "ko" ? "표준 CSIT ($79,423)" : "Standard CSIT ($79,423)");
+          salaryText = `${regFloor} · ${currentLang === "ko" ? d.salary_rule_ko : d.salary_rule_en}`;
+        }
+
+        const engText = o
+          ? `482/494: ${o.english_482 || o.english_482_494} | 186: ${o.english_186}${o.no_186_eng_concession ? (currentLang === "ko" ? " (⚠ 186 감면 없음 · IELTS 6.0 필수)" : " (⚠ No 186 concession · IELTS 6.0 req.)") : ""}`
+          : (currentLang === "ko" ? d.eng_rule_ko : d.eng_rule_en);
+
+        let prText = o ? o.pr_pathway_summary : (currentLang === "ko" ? d.pr_rule_ko : d.pr_rule_en);
+        if (o && o.direct_186) {
+          prText += currentLang === "ko" ? " · ★ Direct 186 (조건부)" : " · ★ Direct 186 (Conditional)";
+        }
+        if (o && o.sl5_upgrade_req) {
+          prText += currentLang === "ko" ? " · ⚠ SL1–4 승진 필수" : " · ⚠ SL1–4 Upgrade Req.";
+        }
+
+        return {
+          key: item.key,
+          type: item.type,
+          damaId: d.id,
+          occId: o ? o.id : null,
+          colTitle,
+          colSub,
+          regionAndIntake: `${regName} (${d.state}) · ${intakeText} · ${darFeeSummary}`,
+          intakeBadgeHtml: renderIntakeBadgeHtml(d, refIsoOpt),
+          intakeText,
+          darFeeSummary,
+          ageText,
+          salaryText,
+          engText,
+          prText,
+        };
+      })
+      .filter(Boolean);
+  }
+
+  function renderComparisonDrawer() {
+    if (typeof document === "undefined") return;
+    refreshPinnedButtonStates();
+    const drawer = document.getElementById("dama-compare-drawer");
+    const bodyEl = document.getElementById("dama-compare-drawer-body");
+    const pillEl = document.getElementById("dama-compare-count-pill");
+    const titleEl = document.getElementById("dama-compare-title");
+    const sampleBtn = document.getElementById("btn-sample-compare");
+    const clearBtn = document.getElementById("btn-clear-compare");
+    const toggleBtn = document.getElementById("btn-toggle-compare-drawer");
+    if (!drawer || !bodyEl) return;
+
+    const n = pinnedItems.length;
+    if (pillEl) pillEl.textContent = `${n}/3`;
+    if (titleEl) titleEl.textContent = t("cmpDrawerTitle");
+    if (sampleBtn) sampleBtn.textContent = t("cmpSampleBtn");
+    if (clearBtn) {
+      clearBtn.textContent = t("cmpClearAll");
+      clearBtn.disabled = n === 0;
+    }
+    if (toggleBtn) {
+      toggleBtn.textContent = compareDrawerCollapsed ? t("cmpExpandBtn") : t("cmpCollapseBtn");
+    }
+    drawer.classList.toggle("collapsed", compareDrawerCollapsed);
+
+    if (n === 0) {
+      bodyEl.innerHTML = `<div style="padding:10px 4px;font-size:13px;color:#4A5D60;">${esc(t("cmpEmptyPrompt"))}</div>`;
+      return;
+    }
+
+    const cols = buildComparisonColumns();
+    const rowLabels = currentLang === "ko"
+      ? {
+          corner: "비교 항목",
+          r1: "1. DAMA 지역 · 접수 상태",
+          r2: "2. 연령 상한 (Age Cap)",
+          r3: "3. 급여 감면 (TSMIT / CSIT)",
+          r4: "4. 영어 완화 (482/494 vs 186)",
+          r5: "5. 영주권 경로 · 소요 기간",
+        }
+      : {
+          corner: "Comparison Dimension",
+          r1: "1. DAMA Region & Intake Status",
+          r2: "2. Age Cap",
+          r3: "3. TSMIT / CSIT Salary Concession",
+          r4: "4. English Concession (482/494 vs 186)",
+          r5: "5. PR Pathway & Duration",
+        };
+
+    const headColsHtml = cols
+      .map(
+        (c) => `
+        <th>
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
+            <div>
+              <div style="font-size:13px;font-weight:800;color:#FFFFFF;">${esc(c.colTitle)}</div>
+              <div style="font-size:11px;color:#CFDAD9;font-weight:600;margin-top:2px;">${esc(c.colSub)}</div>
+            </div>
+            <button type="button" class="btn-remove-pin" data-remove-pin="${esc(c.key)}" aria-label="${esc(t("cmpRemoveItem"))}">${esc(t("cmpRemoveItem"))}</button>
+          </div>
+        </th>`
+      )
+      .join("");
+
+    const row1Cells = cols
+      .map(
+        (c) => `
+        <td>
+          <div style="font-weight:800;color:#14282A;">${esc(c.intakeText)}</div>
+          <div style="font-size:11.5px;color:#4A5D60;margin-top:3px;">${esc(c.darFeeSummary)}</div>
+        </td>`
+      )
+      .join("");
+    const row2Cells = cols.map((c) => `<td>${esc(c.ageText)}</td>`).join("");
+    const row3Cells = cols.map((c) => `<td>${esc(c.salaryText)}</td>`).join("");
+    const row4Cells = cols.map((c) => `<td>${esc(c.engText)}</td>`).join("");
+    const row5Cells = cols.map((c) => `<td>${esc(c.prText)}</td>`).join("");
+
+    bodyEl.innerHTML = `
+      <div class="table-scroll">
+        <table class="dama-compare-table">
+          <thead>
+            <tr>
+              <th>${esc(rowLabels.corner)}</th>
+              ${headColsHtml}
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-cmp-row="intake">
+              <th>${esc(rowLabels.r1)}</th>
+              ${row1Cells}
+            </tr>
+            <tr data-cmp-row="age">
+              <th>${esc(rowLabels.r2)}</th>
+              ${row2Cells}
+            </tr>
+            <tr data-cmp-row="salary">
+              <th>${esc(rowLabels.r3)}</th>
+              ${row3Cells}
+            </tr>
+            <tr data-cmp-row="english">
+              <th>${esc(rowLabels.r4)}</th>
+              ${row4Cells}
+            </tr>
+            <tr data-cmp-row="pathway">
+              <th>${esc(rowLabels.r5)}</th>
+              ${row5Cells}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    `;
+  }
+
+  function togglePinRegion(damaId) {
+    const key = `region:${damaId}`;
+    const idx = pinnedItems.findIndex((x) => x.key === key);
+    if (idx >= 0) {
+      pinnedItems.splice(idx, 1);
+      showCompareToast("");
+    } else {
+      if (pinnedItems.length >= MAX_PINNED_ITEMS) {
+        showCompareToast(t("cmpMaxToast"));
+        if (typeof document !== "undefined") {
+          const drawer = document.getElementById("dama-compare-drawer");
+          if (drawer) drawer.hidden = false;
+        }
+        compareDrawerCollapsed = false;
+        renderComparisonDrawer();
+        return { added: false, reason: "max_reached", count: pinnedItems.length };
+      }
+      pinnedItems.push({ key, type: "region", damaId, occId: null });
+      showCompareToast("");
+      compareDrawerCollapsed = false;
+    }
+    if (typeof document !== "undefined") {
+      const drawer = document.getElementById("dama-compare-drawer");
+      if (drawer) drawer.hidden = pinnedItems.length === 0;
+    }
+    renderComparisonDrawer();
+    return { added: idx < 0, count: pinnedItems.length };
+  }
+
+  function togglePinOccupation(occId) {
+    const numId = Number(occId);
+    const o = DATA && Array.isArray(DATA.occupations) ? DATA.occupations.find((x) => x.id === numId) : null;
+    if (!o) return { added: false, reason: "not_found", count: pinnedItems.length };
+    const key = `occ:${o.id}`;
+    const idx = pinnedItems.findIndex((x) => x.key === key);
+    if (idx >= 0) {
+      pinnedItems.splice(idx, 1);
+      showCompareToast("");
+    } else {
+      if (pinnedItems.length >= MAX_PINNED_ITEMS) {
+        showCompareToast(t("cmpMaxToast"));
+        if (typeof document !== "undefined") {
+          const drawer = document.getElementById("dama-compare-drawer");
+          if (drawer) drawer.hidden = false;
+        }
+        compareDrawerCollapsed = false;
+        renderComparisonDrawer();
+        return { added: false, reason: "max_reached", count: pinnedItems.length };
+      }
+      pinnedItems.push({ key, type: "occ", damaId: o.dama_id, occId: o.id });
+      showCompareToast("");
+      compareDrawerCollapsed = false;
+    }
+    if (typeof document !== "undefined") {
+      const drawer = document.getElementById("dama-compare-drawer");
+      if (drawer) drawer.hidden = pinnedItems.length === 0;
+    }
+    renderComparisonDrawer();
+    return { added: idx < 0, count: pinnedItems.length };
+  }
+
+  function removePinnedItem(key) {
+    pinnedItems = pinnedItems.filter((x) => x.key !== key);
+    showCompareToast("");
+    if (typeof document !== "undefined") {
+      const drawer = document.getElementById("dama-compare-drawer");
+      if (drawer && pinnedItems.length === 0) drawer.hidden = true;
+    }
+    renderComparisonDrawer();
+    return pinnedItems.length;
+  }
+
+  function clearPinnedItems() {
+    pinnedItems = [];
+    showCompareToast("");
+    if (typeof document !== "undefined") {
+      const drawer = document.getElementById("dama-compare-drawer");
+      if (drawer) drawer.hidden = true;
+    }
+    renderComparisonDrawer();
+  }
+
+  function loadSampleComparison() {
+    pinnedItems = [
+      { key: "region:fnq_dama", type: "region", damaId: "fnq_dama", occId: null },
+      { key: "region:nt_dama_iii", type: "region", damaId: "nt_dama_iii", occId: null },
+      { key: "region:wa_statewide_dama", type: "region", damaId: "wa_statewide_dama", occId: null },
+    ];
+    compareDrawerCollapsed = false;
+    showCompareToast("");
+    if (typeof document !== "undefined") {
+      const drawer = document.getElementById("dama-compare-drawer");
+      if (drawer) drawer.hidden = false;
+    }
+    renderComparisonDrawer();
+  }
+
   function applyStaticTranslations() {
+    if (typeof document === "undefined") return;
     document.documentElement.lang = currentLang;
+    if (document.body) {
+      document.body.setAttribute("data-ui-lang", currentLang);
+    }
+    document.title = t("pageTitle");
+
+    const brandLink = document.getElementById("header-brand-link");
+    if (brandLink) brandLink.setAttribute("aria-label", t("brandAriaLabel"));
+
     document.querySelectorAll("[data-i18n]").forEach((el) => {
       const k = el.getAttribute("data-i18n");
-      if (k) el.textContent = t(k);
+      if (k === "urgentText") {
+        el.textContent = buildUrgentBannerText(currentLang, todayBrisbaneIso());
+      } else if (k) {
+        el.textContent = t(k);
+      }
     });
+
+    document.querySelectorAll("[data-balloon-ko][data-balloon-en]").forEach((el) => {
+      el.setAttribute(
+        "data-balloon",
+        currentLang === "ko" ? el.getAttribute("data-balloon-ko") : el.getAttribute("data-balloon-en")
+      );
+    });
+
     const searchInput = document.getElementById("search-input");
     if (searchInput) searchInput.placeholder = t("searchPlaceholder");
     const locInput = document.getElementById("filter-location");
     if (locInput) locInput.placeholder = t("locationPlaceholder");
 
-    document.getElementById("lang-toggle-ko").classList.toggle("active", currentLang === "ko");
-    document.getElementById("lang-toggle-en").classList.toggle("active", currentLang === "en");
+    document.querySelectorAll(".preset-chip").forEach((chip) => {
+      const qKo = chip.getAttribute("data-query-ko");
+      const qEn = chip.getAttribute("data-query-en");
+      const prevQuery = chip.getAttribute("data-query") || "";
+      const nextQuery = currentLang === "ko" ? (qKo || prevQuery) : (qEn || prevQuery);
+      chip.setAttribute("data-query", nextQuery);
+      if (chip.classList.contains("active") && searchInput && searchInput.value === prevQuery) {
+        searchInput.value = nextQuery;
+      }
+    });
+
+    document.querySelectorAll(".parkco-svc-link").forEach((lnk) => {
+      const h = currentLang === "en" ? lnk.getAttribute("data-en-href") : lnk.getAttribute("data-ko-href");
+      if (h) lnk.setAttribute("href", h);
+    });
+    document.querySelectorAll("a.cta-enquiry").forEach((a) => {
+      a.setAttribute("href", currentLang === "en" ? "https://parklawyers.com.au/links/" : "https://parklawyers.com.au/links/?lang=ko");
+    });
+    const footerHubUrl = document.getElementById("footer-hub-url");
+    if (footerHubUrl) {
+      footerHubUrl.textContent = currentLang === "en" ? "https://parklawyers.com.au/links/" : "https://parklawyers.com.au/links/?lang=ko";
+    }
+
+    const koBtn = document.getElementById("lang-toggle-ko");
+    const enBtn = document.getElementById("lang-toggle-en");
+    if (koBtn) koBtn.classList.toggle("active", currentLang === "ko");
+    if (enBtn) enBtn.classList.toggle("active", currentLang === "en");
 
     // Hydrate dynamic counts & polling status from DATA if loaded
     if (DATA) {
@@ -975,60 +1534,62 @@
 
     // Populate region dropdown dynamically from DATA.occupations while preserving value
     const regSelect = document.getElementById("filter-region");
-    const prevVal = regSelect.value || "all";
-    regSelect.innerHTML = `
-      <option value="all">${esc(currentLang === "ko" ? `호주 전체 (13개 DAMA 전 지역 · ${allTotalLabel}건)` : `All Australia (All 13 DAMAs · ${allTotalLabel} Entries)`)}</option>
-      <option value="state:QLD">${esc(currentLang === "ko" ? `── 퀸즐랜드 (QLD 전체 · ${sc("QLD")}건) ──` : `── Queensland (QLD All · ${sc("QLD")}) ──`)}</option>
-      <option value="fnq_dama">&nbsp;&nbsp;• [QLD] ${esc(currentLang === "ko" ? `FNQ (케언즈 등 공식 11개 LGA · ${c("fnq_dama")}건)` : `Far North Queensland (FNQ · 11 Official LGAs · ${c("fnq_dama")})`)}</option>
-      <option value="tnq_dama">&nbsp;&nbsp;• [QLD] ${esc(currentLang === "ko" ? `TNQ (타운즈빌 · 북부 퀸즐랜드 · ${c("tnq_dama")}건)` : `Townsville North Queensland (TNQ · ${c("tnq_dama")})`)}</option>
-      <option value="state:NSW">${esc(currentLang === "ko" ? `── 뉴사우스웨일즈 (NSW 전체 · ${sc("NSW")}건) ──` : `── New South Wales (NSW All · ${sc("NSW")}) ──`)}</option>
-      <option value="orana_dama">&nbsp;&nbsp;• [NSW] ${esc(currentLang === "ko" ? `Orana DAMA (NSW 51개 카운슬 · 현행 ${c("orana_dama")}건)` : `Orana DAMA (51 Regional NSW LGAs · ${c("orana_dama")} Active)`)}</option>
-      <option value="state:NT">${esc(currentLang === "ko" ? `── 노던 테리토리 (NT 전체 · ${sc("NT")}건) ──` : `── Northern Territory (NT All · ${sc("NT")}) ──`)}</option>
-      <option value="nt_dama_iii">&nbsp;&nbsp;• [NT] ${esc(currentLang === "ko" ? `NT DAMA III (다윈·앨리스스프링스 등 NT 전역 · ${c("nt_dama_iii")}건)` : `Northern Territory DAMA III (State-wide · ${c("nt_dama_iii")})`)}</option>
-      <option value="state:SA">${esc(currentLang === "ko" ? `── 남호주 (SA 전체 · ${sc("SA")}건) ──` : `── South Australia (SA All · ${sc("SA")}) ──`)}</option>
-      <option value="adelaide_city_dama">&nbsp;&nbsp;• [SA] ${esc(currentLang === "ko" ? `Adelaide City Tech (애들레이드 광역 · 2027.01.31 연장 · ${c("adelaide_city_dama")}건)` : `Adelaide City Tech DAMA (Extended to 31 Jan 2027 · ${c("adelaide_city_dama")})`)}</option>
-      <option value="sa_regional_workforce_dama">&nbsp;&nbsp;• [SA] ${esc(currentLang === "ko" ? `SA Regional Workforce (남호주 지방 · 2027.01.31 연장 · ${c("sa_regional_workforce_dama")}건)` : `SA Regional Workforce DAMA (Extended to 31 Jan 2027 · ${c("sa_regional_workforce_dama")})`)}</option>
-      <option value="state:VIC">${esc(currentLang === "ko" ? `── 빅토리아 (VIC 전체 · ${sc("VIC")}건) ──` : `── Victoria (VIC All · ${sc("VIC")}) ──`)}</option>
-      <option value="goulburn_valley_dama">&nbsp;&nbsp;• [VIC] ${esc(currentLang === "ko" ? `Goulburn Valley (셰파튼·캠파스피·모이라 · ${c("goulburn_valley_dama")}건)` : `Goulburn Valley (GV) DAMA (${c("goulburn_valley_dama")})`)}</option>
-      <option value="great_south_coast_dama">&nbsp;&nbsp;• [VIC] ${esc(currentLang === "ko" ? `Great South Coast (워남불 등 6개 LGA · ${c("great_south_coast_dama")}건)` : `Great South Coast (GSC) DAMA (${c("great_south_coast_dama")})`)}</option>
-      <option value="state:WA">${esc(currentLang === "ko" ? `── 서호주 (WA 전체 · ${sc("WA")}건) ──` : `── Western Australia (WA All · ${sc("WA")}) ──`)}</option>
-      <option value="wa_statewide_dama">&nbsp;&nbsp;• [WA] ${esc(currentLang === "ko" ? `WA State-wide 전체 (${c("wa_statewide_dama")}건 · Cat 2 퍼스 ${rc.waCat2}건 / Cat 3 지방 ${rc.waCat3}건)` : `WA State-wide All (${c("wa_statewide_dama")} · Cat 2 Metro ${rc.waCat2} / Cat 3 Regional ${rc.waCat3})`)}</option>
-      <option value="wa_statewide_dama:cat2_metro">&nbsp;&nbsp;&nbsp;&nbsp;↳ [WA Cat 2] ${esc(currentLang === "ko" ? `퍼스 대도시권 (Metro Perth · ${rc.waCat2}건 · 3년 후 186)` : `WA Category 2 · Metropolitan Perth Only (${rc.waCat2} · 3y to 186)`)}</option>
-      <option value="wa_statewide_dama:cat3_regional">&nbsp;&nbsp;&nbsp;&nbsp;↳ [WA Cat 3] ${esc(currentLang === "ko" ? `서호주 지방 (Regional WA · ${rc.waCat3}건 · 2년 후 186)` : `WA Category 3 · Regional WA (${rc.waCat3} · 2y to 186)`)}</option>
-      <option value="pilbara_dama">&nbsp;&nbsp;• [WA] ${esc(currentLang === "ko" ? `Pilbara DAMA (카라사·포트헤들랜드·뉴먼 · ${c("pilbara_dama")}건)` : `Pilbara DAMA (${c("pilbara_dama")})`)}</option>
-      <option value="goldfields_dama">&nbsp;&nbsp;• [WA] ${esc(currentLang === "ko" ? `The Goldfields DAMA (${c("goldfields_dama")}건${formatOptionIntakeTag(dMap.goldfields_dama)})` : `The Goldfields DAMA (${c("goldfields_dama")}${formatOptionIntakeTag(dMap.goldfields_dama)})`)}</option>
-      <option value="south_west_dama">&nbsp;&nbsp;• [WA] ${esc(currentLang === "ko" ? `South West DAMA (${c("south_west_dama")}건${formatOptionIntakeTag(dMap.south_west_dama)})` : `South West DAMA (${c("south_west_dama")}${formatOptionIntakeTag(dMap.south_west_dama)})`)}</option>
-      <option value="east_kimberley_dama">&nbsp;&nbsp;• [WA] ${esc(currentLang === "ko" ? `Kimberley DAMA (브룸·쿠누누라·더비·홀스크릭 · ${c("east_kimberley_dama")}건)` : `Kimberley (East Kimberley) DAMA (${c("east_kimberley_dama")})`)}</option>
-    `;
-    regSelect.value = prevVal;
+    if (regSelect) {
+      const prevVal = regSelect.value || "all";
+      regSelect.innerHTML = `
+        <option value="all">${esc(currentLang === "ko" ? `호주 전체 (13개 DAMA 전 지역 · ${allTotalLabel}건)` : `All Australia (All 13 DAMAs · ${allTotalLabel} Entries)`)}</option>
+        <option value="state:QLD">${esc(currentLang === "ko" ? `── 퀸즐랜드 (QLD 전체 · ${sc("QLD")}건) ──` : `── Queensland (QLD All · ${sc("QLD")}) ──`)}</option>
+        <option value="fnq_dama">&nbsp;&nbsp;• [QLD] ${esc(currentLang === "ko" ? `FNQ (케언즈 등 공식 11개 LGA · ${c("fnq_dama")}건)` : `Far North Queensland (FNQ · 11 Official LGAs · ${c("fnq_dama")})`)}</option>
+        <option value="tnq_dama">&nbsp;&nbsp;• [QLD] ${esc(currentLang === "ko" ? `TNQ (타운즈빌 · 북부 퀸즐랜드 · ${c("tnq_dama")}건)` : `Townsville North Queensland (TNQ · ${c("tnq_dama")})`)}</option>
+        <option value="state:NSW">${esc(currentLang === "ko" ? `── 뉴사우스웨일즈 (NSW 전체 · ${sc("NSW")}건) ──` : `── New South Wales (NSW All · ${sc("NSW")}) ──`)}</option>
+        <option value="orana_dama">&nbsp;&nbsp;• [NSW] ${esc(currentLang === "ko" ? `Orana DAMA (NSW 51개 카운슬 · 현행 ${c("orana_dama")}건)` : `Orana DAMA (51 Regional NSW LGAs · ${c("orana_dama")} Active)`)}</option>
+        <option value="state:NT">${esc(currentLang === "ko" ? `── 노던 테리토리 (NT 전체 · ${sc("NT")}건) ──` : `── Northern Territory (NT All · ${sc("NT")}) ──`)}</option>
+        <option value="nt_dama_iii">&nbsp;&nbsp;• [NT] ${esc(currentLang === "ko" ? `NT DAMA III (다윈·앨리스스프링스 등 NT 전역 · ${c("nt_dama_iii")}건)` : `Northern Territory DAMA III (State-wide · ${c("nt_dama_iii")})`)}</option>
+        <option value="state:SA">${esc(currentLang === "ko" ? `── 남호주 (SA 전체 · ${sc("SA")}건) ──` : `── South Australia (SA All · ${sc("SA")}) ──`)}</option>
+        <option value="adelaide_city_dama">&nbsp;&nbsp;• [SA] ${esc(currentLang === "ko" ? `Adelaide City Tech (애들레이드 광역 · 2027.01.31 연장 · ${c("adelaide_city_dama")}건)` : `Adelaide City Tech DAMA (Extended to 31 Jan 2027 · ${c("adelaide_city_dama")})`)}</option>
+        <option value="sa_regional_workforce_dama">&nbsp;&nbsp;• [SA] ${esc(currentLang === "ko" ? `SA Regional Workforce (남호주 지방 · 2027.01.31 연장 · ${c("sa_regional_workforce_dama")}건)` : `SA Regional Workforce DAMA (Extended to 31 Jan 2027 · ${c("sa_regional_workforce_dama")})`)}</option>
+        <option value="state:VIC">${esc(currentLang === "ko" ? `── 빅토리아 (VIC 전체 · ${sc("VIC")}건) ──` : `── Victoria (VIC All · ${sc("VIC")}) ──`)}</option>
+        <option value="goulburn_valley_dama">&nbsp;&nbsp;• [VIC] ${esc(currentLang === "ko" ? `Goulburn Valley (셰파튼·캠파스피·모이라 · ${c("goulburn_valley_dama")}건)` : `Goulburn Valley (GV) DAMA (${c("goulburn_valley_dama")})`)}</option>
+        <option value="great_south_coast_dama">&nbsp;&nbsp;• [VIC] ${esc(currentLang === "ko" ? `Great South Coast (워남불 등 6개 LGA · ${c("great_south_coast_dama")}건)` : `Great South Coast (GSC) DAMA (${c("great_south_coast_dama")})`)}</option>
+        <option value="state:WA">${esc(currentLang === "ko" ? `── 서호주 (WA 전체 · ${sc("WA")}건) ──` : `── Western Australia (WA All · ${sc("WA")}) ──`)}</option>
+        <option value="wa_statewide_dama">&nbsp;&nbsp;• [WA] ${esc(currentLang === "ko" ? `WA State-wide 전체 (${c("wa_statewide_dama")}건 · Cat 2 퍼스 ${rc.waCat2}건 / Cat 3 지방 ${rc.waCat3}건)` : `WA State-wide All (${c("wa_statewide_dama")} · Cat 2 Metro ${rc.waCat2} / Cat 3 Regional ${rc.waCat3})`)}</option>
+        <option value="wa_statewide_dama:cat2_metro">&nbsp;&nbsp;&nbsp;&nbsp;↳ [WA Cat 2] ${esc(currentLang === "ko" ? `퍼스 대도시권 (Metro Perth · ${rc.waCat2}건 · 3년 후 186)` : `WA Category 2 · Metropolitan Perth Only (${rc.waCat2} · 3y to 186)`)}</option>
+        <option value="wa_statewide_dama:cat3_regional">&nbsp;&nbsp;&nbsp;&nbsp;↳ [WA Cat 3] ${esc(currentLang === "ko" ? `서호주 지방 (Regional WA · ${rc.waCat3}건 · 2년 후 186)` : `WA Category 3 · Regional WA (${rc.waCat3} · 2y to 186)`)}</option>
+        <option value="pilbara_dama">&nbsp;&nbsp;• [WA] ${esc(currentLang === "ko" ? `Pilbara DAMA (카라사·포트헤들랜드·뉴먼 · ${c("pilbara_dama")}건)` : `Pilbara DAMA (${c("pilbara_dama")})`)}</option>
+        <option value="goldfields_dama">&nbsp;&nbsp;• [WA] ${esc(currentLang === "ko" ? `The Goldfields DAMA (${c("goldfields_dama")}건${formatOptionIntakeTag(dMap.goldfields_dama)})` : `The Goldfields DAMA (${c("goldfields_dama")}${formatOptionIntakeTag(dMap.goldfields_dama)})`)}</option>
+        <option value="south_west_dama">&nbsp;&nbsp;• [WA] ${esc(currentLang === "ko" ? `South West DAMA (${c("south_west_dama")}건${formatOptionIntakeTag(dMap.south_west_dama)})` : `South West DAMA (${c("south_west_dama")}${formatOptionIntakeTag(dMap.south_west_dama)})`)}</option>
+        <option value="east_kimberley_dama">&nbsp;&nbsp;• [WA] ${esc(currentLang === "ko" ? `Kimberley DAMA (브룸·쿠누누라·더비·홀스크릭 · ${c("east_kimberley_dama")}건)` : `Kimberley (East Kimberley) DAMA (${c("east_kimberley_dama")})`)}</option>
+      `;
+      regSelect.value = prevVal;
+    }
+
+    renderComparisonDrawer();
   }
 
   function updatePollingIndicators() {
-    if (!DATA || !DATA.meta || !DATA.meta.polling) return;
+    if (typeof document === "undefined" || !DATA || !DATA.meta || !DATA.meta.polling) return;
     const p = DATA.meta.polling;
     const badgeEl = document.getElementById("polling-badge-label");
     const dotEl = document.getElementById("polling-badge-dot");
     const footerEl = document.getElementById("footer-poll-status");
     const footerDateEl = document.getElementById("footer-currency-date");
     if (badgeEl) {
-      badgeEl.removeAttribute("data-ko-leaf");
       badgeEl.textContent = currentLang === "ko" ? (p.badge_label_ko || t("pollBadge")) : (p.badge_label_en || t("pollBadge"));
     }
     if (dotEl) {
       dotEl.style.background = p.overall_verification_status === "live_hash_unchanged" ? "#4ADE80" : "#F59E0B";
     }
     if (footerDateEl) {
-      footerDateEl.removeAttribute("data-ko-leaf");
       footerDateEl.textContent = p.last_polled_date || DATA.meta.currency_date || "Live";
     }
     if (footerEl) {
-      footerEl.removeAttribute("data-ko-leaf");
       footerEl.textContent = `${p.live_count || 0}/${p.total_targets || 15} Live · ${p.cache_count || 0} Cache (${p.overall_verification_status || "monitored"})`;
     }
   }
 
   function renderCombinatorAlert(f, totalMatches) {
     const banner = document.getElementById("combinator-alert-banner");
+    if (!banner) return;
     const alerts = [];
 
     if (f.location) {
@@ -1086,10 +1647,11 @@
               : `<div>${badgeHtml} <strong>${esc(d.name_en)} Closed to New Intake:</strong> New application/variation intake closed on <strong>${esc(d.new_application_cutoff)}</strong> (Agreement Expiry: <strong>${esc(d.head_agreement_expiry)}</strong>). Regional WA employers should check <strong>WA State-wide DAMA (Category 3 Regional WA · 358 entries)</strong> <a href="#fn-26">[26]</a> <a href="#fn-27">[27]</a>.</div>`
           );
         } else if (st.state === "imminent") {
+          const dLabel = st.days_to_cutoff === 0 ? "D-Day" : `D-${st.days_to_cutoff}`;
           alerts.push(
             currentLang === "ko"
-              ? `<div>${badgeHtml} <strong>${esc(d.name_ko)} 접수 마감 임박 경보:</strong> 신규 신청 접수 마감일(<strong>${esc(d.new_application_cutoff)} · D-${st.days_to_cutoff}</strong>)이 임박했습니다(협약 종료일: <strong>${esc(d.head_agreement_expiry)}</strong> · 마감 이후 신규 접수 불가하나 기존 승인된 Labour Agreement 및 비자는 자동 취소되지 않습니다) <a href="#fn-24">[24]</a>.</div>`
-              : `<div>${badgeHtml} <strong>${esc(d.name_en)} Intake Closing Imminently:</strong> New application cutoff is <strong>${esc(d.new_application_cutoff)} (D-${st.days_to_cutoff})</strong>; Agreement Expiry is <strong>${esc(d.head_agreement_expiry)}</strong> (existing approved Labour Agreements and visas are NOT automatically cancelled) <a href="#fn-24">[24]</a>.</div>`
+              ? `<div>${badgeHtml} <strong>${esc(d.name_ko)} 접수 마감 임박 경보:</strong> 신규 신청 접수 마감일(<strong>${esc(d.new_application_cutoff)} · ${dLabel}</strong>)이 임박했습니다(협약 종료일: <strong>${esc(d.head_agreement_expiry)}</strong> · 마감 이후 신규 접수 불가하나 기존 승인된 Labour Agreement 및 비자는 자동 취소되지 않습니다) <a href="#fn-24">[24]</a>.</div>`
+              : `<div>${badgeHtml} <strong>${esc(d.name_en)} Intake Closing Imminently:</strong> New application cutoff is <strong>${esc(d.new_application_cutoff)} (${dLabel})</strong>; Agreement Expiry is <strong>${esc(d.head_agreement_expiry)}</strong> (existing approved Labour Agreements and visas are NOT automatically cancelled) <a href="#fn-24">[24]</a>.</div>`
           );
         }
       });
@@ -1106,6 +1668,7 @@
 
   function renderRegionCards(f) {
     const grid = document.getElementById("region-cards-grid");
+    if (!grid) return;
     const countsByDama = {};
     DATA.damas.forEach((d) => {
       countsByDama[d.id] = 0;
@@ -1120,6 +1683,7 @@
     const htmlCards = DATA.damas.map((d) => {
       const matchCount = countsByDama[d.id] || 0;
       const isSelected = f.region === d.id || f.region.startsWith(d.id + ":");
+      const isPinned = isItemPinned(`region:${d.id}`);
       const intakeBadge = renderIntakeBadgeHtml(d);
       const cardCls = [
         "dama-card",
@@ -1131,9 +1695,10 @@
 
       const name = currentLang === "ko" ? d.name_ko : d.name_en;
       const lga = currentLang === "ko" ? d.lgas_ko : d.lgas_en;
+      const salBadgeLabel67 = currentLang === "ko" ? "85% CSIT ($67,510 · AMSR 필수)" : "85% CSIT ($67,510 · AMSR Req.)";
       const salBadge =
         d.min_salary_floor_aud === 67510
-          ? `<span class="badge badge-burgundy" data-balloon="${esc(currentLang === "ko" ? d.salary_rule_ko : d.salary_rule_en)}">85% CSIT ($67,510 · AMSR 필수) <span class="balloon-icon">?</span></span>`
+          ? `<span class="badge badge-burgundy" data-balloon="${esc(currentLang === "ko" ? d.salary_rule_ko : d.salary_rule_en)}">${salBadgeLabel67} <span class="balloon-icon">?</span></span>`
           : d.tsmit_concession_count > 0
           ? `<span class="badge badge-teal" data-balloon="${esc(currentLang === "ko" ? d.salary_rule_ko : d.salary_rule_en)}">90% CSIT ($71,481 · ${d.tsmit_concession_count}) <span class="balloon-icon">?</span></span>`
           : `<span class="badge badge-neutral">$79,423 CSIT</span>`;
@@ -1142,13 +1707,17 @@
         ? `<span class="badge badge-success" data-balloon="${esc(currentLang === "ko" ? d.dar_fee_ko : d.dar_fee_en)}">DAR $0 FREE <span class="balloon-icon">?</span></span>`
         : `<span class="badge badge-neutral" data-balloon="${esc(currentLang === "ko" ? d.dar_fee_ko : d.dar_fee_en)}">${esc(d.code)} DAR <span class="balloon-icon">?</span></span>`;
 
+      const directLabel = currentLang === "ko" ? "Direct 186 (조건부)" : "Direct 186 (Conditional)";
       const directBadge = d.direct_186
-        ? `<span class="badge badge-warn" data-balloon="${esc(currentLang === "ko" ? d.pr_rule_ko : d.pr_rule_en)}">Direct 186 (조건부) <span class="balloon-icon">?</span></span>`
+        ? `<span class="badge badge-warn" data-balloon="${esc(currentLang === "ko" ? d.pr_rule_ko : d.pr_rule_en)}">${directLabel} <span class="balloon-icon">?</span></span>`
         : "";
 
+      const sunsetLabel = currentLang === "ko"
+        ? (d.new_application_cutoff ? `마감 ${d.new_application_cutoff} / 종료 ${d.head_agreement_expiry}` : d.sunset_date)
+        : (d.new_application_cutoff ? `Cutoff ${d.new_application_cutoff} / Exp ${d.head_agreement_expiry}` : d.sunset_date);
       const sunsetBadge =
         !intakeBadge && d.sunset_warning
-          ? `<span class="badge badge-danger" data-balloon="${esc(currentLang === "ko" ? d.sunset_note_ko : d.sunset_note_en)}">⏰ ${esc(d.new_application_cutoff ? `마감 ${d.new_application_cutoff} / 종료 ${d.head_agreement_expiry}` : d.sunset_date)} <span class="balloon-icon">?</span></span>`
+          ? `<span class="badge badge-danger" data-balloon="${esc(currentLang === "ko" ? d.sunset_note_ko : d.sunset_note_en)}">⏰ ${esc(sunsetLabel)} <span class="balloon-icon">?</span></span>`
           : "";
 
       return `
@@ -1172,9 +1741,14 @@
             <span class="match-pill clickable" data-select-dama="${esc(d.id)}">
               ${currentLang === "ko" ? `탐색 항목 ${matchCount}건` : `${matchCount} Matching Entries`}
             </span>
-            <button type="button" class="btn-region-detail" data-open-region="${esc(d.id)}">
-              ${esc(t("regDetailBtn"))}
-            </button>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;">
+              <button type="button" class="btn-pin-compare ${isPinned ? "pinned" : ""}" data-pin-region="${esc(d.id)}">
+                ${esc(isPinned ? t("cmpPinAdded") : t("cmpPinAdd"))}
+              </button>
+              <button type="button" class="btn-region-detail" data-open-region="${esc(d.id)}">
+                ${esc(t("regDetailBtn"))}
+              </button>
+            </div>
           </div>
         </div>
       `;
@@ -1186,6 +1760,7 @@
   function renderTable() {
     const tbody = document.getElementById("occ-table-body");
     const countEl = document.getElementById("results-count-value");
+    if (!tbody || !countEl) return;
     countEl.textContent = filteredOccupations.length.toLocaleString();
 
     const totalPages = Math.max(1, Math.ceil(filteredOccupations.length / PAGE_SIZE));
@@ -1217,18 +1792,21 @@
           const fnLinks = o.footnote_ids.map((fid) => `<a href="#fn-${fid}" class="fn-ref">[${fid}]</a>`).join(" ");
           const rowEval = evaluateRowStatus(o, f);
           const intakeRowBadge = renderIntakeBadgeHtml(d);
+          const isPinned = isItemPinned(`occ:${o.id}`);
 
           // Salary badge with balloon
           const salBalloon =
             currentLang === "ko"
               ? `[${damaName} 급여 규칙] ${o.min_salary_2026} · ${o.tsmit_detail}. ${d.salary_rule_ko}`
               : `[${damaName} Salary Rule] ${o.min_salary_2026} · ${o.tsmit_detail}. ${d.salary_rule_en}`;
+          const sal67Text = currentLang === "ko" ? "$67,510 (85% · AMSR 필수)" : "$67,510 (85% · AMSR Req.)";
+          const salStdText = currentLang === "ko" ? "$79,423 (표준 CSIT)" : "$79,423 (Standard CSIT)";
           const salBadge =
             o.min_salary_aud === 67510
-              ? `<span class="badge badge-burgundy" data-balloon="${esc(salBalloon)}">$67,510 (85% · AMSR 필수) <span class="balloon-icon">?</span></span>`
+              ? `<span class="badge badge-burgundy" data-balloon="${esc(salBalloon)}">${sal67Text} <span class="balloon-icon">?</span></span>`
               : o.tsmit_concession
               ? `<span class="badge badge-teal" data-balloon="${esc(salBalloon)}">$71,481 (90% CSIT) <span class="balloon-icon">?</span></span>`
-              : `<span class="badge badge-neutral" data-balloon="${esc(salBalloon)}">$79,423 (표준 CSIT) <span class="balloon-icon">?</span></span>`;
+              : `<span class="badge badge-neutral" data-balloon="${esc(salBalloon)}">${salStdText} <span class="balloon-icon">?</span></span>`;
 
           // English badge with balloon (explicitly showing 482, 494, and 186)
           const engBalloon =
@@ -1239,9 +1817,10 @@
             ? `<span class="badge badge-teal" data-balloon="${esc(engBalloon)}">${esc((o.english_482 || o.english_482_494).slice(0, 38))} <span class="balloon-icon">?</span></span>`
             : `<span class="badge badge-neutral" data-balloon="${esc(engBalloon)}">${currentLang === "ko" ? "표준 영어 점수" : "Standard English"} <span class="balloon-icon">?</span></span>`;
 
+          const swEngLabel = currentLang === "ko" ? "186 IELTS 6.0 필수!" : "186 IELTS 6.0 Req!";
           const swEngWarn =
             o.no_186_eng_concession && o.english_concession
-              ? `<div style="margin-top:4px;"><span class="badge badge-danger" data-balloon="${esc(currentLang === "ko" ? "사우스 웨스트 DAMA 자체 협약은 186 영주권 단계에 영어 감면이 없어 표준 Competent English(IELTS 각 6.0 또는 LIN 25/016 PTE Academic L47/R48/W51/S54)가 필수입니다. WA State-wide DAMA로 전환하여 186 영어 감면(IELTS 5.0/4.0)을 활용하려면 표준 CSIT($79,423) 충족 및 WA DTWD Note 1 경과조치 사전 확인이 필요합니다." : "South West DAMA has NO English concession at the ENS 186 stage (requires Competent English: IELTS 6.0 each or LIN 25/016 PTE L47/R48/W51/S54). Transitioning to WA State-wide DAMA for its 186 English concession (IELTS 5.0/4.0) requires full CSIT ($79,423) and WA DTWD Note 1 confirmation.")}">186 IELTS 6.0 필수! <span class="balloon-icon">?</span></span></div>`
+              ? `<div style="margin-top:4px;"><span class="badge badge-danger" data-balloon="${esc(currentLang === "ko" ? "사우스 웨스트 DAMA 자체 협약은 186 영주권 단계에 영어 감면이 없어 표준 Competent English(IELTS 각 6.0 또는 LIN 25/016 PTE Academic L47/R48/W51/S54)가 필수입니다. WA State-wide DAMA로 전환하여 186 영어 감면(IELTS 5.0/4.0)을 활용하려면 표준 CSIT($79,423) 충족 및 WA DTWD Note 1 경과조치 사전 확인이 필요합니다." : "South West DAMA has NO English concession at the ENS 186 stage (requires Competent English: IELTS 6.0 each or LIN 25/016 PTE L47/R48/W51/S54). Transitioning to WA State-wide DAMA for its 186 English concession (IELTS 5.0/4.0) requires full CSIT ($79,423) and WA DTWD Note 1 confirmation.")}">${swEngLabel} <span class="balloon-icon">?</span></span></div>`
               : `<div style="font-size:11.5px;color:#5A5654;margin-top:3px;">186: ${esc(o.english_186.slice(0, 36))}</div>`;
 
           // Age & PR badge with balloon
@@ -1251,12 +1830,14 @@
               : `[Max Age]: Under ${o.max_age} (at 494/186 nomination) | [PR Pathway]: ${o.pr_pathway_summary}. ${d.pr_rule_en}`;
           const ageBadge = `<span class="badge ${o.max_age === 55 ? "badge-success" : "badge-warn"}" data-balloon="${esc(prBalloon)}">${currentLang === "ko" ? `만 ${o.max_age}세 미만` : `Under ${o.max_age}`} <span class="balloon-icon">?</span></span>`;
 
+          const directRowLabel = currentLang === "ko" ? "Direct 186 (조건부)" : "Direct 186 (Conditional)";
           const directBadge = o.direct_186
-            ? `<span class="badge badge-warn" data-balloon="${esc(currentLang === "ko" ? "조건부 Direct ENS 186: 2년 지역 경력 외에 고용주 DAR Endorsement 및 개별 Labour Agreement 내 ENS 186 승인 확인이 필수입니다." : "Conditional Direct ENS 186: Requires verified DAR endorsement and ENS 186 stream in the employer's Labour Agreement in addition to 2y regional work.")}">Direct 186 (조건부) <span class="balloon-icon">?</span></span>`
+            ? `<span class="badge badge-warn" data-balloon="${esc(currentLang === "ko" ? "조건부 Direct ENS 186: 2년 지역 경력 외에 고용주 DAR Endorsement 및 개별 Labour Agreement 내 ENS 186 승인 확인이 필수입니다." : "Conditional Direct ENS 186: Requires verified DAR endorsement and ENS 186 stream in the employer's Labour Agreement in addition to 2y regional work.")}">${directRowLabel} <span class="balloon-icon">?</span></span>`
             : "";
 
+          const sl5WarnLabel = currentLang === "ko" ? "SL1–4 승진 필수" : "SL1–4 Upgrade Req.";
           const sl5Warn = o.sl5_upgrade_req
-            ? `<div style="margin-top:4px;"><span class="badge badge-warn" data-balloon="${esc(currentLang === "ko" ? "이 지역(GV / Townsville)에서 Skill Level 5 근로자가 ENS 186 영주권을 신청하려면 반드시 Skill Level 1~4 상위 직종으로 승진하여 최소 2년간 근무해야 합니다." : "In GV and Townsville DAMAs, Skill Level 5 workers must upgrade/progress into a Skill Level 1–4 role for at least 2 years to qualify for ENS 186.")}">SL1–4 승진 필수 <span class="balloon-icon">?</span></span></div>`
+            ? `<div style="margin-top:4px;"><span class="badge badge-warn" data-balloon="${esc(currentLang === "ko" ? "이 지역(GV / Townsville)에서 Skill Level 5 근로자가 ENS 186 영주권을 신청하려면 반드시 Skill Level 1~4 상위 직종으로 승진하여 최소 2년간 근무해야 합니다." : "In GV and Townsville DAMAs, Skill Level 5 workers must upgrade/progress into a Skill Level 1–4 role for at least 2 years to qualify for ENS 186.")}">${sl5WarnLabel} <span class="balloon-icon">?</span></span></div>`
             : "";
 
           const zoneNote = o.availability_zone
@@ -1264,7 +1845,7 @@
             : "";
 
           const legacyNote = o.legacy_anzsco_alias
-            ? ` <span style="font-size:11px;color:#5A5654;">(구 코드: ${esc(o.legacy_anzsco_alias)})</span>`
+            ? ` <span style="font-size:11px;color:#5A5654;">(${currentLang === "ko" ? "구 코드" : "Legacy"}: ${esc(o.legacy_anzsco_alias)})</span>`
             : "";
 
           const statusBadgeCls = rowEval.status === "candidate" ? "badge-success" : "badge-warn";
@@ -1334,9 +1915,14 @@
                 <div style="margin-bottom:5px;">
                   <span class="badge ${statusBadgeCls}" data-balloon="${esc(statusBalloon)}">${esc(statusLabel)} <span class="balloon-icon">?</span></span>
                 </div>
-                <button type="button" class="btn-open-modal" data-occ-id="${o.id}">
-                  ${esc(t("btnRowModal"))}
-                </button>
+                <div style="display:flex;flex-direction:column;gap:5px;">
+                  <button type="button" class="btn-open-modal" data-occ-id="${o.id}">
+                    ${esc(t("btnRowModal"))}
+                  </button>
+                  <button type="button" class="btn-pin-compare ${isPinned ? "pinned" : ""}" data-pin-occ="${o.id}">
+                    ${esc(isPinned ? t("cmpPinAdded") : t("cmpPinAdd"))}
+                  </button>
+                </div>
               </td>
             </tr>
           `;
@@ -1346,20 +1932,25 @@
 
     // Pagination controls
     const pageInfo = document.getElementById("page-info");
-    pageInfo.textContent =
-      currentLang === "ko"
-        ? `총 ${filteredOccupations.length.toLocaleString()}건 중 ${filteredOccupations.length ? startIdx + 1 : 0}–${Math.min(startIdx + PAGE_SIZE, filteredOccupations.length)} 표시 (페이지 ${currentPage} / ${totalPages})`
-        : `Showing ${filteredOccupations.length ? startIdx + 1 : 0}–${Math.min(startIdx + PAGE_SIZE, filteredOccupations.length)} of ${filteredOccupations.length.toLocaleString()} entries (Page ${currentPage} of ${totalPages})`;
+    if (pageInfo) {
+      pageInfo.textContent =
+        currentLang === "ko"
+          ? `총 ${filteredOccupations.length.toLocaleString()}건 중 ${filteredOccupations.length ? startIdx + 1 : 0}–${Math.min(startIdx + PAGE_SIZE, filteredOccupations.length)} 표시 (페이지 ${currentPage} / ${totalPages})`
+          : `Showing ${filteredOccupations.length ? startIdx + 1 : 0}–${Math.min(startIdx + PAGE_SIZE, filteredOccupations.length)} of ${filteredOccupations.length.toLocaleString()} entries (Page ${currentPage} of ${totalPages})`;
+    }
 
-    document.getElementById("btn-prev-page").disabled = currentPage <= 1;
-    document.getElementById("btn-next-page").disabled = currentPage >= totalPages;
+    const prevBtn = document.getElementById("btn-prev-page");
+    const nextBtn = document.getElementById("btn-next-page");
+    if (prevBtn) prevBtn.disabled = currentPage <= 1;
+    if (nextBtn) nextBtn.disabled = currentPage >= totalPages;
   }
 
   function applyFilters(resetPage) {
+    if (!DATA || !Array.isArray(DATA.occupations)) return;
     if (resetPage) currentPage = 1;
     const f = getFilters();
     const clearBtn = document.getElementById("clear-search-btn");
-    clearBtn.style.display = f.q ? "inline-flex" : "none";
+    if (clearBtn) clearBtn.style.display = f.q ? "inline-flex" : "none";
 
     const isDefaultState =
       !userInteracted &&
@@ -1392,6 +1983,7 @@
     const f = getFilters();
     const rowEval = evaluateRowStatus(o, f);
     const modalIntakeBadge = renderIntakeBadgeHtml(d);
+    const postcodesDisplay = currentLang === "ko" ? d.postcodes : (d.postcodes_en || d.postcodes);
 
     const damaName = currentLang === "ko" ? o.dama_name_ko : o.dama_name_en;
     titleEl.textContent = `${o.occupation_title} (${o.classification_scheme || "ANZSCO"} ${o.anzsco_code} · Skill Level ${o.skill_level}) · ${damaName}`;
@@ -1450,6 +2042,7 @@
           <li><strong>Age ${trapRangeStr} Transition Timing Notice (Under-${o.max_age} Cap):</strong> Because the Under-${o.max_age} age cap applies at ENS 186 nomination lodgement, applicants aged ${trapRangeStr} on a ${transitionYearsForAge}-year transition pathway will reach ${o.max_age}+ before 186 nomination (whereas age ${trapStart - 1} + ${transitionYearsForAge}y = ${o.max_age - 1} remains under ${o.max_age}). Applicants aged ${trapRangeStr} should consider lodging <strong>SESR Subclass 494</strong> before turning ${o.max_age}, then transitioning after 3 years to <strong>Subclass 191 PR (no age limit)</strong>.</li>
           ${o.direct_186 ? `<li style="color:#7A1F2B;font-weight:700;">★ Conditional Direct ENS 186 Provision (Requires Verification): While this DAMA allows counting 2 years of regional work on non-DAMA temporary visas, Direct ENS 186 is NOT automatic · it requires verified employer DAR endorsement, an approved Labour Agreement covering the ENS 186 stream, and occupation/skill-level compliance.</li>` : ""}
           ${o.sl5_upgrade_req ? `<li style="color:#B23A2E;font-weight:700;">⚠ SL5 Promotion Requirement: Skill Level 5 workers in this DAMA must progress into a Skill Level 1–4 occupation for at least 2 years to qualify for ENS 186.</li>` : ""}
+          ${o.no_186_eng_concession ? `<li style="color:#B23A2E;font-weight:700;">⚠ 186 English Notice: South West DAMA has no English concession at ENS 186 (IELTS 6.0 each band required).</li>` : ""}
         </ul>
       `;
     }
@@ -1459,7 +2052,7 @@
 
     bodyEl.innerHTML = `
       ${modalIntakeBadge ? `<div style="margin-bottom:12px;">${modalIntakeBadge} <span style="font-size:12.5px;color:#5A5654;margin-left:6px;">${esc(currentLang === "ko" ? (d.sunset_note_ko || "") : (d.sunset_note_en || ""))}</span></div>` : ""}
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-bottom:16px;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px;margin-bottom:16px;">
         <div style="background:#E7F3EC;border-left:4px solid #2E6B4F;padding:12px 14px;border-radius:0 8px 8px 0;">
           <h4 style="color:#2E6B4F;font-size:13.5px;font-weight:800;margin-bottom:6px;">
             ${currentLang === "ko" ? `탐색 상태: ${rowEval.label_ko} · 충족된 필터 조건` : `Explorer Status: ${rowEval.label_en} · Matched Filter Criteria`}
@@ -1506,7 +2099,7 @@
           <p><strong>DAR:</strong> <a href="${esc(d.dar_url)}" target="_blank" rel="noopener">${esc(currentLang === "ko" ? d.dar_ko : d.dar_en)} ↗</a></p>
           <p><strong>DAR Fee:</strong> ${esc(currentLang === "ko" ? d.dar_fee_ko : d.dar_fee_en)}</p>
           ${o.availability_zone ? `<p style="color:#7A1F2B;font-weight:700;"><strong>Zone:</strong> ${esc(o.availability_zone)}</p>` : ""}
-          <p><strong>Postcodes:</strong> <code>${esc(d.postcodes)}</code></p>
+          <p><strong>Postcodes:</strong> <code>${esc(postcodesDisplay)}</code></p>
           <p style="font-size:12.5px;color:#5A5654;margin-top:4px;">${esc(currentLang === "ko" ? d.lgas_ko : d.lgas_en)}</p>
         </div>
       </div>
@@ -1537,6 +2130,8 @@
     const titleEl = document.getElementById("modal-title");
     const bodyEl = document.getElementById("modal-body-content");
     const regIntakeBadge = renderIntakeBadgeHtml(d);
+    const postcodesDisplay = currentLang === "ko" ? d.postcodes : (d.postcodes_en || d.postcodes);
+    const exLgas = currentLang === "ko" ? (d.excluded_lgas || d.excluded_lgas_en || []) : (d.excluded_lgas_en || d.excluded_lgas || []);
 
     titleEl.textContent =
       currentLang === "ko"
@@ -1578,11 +2173,11 @@
         </div>
         <div class="modal-box">
           <h4>${currentLang === "ko" ? "포함 카운슬(LGA) 및 우편번호(Postcodes)" : "Covered LGAs & Postcodes"}</h4>
-          <p><strong>Postcodes:</strong> <code>${esc(d.postcodes)}</code></p>
+          <p><strong>Postcodes:</strong> <code>${esc(postcodesDisplay)}</code></p>
           <p style="margin-top:6px;font-size:13.5px;">${esc(currentLang === "ko" ? d.lgas_ko : d.lgas_en)}</p>
           ${
-            d.excluded_lgas && d.excluded_lgas.length
-              ? `<p style="margin-top:6px;font-size:12px;color:#B23A2E;"><strong>${currentLang === "ko" ? "제외 LGA 주의:" : "Excluded LGAs:"}</strong> ${esc(d.excluded_lgas.join(", "))}</p>`
+            exLgas && exLgas.length
+              ? `<p style="margin-top:6px;font-size:12px;color:#B23A2E;"><strong>${currentLang === "ko" ? "제외 LGA 주의:" : "Excluded LGAs:"}</strong> ${esc(exLgas.join(", "))}</p>`
               : ""
           }
         </div>
@@ -1705,8 +2300,8 @@
         </div>
       </div>
 
-      <div style="overflow-x:auto;border:1px solid #DED6C8;border-radius:10px;background:#FFFFFF;">
-        <table style="width:100%;border-collapse:collapse;font-size:13px;">
+      <div class="table-scroll" style="border:1px solid #DED6C8;border-radius:10px;background:#FFFFFF;">
+        <table style="width:100%;min-width:620px;border-collapse:collapse;font-size:13px;">
           <thead>
             <tr style="background:#1A1211;color:#FFFFFF;">
               <th style="padding:10px;text-align:left;">${currentLang === "ko" ? "점검 대상 공식 출처 (15개 엔드포인트)" : "Monitored Official Source (15 Endpoints)"}</th>
@@ -1725,6 +2320,7 @@
 
   function renderFootnotes() {
     const container = document.getElementById("footnotes-container");
+    if (!container || !DATA || !Array.isArray(DATA.footnotes)) return;
     container.innerHTML = DATA.footnotes
       .map((fn) => {
         const lic = currentLang === "ko" ? fn.licence_note_ko : fn.licence_note_en;
@@ -1734,7 +2330,7 @@
             <div>
               <div><strong>${esc(fn.org)}</strong> · <em>${esc(fn.title)}</em> (${esc(fn.date)})</div>
               <div style="margin-top:2px;">
-                <a href="${esc(fn.url)}" target="_blank" rel="noopener">${esc(fn.url)} ↗</a>
+                <a class="source-link" href="${esc(fn.url)}" target="_blank" rel="noopener">${esc(fn.url)} ↗</a>
               </div>
               <div style="font-size:11.5px;color:#5A5654;margin-top:2px;">
                 ${esc(lic)} · SHA-256: <code>${esc(fn.sha256.slice(0, 16))}...</code>
@@ -1750,6 +2346,7 @@
     const balloon = document.getElementById("floating-balloon");
     const balloonBody = document.getElementById("floating-balloon-body");
     const balloonClose = document.getElementById("floating-balloon-close");
+    if (!balloon || !balloonBody || !balloonClose) return;
 
     function showBalloon(targetEl) {
       const text = targetEl.getAttribute("data-balloon");
@@ -1806,6 +2403,16 @@
     } catch (_) {}
   }
 
+  function setLanguage(lang) {
+    currentLang = lang === "en" ? "en" : "ko";
+    if (typeof document !== "undefined") {
+      syncLangUrl(currentLang);
+      applyStaticTranslations();
+      renderFootnotes();
+      applyFilters(false);
+    }
+  }
+
   function applySampleProfile() {
     if (typeof document === "undefined") return;
     userInteracted = true;
@@ -1835,6 +2442,8 @@
     setData: (d) => {
       DATA = d;
     },
+    getLanguage: () => currentLang,
+    setLanguage,
     getFilteredOccupations: () => filteredOccupations,
     classifySaPostcode,
     classifyWaPostcode,
@@ -1842,6 +2451,7 @@
     checkLocationMatch,
     evaluateIntakeStatus,
     renderIntakeBadgeHtml,
+    buildUrgentBannerText,
     getRegionEntryCounts,
     todayBrisbaneIso,
     diffIsoDays,
@@ -1853,6 +2463,14 @@
     openOccupationModal,
     openRegionModal,
     applySampleProfile,
+    getPinnedItems: () => pinnedItems.slice(),
+    buildComparisonColumns,
+    togglePinRegion,
+    togglePinOccupation,
+    removePinnedItem,
+    clearPinnedItems,
+    loadSampleComparison,
+    renderComparisonDrawer,
   };
   if (typeof window !== "undefined") window.DAMA_NAVIGATOR = DAMA_NAVIGATOR_API;
   if (typeof globalThis !== "undefined") globalThis.DAMA_NAVIGATOR = DAMA_NAVIGATOR_API;
@@ -1874,22 +2492,15 @@
     applyStaticTranslations();
     renderFootnotes();
     applyFilters(true);
+    renderComparisonDrawer();
     setupBalloonTooltips();
 
     // Language toggle events
     document.getElementById("lang-toggle-ko").addEventListener("click", () => {
-      currentLang = "ko";
-      syncLangUrl("ko");
-      applyStaticTranslations();
-      renderFootnotes();
-      applyFilters(false);
+      setLanguage("ko");
     });
     document.getElementById("lang-toggle-en").addEventListener("click", () => {
-      currentLang = "en";
-      syncLangUrl("en");
-      applyStaticTranslations();
-      renderFootnotes();
-      applyFilters(false);
+      setLanguage("en");
     });
 
     // Search & filter events
@@ -1972,10 +2583,66 @@
       }
     });
 
-    // Delegated clicks for region cards and table modals
+    // Comparison drawer controls
+    document.querySelectorAll("#btn-open-compare-drawer, .btn-open-compare-mirror").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const drawer = document.getElementById("dama-compare-drawer");
+        if (!drawer) return;
+        if (!drawer.hidden && !compareDrawerCollapsed) {
+          if (pinnedItems.length === 0) {
+            drawer.hidden = true;
+          } else {
+            compareDrawerCollapsed = true;
+          }
+        } else {
+          drawer.hidden = false;
+          compareDrawerCollapsed = false;
+        }
+        renderComparisonDrawer();
+      });
+    });
+    const sampleCmpBtn = document.getElementById("btn-sample-compare");
+    if (sampleCmpBtn) {
+      sampleCmpBtn.addEventListener("click", () => {
+        loadSampleComparison();
+      });
+    }
+    const clearCmpBtn = document.getElementById("btn-clear-compare");
+    if (clearCmpBtn) {
+      clearCmpBtn.addEventListener("click", () => {
+        clearPinnedItems();
+      });
+    }
+    const toggleCmpBtn = document.getElementById("btn-toggle-compare-drawer");
+    if (toggleCmpBtn) {
+      toggleCmpBtn.addEventListener("click", () => {
+        compareDrawerCollapsed = !compareDrawerCollapsed;
+        renderComparisonDrawer();
+      });
+    }
+
+    // Delegated clicks for region cards, table modals, and comparison pin buttons
     document.addEventListener("click", (e) => {
       if (e.target.closest("#btn-polling-status")) {
         openPollingStatusModal();
+        return;
+      }
+      const pinRegBtn = e.target.closest("[data-pin-region]");
+      if (pinRegBtn) {
+        e.stopPropagation();
+        togglePinRegion(pinRegBtn.getAttribute("data-pin-region"));
+        return;
+      }
+      const pinOccBtn = e.target.closest("[data-pin-occ]");
+      if (pinOccBtn) {
+        e.stopPropagation();
+        togglePinOccupation(pinOccBtn.getAttribute("data-pin-occ"));
+        return;
+      }
+      const rmPinBtn = e.target.closest("[data-remove-pin]");
+      if (rmPinBtn) {
+        e.stopPropagation();
+        removePinnedItem(rmPinBtn.getAttribute("data-remove-pin"));
         return;
       }
       const openOccBtn = e.target.closest(".btn-open-modal");
@@ -2014,116 +2681,5 @@
 
   if (typeof document !== "undefined") {
     document.addEventListener("DOMContentLoaded", init);
-  }
-})();
-
-
-/* === Park & Co Universal Ecosystem Strip & Static Leaf KO<->EN Enhancer === */
-(function () {
-  var LEAF_KO_TO_EN = {
-    "← 박앤코 법률·비자 통합 허브": "← Park & Co Legal & Visa Hub",
-    "🧭 비자 솔루션 가이드(직종추론·SOL)": "🧭 Visa Solution Guide (Resume & SOL)",
-    "💡 호주이민 FAQ": "💡 Immigration FAQ",
-    "⚖️ ART 무료 재심검토": "⚖️ Free ART Review Triage",
-    "🚨 비자응급실(무료 통지서 진단)": "🚨 Visa Emergency (Free Notice Triage)",
-    "📋 GSM 서류검토(Case Review™)": "📋 GSM Case Review™",
-    "⚖️ 노미네이션·비자 거절 무료 ART Case Review™ →": "⚖️ Free Nomination/Visa Refusal ART Case Review™ →",
-    "🚨 비자응급실 (s 57·s 116·s 137Q 무료 진단) →": "🚨 Visa Emergency (Free s 57 / s 116 / s 137Q Triage) →",
-    "박앤코 온라인 상담·문의 바로가기 →": "Request Online Consultation with Park & Co →",
-    "DAMA 고용주 스폰서십(DAR Endorsement · Labour Agreement) 및 비자(SID 482 · SESR 494 · ENS 186) 전략 수립이 필요하시면 지금 바로 연락해 주십시오.": "Contact us for DAMA employer sponsorship (DAR Endorsement & Labour Agreement) and SID 482 / SESR 494 / ENS 186 strategy.",
-    "🧭 내 경력의 6자리 ANZSCO/OSCA 직종코드를 모르시거나 일반 CSOL·MLTSSL 직종도 함께 비교하고 싶으신가요?": "🧭 Unsure of Your 6-Digit ANZSCO/OSCA Code or Want to Compare Standard CSOL & MLTSSL Lists?",
-    "영문 이력서 기반 무료 ANZSCO 직종추론(#module-resume), 일반 482·186·189·190·491 통합 직종검색(#module-sol), 그리고 스폰서·DAMA 실전 FAQ를 통합 가이드에서 바로 확인하실 수 있습니다.": "Use free English Resume ANZSCO Inference (#module-resume), unified CSOL/MLTSSL occupation search (#module-sol), and real-world Sponsorship & DAMA FAQs.",
-    "📄 영문 이력서 ANZSCO 직종추론 (#module-resume) →": "📄 English Resume ANZSCO Inference (#module-resume) →",
-    "🔎 일반 CSOL·MLTSSL 통합 검색 (#module-sol) →": "🔎 Standard CSOL & MLTSSL Search (#module-sol) →",
-    "💡 호주이민 실전 FAQ 백과 →": "💡 Australian Immigration FAQ →",
-    "📄 비자 솔루션 가이드 (이력서 직종추론)": "📄 Visa Solution Guide (Resume ANZSCO Inference)",
-    "🔎 일반 CSOL·MLTSSL 통합 검색 (#module-sol)": "🔎 Standard CSOL & MLTSSL Search (#module-sol)",
-    "💡 호주이민 실전 FAQ 아카이브": "💡 Immigration FAQ Knowledge Base",
-    "파트너(820)·485": "Partner (820) & 485",
-    "부모비자": "Parent Visas",
-    "고용법(FWC)": "Employment Law (FWC)",
-    "가족법·재산분할": "Family Law & Property",
-    "위기·ART": "Visa Crisis & ART",
-    "← 전체 네비게이터 허브": "← All Navigators Hub",
-    "💬 온라인 상담신청": "💬 Enquire Online",
-    "박창민 대표변호사 (Chang Min Park)": "Chang Min Park (Legal Practitioner Director)",
-    "\"삶에 집중하세요, 법률은 저희가 맡겠습니다.\"": "\"You focus on life, we'll handle the law.\"",
-    "법무법인 박앤코 (PNC Legal Pty Ltd t/a Park & Co Lawyers)": "PNC Legal Pty Ltd t/a Park & Co Lawyers",
-    "법령 및 주정부 심사 근거": "Statutory & State Nomination Authority",
-    "법령 및 심사 근거": "Statutory & Policy Authority",
-    "법령 및 재판소 근거": "Statutory & Tribunal Authority",
-    "구분": "Category",
-    "공식 문서명 및 링크": "Official Instrument / Source & Link",
-    "관할 기관": "Authority",
-    "추적 지표": "Monitored Metrics",
-    "검증 주기": "Schedule",
-    "상태": "Status"
-  };
-
-  function applyUniversalLeafTranslation(lang) {
-    var isEn = lang === "en";
-    document.querySelectorAll(".parkco-svc-link").forEach(function (lnk) {
-      var h = isEn ? lnk.getAttribute("data-en-href") : lnk.getAttribute("data-ko-href");
-      if (h) lnk.setAttribute("href", h);
-    });
-    document.querySelectorAll("a.cta-enquiry").forEach(function (a) {
-      a.setAttribute("href", isEn ? "https://parklawyers.com.au/links/" : "https://parklawyers.com.au/links/?lang=ko");
-    });
-    var walk = function (el) {
-      if (!el || el.tagName === "SCRIPT" || el.tagName === "STYLE" || el.tagName === "PRE") return;
-      if (el.id === "polling-badge-label" || el.id === "footer-currency-date" || el.id === "footer-poll-status") return;
-      var hasElementChildren = false;
-      for (var i = 0; i < el.children.length; i++) {
-        if (el.children[i].tagName !== "BR") {
-          hasElementChildren = true;
-          break;
-        }
-      }
-      if (!hasElementChildren) {
-        var raw = (el.textContent || "").trim().replace(/\s+/g, " ");
-        if (!el.getAttribute("data-ko-leaf") && /[가-힣]/.test(raw) && raw.indexOf("한국어") === -1) {
-          el.setAttribute("data-ko-leaf", el.textContent);
-        }
-        var koOrig = el.getAttribute("data-ko-leaf");
-        if (koOrig) {
-          var normKo = koOrig.trim().replace(/\s+/g, " ");
-          if (isEn) {
-            if (LEAF_KO_TO_EN[normKo]) {
-              el.textContent = LEAF_KO_TO_EN[normKo];
-            } else if (normKo.indexOf("(") !== -1 && /[A-Za-z]/.test(normKo)) {
-              /* If option has bilingual text like '1월 (Jan)' or '만 67세 미만 (Under 67)', extract English or keep clean */
-            }
-          } else {
-            el.textContent = koOrig;
-          }
-        }
-      }
-      for (var j = 0; j < el.children.length; j++) {
-        walk(el.children[j]);
-      }
-    };
-    walk(document.body);
-  }
-
-  if (typeof document !== "undefined") {
-    document.addEventListener("DOMContentLoaded", function () {
-      var btns = document.querySelectorAll("#lang-en, #lang-ko, #lang-toggle-en, #lang-toggle-ko, .lang-btn");
-      btns.forEach(function (b) {
-        b.addEventListener("click", function () {
-          var isEn = (b.id && b.id.indexOf("en") !== -1) || b.getAttribute("data-lang") === "en";
-          document.documentElement.lang = isEn ? "en" : "ko";
-          setTimeout(function () { applyUniversalLeafTranslation(isEn ? "en" : "ko"); }, 20);
-        });
-      });
-
-      var params = new URLSearchParams(window.location.search);
-      if (params.get("lang") === "en") {
-        var enBtn = document.getElementById("lang-en") || document.getElementById("lang-toggle-en") || document.querySelector('[data-lang="en"]');
-        if (enBtn) {
-          enBtn.click();
-          setTimeout(function () { enBtn.click(); applyUniversalLeafTranslation("en"); }, 180);
-        }
-      }
-    });
   }
 })();
