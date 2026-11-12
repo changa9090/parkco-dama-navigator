@@ -502,7 +502,7 @@
       .replace(/(?:제외|exclud[^,·|)]*)[^,·|)]*\b\d{4}\b/gi, "");
 
     const pcNum = Number(pc);
-    const rangeRegex = /(\d{4})\s*[–—-]\s*(\d{4})/g;
+    const rangeRegex = /(\d{4})\s*[–·-]\s*(\d{4})/g;
     let m;
     while ((m = rangeRegex.exec(rawSpec)) !== null) {
       const lo = Number(m[1]);
@@ -512,7 +512,7 @@
       }
     }
 
-    const withoutRanges = rawSpec.replace(/(\d{4})\s*[–—-]\s*(\d{4})/g, " ");
+    const withoutRanges = rawSpec.replace(/(\d{4})\s*[–·-]\s*(\d{4})/g, " ");
     const singleRegex = /\b(\d{4})\b/g;
     while ((m = singleRegex.exec(withoutRanges)) !== null) {
       if (m[1] === pc) return true;
