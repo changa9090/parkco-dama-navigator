@@ -13,6 +13,7 @@
   let filteredOccupations = [];
   let userInteracted = false;
   let pinnedItems = [];
+  let prefillContext = null;
   let compareDrawerCollapsed = false;
   let compareToastMsg = "";
   let compareToastTimer = null;
@@ -1968,6 +1969,7 @@
     }
 
     filteredOccupations = DATA.occupations.filter((o) => rowMatches(o, f, false));
+    renderDamaPrefillBanner();
     renderCombinatorAlert(f, filteredOccupations.length);
     renderRegionCards(f);
     renderTable();
@@ -2107,6 +2109,15 @@
       <div class="modal-box" style="margin-bottom:18px;">
         <h4>${currentLang === "ko" ? "5. 1차 공식 출처 및 각주 (Primary Source Footnotes)" : "5. Verified Official Sources & Footnotes"}</h4>
         <ul style="padding-left:18px;font-size:13px;">${fnRefs}</ul>
+      </div>
+
+      <div class="modal-box" style="margin-bottom:14px;background:#FAF8F4;">
+        <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
+          <strong style="font-size:12.5px;color:#0E3A3E;">${currentLang === "ko" ? "연계 도구 교차 확인:" : "Cross-Check Related Navigators:"}</strong>
+          <a href="${esc(`https://changa9090.github.io/parkco-visa-solution-guide/?occ=${encodeURIComponent(o.anzsco_code || "")}&lang=${currentLang}#module-sol`)}" target="_blank" rel="noopener" class="btn-secondary" style="font-size:12px;padding:5px 10px;">${currentLang === "ko" ? "🧭 솔루션 가이드 전체 비자 보기 ↗" : "🧭 All Visas in Solution Guide ↗"}</a>
+          <a href="${esc(`https://changa9090.github.io/parkco-gsm-state-navigator/?anzsco=${encodeURIComponent(o.anzsco_code || "")}&lang=${currentLang}`)}" target="_blank" rel="noopener" class="btn-secondary" style="font-size:12px;padding:5px 10px;">${currentLang === "ko" ? "🏛️ 8개 주 GSM(190/491) 대조 ↗" : "🏛️ Compare 8-State GSM (190/491) ↗"}</a>
+          <a href="${esc(`https://changa9090.github.io/parkco-sid-ens-navigator/?anzsco=${encodeURIComponent(o.anzsco_code || "")}&lang=${currentLang}`)}" target="_blank" rel="noopener" class="btn-secondary" style="font-size:12px;padding:5px 10px;">${currentLang === "ko" ? "💼 표준 482·186 연봉 비교 ↗" : "💼 Standard 482 / 186 Salary Check ↗"}</a>
+        </div>
       </div>
 
       <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;background:#0E3A3E;color:#FFFFFF;padding:16px 20px;border-radius:10px;">
@@ -2413,6 +2424,179 @@
     }
   }
 
+  function renderDamaPrefillBanner() {
+    if (typeof document === "undefined") return;
+    const banner = document.getElementById("dama-prefill-banner");
+    if (!banner) return;
+    if (!prefillContext || (!prefillContext.query && !prefillContext.anzsco)) {
+      banner.style.display = "none";
+      banner.innerHTML = "";
+      return;
+    }
+    const en = currentLang === "en";
+    const code = prefillContext.anzsco || prefillContext.query;
+    const isCode6 = /^\d{6}$/.test(code);
+    const paramQ = isCode6 ? `occ=${encodeURIComponent(code)}` : `q=${encodeURIComponent(code)}`;
+    const gsmQ = isCode6 ? `anzsco=${encodeURIComponent(code)}` : `q=${encodeURIComponent(code)}`;
+    const langQ = en ? "&lang=en" : "";
+    const count = Array.isArray(filteredOccupations) ? filteredOccupations.length : 0;
+    const titleStr = en
+      ? `<strong>Prefilled DAMA Filter:</strong> <code>${esc(code)}</code> · <strong>${count}</strong> matching DAMA regional records`
+      : `<strong>연동 직종 필터 적용됨:</strong> <code>${esc(code)}</code> · <strong>${count}</strong>건의 DAMA 지역 협약 항목이 검색되었습니다`;
+    const solHref = `https://changa9090.github.io/parkco-visa-solution-guide/?${paramQ}${langQ}#module-sol`;
+    const gsmHref = `https://changa9090.github.io/parkco-gsm-state-navigator/?${gsmQ}${langQ}`;
+    const sidHref = `https://changa9090.github.io/parkco-sid-ens-navigator/?${gsmQ}${langQ}`;
+    banner.style.display = "block";
+    banner.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+        <div>🔎 ${titleStr}</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          <a href="${esc(solHref)}" target="_blank" rel="noopener" class="btn-secondary" style="font-size:11.5px;padding:4px 9px;">${en ? "🧭 Back to Solution Guide ↗" : "🧭 솔루션 가이드 전체 보기 ↗"}</a>
+          <a href="${esc(gsmHref)}" target="_blank" rel="noopener" class="btn-secondary" style="font-size:11.5px;padding:4px 9px;">${en ? "🏛️ Check 8-State GSM ↗" : "🏛️ 8개 주 GSM(190/491) 비교 ↗"}</a>
+          <a href="${esc(sidHref)}" target="_blank" rel="noopener" class="btn-secondary" style="font-size:11.5px;padding:4px 9px;">${en ? "💼 Standard 482 / 186 ↗" : "💼 표준 482·186 비교 ↗"}</a>
+        </div>
+      </div>
+    `;
+  }
+
+  function decodePkCtxParam(raw) {
+    if (!raw) return null;
+    try {
+      let b64 = String(raw).trim().replace(/-/g, "+").replace(/_/g, "/");
+      while (b64.length % 4) b64 += "=";
+      let jsonStr;
+      if (typeof Buffer !== "undefined") {
+        jsonStr = Buffer.from(b64, "base64").toString("utf8");
+      } else {
+        jsonStr = decodeURIComponent(escape(atob(b64)));
+      }
+      const obj = JSON.parse(jsonStr);
+      return obj && typeof obj === "object" ? obj : null;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  function applyQueryPrefill(rawSearch) {
+    const searchStr =
+      typeof rawSearch === "string"
+        ? rawSearch
+        : typeof window !== "undefined" && window.location
+        ? window.location.search || ""
+        : "";
+    if (!searchStr) return { applied: false };
+    let sp;
+    try {
+      sp = new URLSearchParams(searchStr);
+    } catch (_) {
+      return { applied: false };
+    }
+
+    const ctxObj = decodePkCtxParam(sp.get("pk_ctx")) || {};
+    let sharedObj = {};
+    if (
+      (sp.has("pk_ctx") || sp.has("handoff")) &&
+      typeof window !== "undefined" &&
+      window.ParkCoHandoff &&
+      typeof window.ParkCoHandoff.loadSharedProfile === "function"
+    ) {
+      try {
+        sharedObj = window.ParkCoHandoff.loadSharedProfile() || {};
+      } catch (_) {
+        sharedObj = {};
+      }
+    }
+
+    const qAnzsco = (sp.get("anzsco") || sp.get("occ") || ctxObj.anzsco || sharedObj.anzsco || "").trim();
+    const qText = (sp.get("q") || "").trim();
+    const qAge = (sp.get("age") || ctxObj.age || sharedObj.age || "").trim();
+    const qSal = (sp.get("salary") || sp.get("sal") || ctxObj.salary || sharedObj.salary || "").trim();
+    const qEng = (sp.get("english") || sp.get("eng") || ctxObj.english || sharedObj.english || "").trim();
+    const qReg = (sp.get("region") || ctxObj.region || "").trim();
+    const qLoc = (sp.get("postcode") || sp.get("loc") || ctxObj.postcode || sharedObj.postcode || "").trim();
+
+    let applied = false;
+    const searchVal = qAnzsco || qText;
+    if (searchVal && typeof document !== "undefined") {
+      const sInput = document.getElementById("search-input");
+      if (sInput) {
+        sInput.value = searchVal;
+        applied = true;
+      }
+      prefillContext = {
+        anzsco: /^\d{6}$/.test(qAnzsco) ? qAnzsco : "",
+        query: searchVal,
+      };
+    }
+
+    if (qLoc && typeof document !== "undefined") {
+      const locEl = document.getElementById("filter-location");
+      if (locEl) {
+        locEl.value = qLoc;
+        applied = true;
+      }
+    }
+
+    if (qAge && typeof document !== "undefined") {
+      const ageEl = document.getElementById("filter-age");
+      const ageNum = Number(qAge);
+      if (ageEl) {
+        if (["under45", "45-49", "50-54"].includes(qAge)) {
+          ageEl.value = qAge;
+          applied = true;
+        } else if (["18_24", "25_32", "33_39", "40_44"].includes(qAge)) {
+          ageEl.value = "under45";
+          applied = true;
+        } else if (qAge === "45_49" || qAge === "45_plus") {
+          ageEl.value = "45-49";
+          applied = true;
+        } else if (qAge === "50_54" || qAge === "50_plus") {
+          ageEl.value = "50-54";
+          applied = true;
+        } else if (Number.isFinite(ageNum) && ageNum > 0) {
+          ageEl.value = ageNum >= 50 ? "50-54" : ageNum >= 45 ? "45-49" : "under45";
+          applied = true;
+        }
+      }
+    }
+
+    if (qSal && typeof document !== "undefined") {
+      const salEl = document.getElementById("filter-salary");
+      const salNum = Number(qSal);
+      if (salEl && Number.isFinite(salNum) && salNum > 0) {
+        if (salNum <= 70000) {
+          salEl.value = "67510";
+          applied = true;
+        } else if (salNum < 79423) {
+          salEl.value = "71481";
+          applied = true;
+        }
+      }
+    }
+
+    if (qEng && typeof document !== "undefined") {
+      const engEl = document.getElementById("filter-english");
+      if (engEl && ["5.0-noband", "5.0-min40", "4.5-min40"].includes(qEng)) {
+        engEl.value = qEng;
+        applied = true;
+      }
+    }
+
+    if (qReg && typeof document !== "undefined") {
+      const regEl = document.getElementById("filter-region");
+      if (regEl && Array.from(regEl.options || []).some((o) => o.value === qReg)) {
+        regEl.value = qReg;
+        applied = true;
+      }
+    }
+
+    if (applied) {
+      userInteracted = true;
+      applyFilters(true);
+    }
+    return { applied };
+  }
+
   function applySampleProfile() {
     if (typeof document === "undefined") return;
     userInteracted = true;
@@ -2463,6 +2647,7 @@
     openOccupationModal,
     openRegionModal,
     applySampleProfile,
+    applyQueryPrefill,
     getPinnedItems: () => pinnedItems.slice(),
     buildComparisonColumns,
     togglePinRegion,
@@ -2491,6 +2676,7 @@
 
     applyStaticTranslations();
     renderFootnotes();
+    applyQueryPrefill();
     applyFilters(true);
     renderComparisonDrawer();
     setupBalloonTooltips();
@@ -2536,6 +2722,7 @@
     // Reset button
     document.getElementById("reset-filters-btn").addEventListener("click", () => {
       userInteracted = false;
+      prefillContext = null;
       document.getElementById("search-input").value = "";
       if (locInput) locInput.value = "";
       document.getElementById("filter-region").value = "all";

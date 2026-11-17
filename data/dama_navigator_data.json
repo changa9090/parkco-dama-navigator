@@ -1,7 +1,7 @@
 {
   "meta": {
     "generated_at": "2026-11-11T12:09:42.119525+00:00",
-    "currency_date": "2026-11-16",
+    "currency_date": "2026-11-18",
     "audit_revision": "2026-10-20-codex-errata-corrected",
     "base_csit": 79423,
     "dama_90_csit": 71481,
@@ -786,21 +786,21 @@
     "enquiry_url_en": "https://parklawyers.com.au/links/",
     "official_contact": "https://parklawyers.com.au/links/?lang=ko",
     "polling": {
-      "run_id": "poll-20261116-071530",
-      "last_polled_at": "2026-11-16T07:15:30.999965+10:00",
-      "last_polled_date": "2026-11-16",
+      "run_id": "poll-20261118-090236",
+      "last_polled_at": "2026-11-18T09:02:36.147136+10:00",
+      "last_polled_date": "2026-11-18",
       "schedule_cron_desc": "Weekly · Every Monday 07:15 AEST (Australia/Brisbane)",
       "overall_verification_status": "changes_detected_pending_legal_review",
-      "badge_label_ko": "원문 변경 감지 (2026-11-16 · 2건 수동 검토 필요)",
-      "badge_label_en": "Source Changed (2026-11-16 · 2 Pending Review)",
+      "badge_label_ko": "원문 변경 감지 (2026-11-18 · 3건 수동 검토 필요)",
+      "badge_label_en": "Source Changed (2026-11-18 · 3 Pending Review)",
       "total_targets": 15,
-      "live_count": 15,
-      "cache_count": 0,
+      "live_count": 14,
+      "cache_count": 1,
       "pdf_monitored_count": 13,
       "pdf_valid_count": 13,
       "ok_targets": 15,
-      "changed_count": 2,
-      "unchanged_count": 13,
+      "changed_count": 3,
+      "unchanged_count": 12,
       "failed_count": 0,
       "salary_verification_status": "extracted_matches_79423"
     }
@@ -899,14 +899,14 @@
         "4": 38,
         "5": 6
       },
-      "last_polled_at": "2026-11-16T07:15:31.011035+10:00",
-      "live_sha256": "ff72ffb813115348e395cebc9c4fae022ce7dcc1f407fef68d9268796f1c501d",
+      "last_polled_at": "2026-11-18T09:02:36.156355+10:00",
+      "live_sha256": "451c46e849dfe3f5c10b711954cdb3d5029967be4301c40ea1641035d7b86f8b",
       "pdf_binary_sha256": "bf9b165e18d144c73cdf2ce8e838a37bb65b0bee53df19c4ea80f8dc631cbdf9",
       "pdf_change_state": "pdf_unchanged",
-      "poll_state": "unchanged",
+      "poll_state": "changed",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only"
+      "validation_status": "changed_requires_human_review"
     },
     {
       "order": 2,
@@ -974,14 +974,14 @@
         "4": 23,
         "5": 11
       },
-      "last_polled_at": "2026-11-16T07:15:31.010725+10:00",
+      "last_polled_at": "2026-11-18T09:02:36.156433+10:00",
       "live_sha256": "a9b3b9ca56456dfc24b96ae652ae7913705d6fdcd204eed058b31dc212730192",
       "pdf_binary_sha256": "ba72de81ad699168613cddfc1b756d9f5ce280b87e3a53265e6892de23ca92a8",
       "pdf_change_state": "pdf_unchanged",
-      "poll_state": "changed",
+      "poll_state": "unchanged",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "changed_requires_human_review"
+      "validation_status": "hash_unchanged_only"
     },
     {
       "order": 3,
@@ -1050,7 +1050,7 @@
         "4": 31,
         "5": 11
       },
-      "last_polled_at": "2026-11-16T07:15:31.010228+10:00",
+      "last_polled_at": "2026-11-18T09:02:36.154887+10:00",
       "live_sha256": "798b3431972d2df26d87b5a410bf31ceebedf6f480f2442dd98507e825012d18",
       "pdf_binary_sha256": "3dc275e0ddb14aff528f170169bf2bd8bf1900b4d89a060c6762327b619f3eb5",
       "pdf_change_state": "pdf_unchanged",
@@ -1127,7 +1127,7 @@
         "4": 58,
         "5": 24
       },
-      "last_polled_at": "2026-11-16T07:15:31.008862+10:00",
+      "last_polled_at": "2026-11-18T09:02:36.158074+10:00",
       "live_sha256": "e884bbf600265ef828b40a3f4ab13f4df4a44fb9725bbe610d3afe8410237e1c",
       "pdf_binary_sha256": "d05c035951d8030b31f144c131b54298150bce1f85a05e9387fa4a9ef19d8c6f",
       "pdf_change_state": "pdf_unchanged",
@@ -1205,7 +1205,7 @@
       },
       "sunset_status": "extended_to_2027_01_31_negotiating_statewide",
       "accepting_new_applications": true,
-      "last_polled_at": "2026-11-16T07:15:31.611075+10:00",
+      "last_polled_at": "2026-11-18T09:02:36.982533+10:00",
       "live_sha256": "04d44b77b0f498b083c6d89d729c06d4188304d033eca61d423fabe06553ca00",
       "pdf_binary_sha256": "59072374d8edb59bfab5e960878fec2913539d7701f53a5e91b3815c8944668f",
       "pdf_change_state": "pdf_unchanged",
@@ -1283,7 +1283,7 @@
       },
       "sunset_status": "extended_to_2027_01_31_negotiating_statewide",
       "accepting_new_applications": true,
-      "last_polled_at": "2026-11-16T07:15:31.729029+10:00",
+      "last_polled_at": "2026-11-18T09:02:37.019473+10:00",
       "live_sha256": "c00851ed52329358a26d5a194f3ab80554545f5f40ef07a994031b0b5e6a5169",
       "pdf_binary_sha256": "59072374d8edb59bfab5e960878fec2913539d7701f53a5e91b3815c8944668f",
       "pdf_change_state": "pdf_unchanged",
@@ -1358,7 +1358,7 @@
         "4": 29,
         "5": 5
       },
-      "last_polled_at": "2026-11-16T07:15:32.035693+10:00",
+      "last_polled_at": "2026-11-18T09:02:37.124026+10:00",
       "live_sha256": "04b7ad34a77c9e925183c379476d5f713ff570c33dfce753c37ca16f47734920",
       "pdf_binary_sha256": "c0b55210f5804140bb43dc5e43ed2137a6ac769e90757dbfcaba2757dcdd231a",
       "pdf_change_state": "pdf_unchanged",
@@ -1433,7 +1433,7 @@
         "4": 23,
         "5": 8
       },
-      "last_polled_at": "2026-11-16T07:15:32.053202+10:00",
+      "last_polled_at": "2026-11-18T09:02:37.212575+10:00",
       "live_sha256": "7442be4f77791e2119adf659c6d509e983fdddc40028cfe382add8a9c4d9648f",
       "pdf_binary_sha256": "7cb5011a959d32ce849668ee5d807cf31e58937251015c6cc31934885f69bd0e",
       "pdf_change_state": "pdf_unchanged",
@@ -1507,7 +1507,7 @@
         "4": 47,
         "5": 0
       },
-      "last_polled_at": "2026-11-16T07:15:32.145806+10:00",
+      "last_polled_at": "2026-11-18T09:02:37.866393+10:00",
       "live_sha256": "38dfab6d3c125f9d7fcba6ce8d804d27ba6d5806e5f54a3d1b1a801508d1af77",
       "pdf_binary_sha256": "f6b58bd4e3f637597aea717f55f4db1995341eb9ae56a49f9ef8ad14b0a311aa",
       "pdf_change_state": "pdf_unchanged",
@@ -1582,7 +1582,7 @@
         "4": 31,
         "5": 15
       },
-      "last_polled_at": "2026-11-16T07:15:32.878961+10:00",
+      "last_polled_at": "2026-11-18T09:02:37.916331+10:00",
       "live_sha256": "2cb15abbe41af16be2b93cfbc78f4a1995a6d2f5bd6c507b13fdbdc7aafada5a",
       "pdf_binary_sha256": "2c6eb7fb090ef1c3e13c1d28a5d169aa313aa5025c847639daade24b7dc104ac",
       "pdf_change_state": "pdf_unchanged",
@@ -1674,14 +1674,14 @@
       },
       "sunset_status": "closed_to_new_applications",
       "accepting_new_applications": false,
-      "last_polled_at": "2026-11-16T07:15:32.896168+10:00",
+      "last_polled_at": "2026-11-18T09:02:38.070869+10:00",
       "live_sha256": "aadb9c0b7477ea70ae7a3bdd40eb70efedf7d94b1a69f0addf5b37b3f825d5ff",
       "pdf_binary_sha256": "cd213dbcd701e579455f90cb612c4db2720a66750fefd80afdaf492701ffb38f",
       "pdf_change_state": "pdf_unchanged",
       "poll_state": "unchanged",
-      "fetch_status": "live",
+      "fetch_status": "cache",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only"
+      "validation_status": "cache_used_requires_live_verification"
     },
     {
       "order": 12,
@@ -1751,8 +1751,8 @@
       },
       "sunset_status": "closed_to_new_applications",
       "accepting_new_applications": false,
-      "last_polled_at": "2026-11-16T07:15:33.025257+10:00",
-      "live_sha256": "6b64e70321c5532c702d208fde8884a4a22a6704a05d1e4bc4483c7862bbe79e",
+      "last_polled_at": "2026-11-18T09:02:38.118807+10:00",
+      "live_sha256": "bfcce8841b01d600d3221943f3e5f17a14b169c619d0aea054336d743af625c9",
       "pdf_binary_sha256": "a948b3a471c525e866477e1e1b31de95862475defbab49ecee001a79a0ad2a18",
       "pdf_change_state": "pdf_unchanged",
       "poll_state": "changed",
@@ -1825,14 +1825,14 @@
         "4": 51,
         "5": 18
       },
-      "last_polled_at": "2026-11-16T07:15:33.429469+10:00",
-      "live_sha256": "df48bf4b87ac6e912a06f2dfed41f2595f616f00be5a24e1cf7058c455cdc1a7",
+      "last_polled_at": "2026-11-18T09:02:38.233886+10:00",
+      "live_sha256": "68070cca853f7f591b8069b1f8c7cb52afb5d93032db9556a7a8d4ce5253cd37",
       "pdf_binary_sha256": "50740dd40fe0e75e4333a83b851562c241244efc8cf15bb73183694a95028d33",
       "pdf_change_state": "pdf_unchanged",
-      "poll_state": "unchanged",
+      "poll_state": "changed",
       "fetch_status": "live",
       "parse_status": "parsed_ok",
-      "validation_status": "hash_unchanged_only"
+      "validation_status": "changed_requires_human_review"
     }
   ],
   "footnotes": [
